@@ -3,1203 +3,812 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ELOK — Conciergerie Airbnb à Gien</title>
+  <title>ELOK — Conciergerie Airbnb digitale & locale à Gien</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+    *,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
     :root{
-      --cream:#f8f4ee;
-      --warm-white:#fdfaf6;
-      --dark:#15110e;
-      --brown:#7a5c42;
+      --bg:#fbf8f4;
+      --paper:#ffffff;
+      --paper-2:#fffdf9;
+      --ink:#14110f;
+      --muted:#6f665c;
+      --line:rgba(120,96,70,.16);
       --gold:#c9a96e;
-      --gold-2:#d9bf8a;
-      --gold-light:#e8d5b0;
-      --text-muted:#7a7065;
-      --border:rgba(122,92,66,.15);
-      --shadow: 0 22px 70px rgba(0,0,0,.10);
-      --shadow-2: 0 18px 55px rgba(0,0,0,.14);
-      --radius: 14px;
-    }
+      --gold2:#dfc68f;
+      --brown:#7a5c42;
+      --dark:#11100f;
 
+      --r:18px;
+      --shadow: 0 22px 70px rgba(0,0,0,.10);
+      --shadow2: 0 18px 55px rgba(0,0,0,.14);
+
+      /* ↑ Police un peu plus grande */
+      --fs-base: 17.5px;
+      --fs-small: 0.92rem;
+    }
     html{ scroll-behavior:smooth; }
     body{
-      background: radial-gradient(1200px 600px at 15% 0%, rgba(201,169,110,.10), transparent 55%),
-                  radial-gradient(900px 500px at 85% 20%, rgba(122,92,66,.10), transparent 55%),
-                  var(--warm-white);
-      color: var(--dark);
-      font-family: "DM Sans", sans-serif;
-      font-weight: 300;
+      font-family:"DM Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size: var(--fs-base);
+      font-weight: 400;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 640px at 12% 0%, rgba(201,169,110,.12), transparent 55%),
+        radial-gradient(900px 520px at 88% 20%, rgba(122,92,66,.10), transparent 55%),
+        var(--bg);
       overflow-x:hidden;
     }
-
-    /* --- Tiny utility --- */
-    .container{ max-width: 1180px; margin: 0 auto; }
-    .pill{
-      display:inline-flex; align-items:center; gap:.55rem;
-      border: 1px solid rgba(201,169,110,.35);
-      background: rgba(253,250,246,.70);
-      padding: .5rem .9rem;
-      border-radius: 999px;
-      font-size: .74rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--brown);
-      backdrop-filter: blur(10px);
-    }
-    .pill-dot{
-      width: 7px; height: 7px; border-radius: 99px;
-      background: var(--gold);
-      box-shadow: 0 0 0 5px rgba(201,169,110,.18);
-    }
+    a{ color: inherit; }
+    .container{ max-width: 1180px; margin:0 auto; }
 
     /* ─── NAV ─── */
     nav{
-      position:fixed; inset:0 0 auto 0; z-index:100;
+      position: fixed; inset: 0 0 auto 0; z-index: 200;
       display:flex; align-items:center; justify-content:space-between;
-      padding: 1.15rem 4rem;
-      background: rgba(253,250,246,.82);
-      border-bottom: 1px solid var(--border);
+      padding: 1.1rem 4rem;
+      background: rgba(255,255,255,.78);
+      border-bottom: 1px solid var(--line);
       backdrop-filter: blur(14px);
       transition: padding .25s ease, box-shadow .25s ease;
     }
     .logo{
-      font-family:"Cormorant Garamond", serif;
-      font-size:1.9rem; font-weight:600;
-      letter-spacing:.12em;
-      color:var(--dark);
       text-decoration:none;
-      display:flex; align-items:center; gap:.55rem;
+      display:flex; align-items:center; gap:.65rem;
+      font-family:"Cormorant Garamond", serif;
+      font-weight: 600;
+      letter-spacing:.14em;
+      font-size: 1.9rem;
     }
-    .logo-mark{
-      width: 10px; height: 10px; border-radius: 99px;
-      background: radial-gradient(circle at 30% 30%, var(--gold-2), var(--gold));
+    .logo-dot{
+      width: 10px; height: 10px; border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, var(--gold2), var(--gold));
       box-shadow: 0 0 0 7px rgba(201,169,110,.18);
     }
-    nav ul{ list-style:none; display:flex; align-items:center; gap: 2.2rem; }
+    nav ul{ list-style:none; display:flex; align-items:center; gap: 2.1rem; }
     nav ul a{
-      text-decoration:none; color:var(--dark);
-      font-size:.82rem; letter-spacing:.12em;
+      text-decoration:none;
+      font-size: .82rem;
+      letter-spacing:.14em;
       text-transform:uppercase;
-      font-weight:500;
+      font-weight: 600;
+      opacity:.92;
       position:relative;
-      padding-bottom:4px;
-      opacity: .92;
+      padding-bottom: 4px;
     }
     nav ul a::after{
-      content:""; position:absolute; left:0; bottom:0;
-      width:0; height:1px; background: var(--gold);
-      transition: width .28s ease;
+      content:"";
+      position:absolute; left:0; bottom:0;
+      width:0; height:1px;
+      background: var(--gold);
+      transition: width .25s ease;
     }
     nav ul a:hover::after{ width:100%; }
 
-    .nav-ctas{ display:flex; gap:.75rem; align-items:center; }
-    .nav-cta{
-      text-decoration:none;
-      font-size:.78rem !important;
-      letter-spacing:.15em !important;
-      text-transform:uppercase;
-      font-weight:600;
+    .nav-ctas{ display:flex; gap:.7rem; align-items:center; }
+    .btn{
       border-radius: 999px;
-      padding: .70rem 1.2rem;
+      padding: .95rem 1.25rem;
+      text-decoration:none;
+      font-size: .80rem;
+      letter-spacing:.15em;
+      text-transform:uppercase;
+      font-weight: 700;
+      display:inline-flex; align-items:center; justify-content:center; gap:.55rem;
       transition: transform .18s ease, box-shadow .18s ease, background .25s ease, color .25s ease, border-color .25s ease;
-      display:inline-flex; align-items:center; gap:.55rem;
+      user-select:none;
       white-space:nowrap;
     }
-    .nav-cta svg{ width:16px; height:16px; }
-    .nav-cta.primary{
-      background: linear-gradient(135deg, var(--dark), #2a241d);
-      color: var(--cream);
-      box-shadow: 0 12px 26px rgba(0,0,0,.18);
+    .btn svg{ width: 16px; height: 16px; }
+    .btn-primary{
+      background: linear-gradient(135deg, #15110e, #262019);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 14px 28px rgba(0,0,0,.18);
     }
-    .nav-cta.primary:hover{
-      background: linear-gradient(135deg, var(--gold), var(--gold-2));
-      color: var(--dark);
+    .btn-primary:hover{
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: var(--ink);
+      border-color: rgba(201,169,110,.55);
       transform: translateY(-1px);
     }
-    .nav-cta.ghost{
-      border: 1px solid rgba(201,169,110,.35);
-      background: rgba(253,250,246,.55);
-      color: var(--dark);
+    .btn-ghost{
+      background: rgba(255,255,255,.70);
+      border: 1px solid rgba(201,169,110,.30);
+      color: var(--ink);
+      backdrop-filter: blur(10px);
     }
-    .nav-cta.ghost:hover{
-      border-color: var(--gold);
+    .btn-ghost:hover{
+      border-color: rgba(201,169,110,.55);
       transform: translateY(-1px);
-      box-shadow: 0 10px 22px rgba(0,0,0,.10);
+      box-shadow: 0 14px 30px rgba(0,0,0,.10);
     }
 
     /* ─── HERO ─── */
     #hero{
-      padding-top: 86px;
-      min-height: 100vh;
+      padding: 92px 4rem 3.8rem;
       display:grid;
       grid-template-columns: 1.08fr .92fr;
-      gap: 2.5rem;
-      padding-left: 4rem;
-      padding-right: 4rem;
+      gap: 2.4rem;
+      min-height: calc(100vh - 40px);
       align-items: stretch;
     }
-
-    .hero-left{
-      display:flex; flex-direction:column; justify-content:center;
-      padding: 4.5rem 0 4rem;
+    .pill{
+      display:inline-flex; align-items:center; gap:.6rem;
+      padding: .55rem 1rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,.65);
+      border: 1px solid rgba(201,169,110,.35);
+      backdrop-filter: blur(12px);
+      font-size: .74rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-weight: 700;
+      color: var(--brown);
     }
-    .hero-tag{ margin-bottom: 1.2rem; }
+    .pill i{
+      width:7px; height:7px; border-radius:999px;
+      background: var(--gold);
+      box-shadow: 0 0 0 5px rgba(201,169,110,.18);
+      display:inline-block;
+    }
     h1{
+      margin-top: 1.2rem;
       font-family:"Cormorant Garamond", serif;
-      font-size: clamp(3.2rem, 5vw, 5.1rem);
       font-weight: 300;
-      line-height: 1.05;
-      margin-bottom: 1.3rem;
-      letter-spacing: .01em;
+      letter-spacing:.01em;
+      font-size: clamp(3.2rem, 5vw, 5.2rem);
+      line-height: 1.03;
     }
     h1 em{ font-style: italic; color: var(--brown); }
-
     .hero-desc{
-      font-size: 1.02rem;
-      line-height: 1.8;
-      color: var(--text-muted);
-      max-width: 560px;
-      margin-bottom: 1.6rem;
+      margin-top: 1rem;
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 1.06rem;
+      max-width: 62ch;
     }
 
-    /* Sticky micro-CTA banner (Blog + Form) */
-    .hero-micro{
-      margin-top: .2rem;
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      max-width: 680px;
-    }
-    .micro-card{
-      border-radius: var(--radius);
-      border: 1px solid rgba(201,169,110,.28);
-      background: rgba(253,250,246,.70);
-      backdrop-filter: blur(12px);
-      box-shadow: var(--shadow);
-      padding: 1.15rem 1.2rem;
-      position: relative;
-      overflow:hidden;
-      transition: transform .18s ease, box-shadow .18s ease, border-color .25s ease;
-      cursor: pointer;
-      text-decoration:none;
-      color: inherit;
-    }
-    .micro-card::before{
-      content:"";
-      position:absolute; inset:-2px;
-      background:
-        radial-gradient(500px 160px at 10% 10%, rgba(201,169,110,.22), transparent 60%),
-        radial-gradient(420px 160px at 90% 10%, rgba(122,92,66,.16), transparent 60%);
-      pointer-events:none;
-      opacity:.8;
-    }
-    .micro-card:hover{
-      transform: translateY(-2px);
-      border-color: rgba(201,169,110,.55);
-      box-shadow: var(--shadow-2);
-    }
-    .micro-top{
-      display:flex; align-items:center; justify-content:space-between;
-      gap: 1rem;
-      position: relative;
-    }
-    .micro-kicker{
-      font-size: .72rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--brown);
-      opacity: .9;
-      font-weight: 600;
-    }
-    .micro-title{
-      font-family:"Cormorant Garamond", serif;
-      font-size: 1.35rem;
-      font-weight: 400;
-      margin-top: .35rem;
-      position: relative;
-    }
-    .micro-sub{
-      margin-top:.55rem;
-      font-size:.9rem;
-      line-height:1.6;
-      color: var(--text-muted);
-      position: relative;
-    }
-    .micro-cta{
-      margin-top: .95rem;
-      display:inline-flex; align-items:center; gap:.5rem;
-      font-size: .78rem;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: var(--dark);
-      position: relative;
-    }
-    .micro-cta .arrow{
-      width: 28px; height: 28px;
-      border-radius: 999px;
-      display:inline-flex; align-items:center; justify-content:center;
-      background: rgba(201,169,110,.20);
-      border: 1px solid rgba(201,169,110,.35);
-      transition: transform .18s ease, background .25s ease;
-    }
-    .micro-card:hover .micro-cta .arrow{
-      transform: translateX(2px);
-      background: rgba(201,169,110,.32);
-    }
-
-    .hero-actions{
-      display:flex; gap: .9rem; align-items:center;
-      margin-top: 1.4rem;
-      flex-wrap: wrap;
-    }
-    .btn{
-      border-radius: 999px;
-      padding: 1rem 1.45rem;
-      text-decoration:none;
-      font-size: .80rem;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      font-weight: 700;
-      display:inline-flex; align-items:center; justify-content:center; gap:.65rem;
-      transition: transform .18s ease, box-shadow .18s ease, background .25s ease, color .25s ease, border-color .25s ease;
-      user-select:none;
-    }
-    .btn svg{ width: 16px; height: 16px; }
-    .btn-primary{
-      background: linear-gradient(135deg, var(--dark), #2a241d);
-      color: var(--cream);
-      box-shadow: 0 14px 28px rgba(0,0,0,.18);
-    }
-    .btn-primary:hover{
-      background: linear-gradient(135deg, var(--gold), var(--gold-2));
-      color: var(--dark);
-      transform: translateY(-1px);
-    }
-    .btn-outline{
-      border: 1px solid rgba(201,169,110,.35);
-      background: rgba(253,250,246,.55);
-      color: var(--dark);
-      backdrop-filter: blur(10px);
-    }
-    .btn-outline:hover{
-      border-color: var(--gold);
-      transform: translateY(-1px);
-      box-shadow: 0 12px 26px rgba(0,0,0,.10);
-    }
-
-    .hero-stats{
-      display:flex; gap: 2.2rem; margin-top: 2.2rem;
-      padding-top: 1.6rem;
-      border-top: 1px solid rgba(122,92,66,.14);
-      flex-wrap: wrap;
-    }
-    .stat{ min-width: 150px; }
-    .stat strong{
-      display:block;
-      font-family:"Cormorant Garamond", serif;
-      font-size: 2.15rem;
-      font-weight: 600;
-      color: var(--dark);
-      line-height: 1;
-    }
-    .stat span{ font-size:.80rem; color: var(--text-muted); letter-spacing: .06em; }
-
-    /* HERO RIGHT (photo + trust card) */
-    .hero-right{ position: relative; }
-    .hero-image-wrap{
-      height: calc(100vh - 86px);
-      min-height: 640px;
-      border-radius: var(--radius);
-      overflow:hidden;
-      position: sticky;
-      top: 96px;
-      box-shadow: var(--shadow-2);
+    /* Pain points */
+    .pain{
+      margin-top: 1.6rem;
+      border-radius: var(--r);
+      background: rgba(255,255,255,.70);
       border: 1px solid rgba(201,169,110,.22);
-      background: var(--cream);
-    }
-    .hero-photo{
-      width:100%; height:100%;
-      background:
-        radial-gradient(1200px 520px at 20% 10%, rgba(201,169,110,.35), transparent 55%),
-        radial-gradient(900px 460px at 80% 35%, rgba(122,92,66,.22), transparent 55%),
-        linear-gradient(to bottom, #f6efe4 0%, #e8d5b0 30%, rgba(201,169,110,.20) 60%, rgba(122,92,66,.12) 100%);
-      position:relative;
-    }
-    .hero-photo::after{
-      content:"";
-      position:absolute; inset:0;
-      background:
-        linear-gradient(to top, rgba(21,17,14,.55), transparent 55%);
-      pointer-events:none;
-    }
-    .hero-badge{
-      position:absolute;
-      left: 18px;
-      bottom: 18px;
-      right: 18px;
-      padding: 1.1rem 1.15rem;
-      border-radius: 16px;
-      background: rgba(21,17,14,.70);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,.10);
-      color: var(--cream);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 1rem;
-    }
-    .hero-badge strong{
-      display:block;
-      font-family:"Cormorant Garamond", serif;
-      font-size: 2.1rem;
-      font-weight: 600;
-      color: var(--gold);
-      line-height: 1;
-    }
-    .hero-badge span{
-      display:block;
-      font-size: .78rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      opacity: .75;
-      margin-top: .2rem;
-    }
-    .hero-badge .badge-right{
-      display:flex; flex-direction:column; align-items:flex-end; gap:.2rem;
-      text-align:right;
-    }
-    .trustline{
-      font-size: .82rem;
-      opacity:.85;
-    }
-
-    /* ─── SECTION HEADER ─── */
-    .section-header{ text-align:center; margin-bottom: 3.6rem; }
-    .section-tag{
-      font-size:.72rem; letter-spacing:.25em; text-transform:uppercase;
-      color: var(--gold);
-      font-weight:700;
-      display:inline-flex; align-items:center; gap:.8rem;
-      margin-bottom: 1rem;
-    }
-    .section-tag::before,.section-tag::after{
-      content:""; display:block; width: 34px; height: 1px;
-      background: rgba(201,169,110,.42);
-    }
-    h2{
-      font-family:"Cormorant Garamond", serif;
-      font-size: clamp(2.2rem, 4vw, 3.2rem);
-      font-weight: 300;
-      line-height: 1.15;
-    }
-    h2 em{ font-style: italic; color: var(--brown); }
-
-    /* ─── BLOG TEASER (NEW) ─── */
-    #blog{
-      padding: 6.5rem 4rem;
-      background:
-        radial-gradient(900px 420px at 20% 0%, rgba(201,169,110,.10), transparent 55%),
-        var(--warm-white);
-    }
-    .blog-grid{
-      max-width: 1100px;
-      margin: 0 auto;
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 2.2rem;
-      align-items: start;
-    }
-    .blog-panel{
-      border: 1px solid rgba(201,169,110,.25);
-      border-radius: 18px;
-      background: rgba(253,250,246,.75);
       box-shadow: var(--shadow);
-      overflow:hidden;
+      padding: 1.25rem 1.35rem;
       position:relative;
+      overflow:hidden;
     }
-    .blog-panel::before{
+    .pain::before{
       content:"";
       position:absolute; inset:-2px;
       background:
-        radial-gradient(700px 220px at 10% 0%, rgba(201,169,110,.22), transparent 60%),
-        radial-gradient(540px 220px at 90% 0%, rgba(122,92,66,.18), transparent 60%);
+        radial-gradient(700px 220px at 8% 0%, rgba(201,169,110,.22), transparent 60%),
+        radial-gradient(540px 220px at 92% 0%, rgba(122,92,66,.16), transparent 60%);
       pointer-events:none;
       opacity:.9;
     }
-    .blog-panel-inner{
+    .pain h3{
       position:relative;
-      padding: 2rem 2.1rem;
-    }
-    .blog-title{
       font-family:"Cormorant Garamond", serif;
-      font-size: 2.1rem;
+      font-size: 1.6rem;
       font-weight: 400;
-      line-height: 1.1;
-      margin-top: .8rem;
-      margin-bottom: .9rem;
+      margin-bottom: .5rem;
     }
-    .blog-desc{
-      color: var(--text-muted);
-      font-size: .98rem;
+    .pain p{
+      position:relative;
+      color: var(--muted);
       line-height: 1.8;
-      margin-bottom: 1.25rem;
-      max-width: 62ch;
+      font-size: 1rem;
+      margin-bottom: .75rem;
     }
-    .blog-bullets{
+    .pain ul{
+      position:relative;
+      list-style:none;
       display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: .7rem 1rem;
-      margin: 1.1rem 0 1.6rem;
+      gap: .6rem;
     }
-    .blog-bullets .item{
-      display:flex; gap:.65rem; align-items:flex-start;
-      font-size: .9rem;
-      color: rgba(21,17,14,.86);
+    .pain li{
+      display:flex; gap:.7rem; align-items:flex-start;
+      color: rgba(20,17,15,.86);
+      font-size: 1rem;
+      line-height: 1.6;
     }
     .check{
-      width: 22px; height: 22px;
-      border-radius: 999px;
+      width: 24px; height: 24px; border-radius: 999px;
       display:flex; align-items:center; justify-content:center;
-      background: rgba(201,169,110,.22);
-      border: 1px solid rgba(201,169,110,.35);
-      flex-shrink:0;
-      margin-top: .1rem;
+      background: rgba(201,169,110,.20);
+      border: 1px solid rgba(201,169,110,.30);
+      flex-shrink: 0;
+      margin-top: .12rem;
     }
     .check svg{ width: 14px; height: 14px; }
 
-    .blog-cta-row{
-      display:flex; gap: .8rem; flex-wrap: wrap;
-      align-items:center;
-      margin-top: .4rem;
-    }
-    .btn-blog{
-      background: linear-gradient(135deg, var(--gold), var(--gold-2));
-      color: var(--dark);
-      box-shadow: 0 14px 28px rgba(201,169,110,.22);
-    }
-    .btn-blog:hover{
-      transform: translateY(-1px);
-      box-shadow: 0 18px 45px rgba(201,169,110,.26);
+    .hero-actions{
+      margin-top: 1.5rem;
+      display:flex; gap:.8rem; flex-wrap: wrap; align-items:center;
     }
 
-    .blog-side{
-      display:flex; flex-direction:column; gap: 1rem;
+    /* Stats strip */
+    .hero-stats{
+      margin-top: 1.9rem;
+      display:flex; flex-wrap: wrap;
+      gap: 1.2rem;
     }
-    .side-card{
-      border-radius: 18px;
-      border: 1px solid rgba(201,169,110,.22);
-      background: rgba(253,250,246,.70);
-      box-shadow: var(--shadow);
-      padding: 1.3rem 1.3rem;
+    .stat{
+      flex: 1 1 180px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(201,169,110,.18);
+      padding: 1rem 1.05rem;
+      box-shadow: 0 14px 35px rgba(0,0,0,.06);
     }
-    .side-kicker{
-      font-size: .72rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--brown);
-      font-weight: 700;
-      opacity: .92;
-    }
-    .side-title{
+    .stat strong{
+      display:block;
       font-family:"Cormorant Garamond", serif;
-      font-size: 1.45rem;
-      font-weight: 400;
-      margin: .55rem 0 .45rem;
+      font-size: 2.1rem;
+      line-height: 1;
+      font-weight: 650;
+      color: var(--ink);
     }
-    .side-text{
-      color: var(--text-muted);
-      font-size: .92rem;
-      line-height: 1.7;
-    }
-    .side-mini{
-      margin-top: .9rem;
-      display:flex; gap:.6rem; flex-wrap: wrap;
-    }
-    .tag{
-      font-size: .78rem;
-      color: rgba(21,17,14,.82);
-      background: rgba(201,169,110,.14);
-      border: 1px solid rgba(201,169,110,.22);
-      padding: .42rem .75rem;
-      border-radius: 999px;
-      white-space: nowrap;
+    .stat span{
+      display:block;
+      margin-top:.35rem;
+      font-size: .90rem;
+      color: var(--muted);
+      letter-spacing: .04em;
+      line-height: 1.35;
     }
 
-    /* ─── SERVICES ─── */
-    #services{ padding: 7.5rem 4rem; background: var(--cream); }
-    .services-grid{
-      display:grid; grid-template-columns: repeat(3, 1fr);
-      gap: 1.3rem;
+    /* Right visual (hotel premium card) */
+    .hero-right{
+      position: relative;
+      display:flex;
+    }
+    .hero-visual{
+      position: sticky;
+      top: 102px;
+      width: 100%;
+      height: calc(100vh - 122px);
+      min-height: 660px;
+      border-radius: 22px;
+      overflow:hidden;
+      border: 1px solid rgba(201,169,110,.22);
+      box-shadow: var(--shadow2);
+      background: var(--paper);
+    }
+    .visual-photo{
+      height: 100%;
+      width: 100%;
+      background:
+        radial-gradient(1200px 520px at 20% 10%, rgba(201,169,110,.35), transparent 55%),
+        radial-gradient(900px 460px at 80% 35%, rgba(122,92,66,.22), transparent 55%),
+        linear-gradient(to bottom, #ffffff 0%, #f5ecdd 26%, #e8d5b0 48%, rgba(201,169,110,.18) 72%, rgba(17,16,15,.10) 100%);
+      position:relative;
+    }
+    .visual-photo::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(to top, rgba(0,0,0,.62), transparent 55%);
+      pointer-events:none;
+    }
+    .visual-card{
+      position:absolute;
+      left: 16px; right: 16px; bottom: 16px;
+      border-radius: 18px;
+      background: rgba(15,12,10,.72);
+      border: 1px solid rgba(255,255,255,.10);
+      backdrop-filter: blur(12px);
+      color: rgba(255,255,255,.92);
+      padding: 1.2rem 1.2rem;
+      display:flex;
+      gap: 1rem;
+      align-items:flex-start;
+      justify-content: space-between;
+    }
+    .visual-card strong{
+      display:block;
+      font-family:"Cormorant Garamond", serif;
+      font-size: 2.2rem;
+      line-height: 1;
+      font-weight: 650;
+      color: var(--gold);
+    }
+    .visual-card .k{
+      font-size: .74rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      opacity:.78;
+      margin-top: .25rem;
+    }
+    .visual-card .list{
+      display:flex; flex-direction:column; gap:.35rem;
+      font-size: .92rem;
+      opacity:.90;
+      text-align:right;
+    }
+
+    /* ─── Section header ─── */
+    .section{
+      padding: 6.8rem 4rem;
+    }
+    .section-header{
+      text-align:center;
+      margin-bottom: 3.4rem;
+    }
+    .section-tag{
+      display:inline-flex; align-items:center; gap:.8rem;
+      font-size:.74rem;
+      letter-spacing:.25em;
+      text-transform:uppercase;
+      font-weight: 800;
+      color: var(--brown);
+      opacity:.95;
+    }
+    .section-tag::before,.section-tag::after{
+      content:"";
+      width: 34px; height:1px;
+      background: rgba(201,169,110,.48);
+      display:block;
+    }
+    h2{
+      margin-top: 1rem;
+      font-family:"Cormorant Garamond", serif;
+      font-weight: 300;
+      font-size: clamp(2.4rem, 4.2vw, 3.35rem);
+      line-height: 1.12;
+    }
+    h2 em{ color: var(--brown); font-style: italic; }
+
+    /* ─── Why ELOK (radius 20km) ─── */
+    #why{
+      background: var(--paper-2);
+      border-top: 1px solid rgba(201,169,110,.16);
+      border-bottom: 1px solid rgba(201,169,110,.16);
+    }
+    .why-grid{
       max-width: 1100px;
       margin: 0 auto;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 1.2rem;
+      align-items: start;
     }
-    .service-card{
-      background: rgba(253,250,246,.75);
-      border: 1px solid rgba(201,169,110,.18);
-      border-radius: 18px;
-      padding: 2.2rem 2rem;
-      box-shadow: 0 14px 35px rgba(0,0,0,.06);
-      transition: transform .18s ease, box-shadow .18s ease, border-color .25s ease;
-      position: relative;
+    .why-card{
+      border-radius: 20px;
+      background: rgba(255,255,255,.80);
+      border: 1px solid rgba(201,169,110,.22);
+      box-shadow: var(--shadow);
+      padding: 2rem 2rem;
+      position:relative;
       overflow:hidden;
     }
-    .service-card::before{
+    .why-card::before{
       content:"";
       position:absolute; inset:-2px;
-      background: radial-gradient(520px 180px at 0% 0%, rgba(201,169,110,.18), transparent 60%);
+      background:
+        radial-gradient(700px 220px at 8% 0%, rgba(201,169,110,.18), transparent 60%);
       opacity:.9;
       pointer-events:none;
     }
-    .service-card:hover{
-      transform: translateY(-3px);
-      border-color: rgba(201,169,110,.40);
-      box-shadow: 0 20px 55px rgba(0,0,0,.10);
+    .why-card h3{
+      position:relative;
+      font-family:"Cormorant Garamond", serif;
+      font-size: 1.85rem;
+      font-weight: 400;
     }
-    .service-icon{
-      width: 54px; height: 54px;
-      border-radius: 14px;
+    .why-card p{
+      position:relative;
+      margin-top:.8rem;
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 1.03rem;
+      max-width: 62ch;
+    }
+    .why-bullets{
+      position:relative;
+      margin-top: 1.2rem;
+      display:grid;
+      gap: .75rem;
+    }
+    .why-bullets .row{
+      display:flex; gap:.75rem; align-items:flex-start;
+      font-size: 1.02rem;
+      color: rgba(20,17,15,.90);
+      line-height: 1.65;
+    }
+    .badge{
+      width: 40px; height: 40px; border-radius: 14px;
+      display:flex; align-items:center; justify-content:center;
       background: rgba(201,169,110,.18);
       border: 1px solid rgba(201,169,110,.28);
-      display:flex; align-items:center; justify-content:center;
-      margin-bottom: 1.2rem;
-      color: var(--brown);
-      position: relative;
+      flex-shrink:0;
     }
-    .service-icon svg{ width: 22px; height: 22px; }
-    .service-card h3{
+    .badge svg{ width: 18px; height: 18px; }
+
+    .mini-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .mini{
+      border-radius: 20px;
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(201,169,110,.20);
+      box-shadow: 0 14px 35px rgba(0,0,0,.06);
+      padding: 1.25rem 1.25rem;
+    }
+    .mini .t{
+      font-size: .74rem;
+      letter-spacing:.20em;
+      text-transform:uppercase;
+      font-weight: 800;
+      color: var(--brown);
+    }
+    .mini .v{
+      margin-top:.55rem;
       font-family:"Cormorant Garamond", serif;
       font-size: 1.55rem;
-      font-weight: 400;
-      margin-bottom: .75rem;
-      line-height: 1.15;
-      position: relative;
+      font-weight: 500;
+      line-height: 1.2;
     }
-    .service-card p{
-      font-size:.92rem;
-      line-height:1.75;
-      color: var(--text-muted);
-      position: relative;
+    .mini .d{
+      margin-top:.4rem;
+      font-size: .95rem;
+      color: var(--muted);
+      line-height: 1.65;
     }
 
-    /* ─── HOW IT WORKS ─── */
-    #comment{ padding: 7.5rem 4rem; background: var(--warm-white); }
+    /* ─── Offers (reconfigured) ─── */
+    #offers{ background: #f6f1e8; }
+    .offers-grid{
+      max-width: 1120px;
+      margin: 0 auto;
+      display:grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 1.2rem;
+      align-items: stretch;
+    }
+    .offer{
+      border-radius: 22px;
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(201,169,110,.22);
+      box-shadow: var(--shadow);
+      padding: 2.2rem 2.2rem;
+      position:relative;
+      overflow:hidden;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .25s ease;
+    }
+    .offer:hover{
+      transform: translateY(-3px);
+      border-color: rgba(201,169,110,.45);
+      box-shadow: var(--shadow2);
+    }
+    .offer::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(720px 240px at 12% 0%, rgba(201,169,110,.22), transparent 60%),
+        radial-gradient(520px 220px at 92% 0%, rgba(122,92,66,.14), transparent 60%);
+      opacity:.85;
+      pointer-events:none;
+    }
+    .offer.featured{
+      background: linear-gradient(135deg, #15110e, #251f18);
+      color: rgba(255,255,255,.92);
+      border-color: rgba(201,169,110,.25);
+      box-shadow: 0 28px 70px rgba(0,0,0,.22);
+    }
+    .offer.featured .muted{ color: rgba(255,255,255,.70); }
+    .offer.featured .li{ color: rgba(255,255,255,.82); border-color: rgba(255,255,255,.10); }
+    .offer.featured .price{ color: var(--gold2); }
+    .offer .top{
+      position:relative;
+      display:flex; justify-content:space-between; align-items:flex-start; gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .offer .label{
+      display:inline-flex; align-items:center; gap:.55rem;
+      font-size: .72rem;
+      letter-spacing:.20em;
+      text-transform:uppercase;
+      font-weight: 900;
+      color: var(--brown);
+    }
+    .offer.featured .label{ color: var(--gold2); }
+    .offer .label i{
+      width: 7px; height: 7px; border-radius: 999px;
+      background: var(--gold);
+      box-shadow: 0 0 0 5px rgba(201,169,110,.18);
+      display:inline-block;
+    }
+    .offer .name{
+      position:relative;
+      margin-top: .55rem;
+      font-family:"Cormorant Garamond", serif;
+      font-size: 2.0rem;
+      font-weight: 450;
+      line-height: 1.1;
+    }
+    .offer .muted{
+      position:relative;
+      margin-top: .6rem;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1.02rem;
+      max-width: 60ch;
+    }
+    .offer .price{
+      position:relative;
+      font-family:"Cormorant Garamond", serif;
+      font-size: 2.8rem;
+      font-weight: 650;
+      line-height: 1;
+      color: var(--ink);
+      text-align:right;
+      white-space: nowrap;
+    }
+    .offer .price span{
+      font-size: 1.1rem;
+      font-weight: 400;
+      opacity: .9;
+    }
+    .offer .subprice{
+      position:relative;
+      text-align:right;
+      margin-top: .35rem;
+      font-size: .90rem;
+      color: rgba(20,17,15,.70);
+    }
+    .offer.featured .subprice{ color: rgba(255,255,255,.70); }
+
+    .offer .list{
+      position:relative;
+      margin-top: 1.3rem;
+      list-style:none;
+      border-top: 1px solid rgba(120,96,70,.16);
+      padding-top: 1.05rem;
+      display:grid;
+      gap: .55rem;
+    }
+    .offer .li{
+      display:flex; gap:.7rem; align-items:flex-start;
+      padding: .55rem 0;
+      border-bottom: 1px solid rgba(120,96,70,.12);
+      color: rgba(20,17,15,.84);
+      font-size: 1.0rem;
+      line-height: 1.55;
+    }
+    .offer .li:last-child{ border-bottom: none; }
+    .offer .li::before{
+      content:"✓";
+      font-weight: 900;
+      color: var(--gold);
+      margin-top:.05rem;
+    }
+    .offer .cta{
+      position:relative;
+      margin-top: 1.35rem;
+      display:flex;
+      gap: .8rem;
+      flex-wrap: wrap;
+      align-items:center;
+    }
+    .offer .cta .btn{ flex: 1; justify-content:center; }
+    .offer.featured .btn-primary{
+      background: linear-gradient(135deg, var(--gold), var(--gold2));
+      color: var(--ink);
+      border-color: rgba(201,169,110,.55);
+    }
+    .offer.featured .btn-primary:hover{
+      background: rgba(255,255,255,.92);
+      color: var(--ink);
+    }
+
+    /* ─── Process ─── */
+    #process{ background: var(--paper-2); }
     .steps{
-      max-width: 950px;
+      max-width: 980px;
       margin: 0 auto;
       position: relative;
     }
     .steps::before{
       content:"";
       position:absolute;
-      left: 30px;
-      top: 58px;
-      bottom: 58px;
+      left: 30px; top: 52px; bottom: 52px;
       width: 1px;
-      background: linear-gradient(to bottom, transparent, rgba(201,169,110,.55), transparent);
+      background: linear-gradient(to bottom, transparent, rgba(201,169,110,.60), transparent);
     }
     .step{
-      display:flex; gap: 2.2rem;
+      display:flex; gap: 2rem;
+      padding: 2.1rem 0;
       align-items:flex-start;
-      padding: 2.2rem 0;
     }
-    .step-num{
-      width: 60px; height: 60px; flex-shrink:0;
+    .num{
+      width: 60px; height: 60px;
       border-radius: 999px;
-      background: linear-gradient(135deg, var(--dark), #2a241d);
-      color: var(--gold);
+      background: linear-gradient(135deg, #15110e, #262019);
       box-shadow: 0 14px 30px rgba(0,0,0,.14);
-      font-family:"Cormorant Garamond", serif;
-      font-size: 1.45rem;
-      font-weight: 600;
+      color: var(--gold2);
       display:flex; align-items:center; justify-content:center;
-      position: relative;
+      font-family:"Cormorant Garamond", serif;
+      font-size: 1.5rem;
+      font-weight: 650;
+      flex-shrink:0;
+      position:relative;
       z-index: 1;
     }
-    .step-content h3{
+    .step h3{
       font-family:"Cormorant Garamond", serif;
-      font-size: 1.6rem;
-      font-weight: 400;
-      margin-bottom: .55rem;
-    }
-    .step-content p{
-      font-size:.92rem;
-      line-height:1.75;
-      color: var(--text-muted);
-      max-width: 620px;
-    }
-
-    /* ─── POURQUOI ─── */
-    #pourquoi{
-      padding: 7.5rem 4rem;
-      background: linear-gradient(180deg, #15110e 0%, #0f0c0a 100%);
-      color: var(--cream);
-      position:relative;
-      overflow:hidden;
-    }
-    #pourquoi::before{
-      content:"ELOK";
-      position:absolute;
-      right: -2rem;
-      top: -2rem;
-      font-family:"Cormorant Garamond", serif;
-      font-size: 16vw;
-      font-weight: 600;
-      color: rgba(255,255,255,.03);
-      pointer-events:none;
-      user-select:none;
-      white-space:nowrap;
-    }
-    #pourquoi .section-tag{ color: var(--gold); }
-    #pourquoi .section-tag::before, #pourquoi .section-tag::after{ background: rgba(255,255,255,.18); }
-    #pourquoi h2{ color: var(--cream); }
-    #pourquoi h2 em{ color: var(--gold); }
-    .benefits-grid{
-      display:grid; grid-template-columns: repeat(2,1fr);
-      gap: 1.1rem;
-      max-width: 1050px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-    .benefit{
-      border-radius: 18px;
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.08);
-      padding: 2.2rem;
-      transition: transform .18s ease, border-color .25s ease;
-    }
-    .benefit:hover{ transform: translateY(-2px); border-color: rgba(201,169,110,.25); }
-    .benefit-icon{
-      color: var(--gold);
-      font-family:"Cormorant Garamond", serif;
-      font-size: 1.9rem;
-      margin-bottom: .9rem;
-      line-height:1;
-    }
-    .benefit h3{
-      font-family:"Cormorant Garamond", serif;
-      font-size: 1.45rem;
-      font-weight: 400;
-      margin-bottom: .55rem;
-      color: var(--cream);
-    }
-    .benefit p{
-      font-size:.90rem;
-      line-height:1.75;
-      color: rgba(248,244,238,.62);
-    }
-
-    /* ─── TARIFS ─── */
-    #tarifs{ padding: 7.5rem 4rem; background: var(--cream); }
-    .pricing-grid{
-      display:grid; grid-template-columns: repeat(3,1fr);
-      gap: 1.1rem;
-      max-width: 1100px;
-      margin: 0 auto;
-      align-items: stretch;
-    }
-    .pricing-card{
-      background: rgba(253,250,246,.75);
-      border: 1px solid rgba(201,169,110,.18);
-      border-radius: 18px;
-      padding: 2.6rem 2.1rem;
-      box-shadow: 0 14px 35px rgba(0,0,0,.06);
-      position:relative;
-      overflow:hidden;
-      transition: transform .18s ease, box-shadow .18s ease, border-color .25s ease;
-    }
-    .pricing-card:hover{
-      transform: translateY(-3px);
-      border-color: rgba(201,169,110,.40);
-      box-shadow: 0 22px 55px rgba(0,0,0,.10);
-    }
-    .pricing-card.featured{
-      background: linear-gradient(135deg, #15110e, #221c16);
-      color: var(--cream);
-      border-color: rgba(201,169,110,.25);
-      transform: translateY(-10px);
-      box-shadow: 0 24px 60px rgba(0,0,0,.20);
-    }
-    .pricing-badge{
-      position:absolute;
-      top: 16px;
-      right: 16px;
-      background: linear-gradient(135deg, var(--gold), var(--gold-2));
-      color: var(--dark);
-      font-size: .68rem;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      padding: .4rem .85rem;
-      border-radius: 999px;
-      font-weight: 800;
-    }
-    .pricing-card h3{
-      font-family:"Cormorant Garamond", serif;
-      font-size: 1.6rem;
-      font-weight: 400;
+      font-size: 1.7rem;
+      font-weight: 450;
       margin-bottom: .45rem;
     }
-    .pricing-card .subtitle{
-      font-size: .86rem;
-      color: var(--text-muted);
-      margin-bottom: 1.6rem;
-    }
-    .pricing-card.featured .subtitle{ color: rgba(248,244,238,.65); }
-    .price-tag{
-      font-family:"Cormorant Garamond", serif;
-      font-size: 3.2rem;
-      font-weight: 650;
-      line-height: 1;
-      margin-bottom: .35rem;
-      color: var(--dark);
-    }
-    .pricing-card.featured .price-tag{ color: var(--cream); }
-    .price-tag span{ font-size: 1.2rem; font-weight: 300; }
-    .price-note{ font-size:.78rem; color: var(--text-muted); margin-bottom: 1.6rem; }
-    .pricing-card.featured .price-note{ color: rgba(248,244,238,.55); }
-    .pricing-features{ list-style:none; }
-    .pricing-features li{
-      font-size: .90rem;
-      padding: .65rem 0;
-      border-bottom: 1px solid rgba(122,92,66,.14);
-      display:flex; gap:.7rem; align-items:center;
-      color: rgba(21,17,14,.76);
-    }
-    .pricing-card.featured .pricing-features li{
-      border-color: rgba(255,255,255,.10);
-      color: rgba(248,244,238,.78);
-    }
-    .pricing-features li::before{
-      content:"✓";
-      color: var(--gold);
-      font-weight: 900;
-      flex-shrink:0;
-    }
-    .pricing-card .btn{ width:100%; justify-content:center; margin-top: 1.6rem; }
-    .pricing-card.featured .btn-primary{
-      background: linear-gradient(135deg, var(--gold), var(--gold-2));
-      color: var(--dark);
-    }
-    .pricing-card.featured .btn-primary:hover{
-      background: rgba(253,250,246,.92);
-      color: var(--dark);
+    .step p{
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 1.02rem;
+      max-width: 70ch;
     }
 
-    /* ─── AVIS ─── */
-    #avis{ padding: 7.5rem 4rem; background: var(--warm-white); }
-    .reviews-grid{
-      display:grid; grid-template-columns: repeat(3,1fr);
-      gap: 1.1rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .review-card{
-      background: rgba(248,244,238,.85);
-      border: 1px solid rgba(201,169,110,.18);
-      border-radius: 18px;
-      padding: 2.1rem 2rem;
-      box-shadow: 0 14px 35px rgba(0,0,0,.06);
-      transition: transform .18s ease, box-shadow .18s ease, border-color .25s ease;
-    }
-    .review-card:hover{
-      transform: translateY(-3px);
-      border-color: rgba(201,169,110,.40);
-      box-shadow: 0 22px 55px rgba(0,0,0,.10);
-    }
-    .stars{
-      color: var(--gold);
-      font-size: .88rem;
-      margin-bottom: 1rem;
-      letter-spacing: 3px;
-    }
-    .review-text{
-      font-family:"Cormorant Garamond", serif;
-      font-size: 1.2rem;
-      font-style: italic;
-      font-weight: 300;
-      line-height: 1.7;
-      margin-bottom: 1.25rem;
-      color: var(--dark);
-    }
-    .reviewer{ display:flex; align-items:center; gap:.8rem; }
-    .reviewer-avatar{
-      width: 42px; height: 42px; border-radius: 999px;
-      background: rgba(201,169,110,.22);
-      border: 1px solid rgba(201,169,110,.28);
-      display:flex; align-items:center; justify-content:center;
-      font-family:"Cormorant Garamond", serif;
-      font-size: 1.1rem;
-      color: var(--brown);
-    }
-    .reviewer-name{ font-size:.9rem; font-weight: 600; }
-    .reviewer-role{ font-size:.78rem; color: var(--text-muted); }
-
-    /* ─── ZONE ─── */
-    #zone{
-      padding: 7.5rem 4rem;
+    /* ─── Contact + Blog CTA ─── */
+    #contact{
       background: linear-gradient(180deg, #15110e 0%, #0f0c0a 100%);
-      position:relative;
+      color: rgba(255,255,255,.92);
+      position: relative;
       overflow:hidden;
     }
-    #zone::before{
+    #contact::before{
       content:"GIEN";
-      position:absolute; right:-2rem; top:50%;
+      position:absolute;
+      right:-2rem; top: 50%;
       transform: translateY(-50%);
       font-family:"Cormorant Garamond", serif;
       font-size: 22vw;
-      font-weight: 600;
+      font-weight: 650;
       color: rgba(255,255,255,.03);
       pointer-events:none;
       user-select:none;
-      white-space:nowrap;
-    }
-    .zone-inner{ max-width: 760px; position: relative; z-index:1; }
-    #zone h2{ color: var(--cream); }
-    #zone h2 em{ color: var(--gold); }
-    #zone .section-tag{ color: var(--gold); }
-    #zone .section-tag::before, #zone .section-tag::after{ background: rgba(201,169,110,.30); }
-    .zone-desc{
-      font-size: 1.02rem;
-      line-height: 1.85;
-      color: rgba(248,244,238,.62);
-      margin: 1.8rem 0 2rem;
-    }
-    .zone-list{ display:flex; flex-wrap: wrap; gap:.7rem; margin-bottom: 2.2rem; }
-    .zone-tag{
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(201,169,110,.22);
-      padding: .5rem 1rem;
-      font-size: .82rem;
-      color: var(--gold-light);
-      border-radius: 999px;
-    }
-
-    /* ─── CONTACT ─── */
-    #contact{
-      padding: 7.5rem 4rem;
-      background:
-        radial-gradient(900px 420px at 15% 0%, rgba(201,169,110,.12), transparent 55%),
-        var(--cream);
+      white-space: nowrap;
     }
     .contact-inner{
-      display:grid;
-      grid-template-columns: 1fr 1.15fr;
-      gap: 4rem;
       max-width: 1100px;
       margin: 0 auto;
-      align-items: start;
+      display:grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: 2.2rem;
+      position: relative;
+      z-index: 1;
     }
-    .contact-info h2{
-      font-family:"Cormorant Garamond", serif;
-      font-size: 2.7rem;
-      font-weight: 300;
-      margin-bottom: 1rem;
+    .contact-left h2{ color: #fff; }
+    .contact-left h2 em{ color: var(--gold2); }
+    .contact-left p{
+      margin-top: 1.1rem;
+      color: rgba(255,255,255,.70);
+      line-height: 1.9;
+      font-size: 1.05rem;
+      max-width: 64ch;
     }
-    .contact-info h2 em{ font-style: italic; color: var(--brown); }
-    .contact-info p{
-      font-size: .98rem;
-      line-height: 1.85;
-      color: var(--text-muted);
-      margin-bottom: 1.8rem;
-      max-width: 56ch;
-    }
-
-    .contact-proof{
-      border-radius: 18px;
-      background: rgba(253,250,246,.70);
-      border: 1px solid rgba(201,169,110,.22);
-      box-shadow: var(--shadow);
-      padding: 1.2rem 1.25rem;
-      margin-bottom: 1.4rem;
-    }
-    .proof-row{
-      display:flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      align-items:center;
-      justify-content:space-between;
-    }
-    .proof-left{
-      display:flex; align-items:center; gap:.9rem;
-    }
-    .proof-badge{
-      width: 44px; height: 44px; border-radius: 14px;
-      background: rgba(201,169,110,.18);
-      border: 1px solid rgba(201,169,110,.28);
-      display:flex; align-items:center; justify-content:center;
-      color: var(--brown);
-    }
-    .proof-badge svg{ width: 18px; height: 18px; }
-    .proof-title{
-      font-size: .92rem;
-      font-weight: 700;
-      letter-spacing: .02em;
-    }
-    .proof-sub{
-      font-size: .82rem;
-      color: var(--text-muted);
-      margin-top: .2rem;
-    }
-    .proof-cta{
-      display:inline-flex; align-items:center; gap:.6rem;
-      font-size: .78rem;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      font-weight: 800;
-      color: var(--dark);
-      text-decoration:none;
-      padding: .75rem 1rem;
-      border-radius: 999px;
-      border: 1px solid rgba(201,169,110,.30);
-      background: rgba(253,250,246,.65);
-      transition: transform .18s ease, box-shadow .18s ease, border-color .25s ease;
-      white-space:nowrap;
-    }
-    .proof-cta:hover{
-      transform: translateY(-1px);
-      border-color: rgba(201,169,110,.55);
-      box-shadow: 0 14px 30px rgba(0,0,0,.10);
-    }
-
-    .contact-detail{
-      display:flex; align-items:center; gap: .9rem;
-      font-size: .92rem;
-      color: var(--dark);
-      margin-bottom: .9rem;
-    }
-    .contact-detail-icon{
-      width: 40px; height: 40px;
-      border-radius: 999px;
-      border: 1px solid rgba(201,169,110,.22);
-      background: rgba(253,250,246,.60);
-      display:flex; align-items:center; justify-content:center;
-      color: var(--gold);
-      flex-shrink:0;
-    }
-    .contact-detail-icon svg{ width: 16px; height: 16px; }
-    .contact-detail a{ color: var(--dark); text-decoration:none; }
-    .contact-detail a:hover{ color: var(--brown); }
-
-    .form{
-      border-radius: 18px;
-      background: rgba(253,250,246,.78);
-      border: 1px solid rgba(201,169,110,.22);
-      box-shadow: var(--shadow-2);
-      padding: 2rem 2rem;
-      display:flex; flex-direction:column; gap: 1.05rem;
-      position: sticky;
-      top: 110px;
-    }
-    .form-head{
-      margin-bottom: .25rem;
-    }
-    .form-head .k{
-      font-size: .72rem;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: var(--brown);
-      font-weight: 800;
-    }
-    .form-head h3{
-      font-family:"Cormorant Garamond", serif;
-      font-size: 1.9rem;
-      font-weight: 400;
-      margin-top:.45rem;
-    }
-    .form-head p{
-      margin-top:.35rem;
-      color: var(--text-muted);
-      font-size: .92rem;
-      line-height: 1.7;
-    }
-    .form-row{ display:grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .form-field{ display:flex; flex-direction:column; gap:.45rem; }
-    .form-field label{
-      font-size: .72rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      font-weight: 700;
-    }
-    .form-field input, .form-field textarea, .form-field select{
-      background: rgba(253,250,246,.92);
-      border: 1px solid rgba(201,169,110,.20);
-      padding: .95rem 1.05rem;
-      font-family:"DM Sans", sans-serif;
-      font-size: .95rem;
-      color: var(--dark);
-      border-radius: 14px;
-      outline:none;
-      transition: border-color .2s ease, box-shadow .2s ease, transform .12s ease;
-      resize:none;
-    }
-    .form-field input:focus, .form-field textarea:focus, .form-field select:focus{
-      border-color: rgba(201,169,110,.70);
-      box-shadow: 0 0 0 5px rgba(201,169,110,.18);
-    }
-    .form-field textarea{ min-height: 120px; }
-
-    .form-note{
-      font-size: .82rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-top: .15rem;
-    }
-
-    .btn-submit{
-      border:none;
-      cursor:pointer;
-      width: 100%;
-    }
-
-    /* Floating CTA (Blog + Form) */
-    .float-cta{
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index: 120;
-      display:flex;
-      gap: .6rem;
+    .contact-links{
+      margin-top: 1.4rem;
+      display:flex; gap:.8rem; flex-wrap: wrap;
       align-items:center;
     }
-    .float-cta a{
-      text-decoration:none;
-      display:inline-flex; align-items:center; gap:.55rem;
-      padding: .85rem 1.05rem;
-      border-radius: 999px;
-      font-size: .78rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      font-weight: 800;
-      border: 1px solid rgba(201,169,110,.30);
-      background: rgba(253,250,246,.78);
-      backdrop-filter: blur(10px);
-      color: var(--dark);
-      box-shadow: 0 14px 28px rgba(0,0,0,.12);
-      transition: transform .18s ease, box-shadow .18s ease, border-color .25s ease;
-      white-space:nowrap;
+    .info{
+      margin-top: 1.5rem;
+      display:grid;
+      gap: .9rem;
+      color: rgba(255,255,255,.78);
+      font-size: 1.0rem;
     }
-    .float-cta a:hover{
-      transform: translateY(-1px);
-      border-color: rgba(201,169,110,.55);
-      box-shadow: 0 18px 45px rgba(0,0,0,.16);
+    .info-row{
+      display:flex; gap:.8rem; align-items:center;
     }
-    .float-cta a.primary{
-      background: linear-gradient(135deg, var(--dark), #2a241d);
-      color: var(--cream);
-      border-color: rgba(255,255,255,.12);
-    }
-    .float-cta a.primary:hover{
-      background: linear-gradient(135deg, var(--gold), var(--gold-2));
-      color: var(--dark);
-      border-color: rgba(201,169,110,.45);
-    }
-    .float-cta svg{ width: 16px; height: 16px; }
-
-    /* ─── FOOTER ─── */
-    footer{
-      background: linear-gradient(180deg, #15110e 0%, #0f0c0a 100%);
-      color: rgba(248,244,238,.55);
-      padding: 4rem 4rem 2rem;
-    }
-    .footer-top{
-      display:grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
-      gap: 3.2rem;
-      margin-bottom: 3.2rem;
-    }
-    .footer-brand .logo{ color: var(--cream); margin-bottom: .9rem; }
-    .footer-brand p{ font-size:.88rem; line-height:1.8; }
-    .footer-col h4{
-      font-size:.72rem;
-      letter-spacing:.20em;
-      text-transform:uppercase;
-      color: var(--gold);
-      margin-bottom: 1.15rem;
-      font-weight: 800;
-    }
-    .footer-col ul{ list-style:none; }
-    .footer-col ul li{ margin-bottom:.7rem; }
-    .footer-col ul a{
-      color: rgba(248,244,238,.55);
-      text-decoration:none;
-      font-size: .9rem;
-      transition: color .2s ease;
-    }
-    .footer-col ul a:hover{ color: var(--gold); }
-    .footer-bottom{
-      display:flex; justify-content:space-between; align-items:center;
-      padding-top: 1.8rem;
-      border-top: 1px solid rgba(255,255,255,.08);
-      font-size: .8rem;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-    }
-    .social-links{ display:flex; gap:.8rem; }
-    .social-link{
-      width: 38px; height: 38px;
-      border-radius: 999px;
+    .ic{
+      width: 40px; height: 40px; border-radius: 999px;
       border: 1px solid rgba(255,255,255,.14);
       display:flex; align-items:center; justify-content:center;
-      color: rgba(248,244,238,.55);
-      text-decoration:none;
-      transition: border-color .2s ease, color .2s ease, transform .18s ease;
+      color: var(--gold2);
+      flex-shrink:0;
     }
-    .social-link:hover{
-      border-color: rgba(201,169,110,.55);
-      color: var(--gold);
-      transform: translateY(-1px);
-    }
-    .social-link svg{ width: 14px; height: 14px; }
+    .ic svg{ width:16px; height:16px; }
 
-    /* ─── ANIMATIONS ─── */
-    [data-reveal]{
-      opacity: 0;
-      transform: translateY(22px);
-      transition: opacity .75s ease, transform .75s ease;
+    .form{
+      border-radius: 22px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(12px);
+      padding: 2rem 2rem;
+      box-shadow: 0 24px 70px rgba(0,0,0,.28);
     }
+    .form .k{
+      font-size: .74rem;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      font-weight: 900;
+      color: var(--gold2);
+    }
+    .form h3{
+      margin-top:.55rem;
+      font-family:"Cormorant Garamond", serif;
+      font-size: 2.0rem;
+      font-weight: 450;
+      color:#fff;
+    }
+    .form p{
+      margin-top:.4rem;
+      color: rgba(255,255,255,.70);
+      line-height: 1.7;
+      font-size: .98rem;
+    }
+    .row{ display:grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.2rem; }
+    label{
+      font-size: .74rem;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      font-weight: 800;
+      color: rgba(255,255,255,.72);
+      display:block;
+      margin-bottom: .45rem;
+    }
+    input,select,textarea{
+      width:100%;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(10,8,7,.35);
+      color: rgba(255,255,255,.92);
+      padding: .95rem 1.05rem;
+      outline:none;
+      font-size: 1rem;
+      transition: box-shadow .2s ease, border-color .2s ease;
+    }
+    input:focus,select:focus,textarea:focus{
+      border-color: rgba(201,169,110,.75);
+      box-shadow: 0 0 0 5px rgba(201,169,110,.22);
+    }
+    textarea{ min-height: 120px; resize:none; }
+    .full{ margin-top: 1rem; }
+    .submit{
+      width:100%;
+      border:none;
+      margin-top: 1rem;
+      cursor:pointer;
+    }
+
+    footer{
+      padding: 2rem 4rem 2.2rem;
+      background: #0f0c0a;
+      color: rgba(255,255,255,.55);
+      border-top: 1px solid rgba(255,255,255,.08);
+      font-size: .92rem;
+    }
+
+    /* Reveal */
+    [data-reveal]{ opacity:0; transform: translateY(22px); transition: opacity .75s ease, transform .75s ease; }
     [data-reveal].revealed{ opacity:1; transform:none; }
 
-    /* ─── RESPONSIVE ─── */
+    /* Responsive */
     @media (max-width: 980px){
-      nav{ padding: 1.05rem 1.4rem; }
+      nav{ padding: 1.0rem 1.2rem; }
       nav ul{ display:none; }
-      #hero{
-        grid-template-columns: 1fr;
-        padding-left: 1.4rem;
-        padding-right: 1.4rem;
-        gap: 1.6rem;
-      }
+      #hero{ grid-template-columns: 1fr; padding: 92px 1.2rem 3.4rem; }
       .hero-right{ display:none; }
-      .hero-left{ padding: 5.2rem 0 3.8rem; }
-
-      #blog,#services,#comment,#pourquoi,#tarifs,#avis,#zone,#contact{ padding: 5.2rem 1.4rem; }
-      .services-grid,.pricing-grid,.reviews-grid{ grid-template-columns: 1fr; }
-      .pricing-card.featured{ transform:none; }
-      .benefits-grid{ grid-template-columns: 1fr; }
-      .blog-grid{ grid-template-columns: 1fr; }
-      .blog-bullets{ grid-template-columns: 1fr; }
-
-      .contact-inner{ grid-template-columns: 1fr; gap: 2rem; }
-      .form{ position: static; top:auto; }
-
-      footer{ padding: 3.2rem 1.4rem 1.6rem; }
-      .footer-top{ grid-template-columns: 1fr 1fr; gap: 2rem; }
-      .float-cta{ left: 14px; right: 14px; justify-content: center; }
-      .float-cta a{ flex: 1; justify-content:center; }
-      .hero-micro{ grid-template-columns: 1fr; }
+      .section{ padding: 5.4rem 1.2rem; }
+      .why-grid{ grid-template-columns: 1fr; }
+      .mini-grid{ grid-template-columns: 1fr; }
+      .offers-grid{ grid-template-columns: 1fr; }
+      .contact-inner{ grid-template-columns: 1fr; }
+      .row{ grid-template-columns: 1fr; }
+      footer{ padding: 1.8rem 1.2rem 2.0rem; }
     }
-
     @media (prefers-reduced-motion: reduce){
-      *{ scroll-behavior:auto !important; }
-      [data-reveal]{ transition:none !important; }
-      .btn, .service-card, .review-card, .pricing-card, .micro-card{ transition:none !important; }
+      [data-reveal]{ transition:none; }
+      html{ scroll-behavior:auto; }
     }
   </style>
 </head>
@@ -1208,27 +817,26 @@
 
   <!-- NAV -->
   <nav>
-    <a href="#" class="logo"><span class="logo-mark"></span>ELOK</a>
+    <a href="#" class="logo"><span class="logo-dot"></span>ELOK</a>
 
     <ul>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#comment">Comment ça marche</a></li>
-      <li><a href="#tarifs">Tarifs</a></li>
-      <li><a href="#avis">Avis</a></li>
-      <li><a href="#blog">Blog</a></li>
+      <li><a href="#why">Pourquoi ELOK</a></li>
+      <li><a href="#offers">Offres</a></li>
+      <li><a href="#process">Process</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
 
     <div class="nav-ctas">
-      <a href="#blog" class="nav-cta ghost">
+      <!-- Remplace blog.html par ton URL blog -->
+      <a class="btn btn-ghost" href="blog.html">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
           <path d="M4 19.5V4.8a2 2 0 012-2h10l4 4v12.7a2 2 0 01-2 2H6a2 2 0 01-2-2z"/>
           <path d="M14 2.8v4a2 2 0 002 2h4"/>
           <path d="M7.2 11h9.6M7.2 14.5h9.6M7.2 18h6.6"/>
         </svg>
-        Blog
+        Le Blog
       </a>
-      <a href="#contact" class="nav-cta primary">
+      <a class="btn btn-primary" href="#contact">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
           <path d="M21 15a4 4 0 01-4 4H8l-5 3V7a4 4 0 014-4h10a4 4 0 014 4v8z"/>
           <path d="M8 9h8M8 12h6"/>
@@ -1241,734 +849,443 @@
   <!-- HERO -->
   <section id="hero">
     <div class="hero-left">
-      <div class="hero-tag pill" data-reveal>
-        <span class="pill-dot"></span>
-        Conciergerie Airbnb à Gien
-      </div>
+      <div class="pill" data-reveal><i></i>La conciergerie Airbnb digitale & locale à Gien</div>
 
-      <h1 data-reveal>Votre logement,<br>géré avec <em>soin</em><br>et performance.</h1>
+      <h1 data-reveal>
+        Optimisez votre location<br>
+        courte durée, sans y <em>penser</em>.
+      </h1>
 
       <p class="hero-desc" data-reveal>
-        ELOK prend en charge la gestion complète de votre location courte durée.
-        Accueil voyageurs, ménage, optimisation Airbnb/Booking, suivi propriétaire — pour maximiser vos revenus et votre sérénité.
+        Vous avez investi dans un bien immobilier et vous cherchez à optimiser et déléguer la gestion.
+        Augmenter vos revenus et trouver une agence de gestion locative courte durée à Gien, c’est désormais possible grâce à ELOK.
       </p>
 
-      <!-- NEW: 2 micro cards that push to Blog + Form -->
-      <div class="hero-micro" data-reveal>
-        <a class="micro-card" href="#blog" aria-label="Découvrir le blog ELOK">
-          <div class="micro-top">
-            <div>
-              <div class="micro-kicker">Conseils & analyses</div>
-              <div class="micro-title">Visitez le Blog ELOK</div>
-            </div>
-            <div class="arrow" aria-hidden="true" style="width:38px;height:38px;border-radius:999px;display:flex;align-items:center;justify-content:center;background:rgba(201,169,110,.18);border:1px solid rgba(201,169,110,.28);">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
-                <path d="M5 12h13"/><path d="M12 5l7 7-7 7"/>
-              </svg>
-            </div>
-          </div>
-          <div class="micro-sub">
-            Réglementation, rentabilité, astuces hôtelières, check-lists… des contenus concrets pour propriétaires à Gien & alentours.
-          </div>
-          <div class="micro-cta">
-            Lire les articles
-            <span class="arrow" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
-                <path d="M6 12h12"/><path d="M13 7l5 5-5 5"/>
+      <div class="pain" data-reveal>
+        <h3>Vous souhaitez exploiter votre bien, mais vous craignez…</h3>
+        <p>Si vous vous reconnaissez, lisez attentivement ce qui suit :</p>
+        <ul>
+          <li>
+            <span class="check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 6L9 17l-5-5"/>
               </svg>
             </span>
-          </div>
-        </a>
-
-        <a class="micro-card" href="#contact" aria-label="Obtenir une estimation gratuite">
-          <div class="micro-top">
-            <div>
-              <div class="micro-kicker">Estimation rapide</div>
-              <div class="micro-title">Obtenez un devis</div>
-            </div>
-            <div class="arrow" aria-hidden="true" style="width:38px;height:38px;border-radius:999px;display:flex;align-items:center;justify-content:center;background:rgba(201,169,110,.18);border:1px solid rgba(201,169,110,.28);">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
-                <path d="M4 8h16M4 12h10M4 16h13"/>
-              </svg>
-            </div>
-          </div>
-          <div class="micro-sub">
-            Remplissez le formulaire : on vous répond avec une stratégie et une estimation de revenus (gratuite, sans engagement).
-          </div>
-          <div class="micro-cta">
-            Remplir le formulaire
-            <span class="arrow" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
-                <path d="M6 12h12"/><path d="M13 7l5 5-5 5"/>
+            <span>De devenir prisonnier de la gestion (ou vous l’êtes déjà)</span>
+          </li>
+          <li>
+            <span class="check">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 6L9 17l-5-5"/>
               </svg>
             </span>
-          </div>
-        </a>
+            <span>De ne pas dégager assez de revenus</span>
+          </li>
+        </ul>
       </div>
 
       <div class="hero-actions" data-reveal>
-        <a href="#contact" class="btn btn-primary">
+        <a class="btn btn-primary" href="#contact">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <path d="M21 15a4 4 0 01-4 4H8l-5 3V7a4 4 0 014-4h10a4 4 0 014 4v8z"/>
+            <path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/>
           </svg>
-          Obtenir un devis
+          Obtenir une estimation
         </a>
-        <a href="#blog" class="btn btn-outline">
+        <a class="btn btn-ghost" href="blog.html">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <path d="M4 19.5V4.8a2 2 0 012-2h10l4 4v12.7a2 2 0 01-2 2H6a2 2 0 01-2-2z"/>
             <path d="M14 2.8v4a2 2 0 002 2h4"/>
           </svg>
-          Visiter le blog
-        </a>
-        <a href="#services" class="btn btn-outline">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <path d="M12 20l9-5-9-5-9 5 9 5z"/>
-            <path d="M12 12l9-5-9-5-9 5 9 5z"/>
-          </svg>
-          Nos services
+          Découvrir le blog
         </a>
       </div>
 
       <div class="hero-stats" data-reveal>
-        <div class="stat"><strong>+35%</strong><span>de revenus en moyenne</span></div>
-        <div class="stat"><strong>4.9★</strong><span>de satisfaction voyageurs</span></div>
-        <div class="stat"><strong>100%</strong><span>gestion clé en main</span></div>
+        <div class="stat"><strong>4.92</strong><span>Note moyenne Airbnb (biens gérés)</span></div>
+        <div class="stat"><strong>9.4</strong><span>Note moyenne Booking.com</span></div>
+        <div class="stat"><strong>70%</strong><span>Taux d’occupation moyen</span></div>
+        <div class="stat"><strong>500+</strong><span>Avis sur Airbnb</span></div>
       </div>
     </div>
 
     <div class="hero-right">
-      <div class="hero-image-wrap" aria-hidden="true">
-        <div class="hero-photo"></div>
-        <div class="hero-badge">
+      <div class="hero-visual" data-reveal>
+        <div class="visual-photo"></div>
+        <div class="visual-card">
           <div>
-            <strong>50+</strong>
-            <span>logements gérés</span>
+            <strong>20 km</strong>
+            <div class="k">Rayon d’intervention max</div>
           </div>
-          <div class="badge-right">
-            <div class="trustline">Réactivité • Propreté • Revenus</div>
-            <div style="font-size:.78rem;opacity:.72;letter-spacing:.10em;text-transform:uppercase;">Gien & alentours</div>
+          <div class="list">
+            <div>Qualité &amp; suivi ultra-personnalisé</div>
+            <div>Réactivité immédiate</div>
+            <div>Approche digitale &amp; humaine</div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- BLOG (NEW SECTION) -->
-  <section id="blog">
+  <!-- WHY -->
+  <section id="why" class="section">
     <div class="section-header" data-reveal>
-      <div class="section-tag">Ressources propriétaires</div>
-      <h2>Le Blog ELOK : des contenus <em>utiles</em> (et actionnables)</h2>
+      <div class="section-tag">Pourquoi ELOK</div>
+      <h2>Une solution <em>digitale</em>, rentable et humaine</h2>
     </div>
 
-    <div class="blog-grid">
-      <div class="blog-panel" data-reveal>
-        <div class="blog-panel-inner">
-          <div class="pill" style="border-color:rgba(201,169,110,.35);background:rgba(253,250,246,.65);">
-            <span class="pill-dot"></span>
-            Spécial Gien / Loiret
-          </div>
-          <div class="blog-title">Augmentez vos revenus et évitez les erreurs classiques</div>
-          <p class="blog-desc">
-            Tarification, photos, réglementation, optimisation des annonces… Le blog ELOK vous donne des repères clairs pour piloter une location courte durée rentable, même à distance.
-          </p>
+    <div class="why-grid">
+      <div class="why-card" data-reveal>
+        <h3>ELOK : l’unique conciergerie locale à Gien qui privilégie la qualité</h3>
+        <p>
+          Nous intervenons exclusivement dans un rayon de <strong>20 km</strong> pour garantir une réactivité immédiate et une gestion ultra-personnalisée de votre patrimoine immobilier.
+        </p>
 
-          <div class="blog-bullets">
-            <div class="item">
-              <span class="check">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-              </span>
-              Comprendre les leviers de rentabilité
-            </div>
-            <div class="item">
-              <span class="check">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-              </span>
-              Check-lists “standard hôtelier”
-            </div>
-            <div class="item">
-              <span class="check">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-              </span>
-              Conseils concrets pour Airbnb/Booking
-            </div>
-            <div class="item">
-              <span class="check">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M20 6L9 17l-5-5"/>
-                </svg>
-              </span>
-              Cas pratiques “Gien & alentours”
-            </div>
-          </div>
-
-          <!-- IMPORTANT: Remplace blog.html par ton URL réelle -->
-          <div class="blog-cta-row">
-            <a class="btn btn-blog" href="blog.html">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                <path d="M4 19.5V4.8a2 2 0 012-2h10l4 4v12.7a2 2 0 01-2 2H6a2 2 0 01-2-2z"/>
-                <path d="M14 2.8v4a2 2 0 002 2h4"/>
-              </svg>
-              Découvrir le blog
-            </a>
-            <a class="btn btn-outline" href="#contact">
+        <div class="why-bullets">
+          <div class="row">
+            <span class="badge">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                 <path d="M21 15a4 4 0 01-4 4H8l-5 3V7a4 4 0 014-4h10a4 4 0 014 4v8z"/>
               </svg>
-              Demander une estimation
-            </a>
+            </span>
+            <span><strong>Liberté mentale, temporelle, physique</strong> : annonces, plannings, check-in/out, relation voyageurs, litiges, gestion financière.</span>
+          </div>
+
+          <div class="row">
+            <span class="badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            </span>
+            <span><strong>Augmentation des revenus</strong> : tarification dynamique, synchronisation, optimisation du prix des nuitées.</span>
+          </div>
+
+          <div class="row">
+            <span class="badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M12 2l7 4v6c0 5-3 9-7 10-4-1-7-5-7-10V6l7-4z"/>
+                <path d="M9 12l2 2 4-5"/>
+              </svg>
+            </span>
+            <span><strong>Satisfaction voyageur</strong> : arrivée autonome, guidage, assistance 7j/7 et 365 jours/an.</span>
+          </div>
+
+          <div class="row">
+            <span class="badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                <path d="M4 20h16"/><path d="M6 20V9l6-5 6 5v11"/>
+              </svg>
+            </span>
+            <span><strong>Logement entretenu</strong> : préparateurs de séjour sélectionnés & formés, hébergement impeccable.</span>
           </div>
         </div>
       </div>
 
-      <div class="blog-side">
-        <div class="side-card" data-reveal>
-          <div class="side-kicker">Pour aller plus vite</div>
-          <div class="side-title">Audit gratuit</div>
-          <div class="side-text">
-            Donnez-nous 2 minutes via le formulaire : on revient vers vous avec une stratégie et une estimation.
-          </div>
-          <div class="side-mini">
-            <span class="tag">Sans engagement</span>
-            <span class="tag">Réponse rapide</span>
-            <span class="tag">Stratégie personnalisée</span>
-          </div>
+      <div class="mini-grid" data-reveal>
+        <div class="mini">
+          <div class="t">Expérience</div>
+          <div class="v">6 ans</div>
+          <div class="d">en gestion de locations courte durée</div>
         </div>
-
-        <div class="side-card" data-reveal>
-          <div class="side-kicker">Focus local</div>
-          <div class="side-title">Gien • Briare • Loire</div>
-          <div class="side-text">
-            Une approche terrain, un réseau local, et des standards hôteliers pour des avis voyageurs plus élevés.
-          </div>
-          <div class="side-mini">
-            <span class="tag">Qualité</span>
-            <span class="tag">Optimisation</span>
-            <span class="tag">Sérénité</span>
-          </div>
+        <div class="mini">
+          <div class="t">Assistance</div>
+          <div class="v">7j/7</div>
+          <div class="d">et 365 jours/an pour vos voyageurs</div>
+        </div>
+        <div class="mini">
+          <div class="t">Réactivité</div>
+          <div class="v">20 km</div>
+          <div class="d">rayon d’intervention (qualité & proximité)</div>
+        </div>
+        <div class="mini">
+          <div class="t">Résultats</div>
+          <div class="v">70%</div>
+          <div class="d">taux d’occupation moyen des logements</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
-  <section id="services">
+  <!-- OFFERS -->
+  <section id="offers" class="section">
     <div class="section-header" data-reveal>
-      <div class="section-tag">Ce que nous faisons</div>
-      <h2>Des services <em>complets</em><br>pour votre tranquillité</h2>
+      <div class="section-tag">Nos offres</div>
+      <h2>Deux formules <em>imbattables</em> (et claires)</h2>
     </div>
 
-    <div class="services-grid">
-      <div class="service-card" data-reveal>
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/>
-          </svg>
+    <div class="offers-grid">
+      <!-- Offer 1 (rename from 100% digital) -->
+      <div class="offer" data-reveal>
+        <div class="top">
+          <div>
+            <div class="label"><i></i> Gestion digitale guidée</div>
+            <div class="name">Pack <em style="font-style:italic;color:var(--brown);">Pilotage</em></div>
+            <div class="muted">
+              Vous déléguez la gestion (annonces, voyageurs, pricing), tout en gardant la main sur le ménage et la blanchisserie.
+              Idéal si vous avez déjà votre organisation.
+            </div>
+          </div>
+          <div>
+            <div class="price">12.5<span>%</span></div>
+            <div class="subprice">des recettes</div>
+          </div>
         </div>
-        <h3>Accueil & remise des clés</h3>
-        <p>Accueil chaleureux, explications claires et assistance pendant le séjour pour un départ parfait et des avis 5★.</p>
+
+        <ul class="list">
+          <li class="li">Création & dynamisation des annonces (Airbnb, Booking)</li>
+          <li class="li">Photos professionnelles de votre logement</li>
+          <li class="li">Tarification dynamique + synchronisation multi-plateformes</li>
+          <li class="li">Arrivée autonome (check-in / check-out)</li>
+          <li class="li">Assistance voyageurs 7j/7 & 365 jours/an</li>
+          <li class="li">Livret d’accueil digital</li>
+          <li class="li">Gestion des litiges</li>
+        </ul>
+
+        <div class="cta">
+          <a class="btn btn-primary" href="#contact">Demander une estimation</a>
+          <a class="btn btn-ghost" href="blog.html">Lire nos conseils</a>
+        </div>
       </div>
 
-      <div class="service-card" data-reveal>
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/>
-          </svg>
+      <!-- Offer 2 (rename from Sérénité) -->
+      <div class="offer featured" data-reveal>
+        <div class="top">
+          <div>
+            <div class="label"><i></i> Clé en main premium</div>
+            <div class="name">Pack <em style="font-style:italic;color:var(--gold2);">Signature</em></div>
+            <div class="muted">
+              L’offre 100% sereine : vous déléguez tout. Nous gérons la location courte durée de A à Z avec une exécution “hôtel premium”.
+            </div>
+          </div>
+          <div>
+            <div class="price">12.5<span>%</span></div>
+            <div class="subprice">des recettes + frais</div>
+          </div>
         </div>
-        <h3>Ménage & linge de maison</h3>
-        <p>Nettoyage professionnel entre chaque séjour et gestion du linge selon des standards hôteliers.</p>
-      </div>
 
-      <div class="service-card" data-reveal>
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
-          </svg>
-        </div>
-        <h3>Optimisation des revenus</h3>
-        <p>Tarification dynamique, optimisation Airbnb/Booking, calendrier géré intelligemment pour maximiser l’occupation.</p>
-      </div>
+        <ul class="list">
+          <li class="li">Tout le Pack Pilotage</li>
+          <li class="li">Frais de ménage (selon planning)</li>
+          <li class="li">Frais de blanchisserie</li>
+          <li class="li">Frais de consommables (selon usage)</li>
+          <li class="li">Préparateurs de séjour sélectionnés & formés</li>
+          <li class="li">Suivi qualité + contrôle entre séjours</li>
+        </ul>
 
-      <div class="service-card" data-reveal>
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
-          </svg>
+        <div class="cta">
+          <a class="btn btn-primary" href="#contact">Je veux être 100% serein</a>
+          <a class="btn btn-ghost" href="blog.html" style="border-color:rgba(255,255,255,.18);color:#fff;background:rgba(255,255,255,.06);">Découvrir le blog</a>
         </div>
-        <h3>Communication voyageurs</h3>
-        <p>Réponses rapides, gestion des demandes, suivi des avis : vous ne gérez plus les messages.</p>
-      </div>
-
-      <div class="service-card" data-reveal>
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
-          </svg>
-        </div>
-        <h3>Maintenance & petites réparations</h3>
-        <p>Inspection, signalement, coordination d’intervention : votre logement reste au top, même de loin.</p>
-      </div>
-
-      <div class="service-card" data-reveal>
-        <div class="service-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-          </svg>
-        </div>
-        <h3>Rapports & suivi propriétaire</h3>
-        <p>Reporting clair et régulier : vous gardez le contrôle et une vision précise de la performance.</p>
       </div>
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
-  <section id="comment">
+  <!-- PROCESS -->
+  <section id="process" class="section">
     <div class="section-header" data-reveal>
-      <div class="section-tag">Processus</div>
-      <h2>Commencer est <em>simple</em></h2>
+      <div class="section-tag">Délégation</div>
+      <h2>Un processus simple et efficace en <em>4 étapes</em></h2>
     </div>
 
     <div class="steps">
       <div class="step" data-reveal>
-        <div class="step-num">1</div>
-        <div class="step-content">
-          <h3>Prise de contact & audit gratuit</h3>
-          <p>Visite et analyse de votre logement à Gien / alentours. Nous évaluons le potentiel et proposons une stratégie claire.</p>
+        <div class="num">1</div>
+        <div>
+          <h3>Prise de contact</h3>
+          <p>Un premier rendez-vous pour vous présenter ELOK, comprendre votre besoin et répondre à vos questions.</p>
         </div>
       </div>
 
       <div class="step" data-reveal>
-        <div class="step-num">2</div>
-        <div class="step-content">
-          <h3>Création & optimisation des annonces</h3>
-          <p>Photos, description, tarification — nous créons / optimisons vos annonces sur Airbnb, Booking et autres plateformes.</p>
+        <div class="num">2</div>
+        <div>
+          <h3>Visite du logement</h3>
+          <p>Nous organisons une visite de votre logement pour préparer l’arrivée des futurs voyageurs et définir la stratégie.</p>
         </div>
       </div>
 
       <div class="step" data-reveal>
-        <div class="step-num">3</div>
-        <div class="step-content">
-          <h3>Gestion complète au quotidien</h3>
-          <p>Réservations, voyageurs, ménage, maintenance, avis : vous récupérez vos revenus, sans les contraintes.</p>
+        <div class="num">3</div>
+        <div>
+          <h3>Mise en gestion selon la formule</h3>
+          <p>
+            Création des annonces Airbnb & Booking, communication voyageurs, gestion quotidienne.
+            Le ménage et la blanchisserie dépendent de la formule choisie.
+          </p>
         </div>
       </div>
 
       <div class="step" data-reveal>
-        <div class="step-num">4</div>
-        <div class="step-content">
-          <h3>Bilan mensuel & optimisation continue</h3>
-          <p>Suivi des performances + recommandations : on améliore en continu le taux d’occupation et la note voyageurs.</p>
+        <div class="num">4</div>
+        <div>
+          <h3>Vous encaissez les revenus</h3>
+          <p>À chaque fin de séjour, vos revenus Airbnb et Booking sont virés directement sur votre compte bancaire.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- POURQUOI -->
-  <section id="pourquoi">
-    <div class="section-header" data-reveal>
-      <div class="section-tag">Pourquoi nous choisir</div>
-      <h2>ELOK, votre partenaire<br><em>de confiance</em> à Gien</h2>
-    </div>
-
-    <div class="benefits-grid">
-      <div class="benefit" data-reveal>
-        <div class="benefit-icon">01</div>
-        <h3>Ancrage local fort</h3>
-        <p>Proximité, réactivité et réseau local solide pour intervenir vite et bien.</p>
-      </div>
-      <div class="benefit" data-reveal>
-        <div class="benefit-icon">02</div>
-        <h3>Transparence totale</h3>
-        <p>Tarifs clairs, reporting net, pas de frais cachés : vous savez toujours où en est votre bien.</p>
-      </div>
-      <div class="benefit" data-reveal>
-        <div class="benefit-icon">03</div>
-        <h3>Disponibilité 7j/7</h3>
-        <p>Arrivées, imprévus, urgences : on gère, vous respirez.</p>
-      </div>
-      <div class="benefit" data-reveal>
-        <div class="benefit-icon">04</div>
-        <h3>Résultats prouvés</h3>
-        <p>Objectif : mieux louer, mieux noter, et maximiser la rentabilité avec des standards hôteliers.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- TARIFS -->
-  <section id="tarifs">
-    <div class="section-header" data-reveal>
-      <div class="section-tag">Nos offres</div>
-      <h2>Des tarifs <em>justes</em><br>et sans surprise</h2>
-    </div>
-
-    <div class="pricing-grid">
-      <div class="pricing-card" data-reveal>
-        <h3>Essentiel</h3>
-        <p class="subtitle">Pour commencer simplement</p>
-        <div class="price-tag">15<span>%</span></div>
-        <p class="price-note">des revenus générés</p>
-        <ul class="pricing-features">
-          <li>Gestion des annonces</li>
-          <li>Communication voyageurs</li>
-          <li>Remise des clés</li>
-          <li>Ménage (en option)</li>
-          <li>Rapport mensuel</li>
-        </ul>
-        <a href="#contact" class="btn btn-outline">Choisir ce plan</a>
-      </div>
-
-      <div class="pricing-card featured" data-reveal>
-        <div class="pricing-badge">Populaire</div>
-        <h3>Confort</h3>
-        <p class="subtitle">La formule la plus complète</p>
-        <div class="price-tag">20<span>%</span></div>
-        <p class="price-note">des revenus générés</p>
-        <ul class="pricing-features">
-          <li>Tout l'offre Essentiel</li>
-          <li>Ménage professionnel inclus</li>
-          <li>Linge de maison fourni</li>
-          <li>Accueil personnalisé 7j/7</li>
-          <li>Optimisation tarifaire avancée</li>
-          <li>Suivi maintenance</li>
-        </ul>
-        <a href="#contact" class="btn btn-primary">Choisir ce plan</a>
-      </div>
-
-      <div class="pricing-card" data-reveal>
-        <h3>Premium</h3>
-        <p class="subtitle">Sur mesure pour les grands projets</p>
-        <div class="price-tag">Sur<span> devis</span></div>
-        <p class="price-note">pour plusieurs logements</p>
-        <ul class="pricing-features">
-          <li>Tout l'offre Confort</li>
-          <li>Gestion multi-logements</li>
-          <li>Home staging conseils</li>
-          <li>Reporting personnalisé</li>
-          <li>Gestionnaire dédié</li>
-          <li>Stratégie revenue management</li>
-        </ul>
-        <a href="#contact" class="btn btn-outline">Nous contacter</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- AVIS -->
-  <section id="avis">
-    <div class="section-header" data-reveal>
-      <div class="section-tag">Témoignages</div>
-      <h2>Ce que disent nos <em>propriétaires</em></h2>
-    </div>
-
-    <div class="reviews-grid">
-      <div class="review-card" data-reveal>
-        <div class="stars">★★★★★</div>
-        <p class="review-text">« ELOK a transformé mon appartement à Gien en une vraie source de revenus. Je ne m'occupe de rien et mes gains ont doublé. »</p>
-        <div class="reviewer">
-          <div class="reviewer-avatar">M</div>
-          <div>
-            <div class="reviewer-name">Marie-Christine L.</div>
-            <div class="reviewer-role">Propriétaire à Gien</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-card" data-reveal>
-        <div class="stars">★★★★★</div>
-        <p class="review-text">« Équipe ultra réactive. Les voyageurs laissent d'excellents avis. Je recommande ELOK à tous les propriétaires du secteur. »</p>
-        <div class="reviewer">
-          <div class="reviewer-avatar">T</div>
-          <div>
-            <div class="reviewer-name">Thomas B.</div>
-            <div class="reviewer-role">Propriétaire à Châtillon-sur-Loire</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="review-card" data-reveal>
-        <div class="stars">★★★★★</div>
-        <p class="review-text">« Je vis à Paris et ELOK gère ma maison à Gien. Rapports clairs, virements réguliers et 0 stress. »</p>
-        <div class="reviewer">
-          <div class="reviewer-avatar">S</div>
-          <div>
-            <div class="reviewer-name">Sophie R.</div>
-            <div class="reviewer-role">Propriétaire non-résidente</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ZONE -->
-  <section id="zone">
-    <div class="zone-inner">
-      <div class="section-tag" data-reveal>Zone d'intervention</div>
-      <h2 data-reveal>Nous opérons à <em>Gien</em><br>et alentours</h2>
-      <p class="zone-desc" data-reveal>
-        Que votre logement soit en bord de Loire, au cœur de la ville ou dans les villages voisins, nous sommes là.
-      </p>
-      <div class="zone-list" data-reveal>
-        <span class="zone-tag">Gien</span>
-        <span class="zone-tag">Briare</span>
-        <span class="zone-tag">Châtillon-sur-Loire</span>
-        <span class="zone-tag">Beaulieu-sur-Loire</span>
-        <span class="zone-tag">Ouzouer-sur-Loire</span>
-        <span class="zone-tag">Bonny-sur-Loire</span>
-        <span class="zone-tag">Autry-le-Châtel</span>
-        <span class="zone-tag">Saint-Brisson-sur-Loire</span>
-      </div>
-      <a href="#contact" class="btn btn-primary" data-reveal>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/>
-        </svg>
-        Vérifier mon secteur
-      </a>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section id="contact">
-    <div class="contact-inner">
+  <section id="contact" class="section">
+    <div class="section-header" data-reveal>
+      <div class="section-tag" style="color:var(--gold2);">Contact</div>
+      <h2 data-reveal>Parlons de votre <em>logement</em> à Gien</h2>
+    </div>
 
-      <div class="contact-info">
-        <h2 data-reveal>Parlons de votre <em>projet</em></h2>
-        <p data-reveal>
-          Devis gratuit et sans engagement. Nous étudions ensemble le potentiel de votre logement et vous proposons une stratégie adaptée.
+    <div class="contact-inner">
+      <div class="contact-left" data-reveal>
+        <p>
+          Découvrez tous nos conseils d’expert pour maximiser vos revenus et simplifier la gestion de votre location Airbnb à Gien.
+          <strong>Cliquez sur “Le Blog”</strong> pour ne rien manquer de nos astuces exclusives.
         </p>
 
-        <!-- NEW: "trust / incentive" block that pushes to form -->
-        <div class="contact-proof" data-reveal>
-          <div class="proof-row">
-            <div class="proof-left">
-              <div class="proof-badge" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
-                  <path d="M12 2l7 4v6c0 5-3 9-7 10-4-1-7-5-7-10V6l7-4z"/>
-                  <path d="M9 12l2 2 4-5"/>
-                </svg>
-              </div>
-              <div>
-                <div class="proof-title">Audit & estimation gratuits</div>
-                <div class="proof-sub">Réponse rapide • Sans engagement • Stratégie personnalisée</div>
-              </div>
-            </div>
-            <a href="#contact" class="proof-cta" onclick="focusFirstField()">
-              Commencer maintenant
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
-                <path d="M6 12h12"/><path d="M13 7l5 5-5 5"/>
+        <div class="contact-links">
+          <a class="btn btn-ghost" href="blog.html" style="border-color:rgba(201,169,110,.35);color:#fff;background:rgba(255,255,255,.06);">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+              <path d="M4 19.5V4.8a2 2 0 012-2h10l4 4v12.7a2 2 0 01-2 2H6a2 2 0 01-2-2z"/>
+              <path d="M14 2.8v4a2 2 0 002 2h4"/>
+            </svg>
+            Le Blog
+          </a>
+          <a class="btn btn-primary" href="#contact" onclick="focusFirstField()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+              <path d="M21 15a4 4 0 01-4 4H8l-5 3V7a4 4 0 014-4h10a4 4 0 014 4v8z"/>
+              <path d="M8 9h8M8 12h6"/>
+            </svg>
+            Remplir le formulaire
+          </a>
+        </div>
+
+        <div class="info">
+          <div class="info-row">
+            <span class="ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 12.63a19.79 19.79 0 01-3.07-8.67A2 2 0 012 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
               </svg>
-            </a>
+            </span>
+            <a href="tel:+33600000000" style="color:rgba(255,255,255,.86);text-decoration:none;">06 XX XX XX XX</a>
           </div>
-        </div>
 
-        <div class="contact-detail" data-reveal>
-          <div class="contact-detail-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 12.63a19.79 19.79 0 01-3.07-8.67A2 2 0 012 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-            </svg>
+          <div class="info-row">
+            <span class="ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </span>
+            <a href="mailto:contact@elok.fr" style="color:rgba(255,255,255,.86);text-decoration:none;">contact@elok.fr</a>
           </div>
-          <a href="tel:+33600000000">06 XX XX XX XX</a>
-        </div>
 
-        <div class="contact-detail" data-reveal>
-          <div class="contact-detail-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
-            </svg>
+          <div class="info-row">
+            <span class="ic">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+            </span>
+            <span style="color:rgba(255,255,255,.80);">Gien, Loiret (45) — rayon 20 km</span>
           </div>
-          <a href="mailto:contact@elok.fr">contact@elok.fr</a>
-        </div>
-
-        <div class="contact-detail" data-reveal>
-          <div class="contact-detail-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
-            </svg>
-          </div>
-          <span>Gien, Loiret (45)</span>
         </div>
       </div>
 
+      <!-- Form -->
       <form class="form" onsubmit="handleSubmit(event)" data-reveal>
-        <div class="form-head">
-          <div class="k">Devis gratuit</div>
-          <h3>Recevez une estimation</h3>
-          <p>Plus vous nous donnez d’infos, plus l’estimation sera précise (ça reste rapide).</p>
-        </div>
+        <div class="k">Devis gratuit</div>
+        <h3>Recevez une estimation</h3>
+        <p>Réponse rapide. Sans engagement. Plus vos infos sont précises, plus l’estimation est utile.</p>
 
-        <div class="form-row">
-          <div class="form-field">
+        <div class="row">
+          <div>
             <label>Prénom</label>
             <input id="field-firstname" type="text" placeholder="Jean" required />
           </div>
-          <div class="form-field">
+          <div>
             <label>Nom</label>
             <input type="text" placeholder="Dupont" required />
           </div>
         </div>
 
-        <div class="form-row">
-          <div class="form-field">
+        <div class="row">
+          <div>
             <label>Email</label>
             <input type="email" placeholder="jean@email.com" required />
           </div>
-          <div class="form-field">
+          <div>
             <label>Téléphone</label>
             <input type="tel" placeholder="06 XX XX XX XX" />
           </div>
         </div>
 
-        <div class="form-field">
-          <label>Type de logement</label>
-          <select>
-            <option>Appartement</option>
-            <option>Maison</option>
-            <option>Gîte</option>
-            <option>Autre</option>
-          </select>
+        <div class="row">
+          <div>
+            <label>Type de logement</label>
+            <select>
+              <option>Appartement</option>
+              <option>Maison</option>
+              <option>Gîte</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div>
+            <label>Formule souhaitée</label>
+            <select>
+              <option>Pack Pilotage (gestion digitale guidée)</option>
+              <option>Pack Signature (clé en main premium)</option>
+              <option>Je ne sais pas encore</option>
+            </select>
+          </div>
         </div>
 
-        <div class="form-field">
+        <div class="full">
           <label>Message</label>
-          <textarea placeholder="Ex : emplacement, nombre de couchages, plateformes déjà utilisées, objectif (rentabilité/sérénité)…"></textarea>
+          <textarea placeholder="Ex : nombre de couchages, emplacement, objectifs (revenus/sérénité), organisation ménage actuelle…"></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary btn-submit" aria-label="Envoyer ma demande">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <button class="btn btn-primary submit" type="submit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
             <path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/>
           </svg>
           Envoyer ma demande
         </button>
-
-        <div class="form-note">
-          En envoyant ce formulaire, vous acceptez d’être recontacté par ELOK au sujet de votre demande.
-        </div>
       </form>
     </div>
   </section>
 
-  <!-- FOOTER -->
   <footer>
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="#" class="logo"><span class="logo-mark"></span>ELOK</a>
-        <p>Votre conciergerie Airbnb de confiance à Gien et dans le Loiret. Gestion complète, revenus optimisés, sérénité assurée.</p>
-      </div>
-
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="#services">Accueil & remise des clés</a></li>
-          <li><a href="#services">Ménage professionnel</a></li>
-          <li><a href="#services">Gestion des annonces</a></li>
-          <li><a href="#services">Optimisation des revenus</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Navigation</h4>
-        <ul>
-          <li><a href="#comment">Comment ça marche</a></li>
-          <li><a href="#tarifs">Nos tarifs</a></li>
-          <li><a href="#avis">Avis clients</a></li>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="#zone">Zone couverte</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col">
-        <h4>Légal</h4>
-        <ul>
-          <li><a href="#">Mentions légales</a></li>
-          <li><a href="#">Politique de confidentialité</a></li>
-          <li><a href="#">CGV</a></li>
-          <li><a href="#">Cookies</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <span>© 2026 ELOK — Conciergerie Airbnb à Gien. Tous droits réservés.</span>
-
-      <div class="social-links">
-        <a href="#" class="social-link" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-          </svg>
-        </a>
-        <a href="#" class="social-link" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
-          </svg>
-        </a>
-        <a href="#" class="social-link" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
-          </svg>
-        </a>
-      </div>
-    </div>
+    © 2026 ELOK — Conciergerie Airbnb digitale & locale à Gien. Tous droits réservés.
   </footer>
 
-  <!-- Floating CTA -->
-  <div class="float-cta" aria-label="Accès rapide blog et devis">
-    <a href="blog.html" class="ghost">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
-        <path d="M4 19.5V4.8a2 2 0 012-2h10l4 4v12.7a2 2 0 01-2 2H6a2 2 0 01-2-2z"/>
-        <path d="M14 2.8v4a2 2 0 002 2h4"/>
-      </svg>
-      Blog
-    </a>
-    <a href="#contact" class="primary" onclick="focusFirstField()">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
-        <path d="M21 15a4 4 0 01-4 4H8l-5 3V7a4 4 0 014-4h10a4 4 0 014 4v8z"/>
-        <path d="M8 9h8M8 12h6"/>
-      </svg>
-      Devis
-    </a>
-  </div>
-
   <script>
-    // Scroll reveal
-    const reveals = document.querySelectorAll("[data-reveal]");
-    const observer = new IntersectionObserver((entries) => {
+    // Reveal on scroll
+    const els = document.querySelectorAll("[data-reveal]");
+    const obs = new IntersectionObserver((entries) => {
       entries.forEach((e, i) => {
         if (e.isIntersecting) {
           setTimeout(() => e.target.classList.add("revealed"), i * 70);
-          observer.unobserve(e.target);
+          obs.unobserve(e.target);
         }
       });
     }, { threshold: 0.12 });
-    reveals.forEach(el => observer.observe(el));
+    els.forEach(el => obs.observe(el));
 
     // Nav scroll effect
     window.addEventListener("scroll", () => {
       const n = document.querySelector("nav");
       if (!n) return;
       const scrolled = window.scrollY > 40;
-      n.style.padding = scrolled ? "0.85rem 4rem" : "1.15rem 4rem";
+      n.style.padding = scrolled ? "0.85rem 4rem" : "1.1rem 4rem";
       n.style.boxShadow = scrolled ? "0 14px 40px rgba(0,0,0,.08)" : "none";
     });
 
-    // Focus helper (boost form completion)
     function focusFirstField(){
       const el = document.getElementById("field-firstname");
-      if (el) setTimeout(() => el.focus({ preventScroll: false }), 80);
+      if (el) setTimeout(() => el.focus({ preventScroll:false }), 90);
     }
 
-    // Form submit (demo)
     function handleSubmit(e){
       e.preventDefault();
       const btn = e.target.querySelector("button[type=submit]");
       const original = btn.innerHTML;
-
       btn.disabled = true;
       btn.style.opacity = "0.95";
-      btn.innerHTML = "✓ Demande envoyée — on revient vers vous rapidement";
-
+      btn.innerHTML = "✓ Demande envoyée — réponse rapide";
       setTimeout(() => {
         btn.disabled = false;
         btn.style.opacity = "";
