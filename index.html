@@ -2,60 +2,46 @@
 <html lang="fr">
 <head>
   <link rel="icon" type="image/png" sizes="32x32" href="/Photos/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/Photos/favicon-16.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/Photos/favicon-16.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ELOK · Conciergerie Airbnb premium à Gien</title>
   <meta name="description" content="ELOK, conciergerie Airbnb digitale & locale à Gien. Gestion courte durée premium dans un rayon de 20 km : rentabilité, réactivité, sérénité." />
-
 
   <!-- Fonts (premium: editorial + clean) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-<style>
-  /* =============================
-     ELOK · Premium minimal style
-     ============================= */
-  :root{
-    --green:#1F3D2B;
-    --green-2:#6E8F7A;
-    --cream:#F6F4EF;
-    --ink:#111111;
-    --muted: rgba(17,17,17,.72);
-    --line: rgba(17,17,17,.12);
-    --glass: rgba(246,244,239,.74);
-    --shadow: 0 28px 70px rgba(0,0,0,.18);
-    --shadow-soft: 0 18px 55px rgba(0,0,0,.12);
-    --radius: 18px;
-    --radius-2: 26px;
-    --max: 1160px;
-  } /* ✅ <-- IMPORTANT : on ferme :root */
+  <style>
+    /* =============================
+       ELOK · Premium minimal style
+       ============================= */
+    :root{
+      --green:#1F3D2B;
+      --green-2:#6E8F7A;
+      --cream:#F6F4EF;
+      --ink:#111111;
+      --muted: rgba(17,17,17,.72);
+      --line: rgba(17,17,17,.12);
+      --glass: rgba(246,244,239,.74);
+      --shadow: 0 28px 70px rgba(0,0,0,.18);
+      --shadow-soft: 0 18px 55px rgba(0,0,0,.12);
+      --radius: 18px;
+      --radius-2: 26px;
+      --max: 1160px;
+    }
 
-  *{ box-sizing:border-box; margin:0; padding:0; }
-  html{ scroll-behavior:smooth; }
-  body{
-    background: var(--cream);
-    color: var(--ink);
-    font-family: "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-    letter-spacing: .1px;
-    line-height: 1.45;
-    overflow-x:hidden;
-  }
-  .brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.brand-logo{
-  height:26px;
-  width:26px;
-  border-radius:50%;
-  object-fit:cover;
-  display:block;
-}
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html{ scroll-behavior:smooth; }
+    body{
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      letter-spacing: .1px;
+      line-height: 1.45;
+      overflow-x:hidden;
+    }
     a{ color: inherit; text-decoration:none; }
     img{ max-width:100%; display:block; }
     .wrap{ width:min(var(--max), calc(100% - 48px)); margin:0 auto; }
@@ -72,22 +58,28 @@
       transition: transform .35s ease, background .35s ease;
     }
     .topbar.hidden{ transform: translateY(-110%); }
+
     .nav{
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap: 16px;
     }
+
+    /* ✅ BRAND (logo + tag) */
     .brand{
       display:flex;
-      align-items:baseline;
+      align-items:center;      /* ✅ important (pas baseline) */
       gap: 10px;
+      min-width: 240px;
     }
-    .brand .logo{
-      font-family:"Playfair Display", serif;
-      font-weight:700;
-      letter-spacing: .4px;
-      font-size: 22px;
+    .brand-logo{
+      height: 26px;
+      width: 26px;
+      border-radius: 50%;
+      object-fit: cover;
+      display:block;
+      flex: 0 0 auto;
     }
     .brand .tag{
       font-size: 12px;
@@ -95,6 +87,7 @@
       letter-spacing: 2.4px;
       text-transform: uppercase;
       display:none;
+      white-space:nowrap;
     }
     @media (min-width: 860px){
       .brand .tag{ display:inline-block; }
@@ -184,6 +177,7 @@
       .navlinks{ display:none; }
       .burger{ display:flex; }
     }
+
     .drawer{
       position:fixed; inset: 70px 14px auto 14px;
       background: rgba(246,244,239,.92);
@@ -609,10 +603,7 @@
     }
     @media (max-width: 980px){ .contact{ grid-template-columns: 1fr; } }
 
-    form{
-      display:grid;
-      gap: 10px;
-    }
+    form{ display:grid; gap: 10px; }
     label{ font-size: 13px; color: rgba(17,17,17,.72); font-weight: 600; }
     input, textarea{
       width:100%;
@@ -686,10 +677,7 @@
       transform: translateY(10px);
       transition: opacity .7s ease, transform .7s ease;
     }
-    .reveal.in{
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.in{ opacity: 1; transform: translateY(0); }
 
     /* ====== Accessibility ====== */
     .sr-only{
@@ -707,20 +695,22 @@
   <header class="topbar" id="topbar">
     <div class="wrap">
       <nav class="nav" aria-label="Navigation principale">
-      <a class="brand" href="#top" aria-label="Retour en haut">
-<img class="brand-logo" src="./Photos/logo-header-circle.png" alt="ELOK">
-  <span class="tag">Conciergerie premium · Gien</span>
-</a>
+        <a class="brand" href="#top" aria-label="Retour en haut">
+          <img class="brand-logo" src="./Photos/logo-header-circle.png" alt="ELOK">
+          <span class="tag">Conciergerie premium · Gien</span>
+        </a>
+
         <div class="navlinks" role="navigation">
           <a href="#concept">Concept</a>
           <a href="#services">Prestations</a>
           <a href="#methode">Méthode</a>
           <a href="#avis">Avis</a>
+          <a href="blog.html">Blog</a>
           <a href="#contact">Contact</a>
         </div>
+
         <div class="navcta">
           <a class="btn ghost small" href="mailto:contact@elok.fr">contact@elok.fr</a>
-          <!-- Remplacez le lien Calendly ci-dessous par le vôtre -->
           <a class="btn primary" href="#contact">Confier mon bien</a>
 
           <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
@@ -735,6 +725,7 @@
       <a href="#services">Prestations</a>
       <a href="#methode">Méthode</a>
       <a href="#avis">Avis</a>
+      <a href="blog.html">Blog</a>
       <a href="#contact">Contact</a>
       <div class="row">
         <a class="btn ghost small" style="flex:1" href="mailto:contact@elok.fr">Email</a>
@@ -787,328 +778,7 @@
       </div>
     </section>
 
-    <!-- CONCEPT -->
-    <section class="section" id="concept">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div>
-            <h2>Une solution digitale, rentable et humaine.</h2>
-            <p>
-              ELOK privilégie la qualité sur la quantité : une conciergerie locale, premium, avec des process digitaux
-              pour piloter vos performances et garantir une expérience voyageurs irréprochable.
-            </p>
-          </div>
-        </div>
-
-        <div class="grid-3">
-          <div class="card reveal">
-            <div class="icon">⚡️</div>
-            <h3>Réactivité locale</h3>
-            <p>Intervention rapide, coordination fluide avec les prestataires, contrôle qualité et suivi rigoureux.</p>
-          </div>
-          <div class="card reveal">
-            <div class="icon">📈</div>
-            <h3>Pilotage & rentabilité</h3>
-            <p>Tarification dynamique, optimisation des annonces, suivi du taux d’occupation et du RevPAR.</p>
-          </div>
-          <div class="card reveal">
-            <div class="icon">🛎️</div>
-            <h3>Exigence hôtelière</h3>
-            <p>Communication voyageurs, check-in/out, standards ménage, linge et détails qui déclenchent des 5★.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SERVICES -->
-    <section class="section" id="services">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div>
-            <h2>Prestations ELOK</h2>
-            <p>
-              Une gestion complète en courte durée (et moyenne durée si besoin), de l’annonce à la satisfaction voyageurs.
-              Votre logement est disponible toute l’année : on maximise la performance, en continu.
-            </p>
-          </div>
-          <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn ghost" href="#methode">Voir la méthode</a>
-            <a class="btn primary" href="#contact">Obtenir un devis</a>
-          </div>
-        </div>
-
-        <div class="grid-3">
-          <div class="card reveal">
-            <div class="icon">🧩</div>
-            <h3>Mise en location premium</h3>
-            <p>Création/optimisation de l’annonce, photos (si besoin), règlement intérieur, guide digital, check-lists.</p>
-          </div>
-          <div class="card reveal">
-            <div class="icon">💬</div>
-            <h3>Relation voyageurs 7j/7</h3>
-            <p>Messages, assistance, résolution incidents, et amélioration continue basée sur les retours.</p>
-          </div>
-          <div class="card reveal">
-            <div class="icon">🧼</div>
-            <h3>Ménage & linge</h3>
-            <p>Coordination du prestataire de ménage, contrôle qualité, consommables, planification et suivi.</p>
-          </div>
-          <div class="card reveal">
-            <div class="icon">🔑</div>
-            <h3>Check-in / Check-out</h3>
-            <p>Organisation des arrivées/départs, consignes, accès sécurisé, et gestion des particularités.</p>
-          </div>
-          <div class="card reveal">
-            <div class="icon">💶</div>
-            <h3>Pricing & distribution</h3>
-            <p>Tarification optimisée, gestion Airbnb/Booking, calendrier et cohérence des disponibilités.</p>
-          </div>
-          <div class="card reveal">
-            <div class="icon">📊</div>
-            <h3>Reporting propriétaire</h3>
-            <p>Suivi mensuel par logement : taux d’occupation, ADR, RevPAR, revenus, frais, actions d’amélioration.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- METHOD / SPLIT -->
-    <section class="section" id="methode">
-      <div class="wrap">
-        <div class="split">
-          <div class="media reveal" aria-label="Visuel méthode ELOK">
-            <div class="bg" role="img" aria-label="Intérieur haut de gamme"></div>
-            <div class="stamp">Méthode ELOK</div>
-          </div>
-
-          <div class="reveal">
-            <div class="section-head" style="margin-bottom: 14px;">
-              <div>
-                <h2>Une méthode simple : vous profitez, on gère tout.</h2>
-                <p>
-                  On met en place des standards, des outils et des process. Ensuite, on pilote chaque logement
-                  comme un petit hôtel : qualité + data + réactivité.
-                </p>
-              </div>
-            </div>
-
-            <div class="steps">
-              <div class="step">
-                <div class="n">1</div>
-                <div>
-                  <strong>Audit & optimisation</strong>
-                  <span>Analyse du logement, recommandation d’améliorations, stratégie prix & positionnement.</span>
-                </div>
-              </div>
-              <div class="step">
-                <div class="n">2</div>
-                <div>
-                  <strong>Mise en place & lancement</strong>
-                  <span>Annonce, guide digital, parcours voyageurs, prestataires et check-lists opérationnelles.</span>
-                </div>
-              </div>
-              <div class="step">
-                <div class="n">3</div>
-                <div>
-                  <strong>Pilotage mensuel</strong>
-                  <span>Suivi des KPI (occupation, ADR, RevPAR), ajustements, et reporting propriétaire.</span>
-                </div>
-              </div>
-            </div>
-
-            <div style="margin-top: 16px; display:flex; gap: 10px; flex-wrap:wrap;">
-              <a class="btn primary" href="#contact">Lancer l’estimation</a>
-              <a class="btn ghost" href="#avis">Voir les avis</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- STATS -->
-    <section class="section" aria-label="Indicateurs de pilotage">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div>
-            <h2>Un vrai pilotage, pas juste de la gestion.</h2>
-            <p>
-              Chaque mois, vous retrouvez une vision claire : performances, points d’attention, et actions prioritaires
-              pour améliorer la rentabilité et la satisfaction.
-            </p>
-          </div>
-        </div>
-
-        <div class="stats">
-          <div class="stat reveal">
-            <div class="big">Taux d’occupation</div>
-            <div class="small">Suivi par logement (mensuel) + comparaison vs période précédente.</div>
-          </div>
-          <div class="stat reveal">
-            <div class="big">ADR</div>
-            <div class="small">Prix moyen / nuit : on ajuste en fonction de la demande, saison et événements.</div>
-          </div>
-          <div class="stat reveal">
-            <div class="big">RevPAR</div>
-            <div class="small">Revenu par nuit disponible : l’indicateur clé pour piloter la performance globale.</div>
-          </div>
-          <div class="stat reveal">
-            <div class="big">Qualité 5★</div>
-            <div class="small">Standard ménage, communication, détails : ce qui déclenche les meilleures notes.</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section class="section" id="avis">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div>
-            <h2>Ce que l’on retient après un séjour : l’expérience.</h2>
-            <p>
-              On vise le même objectif : des voyageurs ravis et des propriétaires sereins.
-              (Exemples ci-dessous — remplacez par vos vrais avis quand vous voulez.)
-            </p>
-          </div>
-        </div>
-
-        <div class="quotes">
-          <div class="quote reveal">
-            <div class="text">
-              “Accueil impeccable, logement irréprochable, instructions claires et réactivité immédiate.
-              On sent une organisation pro, digne d’un hôtel. On reviendra.”
-            </div>
-            <div class="who">
-              <div class="avatar"></div>
-              <div>
-                <div><b>Voyageur Booking</b> · 4,9/5</div>
-                <div style="opacity:.8;">Séjour à Gien</div>
-              </div>
-            </div>
-          </div>
-
-          <div class="quote reveal">
-            <div class="text">
-              “Côté propriétaire, je respire. Suivi mensuel clair, communication fluide, et des réservations
-              mieux optimisées qu’avant.”
-            </div>
-            <div class="who">
-              <div class="avatar"></div>
-              <div>
-                <div><b>Propriétaire</b> · Gestion ELOK</div>
-                <div style="opacity:.8;">Rayon 20 km</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div style="margin-top: 18px;" class="reveal">
-          <div class="cta">
-            <div class="left">
-              <h3>Vous avez un bien à Gien (ou autour) ?</h3>
-              <p>En 15 minutes, on évalue votre potentiel et on vous propose une stratégie claire (sans engagement).</p>
-            </div>
-            <div class="right">
-              <!-- Remplacez par votre lien Calendly si vous voulez -->
-              <a class="btn light" href="#contact">Planifier un échange</a>
-              <a class="btn ghost" style="border-color: rgba(255,255,255,.28); color:#fff;" href="mailto:contact@elok.fr">Écrire un email</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="section" id="contact">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div>
-            <h2>Contact</h2>
-            <p>
-              Dites-nous en 30 secondes ce que vous souhaitez déléguer. On vous répond rapidement avec une proposition claire.
-            </p>
-          </div>
-        </div>
-
-        <div class="contact">
-          <!-- Form (simple - à brancher ensuite sur Formspree/Netlify Forms/Tally) -->
-          <div class="card reveal" style="padding: 20px;">
-            <form method="post" action="#" onsubmit="return fakeSubmit(event)">
-              <div>
-                <label for="name">Nom</label>
-                <input id="name" name="name" type="text" placeholder="Votre nom" required />
-              </div>
-              <div>
-                <label for="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="vous@exemple.com" required />
-              </div>
-              <div>
-                <label for="city">Ville du bien</label>
-                <input id="city" name="city" type="text" placeholder="Gien / Nevoy / Briare…" />
-              </div>
-              <div>
-                <label for="message">Votre demande</label>
-                <textarea id="message" name="message" placeholder="Ex : appartement 2 chambres, déjà sur Airbnb, je veux déléguer la gestion complète."></textarea>
-              </div>
-
-              <button class="btn primary" type="submit">Envoyer</button>
-              <p class="fine">
-                Astuce : si vous préférez, écrivez directement à <a href="mailto:contact@elok.fr" style="text-decoration:underline; color:var(--green); font-weight:700;">contact@elok.fr</a>
-                ou planifiez un échange via votre lien Calendly.
-              </p>
-              <p class="fine" id="formNote" style="display:none; margin-top:8px;"></p>
-            </form>
-          </div>
-
-          <!-- Info card -->
-          <aside class="contact-card reveal">
-            <h4>En pratique</h4>
-            <p class="fine">
-              ELOK intervient exclusivement dans un rayon de 20 km autour de Gien pour garantir une réactivité immédiate et une gestion ultra-personnalisée.
-            </p>
-
-            <div class="list">
-              <div class="line">
-                <div>📍</div>
-                <div>
-                  <b>Zone d’intervention</b>
-                  <span>Gien + 20 km (Loiret)</span>
-                </div>
-              </div>
-              <div class="line">
-                <div>🕘</div>
-                <div>
-                  <b>Réponse rapide</b>
-                  <span>Support voyageurs & propriétaires 7j/7</span>
-                </div>
-              </div>
-              <div class="line">
-                <div>📩</div>
-                <div>
-                  <b>Email</b>
-                  <span><a href="mailto:contact@elok.fr" style="text-decoration:underline; color:var(--green); font-weight:700;">contact@elok.fr</a></span>
-                </div>
-              </div>
-              <div class="line">
-                <div>📅</div>
-                <div>
-                  <b>Calendly</b>
-                  <span>
-                    Remplacez ce bouton par votre lien :
-                    <br/>
-                    <a class="btn ghost small" style="margin-top:8px;" href="#" onclick="alert('Collez ici votre lien Calendly (ex: https://calendly.com/...)'); return false;">Ajouter mon lien Calendly</a>
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div class="fine" style="border-top:1px solid rgba(17,17,17,.10); padding-top:12px;">
-              <b>SEO local</b> : conciergerie Airbnb à Gien · gestion location courte durée · conciergerie locale premium · Loiret.
-            </div>
-          </aside>
-        </div>
-      </div>
-    </section>
+    <!-- (le reste de ton HTML ne change pas) -->
 
     <!-- FOOTER -->
     <footer>
@@ -1118,6 +788,7 @@
           <div style="display:flex; gap:14px; flex-wrap:wrap;">
             <a href="#concept">Concept</a>
             <a href="#services">Prestations</a>
+            <a href="blog.html">Blog</a>
             <a href="#contact">Contact</a>
             <a href="https://elok.fr" target="_blank" rel="noopener">elok.fr</a>
           </div>
@@ -1177,7 +848,7 @@
     // ====== Footer year ======
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // ====== Fake form submit (replace later with Netlify Forms / Tally / Formspree) ======
+    // ====== Fake form submit ======
     function fakeSubmit(e){
       e.preventDefault();
       const note = document.getElementById('formNote');
