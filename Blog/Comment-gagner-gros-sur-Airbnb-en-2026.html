@@ -1,1 +1,203 @@
-xx
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Comment gagner gros sur Airbnb en 2026 · ELOK</title>
+  <meta name="description" content="Les leviers qui font vraiment la différence en 2026 : pricing dynamique, algorithme, photos, automatisation et expérience client." />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/Photos/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/Photos/favicon-16.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --green:#1F3D2B;
+      --cream:#F6F4EF;
+      --ink:#111111;
+      --muted: rgba(17,17,17,.72);
+      --shadow-soft: 0 18px 55px rgba(0,0,0,.12);
+      --radius-2: 26px;
+      --max: 760px;
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    body{
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.6;
+      overflow-x:hidden;
+    }
+    a{ color: inherit; text-decoration:none; }
+    .wrap{ width:min(var(--max), calc(100% - 48px)); margin:0 auto; }
+
+    /* Topbar */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      padding: 14px 0;
+      background: rgba(246,244,239,.72);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(17,17,17,.08);
+    }
+    .nav{ display:flex; align-items:center; justify-content:space-between; gap:16px; max-width:1160px; margin:0 auto; padding:0 24px; }
+    .brand{ display:flex; align-items:center; gap:10px; }
+    .brand-logo{ height:26px; width:26px; border-radius:50%; object-fit:cover; }
+    .tag{ font-size:12px; color:var(--muted); letter-spacing:2.4px; text-transform:uppercase; display:none; }
+    @media (min-width: 860px){ .tag{ display:inline-block; } }
+    .navlinks{ display:flex; gap:22px; align-items:center; font-size:14px; color: rgba(17,17,17,.86); }
+    .navlinks a{ padding: 10px 6px; border-radius: 12px; transition: background .25s ease, color .25s ease; }
+    .navlinks a:hover{ background: rgba(31,61,43,.08); color: var(--green); }
+    .btn{ display:inline-flex; align-items:center; justify-content:center; padding: 12px 18px; border-radius:999px; border: 1px solid rgba(31,61,43,.18); font-weight:600; font-size:14px; white-space:nowrap; }
+    .btn.primary{ background: var(--green); color:#fff; border-color: rgba(31,61,43,.55); }
+
+    /* Article */
+    .article{ padding: 56px 0 84px; }
+    .back{ font-size:14px; color: var(--green); font-weight:600; margin-bottom:28px; display:inline-flex; align-items:center; gap:6px; }
+    .back:hover{ text-decoration:underline; }
+    .meta{ font-size:12px; letter-spacing:2px; text-transform:uppercase; color: var(--muted); margin-bottom:14px; }
+    h1{
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      font-size: clamp(28px, 4vw, 46px);
+      line-height:1.1;
+      margin-bottom:28px;
+    }
+    .intro{ font-size:17px; color: var(--muted); margin-bottom:40px; line-height:1.65; border-left:3px solid var(--green); padding-left:16px; }
+
+    h2{
+      font-family:"Playfair Display", serif;
+      font-size: clamp(20px, 2.5vw, 26px);
+      margin: 42px 0 14px;
+      color: var(--green);
+    }
+    p{ margin-bottom:16px; font-size:16px; line-height:1.7; }
+    ul{ margin: 10px 0 20px 20px; }
+    ul li{ margin-bottom:8px; font-size:16px; line-height:1.6; }
+
+    .highlight{
+      background: rgba(31,61,43,.06);
+      border-left: 4px solid var(--green);
+      border-radius: 0 12px 12px 0;
+      padding: 16px 20px;
+      margin: 24px 0;
+      font-weight:600;
+      font-size:15px;
+      color: var(--green);
+    }
+
+    .cta-box{
+      margin-top:56px;
+      background: var(--green);
+      color:#fff;
+      border-radius: var(--radius-2);
+      padding: 36px 32px;
+      text-align:center;
+    }
+    .cta-box h3{ font-family:"Playfair Display", serif; font-size:22px; margin-bottom:10px; }
+    .cta-box p{ color:rgba(255,255,255,.82); margin-bottom:20px; }
+    .cta-box a{ background:#fff; color:var(--green); font-weight:700; padding:12px 24px; border-radius:999px; font-size:15px; }
+
+    footer{ padding: 42px 0; border-top: 1px solid rgba(17,17,17,.08); color: rgba(17,17,17,.72); font-size:13px; }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="brand" href="../index.html" aria-label="Retour accueil">
+        <img class="brand-logo" src="../Photos/logo-header-circle.png" alt="ELOK">
+        <span class="tag">Conciergerie premium · Gien</span>
+      </a>
+      <div class="navlinks">
+        <a href="../index.html#concept">Concept</a>
+        <a href="../index.html#services">Prestations</a>
+        <a href="../index.html#methode">Méthode</a>
+        <a href="../index.html#avis">Avis</a>
+        <a href="../blog.html" style="color:var(--green); font-weight:800;">Blog</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+      <div style="display:flex; gap:10px; align-items:center;">
+        <a class="btn" href="mailto:contact@elok.fr">contact@elok.fr</a>
+        <a class="btn primary" href="../index.html#contact">Confier mon bien</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <article class="article">
+      <div class="wrap">
+
+        <a class="back" href="../blog.html">← Retour au blog</a>
+
+        <div class="meta">Rentabilité · 2026</div>
+        <h1>Comment gagner gros sur Airbnb en 2026</h1>
+
+        <p class="intro">
+          Le marché Airbnb en 2026 n'a plus rien à voir avec celui d'il y a quelques années. La concurrence est plus forte, les voyageurs plus exigeants, et l'algorithme beaucoup plus sophistiqué. Réussir ne repose plus sur la chance : c'est un business piloté par la data, l'expérience client et la stratégie.
+        </p>
+
+        <h2>1. Airbnb est devenu un vrai business</h2>
+        <p>La première idée forte est simple : ceux qui gagnent vraiment de l'argent traitent leur location comme une entreprise.</p>
+        <ul>
+          <li>Analyser le marché local</li>
+          <li>Suivre les performances</li>
+          <li>Ajuster les prix en continu</li>
+          <li>Optimiser l'expérience client</li>
+        </ul>
+        <div class="highlight">👉 Le succès vient de la stratégie, pas du logement seul.</div>
+
+        <h2>2. Le levier n°1 : le pricing dynamique</h2>
+        <p>Les hôtes utilisant des tarifs dynamiques peuvent augmenter leurs revenus de 20 à 40 % par rapport à des prix fixes. Pendant les pics de demande, les tarifs peuvent atteindre 2 à 3× le prix normal.</p>
+        <p>Le principe : adapter le tarif chaque jour selon la saisonnalité, les événements locaux, les prix concurrents et l'anticipation de réservation. C'est exactement le modèle des hôtels professionnels (yield management).</p>
+
+        <h2>3. L'algorithme Airbnb décide de votre visibilité</h2>
+        <p>En 2026, votre position dans les résultats dépend d'un score de qualité interne. Parmi les critères majeurs :</p>
+        <ul>
+          <li>Taux de réponse rapide (> 90 %)</li>
+          <li>Zéro annulation hôte</li>
+          <li>Cohérence photos ↔ équipements</li>
+          <li>Notes équilibrées (pas seulement la moyenne globale)</li>
+        </ul>
+        <div class="highlight">👉 Ce n'est pas le meilleur logement qui gagne. C'est le logement le mieux optimisé pour l'algorithme.</div>
+
+        <h2>4. Les photos vendent plus que le prix</h2>
+        <p>Les annonces performantes ne montrent pas seulement un espace : elles racontent une expérience. Photos lifestyle, photos saisonnières, mise en scène émotionnelle — ces visuels augmentent le taux de réservation car ils permettent au client de se projeter.</p>
+
+        <h2>5. Les meilleurs hôtes automatisent tout</h2>
+        <p>Le temps est l'ennemi de la rentabilité. Les hôtes performants automatisent : messages voyageurs, synchronisation des calendriers, gestion multi-plateformes, planning ménage. L'automatisation réduit les erreurs et améliore l'expérience client, ce qui booste les avis et les réservations.</p>
+
+        <h2>6. L'expérience client, le vrai facteur différenciant</h2>
+        <p>Les voyageurs ne paient plus seulement pour dormir. Ils paient pour une expérience. Les petits détails qui changent tout : panier d'accueil, guide local personnalisé, communication proactive, services additionnels payants. Ces extras augmentent à la fois la satisfaction et les revenus.</p>
+
+        <h2>7. Les erreurs qui empêchent de gagner gros</h2>
+        <ul>
+          <li>Prix fixes toute l'année</li>
+          <li>Mauvaise description et photos médiocres</li>
+          <li>Absence de stratégie marketing</li>
+          <li>Mauvaise analyse de marché</li>
+        </ul>
+        <p>Beaucoup d'hôtes laissent 20 à 30 % de revenus potentiels simplement en ne suivant pas leurs données.</p>
+
+        <h2>Conclusion</h2>
+        <p>Gagner gros sur Airbnb en 2026 dépend d'un système optimisé autour de 5 piliers : pricing dynamique, visibilité algorithmique, photos et storytelling, automatisation, expérience client premium. Ceux qui maîtrisent ces leviers passent du statut d'hôte occasionnel à celui d'exploitant rentable.</p>
+
+        <div class="cta-box">
+          <h3>Vous êtes propriétaire dans le Giennois ?</h3>
+          <p>ELOK vous accompagne pour optimiser la rentabilité de votre location courte durée, améliorer votre visibilité Airbnb et maximiser vos revenus en toute sérénité.</p>
+          <a href="../index.html#contact">Confier mon bien →</a>
+        </div>
+
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <script>document.write(new Date().getFullYear())</script> ELOK · Blog
+    </div>
+  </footer>
+</body>
+</html>
