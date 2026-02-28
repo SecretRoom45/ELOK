@@ -1199,16 +1199,7 @@
     // ====== Footer year ======
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // ====== Fake form submit ======
-    function fakeSubmit(e){
-      e.preventDefault();
-      const note = document.getElementById('formNote');
-      note.style.display = 'block';
-      note.textContent = "Formulaire en mode démo : branchez-le sur Netlify Forms / Tally / Formspree pour recevoir les demandes. En attendant, écrivez à contact@elok.fr.";
-      note.style.color = "rgba(17,17,17,.78)";
-      return false;
-    }
-    window.fakeSubmit = fakeSubmit;
+      window.fakeSubmit = fakeSubmit;
   </script>
 </body>
 </html>
