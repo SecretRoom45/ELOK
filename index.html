@@ -1,1181 +1,1179 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Conciergerie Airbnb · ELOK (template)</title>
-  <meta name="description" content="Conciergerie Airbnb clé en main : courte & moyenne durée. Préparation, publication, coordination de chaque séjour. Suivi en temps réel." />
-  <link rel="icon" href="favicon.png" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ELOK · Conciergerie Airbnb premium à Gien</title>
+  <meta name="description" content="ELOK, conciergerie Airbnb digitale & locale à Gien. Gestion courte durée premium dans un rayon de 20 km : rentabilité, réactivité, sérénité." />
+  <link rel="icon" type="image/png" href="/favicon.png">
 
-  <!-- Fonts -->
+  <!-- Fonts (premium: editorial + clean) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    /* =========================
-       RESET + THEME
-    ========================== */
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0;
-      font-family: "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: #141414;
-      background: radial-gradient(1200px 600px at 10% 0%, rgba(41,120,85,.08), transparent 55%),
-                  radial-gradient(1000px 500px at 90% 10%, rgba(0,0,0,.06), transparent 55%),
-                  #fbfbf9;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
+    /* =============================
+       ELOK · Premium minimal style
+       ============================= */
     :root{
-      --bg: #fbfbf9;
-      --card: rgba(255,255,255,.75);
-      --card2: rgba(255,255,255,.55);
-      --border: rgba(0,0,0,.10);
-      --shadow: 0 18px 60px rgba(0,0,0,.10);
-      --shadow2: 0 10px 30px rgba(0,0,0,.08);
-      --text: #141414;
-      --muted: rgba(20,20,20,.70);
-
-      /* Accent (vert conciergerie) */
-      --accent: #2b8a63;
-      --accent2: #1e6a4b;
-      --accentSoft: rgba(43,138,99,.16);
-
+      --green:#1F3D2B;
+      --green-2:#6E8F7A;
+      --cream:#F6F4EF;
+      --ink:#111111;
+      --muted: rgba(17,17,17,.72);
+      --line: rgba(17,17,17,.12);
+      --glass: rgba(246,244,239,.74);
+      --shadow: 0 28px 70px rgba(0,0,0,.18);
+      --shadow-soft: 0 18px 55px rgba(0,0,0,.12);
       --radius: 18px;
-      --radius2: 26px;
-      --max: 1120px;
+      --radius-2: 26px;
+      --max: 1160px;
     }
 
-    .container { width: min(var(--max), calc(100% - 36px)); margin: 0 auto; }
-    .pill {
-      display:inline-flex; align-items:center; gap:10px;
-      border: 1px solid rgba(43,138,99,.35);
-      background: rgba(255,255,255,.65);
-      border-radius: 999px;
-      padding: 8px 14px;
-      font-size: 12px;
-      letter-spacing: .22em;
-      text-transform: uppercase;
-      color: var(--accent2);
-      backdrop-filter: blur(10px);
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html{ scroll-behavior:smooth; }
+    body{
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      letter-spacing: .1px;
+      line-height: 1.45;
+      overflow-x:hidden;
     }
-    .btn {
-      display:inline-flex; align-items:center; justify-content:center;
-      padding: 12px 16px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.85);
-      box-shadow: var(--shadow2);
-      font-weight: 600;
-      transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
-      cursor:pointer;
-    }
-    .btn:hover { transform: translateY(-1px); box-shadow: 0 16px 40px rgba(0,0,0,.12); }
-    .btn.primary{
-      border-color: rgba(43,138,99,.35);
-      background: linear-gradient(180deg, rgba(43,138,99,.98), rgba(30,106,75,.98));
-      color: #fff;
-    }
-    .btn.primary:hover { transform: translateY(-1px); }
-    .btn.ghost{
-      background: rgba(255,255,255,.55);
-    }
-    .kpi {
-      display:flex; gap:14px; flex-wrap:wrap;
-      margin-top: 14px;
-      color: var(--muted);
-      font-size: 13px;
-    }
-    .kpi span{
-      display:inline-flex; align-items:center; gap:8px;
-      padding: 8px 10px; border-radius: 999px;
-      background: rgba(255,255,255,.60);
-      border: 1px solid rgba(0,0,0,.08);
-      backdrop-filter: blur(10px);
-    }
+    a{ color: inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
+    .wrap{ width:min(var(--max), calc(100% - 48px)); margin:0 auto; }
 
-    /* =========================
-       NAV
-    ========================== */
-    header{
-      position: sticky; top: 0; z-index: 50;
-      backdrop-filter: blur(14px);
-      background: rgba(251,251,249,.72);
-      border-bottom: 1px solid rgba(0,0,0,.06);
-    }
-    .nav{
-      display:flex; align-items:center; justify-content:space-between;
+    /* ====== Topbar ====== */
+    .topbar{
+      position:fixed;
+      inset: 0 0 auto 0;
+      z-index: 50;
       padding: 14px 0;
-      gap: 14px;
+      background: rgba(246,244,239,.72);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(17,17,17,.08);
+      transition: transform .35s ease, background .35s ease;
+    }
+    .topbar.hidden{ transform: translateY(-110%); }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 16px;
     }
     .brand{
-      display:flex; align-items:center; gap:10px;
-      font-weight: 800;
-      letter-spacing: .02em;
+      display:flex;
+      align-items:baseline;
+      gap: 10px;
     }
-    .logo{
-      width: 36px; height: 36px;
+    .brand .logo{
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      letter-spacing: .4px;
+      font-size: 22px;
+    }
+    .brand .tag{
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 2.4px;
+      text-transform: uppercase;
+      display:none;
+    }
+    @media (min-width: 860px){
+      .brand .tag{ display:inline-block; }
+    }
+
+    .navlinks{
+      display:flex;
+      gap: 22px;
+      align-items:center;
+      font-size: 14px;
+      color: rgba(17,17,17,.86);
+    }
+    .navlinks a{
+      padding: 10px 6px;
       border-radius: 12px;
-      background: radial-gradient(16px 16px at 30% 25%, rgba(255,255,255,.55), transparent 55%),
-                  linear-gradient(180deg, rgba(43,138,99,1), rgba(30,106,75,1));
-      box-shadow: 0 12px 30px rgba(43,138,99,.25);
-      border: 1px solid rgba(255,255,255,.40);
+      transition: background .25s ease, color .25s ease;
     }
-    nav ul{
-      list-style:none; display:flex; gap: 18px;
-      padding:0; margin:0;
-      color: rgba(20,20,20,.78);
+    .navlinks a:hover{ background: rgba(31,61,43,.08); color: var(--green); }
+
+    .navcta{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(31,61,43,.18);
       font-weight: 600;
       font-size: 14px;
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease, border-color .25s ease;
+      user-select:none;
+      cursor:pointer;
+      white-space:nowrap;
     }
-    nav a{ padding: 8px 10px; border-radius: 10px; }
-    nav a:hover{ background: rgba(43,138,99,.08); color: var(--accent2); }
-    .nav-cta{ display:flex; gap: 10px; align-items:center; }
-
-    .burger{ display:none; }
-    @media (max-width: 920px){
-      nav ul{ display:none; }
-      .burger{
-        display:inline-flex;
-        padding: 10px 12px;
-        border-radius: 12px;
-        border: 1px solid rgba(0,0,0,.10);
-        background: rgba(255,255,255,.75);
-      }
+    .btn.primary{
+      background: var(--green);
+      color: #fff;
+      border-color: rgba(31,61,43,.55);
+      box-shadow: 0 18px 45px rgba(31,61,43,.22);
     }
+    .btn.primary:hover{
+      background: #183222;
+      transform: translateY(-1px);
+      box-shadow: 0 22px 55px rgba(31,61,43,.26);
+    }
+    .btn.ghost{
+      background: transparent;
+      color: var(--green);
+    }
+    .btn.ghost:hover{
+      background: rgba(31,61,43,.08);
+      transform: translateY(-1px);
+    }
+    .btn.small{ padding: 10px 14px; font-size: 13px; }
 
-    /* =========================
-       HERO
-    ========================== */
+    /* Mobile nav */
+    .burger{
+      width: 44px; height: 44px;
+      border-radius: 999px;
+      border: 1px solid rgba(17,17,17,.12);
+      background: rgba(246,244,239,.9);
+      display:flex; align-items:center; justify-content:center;
+      box-shadow: 0 10px 22px rgba(0,0,0,.08);
+      cursor:pointer;
+      transition: transform .25s ease, background .25s ease;
+      display:none;
+    }
+    .burger:hover{ transform: translateY(-1px); background: #fff; }
+    .burger span{
+      width: 18px; height: 2px; background: rgba(17,17,17,.76);
+      position:relative; display:block; border-radius: 2px;
+    }
+    .burger span:before, .burger span:after{
+      content:""; position:absolute; left:0; width:18px; height:2px;
+      background: rgba(17,17,17,.76); border-radius:2px;
+    }
+    .burger span:before{ top:-6px; }
+    .burger span:after{ top:6px; }
+
+    @media (max-width: 860px){
+      .navlinks{ display:none; }
+      .burger{ display:flex; }
+    }
+    .drawer{
+      position:fixed; inset: 70px 14px auto 14px;
+      background: rgba(246,244,239,.92);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(17,17,17,.10);
+      border-radius: 18px;
+      box-shadow: var(--shadow-soft);
+      padding: 14px;
+      z-index: 60;
+      display:none;
+      transform-origin: top right;
+      animation: pop .25s ease forwards;
+    }
+    @keyframes pop{ from{ transform: scale(.98); opacity:0; } to{ transform: scale(1); opacity:1; } }
+    .drawer a{
+      display:block;
+      padding: 12px 12px;
+      border-radius: 14px;
+      color: rgba(17,17,17,.88);
+      font-weight: 600;
+    }
+    .drawer a:hover{ background: rgba(31,61,43,.08); color: var(--green); }
+    .drawer .row{ display:flex; gap: 10px; margin-top: 10px; }
+
+    /* ====== Hero ====== */
     .hero{
-      padding: 54px 0 30px;
+      min-height: 100vh;
+      padding-top: 92px;
+      display:flex;
+      align-items:stretch;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(1200px 600px at 20% 10%, rgba(31,61,43,.18), transparent 60%),
+        radial-gradient(1000px 500px at 80% 30%, rgba(110,143,122,.18), transparent 55%),
+        linear-gradient(180deg, rgba(246,244,239,1) 0%, rgba(246,244,239,.92) 35%, rgba(246,244,239,1) 100%);
+      pointer-events:none;
     }
     .hero-grid{
+      position:relative;
       display:grid;
-      grid-template-columns: 1.1fr .9fr;
       gap: 26px;
-      align-items: stretch;
+      align-items:center;
+      grid-template-columns: 1.1fr .9fr;
+      padding: 60px 0 54px;
     }
-    .h1{
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; padding: 38px 0 36px; }
+    }
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      font-size: 12px;
+      letter-spacing: 2.6px;
+      text-transform: uppercase;
+      color: rgba(17,17,17,.70);
+      margin-bottom: 14px;
+    }
+    .dot{
+      width: 8px; height: 8px; border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 0 6px rgba(31,61,43,.10);
+    }
+
+    h1{
       font-family: "Playfair Display", serif;
-      font-size: clamp(32px, 4vw, 54px);
-      line-height: 1.06;
-      margin: 14px 0 12px;
-      letter-spacing: -.02em;
+      font-weight: 700;
+      font-size: clamp(38px, 4.4vw, 64px);
+      line-height: 1.04;
+      letter-spacing: .2px;
+      margin-bottom: 14px;
     }
     .lead{
-      font-size: 16px;
-      line-height: 1.6;
-      color: var(--muted);
-      max-width: 58ch;
+      color: rgba(17,17,17,.78);
+      font-size: clamp(16px, 1.35vw, 20px);
+      max-width: 56ch;
+      margin-bottom: 24px;
     }
     .hero-actions{
-      display:flex; gap: 10px; flex-wrap:wrap;
-      margin-top: 18px;
-    }
-    .hero-card{
-      border-radius: var(--radius2);
-      border: 1px solid rgba(0,0,0,.10);
-      background: linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.55));
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position: relative;
-      min-height: 360px;
-    }
-    .hero-card::before{
-      content:"";
-      position:absolute; inset:-2px;
-      background:
-        radial-gradient(420px 220px at 20% 20%, rgba(43,138,99,.22), transparent 55%),
-        radial-gradient(420px 220px at 80% 40%, rgba(0,0,0,.10), transparent 60%);
-      pointer-events:none;
-      opacity:.9;
-    }
-    .hero-card-inner{
-      position: relative;
-      padding: 22px;
-      height: 100%;
       display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      gap: 14px;
-    }
-    .switch{
-      display:flex; gap: 8px;
-      padding: 6px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.70);
-      border: 1px solid rgba(0,0,0,.08);
-      width: fit-content;
-      backdrop-filter: blur(12px);
-    }
-    .chip{
-      border: 0;
-      background: transparent;
-      padding: 10px 12px;
-      border-radius: 999px;
-      font-weight: 700;
-      color: rgba(20,20,20,.70);
-      cursor:pointer;
-      transition: background .15s ease, color .15s ease;
-    }
-    .chip.active{
-      background: rgba(43,138,99,.14);
-      color: var(--accent2);
-    }
-    .mini-title{
-      font-weight: 800;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      font-size: 12px;
-      color: rgba(20,20,20,.62);
-    }
-    .big-metric{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
+      flex-wrap:wrap;
       gap: 12px;
-      margin-top: 8px;
-    }
-    .metric{
-      padding: 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(0,0,0,.10);
-      background: rgba(255,255,255,.70);
-      backdrop-filter: blur(10px);
-    }
-    .metric b{
-      display:block;
-      font-size: 18px;
-      letter-spacing: -.01em;
-    }
-    .metric small{ color: rgba(20,20,20,.66); }
-
-    @media (max-width: 920px){
-      .hero-grid{ grid-template-columns: 1fr; }
-      .hero-card{ min-height: 320px; }
-    }
-
-    /* =========================
-       SECTIONS
-    ========================== */
-    section{ padding: 44px 0; }
-    .section-title{
-      display:flex; align-items:flex-end; justify-content:space-between;
-      gap: 12px; flex-wrap:wrap;
+      align-items:center;
       margin-bottom: 18px;
     }
-    .section-title h2{
-      margin: 0;
-      font-family: "Playfair Display", serif;
-      font-size: 30px;
-      letter-spacing: -.01em;
+    .hero-meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 16px;
+      align-items:center;
+      color: rgba(17,17,17,.68);
+      font-size: 13px;
     }
-    .section-title p{
-      margin: 0;
-      color: var(--muted);
-      max-width: 62ch;
-      line-height: 1.6;
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(17,17,17,.10);
+      background: rgba(255,255,255,.34);
+    }
+    .pill strong{ color: rgba(17,17,17,.84); }
+
+    .hero-card{
+      position:relative;
+      border-radius: var(--radius-2);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(17,17,17,.10);
+      background: #fff;
+      min-height: 440px;
+    }
+    .hero-card .img{
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(17,17,17,.05) 0%, rgba(17,17,17,.52) 100%),
+        url("https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
+      transform: scale(1.03);
+    }
+    .hero-card .badge{
+      position:absolute; left: 18px; top: 18px;
+      display:inline-flex;
+      gap: 10px;
+      align-items:center;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(246,244,239,.88);
+      color: rgba(17,17,17,.84);
+      border: 1px solid rgba(17,17,17,.10);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      backdrop-filter: blur(10px);
+    }
+    .hero-card .panel{
+      position:absolute; left: 16px; right: 16px; bottom: 16px;
+      background: rgba(246,244,239,.90);
+      border: 1px solid rgba(17,17,17,.10);
+      backdrop-filter: blur(12px);
+      border-radius: 18px;
+      padding: 16px 16px;
+      display:flex;
+      justify-content:space-between;
+      gap: 14px;
+      align-items:flex-end;
+    }
+    .hero-card .panel h3{
+      font-family:"Playfair Display", serif;
+      font-size: 18px;
+      line-height: 1.1;
+      margin-bottom: 6px;
+    }
+    .hero-card .panel p{
+      font-size: 13px;
+      color: rgba(17,17,17,.70);
+      max-width: 42ch;
+    }
+    .hero-card .panel .mini{
+      font-size: 12px;
+      color: rgba(17,17,17,.62);
+      text-align:right;
+      white-space:nowrap;
     }
 
-    .grid3{
+    /* ====== Sections ====== */
+    .section{
+      padding: 96px 0;
+      border-top: 1px solid rgba(17,17,17,.08);
+      position:relative;
+    }
+    @media (max-width: 760px){
+      .section{ padding: 76px 0; }
+    }
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap: 18px;
+      margin-bottom: 34px;
+    }
+    .section-head h2{
+      font-family:"Playfair Display", serif;
+      font-size: clamp(28px, 2.5vw, 40px);
+      line-height: 1.08;
+      letter-spacing:.2px;
+    }
+    .section-head p{
+      color: rgba(17,17,17,.72);
+      max-width: 56ch;
+      font-size: 15px;
+    }
+
+    .grid-3{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+      gap: 18px;
     }
+    @media (max-width: 980px){ .grid-3{ grid-template-columns: 1fr; } }
+
     .card{
+      border: 1px solid rgba(17,17,17,.10);
       border-radius: var(--radius);
-      border: 1px solid rgba(0,0,0,.10);
-      background: linear-gradient(180deg, rgba(255,255,255,.78), rgba(255,255,255,.55));
-      box-shadow: var(--shadow2);
-      padding: 18px;
-      backdrop-filter: blur(12px);
+      background: rgba(255,255,255,.36);
+      box-shadow: 0 16px 42px rgba(0,0,0,.08);
+      padding: 18px 18px;
+      overflow:hidden;
+      position:relative;
     }
-    .card h3{ margin: 0 0 8px; font-size: 16px; }
-    .card p{ margin: 0; color: var(--muted); line-height: 1.6; font-size: 14px; }
-    .icon{
-      width: 42px; height: 42px;
+    .card:hover{ border-color: rgba(31,61,43,.22); }
+    .card .icon{
+      width: 44px; height: 44px;
       border-radius: 14px;
-      background: rgba(43,138,99,.14);
-      border: 1px solid rgba(43,138,99,.25);
+      border: 1px solid rgba(31,61,43,.18);
+      background: rgba(31,61,43,.06);
       display:flex; align-items:center; justify-content:center;
-      margin-bottom: 10px;
-      color: var(--accent2);
-      font-weight: 900;
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+    .card h3{
+      font-size: 16px;
+      letter-spacing: .2px;
+      margin-bottom: 8px;
+    }
+    .card p{
+      color: rgba(17,17,17,.72);
+      font-size: 14px;
+      line-height: 1.5;
     }
 
-    @media (max-width: 920px){
-      .grid3{ grid-template-columns: 1fr; }
-    }
-
-    /* =========================
-       SERVICES LIST (2 cols)
-    ========================== */
-    .grid2{
+    /* ====== Split ====== */
+    .split{
       display:grid;
       grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      align-items:center;
+    }
+    @media (max-width: 980px){ .split{ grid-template-columns: 1fr; } }
+
+    .media{
+      border-radius: var(--radius-2);
+      overflow:hidden;
+      border: 1px solid rgba(17,17,17,.10);
+      box-shadow: var(--shadow-soft);
+      background:#fff;
+      min-height: 420px;
+      position:relative;
+    }
+    .media .bg{
+      position:absolute; inset:0;
+      background:
+        linear-gradient(180deg, rgba(17,17,17,.10) 0%, rgba(17,17,17,.55) 100%),
+        url("https://images.unsplash.com/photo-1560067174-8943bdab1fbd?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
+      transform: scale(1.03);
+    }
+    .media .stamp{
+      position:absolute; left: 16px; top: 16px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(246,244,239,.86);
+      border: 1px solid rgba(17,17,17,.10);
+      backdrop-filter: blur(10px);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .steps{
+      display:grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .step{
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+      padding: 14px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(17,17,17,.10);
+      background: rgba(255,255,255,.38);
+    }
+    .step .n{
+      width: 36px; height: 36px;
+      border-radius: 12px;
+      display:flex; align-items:center; justify-content:center;
+      background: rgba(31,61,43,.10);
+      border: 1px solid rgba(31,61,43,.18);
+      font-weight: 800;
+      color: var(--green);
+      flex: 0 0 auto;
+    }
+    .step strong{ display:block; margin-bottom: 4px; }
+    .step span{ color: rgba(17,17,17,.70); font-size: 14px; }
+
+    /* ====== Stats ====== */
+    .stats{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 14px;
     }
-    .list{
+    @media (max-width: 980px){ .stats{ grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 520px){ .stats{ grid-template-columns: 1fr; } }
+
+    .stat{
+      border: 1px solid rgba(17,17,17,.10);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.38);
+      padding: 18px 18px;
+      box-shadow: 0 14px 38px rgba(0,0,0,.07);
+    }
+    .stat .big{
+      font-family:"Playfair Display", serif;
+      font-size: 30px;
+      letter-spacing: .2px;
+      margin-bottom: 6px;
+    }
+    .stat .small{
+      color: rgba(17,17,17,.70);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    /* ====== Testimonials ====== */
+    .quotes{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      align-items:stretch;
+    }
+    @media (max-width: 980px){ .quotes{ grid-template-columns: 1fr; } }
+    .quote{
+      border: 1px solid rgba(17,17,17,.10);
+      border-radius: var(--radius-2);
+      background: rgba(255,255,255,.40);
+      box-shadow: 0 16px 46px rgba(0,0,0,.08);
+      padding: 22px 22px;
+      position:relative;
+      overflow:hidden;
+    }
+    .quote:before{
+      content:"“";
+      position:absolute;
+      top:-22px; left: 14px;
+      font-family:"Playfair Display", serif;
+      font-size: 110px;
+      color: rgba(31,61,43,.10);
+      pointer-events:none;
+    }
+    .quote .text{
+      font-size: 15px;
+      color: rgba(17,17,17,.78);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+    .quote .who{
+      display:flex; gap: 10px; align-items:center;
+      color: rgba(17,17,17,.70);
+      font-size: 13px;
+    }
+    .avatar{
+      width: 36px; height: 36px; border-radius: 999px;
+      background: linear-gradient(135deg, rgba(31,61,43,.30), rgba(110,143,122,.30));
+      border: 1px solid rgba(17,17,17,.10);
+    }
+
+    /* ====== CTA band ====== */
+    .cta{
+      border-radius: var(--radius-2);
+      padding: 28px 28px;
+      background: linear-gradient(135deg, rgba(31,61,43,1), rgba(31,61,43,.92));
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 28px 70px rgba(31,61,43,.22);
+      display:flex;
+      gap: 18px;
+      align-items:center;
+      justify-content:space-between;
+      overflow:hidden;
+      position:relative;
+    }
+    .cta:before{
+      content:"";
+      position:absolute; inset:-40% -20%;
+      background:
+        radial-gradient(420px 240px at 25% 40%, rgba(255,255,255,.14), transparent 60%),
+        radial-gradient(520px 300px at 80% 50%, rgba(110,143,122,.22), transparent 65%);
+      transform: rotate(-8deg);
+      pointer-events:none;
+    }
+    .cta .left{ position:relative; z-index:1; }
+    .cta h3{
+      font-family:"Playfair Display", serif;
+      font-size: 26px;
+      line-height: 1.12;
+      margin-bottom: 6px;
+    }
+    .cta p{
+      opacity:.88;
+      font-size: 14px;
+      max-width: 62ch;
+    }
+    .cta .right{ position:relative; z-index:1; display:flex; gap: 10px; flex-wrap:wrap; justify-content:flex-end; }
+
+    .btn.light{
+      background: rgba(246,244,239,.96);
+      color: var(--green);
+      border-color: rgba(255,255,255,.28);
+    }
+    .btn.light:hover{ background: #fff; transform: translateY(-1px); }
+
+    /* ====== Contact ====== */
+    .contact{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items:start;
+    }
+    @media (max-width: 980px){ .contact{ grid-template-columns: 1fr; } }
+
+    form{
       display:grid;
       gap: 10px;
     }
-    .li{
-      display:flex; gap: 10px;
-      padding: 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(0,0,0,.10);
-      background: rgba(255,255,255,.62);
-      backdrop-filter: blur(10px);
-    }
-    .dot{
-      width: 12px; height: 12px; border-radius: 999px;
-      margin-top: 5px;
-      background: var(--accent);
-      box-shadow: 0 0 0 6px rgba(43,138,99,.12);
-      flex: 0 0 auto;
-    }
-    .li b{ display:block; margin-bottom: 4px; }
-    .li small{ color: var(--muted); line-height: 1.55; font-size: 13px; }
-    @media (max-width: 920px){
-      .grid2{ grid-template-columns: 1fr; }
-    }
-
-    /* =========================
-       TABS (profils)
-    ========================== */
-    .tabs{
-      display:flex; gap: 8px; flex-wrap:wrap;
-      margin-bottom: 12px;
-    }
-    .tab{
-      border: 1px solid rgba(0,0,0,.10);
+    label{ font-size: 13px; color: rgba(17,17,17,.72); font-weight: 600; }
+    input, textarea{
+      width:100%;
+      padding: 14px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(17,17,17,.12);
       background: rgba(255,255,255,.60);
-      border-radius: 999px;
-      padding: 10px 12px;
-      font-weight: 700;
-      cursor:pointer;
+      font: inherit;
+      outline:none;
+      transition: border-color .25s ease, box-shadow .25s ease, background .25s ease;
     }
-    .tab.active{
-      border-color: rgba(43,138,99,.30);
-      background: rgba(43,138,99,.14);
-      color: var(--accent2);
+    input:focus, textarea:focus{
+      border-color: rgba(31,61,43,.38);
+      box-shadow: 0 0 0 6px rgba(31,61,43,.10);
+      background: #fff;
     }
+    textarea{ min-height: 120px; resize: vertical; }
 
-    /* =========================
-       ESTIMATEUR
-    ========================== */
-    .estimator{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 14px;
-      align-items: stretch;
+    .fine{
+      font-size: 12px;
+      color: rgba(17,17,17,.62);
+      line-height: 1.5;
     }
-    .field{
-      display:grid;
-      gap: 6px;
+    .contact-card{
+      border: 1px solid rgba(17,17,17,.10);
+      border-radius: var(--radius-2);
+      background: rgba(255,255,255,.40);
+      box-shadow: 0 16px 46px rgba(0,0,0,.08);
+      padding: 20px 20px;
+    }
+    .contact-card h4{
+      font-family:"Playfair Display", serif;
+      font-size: 20px;
       margin-bottom: 10px;
     }
-    label{ font-size: 13px; color: rgba(20,20,20,.74); font-weight: 700; }
-    input, select{
-      width: 100%;
-      border-radius: 14px;
-      border: 1px solid rgba(0,0,0,.12);
-      background: rgba(255,255,255,.80);
-      padding: 12px 12px;
-      font: inherit;
-      outline: none;
-    }
-    input:focus, select:focus{
-      border-color: rgba(43,138,99,.45);
-      box-shadow: 0 0 0 4px rgba(43,138,99,.14);
-    }
-    input[type="range"]{ padding: 0; height: 32px; background: transparent; border: 0; }
-    .rangeRow{
-      display:flex; gap: 12px; align-items:center;
-    }
-    .badge{
-      display:inline-flex;
-      padding: 8px 10px;
-      border-radius: 12px;
-      border: 1px solid rgba(0,0,0,.10);
-      background: rgba(255,255,255,.70);
-      font-weight: 800;
-      min-width: 78px;
-      justify-content:center;
-    }
-    .result{
-      display:grid; gap: 10px;
-    }
-    .resRow{
-      display:flex; justify-content:space-between; gap: 14px;
-      padding: 12px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(0,0,0,.10);
-      background: rgba(255,255,255,.62);
-    }
-    .resRow span{ color: var(--muted); font-weight: 700; }
-    .resRow b{ letter-spacing: -.01em; }
-    .bigRes{
-      padding: 16px;
-      border-radius: 18px;
-      border: 1px solid rgba(43,138,99,.28);
-      background: rgba(43,138,99,.12);
-    }
-    .bigRes b{ font-size: 22px; }
-
-    @media (max-width: 920px){
-      .estimator{ grid-template-columns: 1fr; }
-    }
-
-    /* =========================
-       CITIES + TESTIMONIALS
-    ========================== */
-    .grid4{
+    .contact-card .list{
       display:grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
+      gap: 10px;
+      margin: 12px 0 16px;
     }
-    .city{
-      padding: 16px;
-      border-radius: 18px;
-      border: 1px solid rgba(0,0,0,.10);
-      background: rgba(255,255,255,.62);
-      backdrop-filter: blur(10px);
-      display:flex; flex-direction:column; gap: 8px;
-      min-height: 110px;
-    }
-    .city b{ font-size: 15px; }
-    .city small{ color: var(--muted); line-height: 1.45; }
-    @media (max-width: 920px){
-      .grid4{ grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 520px){
-      .grid4{ grid-template-columns: 1fr; }
-    }
-
-    .slider{
-      position: relative;
-      overflow:hidden;
-    }
-    .track{
+    .line{
       display:flex;
-      transition: transform .35s ease;
-      will-change: transform;
-    }
-    .quote{
-      min-width: 100%;
-      padding: 18px;
-      border-radius: var(--radius);
-      border: 1px solid rgba(0,0,0,.10);
-      background: rgba(255,255,255,.62);
-      backdrop-filter: blur(10px);
-    }
-    .quote p{ margin: 0 0 10px; color: var(--muted); line-height: 1.65; }
-    .quote b{ display:block; }
-    .sliderBtns{
-      display:flex; gap: 10px; margin-top: 10px;
-    }
-
-    /* =========================
-       FOOTER
-    ========================== */
-    footer{
-      padding: 36px 0;
-      border-top: 1px solid rgba(0,0,0,.08);
-      background: rgba(255,255,255,.35);
-      backdrop-filter: blur(10px);
-    }
-    .foot{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 14px;
-      align-items: start;
-    }
-    .foot small{ color: var(--muted); line-height: 1.6; }
-    .footLinks{ display:grid; gap: 8px; }
-    .muted{ color: var(--muted); }
-
-    /* =========================
-       MOBILE MENU
-    ========================== */
-    .drawer{
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,.38);
-      display:none;
+      gap: 10px;
       align-items:flex-start;
-      justify-content:flex-end;
-      z-index: 99;
+      padding: 12px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(17,17,17,.10);
+      background: rgba(255,255,255,.45);
     }
-    .drawer.open{ display:flex; }
-    .panel{
-      width: min(360px, 92vw);
-      height: 100%;
-      background: rgba(251,251,249,.96);
-      border-left: 1px solid rgba(0,0,0,.08);
-      padding: 16px;
-      backdrop-filter: blur(14px);
+    .line b{ display:block; margin-bottom: 2px; }
+    .line span{ color: rgba(17,17,17,.70); font-size: 13px; }
+
+    /* ====== Footer ====== */
+    footer{
+      padding: 42px 0;
+      border-top: 1px solid rgba(17,17,17,.08);
+      color: rgba(17,17,17,.72);
+      font-size: 13px;
     }
-    .panel a{
-      display:block;
-      padding: 12px 10px;
-      border-radius: 12px;
-      font-weight: 700;
+    .footer-grid{
+      display:flex;
+      gap: 16px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
     }
-    .panel a:hover{ background: rgba(43,138,99,.08); color: var(--accent2); }
+
+    /* ====== Subtle reveal ====== */
+    .reveal{
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.in{
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ====== Accessibility ====== */
+    .sr-only{
+      position:absolute;
+      width:1px; height:1px;
+      padding:0; margin:-1px;
+      overflow:hidden; clip:rect(0,0,0,0);
+      border:0;
+    }
   </style>
 </head>
 
 <body>
+  <!-- TOPBAR -->
+  <header class="topbar" id="topbar">
+    <div class="wrap">
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="brand" href="#top" aria-label="Retour en haut">
+          <span class="logo">ELOK</span>
+          <span class="tag">Conciergerie premium · Gien</span>
+        </a>
 
-<header>
-  <div class="container nav">
-    <a class="brand" href="#top">
-      <span class="logo" aria-hidden="true"></span>
-      <span>ELOK</span>
-      <span class="muted" style="font-weight:700;">· Conciergerie</span>
-    </a>
-
-    <nav aria-label="Navigation principale">
-      <ul>
-        <li><a href="#apropos">À propos</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#villes">Villes</a></li>
-        <li><a href="#avis">Avis</a></li>
-        <li><a href="#estimer">Estimer</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-
-    <div class="nav-cta">
-      <button class="burger" id="burger" aria-label="Ouvrir le menu">☰</button>
-      <a class="btn ghost" href="#estimer">Estimer mes revenus</a>
-      <a class="btn primary" href="#contact">Parler à un expert</a>
-    </div>
-  </div>
-</header>
-
-<main id="top" class="hero">
-  <div class="container hero-grid">
-    <div>
-      <span class="pill">✦ Conciergerie Airbnb · courte & moyenne durée</span>
-      <h1 class="h1">La conciergerie simple, rentable et clé en main</h1>
-      <p class="lead">
-        On prépare, on publie, on coordonne chaque séjour — vous suivez tout en temps réel.
-        Service premium, opérationnel, et orienté performance.
-      </p>
-
-      <div class="hero-actions">
-        <a class="btn primary" href="#estimer">Estimer mes revenus</a>
-        <a class="btn" href="#services">Découvrir nos services</a>
-      </div>
-
-      <div class="kpi">
-        <span>✅ Qualité hôtelière</span>
-        <span>📈 Tarification dynamique</span>
-        <span>🧾 Reporting clair</span>
-        <span>🕗 Assistance 8h–22h</span>
-      </div>
-    </div>
-
-    <div class="hero-card" aria-label="Encart Propriétaire / Voyageur">
-      <div class="hero-card-inner">
-        <div>
-          <div class="switch" role="tablist" aria-label="Choisir un profil">
-            <button class="chip active" id="chipOwner" role="tab" aria-selected="true">Propriétaire</button>
-            <button class="chip" id="chipGuest" role="tab" aria-selected="false">Voyageur</button>
-          </div>
-
-          <div id="panelOwner">
-            <div class="mini-title" style="margin-top:14px;">Votre logement mérite mieux</div>
-            <p class="lead" style="margin:10px 0 0; font-size:14px;">
-              Préparation, annonce, diffusion multi-plateformes, ménage, linge, maintenance légère, accueil — on s’occupe de tout.
-            </p>
-
-            <div class="big-metric" aria-label="Indicateurs">
-              <div class="metric">
-                <b>+ revenus</b>
-                <small>Prix ajustés selon la demande</small>
-              </div>
-              <div class="metric">
-                <b>Zéro charge mentale</b>
-                <small>Opérations coordonnées</small>
-              </div>
-              <div class="metric">
-                <b>Qualité constante</b>
-                <small>Contrôle à chaque séjour</small>
-              </div>
-              <div class="metric">
-                <b>Suivi & transparence</b>
-                <small>Tableau de bord & relevés</small>
-              </div>
-            </div>
-          </div>
-
-          <div id="panelGuest" style="display:none;">
-            <div class="mini-title" style="margin-top:14px;">Le confort d’un hôtel, l’espace d’un chez-soi</div>
-            <p class="lead" style="margin:10px 0 0; font-size:14px;">
-              Logements vérifiés, arrivée flexible, paiement sécurisé et assistance réactive.
-            </p>
-            <div class="big-metric">
-              <div class="metric">
-                <b>Logements contrôlés</b>
-                <small>Standards premium</small>
-              </div>
-              <div class="metric">
-                <b>Arrivée flexible</b>
-                <small>Check-in fluide</small>
-              </div>
-              <div class="metric">
-                <b>Support 8h–22h</b>
-                <small>Assistance dédiée</small>
-              </div>
-              <div class="metric">
-                <b>Paiement sécurisé</b>
-                <small>Plateformes & direct</small>
-              </div>
-            </div>
-          </div>
+        <div class="navlinks" role="navigation">
+          <a href="#concept">Concept</a>
+          <a href="#services">Prestations</a>
+          <a href="#methode">Méthode</a>
+          <a href="#avis">Avis</a>
+          <a href="#contact">Contact</a>
         </div>
 
-        <div style="display:flex; gap:10px; flex-wrap:wrap;">
-          <a class="btn primary" href="#contact">Demander un devis</a>
-          <a class="btn ghost" href="#villes">Voir nos villes</a>
+        <div class="navcta">
+          <a class="btn ghost small" href="mailto:contact@elok.fr">contact@elok.fr</a>
+          <!-- Remplacez le lien Calendly ci-dessous par le vôtre -->
+          <a class="btn primary" href="#contact">Confier mon bien</a>
+
+          <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+            <span></span>
+          </button>
         </div>
-      </div>
-    </div>
-  </div>
-</main>
-
-<section id="apropos">
-  <div class="container">
-    <div class="section-title">
-      <div>
-        <span class="pill">À propos</span>
-        <h2>Une conciergerie nouvelle génération</h2>
-      </div>
-      <p>
-        Notre promesse : plus de revenus, un service clé en main et des séjours impeccables,
-        grâce à un réseau local et des outils performants.
-      </p>
+      </nav>
     </div>
 
-    <div class="grid3">
-      <div class="card">
-        <div class="icon">①</div>
-        <h3>Service clé en main</h3>
-        <p>De l’annonce au ménage, on s’occupe de tout — sans friction.</p>
-      </div>
-      <div class="card">
-        <div class="icon">②</div>
-        <h3>Optimisation des revenus</h3>
-        <p>Tarifs ajustés selon la saison, la demande et les événements locaux.</p>
-      </div>
-      <div class="card">
-        <div class="icon">③</div>
-        <h3>Qualité hôtelière</h3>
-        <p>Linge premium et contrôle qualité documenté à chaque séjour.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="services">
-  <div class="container">
-    <div class="section-title">
-      <div>
-        <span class="pill">Services</span>
-        <h2>Propriétaires : activez le potentiel de votre logement</h2>
-      </div>
-      <p>
-        Préparation, mise en valeur, diffusion, opérations sur place et reporting.
-        Vous décidez des dates, nous orchestrons le reste.
-      </p>
-    </div>
-
-    <div class="grid2">
-      <div class="card">
-        <h3 style="margin-top:0;">Ce que nous gérons au quotidien</h3>
-        <div class="list" style="margin-top:12px;">
-          <div class="li">
-            <span class="dot"></span>
-            <div><b>Préparation & sécurité</b><small>Visite, check-list, inventaire, mise à l’abri des objets sensibles.</small></div>
-          </div>
-          <div class="li">
-            <span class="dot"></span>
-            <div><b>Photos + annonce optimisée</b><small>Shooting pro, copywriting FR/EN, mise en avant des atouts.</small></div>
-          </div>
-          <div class="li">
-            <span class="dot"></span>
-            <div><b>Diffusion multi-plateformes</b><small>Airbnb, Booking, Abritel… calendrier synchronisé.</small></div>
-          </div>
-          <div class="li">
-            <span class="dot"></span>
-            <div><b>Accueil & assistance voyageurs</b><small>Check-in autonome ou accueilli, messages réactifs, support.</small></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3 style="margin-top:0;">Opérations sur place & performance</h3>
-        <div class="list" style="margin-top:12px;">
-          <div class="li">
-            <span class="dot"></span>
-            <div><b>Ménage & linge hôtelier</b><small>Procédure rigoureuse + contrôles qualité systématiques.</small></div>
-          </div>
-          <div class="li">
-            <span class="dot"></span>
-            <div><b>Tarification dynamique</b><small>Optimisation du prix/nuit pour maximiser le revenu net.</small></div>
-          </div>
-          <div class="li">
-            <span class="dot"></span>
-            <div><b>Courte & moyenne durée</b><small>Activation flexible (2 nuits à 2 mois) selon tes objectifs.</small></div>
-          </div>
-          <div class="li">
-            <span class="dot"></span>
-            <div><b>Suivi & transparence</b><small>Relevés mensuels, KPIs clés, échanges clairs.</small></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-      <a class="btn primary" href="#contact">Recevoir une proposition</a>
-      <a class="btn" href="#estimer">Faire une estimation</a>
-    </div>
-  </div>
-</section>
-
-<section id="profils">
-  <div class="container">
-    <div class="section-title">
-      <div>
-        <span class="pill">Pour qui ?</span>
-        <h2>Des services adaptés à chaque profil</h2>
-      </div>
-      <p>Appartement, immeuble ou professionnel : on adapte l’accompagnement au contexte et à tes objectifs.</p>
-    </div>
-
-    <div class="tabs" role="tablist" aria-label="Profils">
-      <button class="tab active" data-tab="t1">1 logement</button>
-      <button class="tab" data-tab="t2">Plusieurs biens</button>
-      <button class="tab" data-tab="t3">Professionnel</button>
-    </div>
-
-    <div class="card" id="t1">
-      <h3 style="margin-top:0;">Votre logement dort une partie de l’année ? Transformez-le en revenus.</h3>
-      <p>On valorise l’annonce, on pilote les prix, on sécurise les opérations et on prend la relation voyageurs.</p>
-      <div class="kpi">
-        <span>📸 Photos + annonce</span><span>🗓️ Multi-plateformes</span><span>🧼 Ménage & linge</span>
-      </div>
-    </div>
-
-    <div class="card" id="t2" style="display:none;">
-      <h3 style="margin-top:0;">Optimisez le rendement global de votre patrimoine.</h3>
-      <p>Stratégie tarifaire multi-biens, homogénéisation qualité, reporting consolidé et suivi technique.</p>
-      <div class="kpi">
-        <span>📊 KPIs consolidés</span><span>🧩 Standardisation</span><span>🧰 Maintenance légère</span>
-      </div>
-    </div>
-
-    <div class="card" id="t3" style="display:none;">
-      <h3 style="margin-top:0;">Devenez partenaire opérationnel : on exécute, vous développez.</h3>
-      <p>Externalisez l’accueil, le ménage, l’optimisation tarifaire et la gestion voyageurs.</p>
-      <div class="kpi">
-        <span>🤝 Partenariat</span><span>🧾 Reporting avancé</span><span>⚡ Déploiement rapide</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="estimer">
-  <div class="container">
-    <div class="section-title">
-      <div>
-        <span class="pill">Estimation</span>
-        <h2>Calculez vos revenus locatifs en quelques secondes</h2>
-      </div>
-      <p>Simulation indicative (commissions + TVA). Tu peux adapter les taux selon ta réalité.</p>
-    </div>
-
-    <div class="estimator">
-      <div class="card">
-        <div class="field">
-          <label for="platform">Plateforme</label>
-          <select id="platform">
-            <option value="airbnb">Airbnb (15%)</option>
-            <option value="booking">Booking (15%)</option>
-            <option value="abritel">Abritel / HomeAway (10%)</option>
-            <option value="direct">Réservation directe (0%)</option>
-            <option value="custom">Autre… (personnalisé)</option>
-          </select>
-        </div>
-
-        <div class="grid2">
-          <div class="field">
-            <label for="price">Prix / nuit (€)</label>
-            <input id="price" type="number" value="120" min="20" step="5" />
-          </div>
-
-          <div class="field">
-            <label>Nuits</label>
-            <div class="rangeRow">
-              <input id="nights" type="range" min="1" max="30" value="15" />
-              <span class="badge" id="nightsBadge">15</span>
-            </div>
-          </div>
-        </div>
-
-        <details style="margin-top:10px;">
-          <summary style="cursor:pointer; font-weight:800; color:rgba(20,20,20,.72);">
-            Modifier les hypothèses (facultatif)
-          </summary>
-          <div style="margin-top:12px;">
-            <div class="grid2">
-              <div class="field">
-                <label for="platformFee">Commission plateforme (%)</label>
-                <input id="platformFee" type="number" value="15" min="0" step="0.5" />
-              </div>
-              <div class="field">
-                <label for="pmFee">Commission conciergerie (%) HT</label>
-                <input id="pmFee" type="number" value="12" min="0" step="0.5" />
-              </div>
-            </div>
-
-            <div class="field" style="margin-top:8px;">
-              <label for="vat">TVA (%) sur commission conciergerie</label>
-              <input id="vat" type="number" value="20" min="0" step="1" />
-            </div>
-          </div>
-        </details>
-
-        <p class="muted" style="margin:12px 0 0; font-size:13px; line-height:1.6;">
-          Calcul indicatif. Les montants peuvent varier selon taxes, options, frais de ménage/linge, etc.
-        </p>
-
-        <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-          <a class="btn primary" href="#contact">Recevoir mon estimation complète</a>
-          <button class="btn" id="recalc">Recalculer</button>
-        </div>
-      </div>
-
-      <div class="card result" aria-label="Résultats">
-        <div class="resRow"><span>Revenus bruts</span><b id="gross">—</b></div>
-        <div class="resRow"><span>Commission plateforme</span><b id="platC">—</b></div>
-        <div class="resRow"><span>Commission conciergerie (HT)</span><b id="pmC">—</b></div>
-        <div class="resRow"><span>TVA sur commission conciergerie</span><b id="vatC">—</b></div>
-        <div class="bigRes">
-          <span class="muted" style="font-weight:800;">Ce que vous gagnez (indicatif)</span>
-          <div style="display:flex; justify-content:space-between; align-items:end; gap:14px; margin-top:6px;">
-            <b id="net">—</b>
-            <small class="muted">après commissions</small>
-          </div>
-        </div>
-
-        <div class="card" style="padding:14px; margin-top:2px;">
-          <b style="display:block; margin-bottom:6px;">Astuce conversion</b>
-          <small class="muted">
-            Ajoute un formulaire (Nom, Ville, Surface, Couchages) + envoi automatique par email (Tally/Make) pour capter des leads qualifiés.
-          </small>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="avis">
-  <div class="container">
-    <div class="section-title">
-      <div>
-        <span class="pill">Témoignages</span>
-        <h2>Ce que disent les propriétaires</h2>
-      </div>
-      <p>Remplace ces avis par les tiens (Google / Airbnb / Booking) + photos si besoin.</p>
-    </div>
-
-    <div class="slider card">
-      <div class="track" id="track">
-        <div class="quote">
-          <p>“Gestion fluide, très réactifs, et un vrai suivi. J’ai gagné du temps et la perf est montée.”</p>
-          <b>— Propriétaire, Paris</b>
-        </div>
-        <div class="quote">
-          <p>“Qualité ménage/linge impeccable. Les voyageurs sont contents, les avis se sont améliorés.”</p>
-          <b>— Propriétaire, Lyon</b>
-        </div>
-        <div class="quote">
-          <p>“Le reporting mensuel est clair, on comprend ce qui marche et on décide vite.”</p>
-          <b>— Investisseur, Bordeaux</b>
-        </div>
-      </div>
-
-      <div class="sliderBtns">
-        <button class="btn" id="prev">←</button>
-        <button class="btn" id="next">→</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="villes">
-  <div class="container">
-    <div class="section-title">
-      <div>
-        <span class="pill">Nos villes</span>
-        <h2>Une présence locale, un standard premium</h2>
-      </div>
-      <p>Adapte la liste aux zones d’ELOK (Gien / Loiret / etc.).</p>
-    </div>
-
-    <div class="grid4">
-      <div class="city"><b>Paris</b><small>Gestion courte & moyenne durée · premium</small></div>
-      <div class="city"><b>Lyon</b><small>Optimisation revenus · opérations sur place</small></div>
-      <div class="city"><b>Bordeaux</b><small>Check-in fluide · contrôle qualité</small></div>
-      <div class="city"><b>Nice</b><small>Standards hôteliers · support voyageurs</small></div>
-      <div class="city"><b>Marseille</b><small>Diffusion multi-plateformes</small></div>
-      <div class="city"><b>Toulouse</b><small>Tarification dynamique</small></div>
-      <div class="city"><b>Loiret (Gien)</b><small>Conciergerie locale · expérience soignée</small></div>
-      <div class="city"><b>Sur demande</b><small>Déploiement selon portefeuille</small></div>
-    </div>
-
-    <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-      <a class="btn primary" href="#contact">Voir si on couvre ma ville</a>
-      <a class="btn" href="#services">Voir le détail des services</a>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="container">
-    <div class="section-title">
-      <div>
-        <span class="pill">Contact</span>
-        <h2>Parlons de votre logement</h2>
-      </div>
-      <p>Remplace par ton email, ton téléphone, et ton lien Calendly.</p>
-    </div>
-
-    <div class="grid2">
-      <div class="card">
-        <h3 style="margin-top:0;">Coordonnées</h3>
-        <p class="muted">📍 Gien / Loiret (et alentours)</p>
-        <p class="muted">✉️ contact@elok.fr</p>
-        <p class="muted">📞 +33 …</p>
-        <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
-          <a class="btn primary" href="mailto:contact@elok.fr">Envoyer un email</a>
-          <a class="btn" href="#" onclick="alert('Ajoute ici ton lien Calendly'); return false;">Prendre RDV</a>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3 style="margin-top:0;">Mini-formulaire (simple)</h3>
-        <p class="muted" style="margin-bottom:12px;">Pour un vrai formulaire : Tally/Typeform + Make + email automatique.</p>
-
-        <div class="field">
-          <label for="cname">Nom</label>
-          <input id="cname" placeholder="Votre nom" />
-        </div>
-        <div class="field">
-          <label for="ccity">Ville</label>
-          <input id="ccity" placeholder="Ex : Gien" />
-        </div>
-        <div class="field">
-          <label for="cmsg">Votre besoin</label>
-          <input id="cmsg" placeholder="Ex : estimation revenus / gestion complète" />
-        </div>
-
-        <button class="btn primary" style="width:100%;" onclick="fakeSend()">Envoyer (démo)</button>
-        <small class="muted" style="display:block; margin-top:8px;">Démo : remplace par un vrai endpoint / formulaire.</small>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="container foot">
-    <div>
-      <div class="brand">
-        <span class="logo" aria-hidden="true"></span>
-        <span style="font-weight:900;">ELOK</span>
-      </div>
-      <small>
-        Conciergerie Airbnb clé en main · courte & moyenne durée.  
-        © <span id="year"></span> — Tous droits réservés.
-      </small>
-    </div>
-    <div class="footLinks">
-      <a href="#apropos">À propos</a>
-      <a href="#services">Services</a>
-      <a href="#estimer">Estimation</a>
+    <div class="drawer" id="drawer" aria-label="Menu mobile">
+      <a href="#concept">Concept</a>
+      <a href="#services">Prestations</a>
+      <a href="#methode">Méthode</a>
+      <a href="#avis">Avis</a>
       <a href="#contact">Contact</a>
-      <small class="muted">Mentions légales · Confidentialité</small>
+      <div class="row">
+        <a class="btn ghost small" style="flex:1" href="mailto:contact@elok.fr">Email</a>
+        <a class="btn primary small" style="flex:1" href="#contact">Devis</a>
+      </div>
     </div>
-  </div>
-</footer>
+  </header>
 
-<!-- Drawer menu -->
-<div class="drawer" id="drawer" aria-hidden="true">
-  <div class="panel">
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-      <b>Menu</b>
-      <button class="btn" id="closeDrawer">✕</button>
-    </div>
-    <a href="#apropos" class="drawerLink">À propos</a>
-    <a href="#services" class="drawerLink">Services</a>
-    <a href="#villes" class="drawerLink">Villes</a>
-    <a href="#avis" class="drawerLink">Avis</a>
-    <a href="#estimer" class="drawerLink">Estimer</a>
-    <a href="#contact" class="drawerLink">Contact</a>
-    <div style="margin-top:10px; display:flex; gap:10px;">
-      <a class="btn ghost" href="#estimer">Estimer</a>
-      <a class="btn primary" href="#contact">Expert</a>
-    </div>
-  </div>
-</div>
+  <!-- HERO -->
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="reveal">
+            <div class="kicker"><span class="dot"></span> Digitale & locale · Rayon 20 km</div>
+            <h1>La conciergerie Airbnb premium à Gien.</h1>
+            <p class="lead">
+              Vous avez investi dans un bien et vous souhaitez optimiser vos revenus sans devenir prisonnier de la gestion ?
+              ELOK s’occupe de tout, avec une exigence hôtelière et une réactivité locale.
+            </p>
 
-<script>
-  // ===== Helpers
-  const € = (n) => new Intl.NumberFormat("fr-FR", { style:"currency", currency:"EUR" }).format(n);
+            <div class="hero-actions">
+              <a class="btn primary" href="#contact">Demander une estimation</a>
+              <a class="btn ghost" href="#services">Découvrir les prestations</a>
+            </div>
 
-  // ===== Hero switch (Propriétaire/Voyageur)
-  const chipOwner = document.getElementById("chipOwner");
-  const chipGuest = document.getElementById("chipGuest");
-  const panelOwner = document.getElementById("panelOwner");
-  const panelGuest = document.getElementById("panelGuest");
+            <div class="hero-meta">
+              <div class="pill">⏱️ <strong>Support 7j/7</strong> <span style="opacity:.75;">· voyageurs & propriétaires</span></div>
+              <div class="pill">📍 <strong>Gien</strong> <span style="opacity:.75;">· intervention rapide</span></div>
+              <div class="pill">✨ <strong>Qualité</strong> <span style="opacity:.75;">· moins de volume, plus d’attention</span></div>
+            </div>
+          </div>
 
-  function setHero(mode){
-    const isOwner = mode === "owner";
-    chipOwner.classList.toggle("active", isOwner);
-    chipGuest.classList.toggle("active", !isOwner);
-    chipOwner.setAttribute("aria-selected", isOwner ? "true" : "false");
-    chipGuest.setAttribute("aria-selected", !isOwner ? "true" : "false");
-    panelOwner.style.display = isOwner ? "block" : "none";
-    panelGuest.style.display = isOwner ? "none" : "block";
-  }
-  chipOwner.addEventListener("click", () => setHero("owner"));
-  chipGuest.addEventListener("click", () => setHero("guest"));
+          <div class="hero-card reveal" aria-label="Mise en avant visuelle premium">
+            <div class="img" role="img" aria-label="Ambiance hôtelière haut de gamme"></div>
+            <div class="badge">ELOK · Gestion courte durée</div>
+            <div class="panel">
+              <div>
+                <h3>Gestion ultra-personnalisée</h3>
+                <p>Optimisation annonce, pricing, relation voyageurs, coordination ménage & linge, reporting.</p>
+              </div>
+              <div class="mini">
+                <div><b>Rayon 20 km</b></div>
+                <div style="opacity:.7;">Réactivité immédiate</div>
+              </div>
+            </div>
+          </div>
 
-  // ===== Tabs profils
-  const tabs = Array.from(document.querySelectorAll(".tab"));
-  const panels = ["t1","t2","t3"].map(id => document.getElementById(id));
-  tabs.forEach(t => t.addEventListener("click", () => {
-    tabs.forEach(x => x.classList.remove("active"));
-    t.classList.add("active");
-    const id = t.dataset.tab;
-    panels.forEach(p => p.style.display = (p.id === id ? "block" : "none"));
-  }));
+        </div>
+      </div>
+    </section>
 
-  // ===== Slider avis
-  const track = document.getElementById("track");
-  const slides = track.children.length;
-  let idx = 0;
+    <!-- CONCEPT -->
+    <section class="section" id="concept">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <h2>Une solution digitale, rentable et humaine.</h2>
+            <p>
+              ELOK privilégie la qualité sur la quantité : une conciergerie locale, premium, avec des process digitaux
+              pour piloter vos performances et garantir une expérience voyageurs irréprochable.
+            </p>
+          </div>
+        </div>
 
-  function renderSlider(){
-    track.style.transform = `translateX(-${idx * 100}%)`;
-  }
-  document.getElementById("prev").addEventListener("click", () => {
-    idx = (idx - 1 + slides) % slides;
-    renderSlider();
-  });
-  document.getElementById("next").addEventListener("click", () => {
-    idx = (idx + 1) % slides;
-    renderSlider();
-  });
-  // Auto-advance (soft)
-  setInterval(() => { idx = (idx + 1) % slides; renderSlider(); }, 8000);
+        <div class="grid-3">
+          <div class="card reveal">
+            <div class="icon">⚡️</div>
+            <h3>Réactivité locale</h3>
+            <p>Intervention rapide, coordination fluide avec les prestataires, contrôle qualité et suivi rigoureux.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon">📈</div>
+            <h3>Pilotage & rentabilité</h3>
+            <p>Tarification dynamique, optimisation des annonces, suivi du taux d’occupation et du RevPAR.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon">🛎️</div>
+            <h3>Exigence hôtelière</h3>
+            <p>Communication voyageurs, check-in/out, standards ménage, linge et détails qui déclenchent des 5★.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  // ===== Estimator
-  const platform = document.getElementById("platform");
-  const price = document.getElementById("price");
-  const nights = document.getElementById("nights");
-  const nightsBadge = document.getElementById("nightsBadge");
-  const platformFee = document.getElementById("platformFee");
-  const pmFee = document.getElementById("pmFee");
-  const vat = document.getElementById("vat");
+    <!-- SERVICES -->
+    <section class="section" id="services">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <h2>Prestations ELOK</h2>
+            <p>
+              Une gestion complète en courte durée (et moyenne durée si besoin), de l’annonce à la satisfaction voyageurs.
+              Votre logement est disponible toute l’année : on maximise la performance, en continu.
+            </p>
+          </div>
+          <div style="display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn ghost" href="#methode">Voir la méthode</a>
+            <a class="btn primary" href="#contact">Obtenir un devis</a>
+          </div>
+        </div>
 
-  const grossEl = document.getElementById("gross");
-  const platEl = document.getElementById("platC");
-  const pmEl = document.getElementById("pmC");
-  const vatEl = document.getElementById("vatC");
-  const netEl = document.getElementById("net");
+        <div class="grid-3">
+          <div class="card reveal">
+            <div class="icon">🧩</div>
+            <h3>Mise en location premium</h3>
+            <p>Création/optimisation de l’annonce, photos (si besoin), règlement intérieur, guide digital, check-lists.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon">💬</div>
+            <h3>Relation voyageurs 7j/7</h3>
+            <p>Messages, assistance, résolution incidents, et amélioration continue basée sur les retours.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon">🧼</div>
+            <h3>Ménage & linge</h3>
+            <p>Coordination du prestataire de ménage, contrôle qualité, consommables, planification et suivi.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon">🔑</div>
+            <h3>Check-in / Check-out</h3>
+            <p>Organisation des arrivées/départs, consignes, accès sécurisé, et gestion des particularités.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon">💶</div>
+            <h3>Pricing & distribution</h3>
+            <p>Tarification optimisée, gestion Airbnb/Booking, calendrier et cohérence des disponibilités.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon">📊</div>
+            <h3>Reporting propriétaire</h3>
+            <p>Suivi mensuel par logement : taux d’occupation, ADR, RevPAR, revenus, frais, actions d’amélioration.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  const defaultFeeByPlatform = {
-    airbnb: 15,
-    booking: 15,
-    abritel: 10,
-    direct: 0,
-    custom: 15
-  };
+    <!-- METHOD / SPLIT -->
+    <section class="section" id="methode">
+      <div class="wrap">
+        <div class="split">
+          <div class="media reveal" aria-label="Visuel méthode ELOK">
+            <div class="bg" role="img" aria-label="Intérieur haut de gamme"></div>
+            <div class="stamp">Méthode ELOK</div>
+          </div>
 
-  function recalc(){
-    const p = Math.max(0, Number(price.value || 0));
-    const n = Math.max(0, Number(nights.value || 0));
-    const pf = Math.max(0, Number(platformFee.value || 0)) / 100;
-    const pm = Math.max(0, Number(pmFee.value || 0)) / 100;
-    const v = Math.max(0, Number(vat.value || 0)) / 100;
+          <div class="reveal">
+            <div class="section-head" style="margin-bottom: 14px;">
+              <div>
+                <h2>Une méthode simple : vous profitez, on gère tout.</h2>
+                <p>
+                  On met en place des standards, des outils et des process. Ensuite, on pilote chaque logement
+                  comme un petit hôtel : qualité + data + réactivité.
+                </p>
+              </div>
+            </div>
 
-    const gross = p * n;
-    const platformCommission = gross * pf;
-    const pmCommissionHT = gross * pm;
-    const pmVat = pmCommissionHT * v;
+            <div class="steps">
+              <div class="step">
+                <div class="n">1</div>
+                <div>
+                  <strong>Audit & optimisation</strong>
+                  <span>Analyse du logement, recommandation d’améliorations, stratégie prix & positionnement.</span>
+                </div>
+              </div>
+              <div class="step">
+                <div class="n">2</div>
+                <div>
+                  <strong>Mise en place & lancement</strong>
+                  <span>Annonce, guide digital, parcours voyageurs, prestataires et check-lists opérationnelles.</span>
+                </div>
+              </div>
+              <div class="step">
+                <div class="n">3</div>
+                <div>
+                  <strong>Pilotage mensuel</strong>
+                  <span>Suivi des KPI (occupation, ADR, RevPAR), ajustements, et reporting propriétaire.</span>
+                </div>
+              </div>
+            </div>
 
-    // Net indicative (after platform + concierge TTC on commission)
-    const net = gross - platformCommission - pmCommissionHT - pmVat;
+            <div style="margin-top: 16px; display:flex; gap: 10px; flex-wrap:wrap;">
+              <a class="btn primary" href="#contact">Lancer l’estimation</a>
+              <a class="btn ghost" href="#avis">Voir les avis</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    grossEl.textContent = €(gross);
-    platEl.textContent = "− " + €(platformCommission);
-    pmEl.textContent = "− " + €(pmCommissionHT);
-    vatEl.textContent = "− " + €(pmVat);
-    netEl.textContent = €(Math.max(0, net));
-  }
+    <!-- STATS -->
+    <section class="section" aria-label="Indicateurs de pilotage">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <h2>Un vrai pilotage, pas juste de la gestion.</h2>
+            <p>
+              Chaque mois, vous retrouvez une vision claire : performances, points d’attention, et actions prioritaires
+              pour améliorer la rentabilité et la satisfaction.
+            </p>
+          </div>
+        </div>
 
-  nights.addEventListener("input", () => {
-    nightsBadge.textContent = nights.value;
-    recalc();
-  });
+        <div class="stats">
+          <div class="stat reveal">
+            <div class="big">Taux d’occupation</div>
+            <div class="small">Suivi par logement (mensuel) + comparaison vs période précédente.</div>
+          </div>
+          <div class="stat reveal">
+            <div class="big">ADR</div>
+            <div class="small">Prix moyen / nuit : on ajuste en fonction de la demande, saison et événements.</div>
+          </div>
+          <div class="stat reveal">
+            <div class="big">RevPAR</div>
+            <div class="small">Revenu par nuit disponible : l’indicateur clé pour piloter la performance globale.</div>
+          </div>
+          <div class="stat reveal">
+            <div class="big">Qualité 5★</div>
+            <div class="small">Standard ménage, communication, détails : ce qui déclenche les meilleures notes.</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  [price, platformFee, pmFee, vat].forEach(el => el.addEventListener("input", recalc));
+    <!-- TESTIMONIALS -->
+    <section class="section" id="avis">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <h2>Ce que l’on retient après un séjour : l’expérience.</h2>
+            <p>
+              On vise le même objectif : des voyageurs ravis et des propriétaires sereins.
+              (Exemples ci-dessous — remplacez par vos vrais avis quand vous voulez.)
+            </p>
+          </div>
+        </div>
 
-  platform.addEventListener("change", () => {
-    const fee = defaultFeeByPlatform[platform.value] ?? 15;
-    platformFee.value = fee;
-    recalc();
-  });
+        <div class="quotes">
+          <div class="quote reveal">
+            <div class="text">
+              “Accueil impeccable, logement irréprochable, instructions claires et réactivité immédiate.
+              On sent une organisation pro, digne d’un hôtel. On reviendra.”
+            </div>
+            <div class="who">
+              <div class="avatar"></div>
+              <div>
+                <div><b>Voyageur Booking</b> · 4,9/5</div>
+                <div style="opacity:.8;">Séjour à Gien</div>
+              </div>
+            </div>
+          </div>
 
-  document.getElementById("recalc").addEventListener("click", recalc);
+          <div class="quote reveal">
+            <div class="text">
+              “Côté propriétaire, je respire. Suivi mensuel clair, communication fluide, et des réservations
+              mieux optimisées qu’avant.”
+            </div>
+            <div class="who">
+              <div class="avatar"></div>
+              <div>
+                <div><b>Propriétaire</b> · Gestion ELOK</div>
+                <div style="opacity:.8;">Rayon 20 km</div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-  // Init
-  nightsBadge.textContent = nights.value;
-  document.getElementById("year").textContent = new Date().getFullYear();
-  recalc();
+        <div style="margin-top: 18px;" class="reveal">
+          <div class="cta">
+            <div class="left">
+              <h3>Vous avez un bien à Gien (ou autour) ?</h3>
+              <p>En 15 minutes, on évalue votre potentiel et on vous propose une stratégie claire (sans engagement).</p>
+            </div>
+            <div class="right">
+              <!-- Remplacez par votre lien Calendly si vous voulez -->
+              <a class="btn light" href="#contact">Planifier un échange</a>
+              <a class="btn ghost" style="border-color: rgba(255,255,255,.28); color:#fff;" href="mailto:contact@elok.fr">Écrire un email</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  // ===== Fake send (demo)
-  function fakeSend(){
-    const name = document.getElementById("cname").value.trim();
-    const city = document.getElementById("ccity").value.trim();
-    const msg  = document.getElementById("cmsg").value.trim();
-    alert(`Démo envoyée ✅\n\nNom: ${name || "—"}\nVille: ${city || "—"}\nBesoin: ${msg || "—"}\n\n(À remplacer par un vrai formulaire)`);
-  }
-  window.fakeSend = fakeSend;
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <h2>Contact</h2>
+            <p>
+              Dites-nous en 30 secondes ce que vous souhaitez déléguer. On vous répond rapidement avec une proposition claire.
+            </p>
+          </div>
+        </div>
 
-  // ===== Mobile drawer
-  const drawer = document.getElementById("drawer");
-  const burger = document.getElementById("burger");
-  const closeDrawer = document.getElementById("closeDrawer");
-  const drawerLinks = Array.from(document.querySelectorAll(".drawerLink"));
+        <div class="contact">
+          <!-- Form (simple - à brancher ensuite sur Formspree/Netlify Forms/Tally) -->
+          <div class="card reveal" style="padding: 20px;">
+            <form method="post" action="#" onsubmit="return fakeSubmit(event)">
+              <div>
+                <label for="name">Nom</label>
+                <input id="name" name="name" type="text" placeholder="Votre nom" required />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="vous@exemple.com" required />
+              </div>
+              <div>
+                <label for="city">Ville du bien</label>
+                <input id="city" name="city" type="text" placeholder="Gien / Nevoy / Briare…" />
+              </div>
+              <div>
+                <label for="message">Votre demande</label>
+                <textarea id="message" name="message" placeholder="Ex : appartement 2 chambres, déjà sur Airbnb, je veux déléguer la gestion complète."></textarea>
+              </div>
 
-  function openDrawer(){ drawer.classList.add("open"); drawer.setAttribute("aria-hidden", "false"); }
-  function close(){ drawer.classList.remove("open"); drawer.setAttribute("aria-hidden", "true"); }
-  burger?.addEventListener("click", openDrawer);
-  closeDrawer?.addEventListener("click", close);
-  drawer.addEventListener("click", (e) => { if(e.target === drawer) close(); });
-  drawerLinks.forEach(a => a.addEventListener("click", close));
-</script>
+              <button class="btn primary" type="submit">Envoyer</button>
+              <p class="fine">
+                Astuce : si vous préférez, écrivez directement à <a href="mailto:contact@elok.fr" style="text-decoration:underline; color:var(--green); font-weight:700;">contact@elok.fr</a>
+                ou planifiez un échange via votre lien Calendly.
+              </p>
+              <p class="fine" id="formNote" style="display:none; margin-top:8px;"></p>
+            </form>
+          </div>
 
+          <!-- Info card -->
+          <aside class="contact-card reveal">
+            <h4>En pratique</h4>
+            <p class="fine">
+              ELOK intervient exclusivement dans un rayon de 20 km autour de Gien pour garantir une réactivité immédiate et une gestion ultra-personnalisée.
+            </p>
+
+            <div class="list">
+              <div class="line">
+                <div>📍</div>
+                <div>
+                  <b>Zone d’intervention</b>
+                  <span>Gien + 20 km (Loiret)</span>
+                </div>
+              </div>
+              <div class="line">
+                <div>🕘</div>
+                <div>
+                  <b>Réponse rapide</b>
+                  <span>Support voyageurs & propriétaires 7j/7</span>
+                </div>
+              </div>
+              <div class="line">
+                <div>📩</div>
+                <div>
+                  <b>Email</b>
+                  <span><a href="mailto:contact@elok.fr" style="text-decoration:underline; color:var(--green); font-weight:700;">contact@elok.fr</a></span>
+                </div>
+              </div>
+              <div class="line">
+                <div>📅</div>
+                <div>
+                  <b>Calendly</b>
+                  <span>
+                    Remplacez ce bouton par votre lien :
+                    <br/>
+                    <a class="btn ghost small" style="margin-top:8px;" href="#" onclick="alert('Collez ici votre lien Calendly (ex: https://calendly.com/...)'); return false;">Ajouter mon lien Calendly</a>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="fine" style="border-top:1px solid rgba(17,17,17,.10); padding-top:12px;">
+              <b>SEO local</b> : conciergerie Airbnb à Gien · gestion location courte durée · conciergerie locale premium · Loiret.
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="wrap">
+        <div class="footer-grid">
+          <div><b style="font-family:'Playfair Display',serif; color:var(--ink);">ELOK</b> · Conciergerie Airbnb premium à Gien</div>
+          <div style="display:flex; gap:14px; flex-wrap:wrap;">
+            <a href="#concept">Concept</a>
+            <a href="#services">Prestations</a>
+            <a href="#contact">Contact</a>
+            <a href="https://elok.fr" target="_blank" rel="noopener">elok.fr</a>
+          </div>
+        </div>
+        <div style="margin-top:14px; opacity:.85;">
+          © <span id="year"></span> ELOK · Tous droits réservés.
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // ====== Mobile drawer ======
+    const burger = document.getElementById('burger');
+    const drawer = document.getElementById('drawer');
+
+    function closeDrawer(){
+      drawer.style.display = 'none';
+      burger?.setAttribute('aria-expanded', 'false');
+    }
+    function toggleDrawer(){
+      const isOpen = drawer.style.display === 'block';
+      drawer.style.display = isOpen ? 'none' : 'block';
+      burger?.setAttribute('aria-expanded', String(!isOpen));
+    }
+    burger?.addEventListener('click', toggleDrawer);
+    drawer?.addEventListener('click', (e) => {
+      if(e.target.tagName === 'A') closeDrawer();
+    });
+    document.addEventListener('click', (e) => {
+      if(!drawer.contains(e.target) && !burger.contains(e.target)) closeDrawer();
+    });
+
+    // ====== Topbar hide on scroll down (premium feel) ======
+    const topbar = document.getElementById('topbar');
+    let lastY = window.scrollY;
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      const goingDown = y > lastY;
+      if (y > 140 && goingDown) topbar.classList.add('hidden');
+      else topbar.classList.remove('hidden');
+      lastY = y;
+    }, { passive:true });
+
+    // ====== Reveal on scroll ======
+    const els = [...document.querySelectorAll('.reveal')];
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(ent => {
+        if(ent.isIntersecting){
+          ent.target.classList.add('in');
+          io.unobserve(ent.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(el => io.observe(el));
+
+    // ====== Footer year ======
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ====== Fake form submit (replace later with Netlify Forms / Tally / Formspree) ======
+    function fakeSubmit(e){
+      e.preventDefault();
+      const note = document.getElementById('formNote');
+      note.style.display = 'block';
+      note.textContent = "Formulaire en mode démo : branchez-le sur Netlify Forms / Tally / Formspree pour recevoir les demandes. En attendant, écrivez à contact@elok.fr.";
+      note.style.color = "rgba(17,17,17,.78)";
+      return false;
+    }
+    window.fakeSubmit = fakeSubmit;
+  </script>
 </body>
 </html>
