@@ -16,107 +16,62 @@
   <style>
     :root{
       --green:#1F3D2B;
-      --green-2:#6E8F7A;
       --cream:#F6F4EF;
       --ink:#111111;
       --muted: rgba(17,17,17,.72);
       --shadow-soft: 0 18px 55px rgba(0,0,0,.12);
-      --radius: 18px;
       --radius-2: 26px;
       --max: 1160px;
     }
     *{ box-sizing:border-box; margin:0; padding:0; }
-    html{ scroll-behavior:smooth; }
     body{
       background: var(--cream);
       color: var(--ink);
       font-family: "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      letter-spacing: .1px;
       line-height: 1.45;
       overflow-x:hidden;
     }
     a{ color: inherit; text-decoration:none; }
     .wrap{ width:min(var(--max), calc(100% - 48px)); margin:0 auto; }
 
-    /* Topbar (même style que homepage) */
+    /* Topbar */
     .topbar{
-      position:sticky;
-      top:0;
-      z-index: 50;
+      position:sticky; top:0; z-index:50;
       padding: 14px 0;
       background: rgba(246,244,239,.72);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(17,17,17,.08);
     }
-    .nav{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 16px;
-    }
+    .nav{ display:flex; align-items:center; justify-content:space-between; gap:16px; }
     .brand{ display:flex; align-items:center; gap:10px; }
-    .brand-logo{
-      height:26px; width:26px;
-      border-radius:50%;
-      object-fit:cover;
-      display:block;
-    }
+    .brand-logo{ height:26px; width:26px; border-radius:50%; object-fit:cover; display:block; }
     .tag{
-      font-size: 12px;
-      color: var(--muted);
-      letter-spacing: 2.4px;
-      text-transform: uppercase;
+      font-size:12px; color:var(--muted);
+      letter-spacing:2.4px; text-transform:uppercase;
       display:none;
     }
     @media (min-width: 860px){ .tag{ display:inline-block; } }
-
-    .navlinks{
-      display:flex;
-      gap: 22px;
-      align-items:center;
-      font-size: 14px;
-      color: rgba(17,17,17,.86);
-    }
-    .navlinks a{
-      padding: 10px 6px;
-      border-radius: 12px;
-      transition: background .25s ease, color .25s ease;
-    }
+    .navlinks{ display:flex; gap:22px; align-items:center; font-size:14px; color: rgba(17,17,17,.86); }
+    .navlinks a{ padding: 10px 6px; border-radius: 12px; transition: background .25s ease, color .25s ease; }
     .navlinks a:hover{ background: rgba(31,61,43,.08); color: var(--green); }
-
     .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding: 12px 18px;
-      border-radius: 999px;
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 12px 18px; border-radius:999px;
       border: 1px solid rgba(31,61,43,.18);
-      font-weight: 600;
-      font-size: 14px;
-      white-space:nowrap;
+      font-weight:600; font-size:14px; white-space:nowrap;
     }
-    .btn.primary{
-      background: var(--green);
-      color:#fff;
-      border-color: rgba(31,61,43,.55);
-    }
+    .btn.primary{ background: var(--green); color:#fff; border-color: rgba(31,61,43,.55); }
 
-    /* Blog layout */
-    .hero{
-      padding: 56px 0 24px;
-    }
+    /* Blog */
+    .hero{ padding: 56px 0 22px; }
     h1{
-      font-family: "Playfair Display", serif;
+      font-family:"Playfair Display", serif;
       font-weight:700;
       font-size: clamp(34px, 4.2vw, 56px);
-      line-height: 1.06;
-      margin-bottom: 10px;
+      line-height:1.06;
+      margin-bottom:10px;
     }
-    .lead{
-      color: rgba(17,17,17,.72);
-      max-width: 70ch;
-      font-size: 16px;
-    }
+    .lead{ color: rgba(17,17,17,.72); max-width: 70ch; font-size:16px; }
 
     .grid{
       padding: 26px 0 84px;
@@ -136,38 +91,17 @@
       flex-direction:column;
       min-height: 240px;
     }
-    .post .thumb{
+    .thumb{
       height: 160px;
-      background: linear-gradient(180deg, rgba(17,17,17,.10) 0%, rgba(17,17,17,.25) 100%),
-                  url("./Photos/PHOTO2.jpeg") center/cover no-repeat;
+      background:
+        linear-gradient(180deg, rgba(17,17,17,.10) 0%, rgba(17,17,17,.25) 100%),
+        url("./Photos/PHOTO2.jpeg") center/cover no-repeat;
     }
-    .post .content{
-      padding: 16px 16px 18px;
-      display:grid;
-      gap: 8px;
-    }
-    .meta{
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: rgba(17,17,17,.58);
-    }
-    .title{
-      font-family:"Playfair Display", serif;
-      font-size: 18px;
-      line-height: 1.18;
-    }
-    .excerpt{
-      color: rgba(17,17,17,.72);
-      font-size: 14px;
-      line-height: 1.55;
-    }
-    .read{
-      margin-top: 8px;
-      color: var(--green);
-      font-weight: 700;
-      font-size: 14px;
-    }
+    .content{ padding: 16px 16px 18px; display:grid; gap:8px; }
+    .meta{ font-size:12px; letter-spacing:2px; text-transform:uppercase; color: rgba(17,17,17,.58); }
+    .title{ font-family:"Playfair Display", serif; font-size:18px; line-height:1.18; }
+    .excerpt{ color: rgba(17,17,17,.72); font-size:14px; line-height:1.55; }
+    .read{ margin-top: 8px; color: var(--green); font-weight:700; font-size:14px; }
 
     footer{
       padding: 42px 0;
@@ -209,7 +143,7 @@
       <div class="wrap">
         <h1>Blog ELOK</h1>
         <p class="lead">
-          Analyses, conseils et retours terrain pour optimiser la location courte durée à Gien et dans un rayon de 20 km.
+          Analyses et conseils concrets pour améliorer votre visibilité, votre taux d’occupation et votre rentabilité en courte durée.
         </p>
       </div>
     </section>
@@ -217,34 +151,37 @@
     <section>
       <div class="wrap">
         <div class="grid">
-          <!-- ✅ Mets ici tes vrais liens d’articles -->
-          <a class="post" href="https://www.elok.fr/blog" target="_blank" rel="noopener">
+
+          <!-- Article 23 -->
+          <a class="post" href="https://www.elok.fr/23-comment-gagner-gros-sur-airbnb-en-2026" target="_blank" rel="noopener">
             <div class="thumb"></div>
             <div class="content">
-              <div class="meta">Guide · Location courte durée</div>
-              <div class="title">Tous les articles ELOK</div>
-              <div class="excerpt">Accédez à la liste complète des articles publiés sur le blog officiel ELOK.</div>
-              <div class="read">Lire →</div>
+              <div class="meta">Rentabilité · 2026</div>
+              <div class="title">Comment gagner gros sur Airbnb en 2026</div>
+              <div class="excerpt">Les leviers qui font vraiment la différence : offre, pricing, expérience, conversion et pilotage.</div>
+              <div class="read">Lire l’article →</div>
             </div>
           </a>
 
-          <a class="post" href="https://www.elok.fr/blog" target="_blank" rel="noopener">
+          <!-- Article 22 -->
+          <a class="post" href="https://www.elok.fr/22-algorithme-airbnb-2026-ce-qui-a-vraiment-change-et-comment-dominer-les-classements" target="_blank" rel="noopener">
             <div class="thumb"></div>
             <div class="content">
-              <div class="meta">Rentabilité · Pricing</div>
-              <div class="title">Optimiser son taux d’occupation à Gien</div>
-              <div class="excerpt">Les leviers simples : annonce, photos, offre, saisonnalité, tarification dynamique.</div>
-              <div class="read">Lire →</div>
+              <div class="meta">Algorithme · Classement</div>
+              <div class="title">Algorithme Airbnb 2026 : ce qui a vraiment changé</div>
+              <div class="excerpt">Ce que l’algorithme récompense maintenant (et comment dominer les classements sans “hacks”).</div>
+              <div class="read">Lire l’article →</div>
             </div>
           </a>
 
+          <!-- Carte “tous les articles” -->
           <a class="post" href="https://www.elok.fr/blog" target="_blank" rel="noopener">
             <div class="thumb"></div>
             <div class="content">
-              <div class="meta">Qualité · Expérience</div>
-              <div class="title">Les détails qui déclenchent les avis 5★</div>
-              <div class="excerpt">Check-in, propreté, communication, petites attentions : l’effet “hôtel”.</div>
-              <div class="read">Lire →</div>
+              <div class="meta">Blog · ELOK</div>
+              <div class="title">Voir tous les articles</div>
+              <div class="excerpt">Accéder à la liste complète des publications du blog ELOK.</div>
+              <div class="read">Ouvrir le blog →</div>
             </div>
           </a>
 
