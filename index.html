@@ -1051,8 +1051,9 @@
 
         <div class="contact">
           <div class="card reveal" style="padding: 20px;">
-           <form name="contact" method="POST" netlify>
-              <div>
+   <form name="contact" method="POST" netlify netlify-honeypot="bot-field">
+     <input type="hidden" name="bot-field" />
+     <div>
                 <label for="name">Nom</label>
                 <input id="name" name="name" type="text" placeholder="Votre nom" required />
               </div>
