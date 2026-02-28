@@ -23,7 +23,6 @@
       --shadow-soft: 0 18px 55px rgba(0,0,0,.12);
       --shadow-strong: 0 26px 80px rgba(0,0,0,.16);
       --radius: 26px;
-      --radius-sm: 16px;
       --max: 980px;
     }
     *{ box-sizing:border-box; margin:0; padding:0; }
@@ -33,6 +32,8 @@
       color: var(--ink);
       font-family: "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
     a{ color: inherit; text-decoration:none; }
     .wrap{
@@ -42,7 +43,7 @@
     }
 
     /* =========================
-       TOPBAR (débug iOS)
+       TOPBAR (débug iOS overflow)
        ========================= */
     .topbar{
       position:sticky; top:0; z-index:50;
@@ -62,15 +63,17 @@
       min-width:0;
     }
     .brand{
-      display:flex; align-items:center; gap:10px;
+      display:flex;
+      align-items:center;
+      gap:10px;
       min-width:0;
+      flex: 0 0 auto;
     }
     .brand-logo{
       height:26px; width:26px;
       border-radius:50%;
       object-fit:cover;
       display:block;
-      flex: 0 0 auto;
     }
     .tag{
       font-size:12px;
@@ -110,7 +113,7 @@
       font-size:14px;
       white-space:nowrap;
       background: transparent;
-      transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+      transition: transform .15s ease, box-shadow .2s ease;
     }
     .btn:hover{ transform: translateY(-1px); box-shadow: 0 14px 34px rgba(0,0,0,.10); }
     .btn.primary{
@@ -145,9 +148,8 @@
     /* =========================
        ARTICLE
        ========================= */
-    .hero{
-      padding: 40px 0 14px;
-    }
+    .hero{ padding: 40px 0 10px; }
+
     .back{
       display:inline-flex;
       align-items:center;
@@ -156,7 +158,11 @@
       font-weight:800;
       margin-bottom: 16px;
     }
-    .back span{ border-bottom: 1px solid rgba(31,61,43,.25); padding-bottom:2px; }
+    .back span{
+      border-bottom: 1px solid rgba(31,61,43,.25);
+      padding-bottom:2px;
+    }
+
     .kicker{
       font-size:12px;
       letter-spacing:2.6px;
@@ -164,13 +170,24 @@
       color: rgba(17,17,17,.58);
       margin-bottom: 10px;
     }
+
+    /* ✅ TITRE: fix iOS (pas de coupe / pas de saut bizarre) */
     h1{
       font-family:"Playfair Display", serif;
       font-weight:700;
-      font-size: clamp(34px, 5.1vw, 58px);
-      line-height:1.05;
-      margin-bottom: 16px;
+      font-size: clamp(32px, 6vw, 54px);
+      line-height:1.15;
+      letter-spacing:-0.3px;
+      margin-bottom:18px;
+      text-wrap: balance;
+      word-break: normal;
+      overflow-wrap: break-word;
+      text-shadow: 0 1px 0 rgba(0,0,0,.04);
     }
+    @supports (-webkit-touch-callout: none){
+      h1{ font-size: 34px; } /* ✅ stabilise Safari iOS */
+    }
+
     .lead{
       color: rgba(17,17,17,.72);
       font-size: 18px;
@@ -184,17 +201,16 @@
       box-shadow: var(--shadow-strong);
       border: 1px solid rgba(17,17,17,.08);
       background:
-        linear-gradient(180deg, rgba(17,17,17,.12), rgba(17,17,17,.40)),
+        linear-gradient(180deg, rgba(17,17,17,.10), rgba(17,17,17,.32)),
         url("../Photos/photo23.jpg") center/cover no-repeat;
       min-height: 250px;
     }
     @media (max-width: 560px){
       .cover{ min-height: 210px; border-radius: 22px; }
+      .lead{ font-size: 17px; }
     }
 
-    .article{
-      padding: 8px 0 84px;
-    }
+    .article{ padding: 8px 0 84px; }
 
     .quote{
       border-left: 4px solid var(--green);
@@ -212,6 +228,7 @@
       font-size: clamp(22px, 2.6vw, 30px);
       margin: 28px 0 10px;
       color: var(--green);
+      line-height: 1.15;
     }
 
     p{ margin: 10px 0; color: rgba(17,17,17,.84); }
@@ -250,6 +267,7 @@
       font-size: 20px;
       margin-bottom: 8px;
       color: var(--ink);
+      line-height: 1.15;
     }
     .card p{ margin: 0 0 12px; color: rgba(17,17,17,.74); }
     .cta{
@@ -332,9 +350,7 @@
         </div>
 
         <h2>1. Airbnb est devenu un vrai business</h2>
-        <p>
-          La première idée forte est simple : ceux qui gagnent vraiment de l'argent traitent leur location comme une entreprise.
-        </p>
+        <p>La première idée forte est simple : ceux qui gagnent vraiment de l'argent traitent leur location comme une entreprise.</p>
         <ul>
           <li>Analyser le marché local</li>
           <li>Suivre les performances</li>
@@ -355,9 +371,7 @@
         </p>
 
         <h2>3. L'algorithme Airbnb décide de votre visibilité</h2>
-        <p>
-          En 2026, votre position dans les résultats dépend d'un score de qualité interne. Parmi les critères majeurs :
-        </p>
+        <p>En 2026, votre position dans les résultats dépend d'un score de qualité interne. Parmi les critères majeurs :</p>
         <ul>
           <li>Taux de réponse rapide (&gt; 90&nbsp;%)</li>
           <li>Zéro annulation hôte</li>
@@ -394,8 +408,13 @@
           <li>Absence de stratégie marketing</li>
           <li>Mauvaise analyse de marché</li>
         </ul>
+        <p>Beaucoup d'hôtes laissent <strong>20 à 30&nbsp;%</strong> de revenus potentiels simplement en ne suivant pas leurs données.</p>
+
+        <h2>Conclusion</h2>
         <p>
-          Beaucoup d'hôtes laissent <strong>20 à 30&nbsp;%</strong> de revenus potentiels simplement en ne suivant pas leurs données.
+          Gagner gros sur Airbnb en 2026 dépend d'un système optimisé autour de 5 piliers : pricing dynamique, visibilité algorithmique,
+          photos et storytelling, automatisation, expérience client premium. Ceux qui maîtrisent ces leviers passent du statut d'hôte occasionnel
+          à celui d'exploitant rentable.
         </p>
 
         <div class="card" id="cta">
