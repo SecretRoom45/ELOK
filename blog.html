@@ -29,10 +29,14 @@
       color: var(--ink);
       font-family: "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       line-height: 1.45;
-      overflow-x:hidden;
+      overflow-x:hidden; /* important: évite le “décalage” iOS */
     }
     a{ color: inherit; text-decoration:none; }
-    .wrap{ width:min(var(--max), calc(100% - 48px)); margin:0 auto; }
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px; /* ✅ plus fiable que min()/calc sur iOS */
+    }
 
     /* Topbar */
     .topbar{
@@ -40,27 +44,111 @@
       padding: 14px 0;
       background: rgba(246,244,239,.72);
       backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(17,17,17,.08);
     }
-    .nav{ display:flex; align-items:center; justify-content:space-between; gap:16px; }
-    .brand{ display:flex; align-items:center; gap:10px; }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      min-width: 0;
+    }
+    .brand{ display:flex; align-items:center; gap:10px; min-width:0; }
     .brand-logo{ height:26px; width:26px; border-radius:50%; object-fit:cover; display:block; }
     .tag{
       font-size:12px; color:var(--muted);
       letter-spacing:2.4px; text-transform:uppercase;
+      white-space:nowrap;
+      overflow:hidden; text-overflow:ellipsis;
       display:none;
     }
     @media (min-width: 860px){ .tag{ display:inline-block; } }
-    .navlinks{ display:flex; gap:22px; align-items:center; font-size:14px; color: rgba(17,17,17,.86); }
+
+    .navlinks{
+      display:flex; gap:22px; align-items:center;
+      font-size:14px; color: rgba(17,17,17,.86);
+    }
     .navlinks a{ padding: 10px 6px; border-radius: 12px; transition: background .25s ease, color .25s ease; }
     .navlinks a:hover{ background: rgba(31,61,43,.08); color: var(--green); }
+
+    .actions{ display:flex; gap:10px; align-items:center; }
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       padding: 12px 18px; border-radius:999px;
       border: 1px solid rgba(31,61,43,.18);
       font-weight:600; font-size:14px; white-space:nowrap;
+      background: transparent;
     }
     .btn.primary{ background: var(--green); color:#fff; border-color: rgba(31,61,43,.55); }
+
+    /* ✅ Fix bug mobile: le menu trop large provoque un “décalage” / clipping sur iOS.
+       -> on masque le menu desktop, et on met un hamburger + tiroir */
+    .hamburger{
+      display:none;
+      width:42px; height:42px;
+      border-radius:12px;
+      border:1px solid rgba(31,61,43,.18);
+      background: rgba(255,255,255,.55);
+      align-items:center; justify-content:center;
+    }
+    .hamburger svg{ width:20px; height:20px; }
+    @media (max-width: 980px){
+      .navlinks{ display:none; }
+      .actions .btn{ display:none; }           /* on évite le débordement */
+      .actions .btn.primary{ display:none; }   /* idem */
+      .hamburger{ display:inline-flex; }
+    }
+
+    /* Drawer */
+    .drawer-backdrop{
+      position:fixed; inset:0;
+      background: rgba(17,17,17,.42);
+      opacity:0; pointer-events:none;
+      transition: opacity .2s ease;
+      z-index:60;
+    }
+    .drawer{
+      position:fixed; top:0; right:0; height:100%;
+      width:min(360px, 88vw);
+      background: rgba(246,244,239,.98);
+      border-left:1px solid rgba(17,17,17,.10);
+      box-shadow: 0 22px 80px rgba(0,0,0,.18);
+      transform: translateX(110%);
+      transition: transform .22s ease;
+      z-index:61;
+      padding: 16px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+    .drawer-head{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(17,17,17,.08);
+    }
+    .drawer-close{
+      width:42px; height:42px;
+      border-radius:12px;
+      border:1px solid rgba(31,61,43,.18);
+      background: rgba(255,255,255,.65);
+      display:inline-flex; align-items:center; justify-content:center;
+    }
+    .drawer a{
+      display:flex;
+      padding: 12px 12px;
+      border-radius: 14px;
+      font-weight:600;
+      color: rgba(17,17,17,.92);
+    }
+    .drawer a:hover{ background: rgba(31,61,43,.08); color: var(--green); }
+    .drawer .drawer-actions{
+      margin-top:auto;
+      display:grid;
+      gap:10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(17,17,17,.08);
+    }
+    .drawer .drawer-actions .btn{ width:100%; }
+    .drawer-open .drawer-backdrop{ opacity:1; pointer-events:auto; }
+    .drawer-open .drawer{ transform: translateX(0); }
 
     /* Blog */
     .hero{ padding: 56px 0 22px; }
@@ -91,13 +179,14 @@
       flex-direction:column;
       min-height: 240px;
       transition: transform .25s ease, box-shadow .25s ease;
+      will-change: transform;
     }
     .post:hover{
       transform: translateY(-2px);
       box-shadow: 0 22px 70px rgba(0,0,0,.14);
     }
 
-    /* ✅ Thumbnail: image variable par article */
+    /* Thumbnail variable */
     .thumb{
       height:160px;
       background-size:cover;
@@ -136,7 +225,8 @@
           <span class="tag">Conciergerie premium · Gien</span>
         </a>
 
-        <div class="navlinks">
+        <!-- Desktop links -->
+        <div class="navlinks" aria-label="Liens principaux">
           <a href="index.html#concept">Concept</a>
           <a href="index.html#services">Prestations</a>
           <a href="index.html#methode">Méthode</a>
@@ -145,13 +235,49 @@
           <a href="index.html#contact">Contact</a>
         </div>
 
-        <div style="display:flex; gap:10px; align-items:center;">
+        <!-- Desktop actions (cachées sur mobile) -->
+        <div class="actions">
           <a class="btn" href="mailto:contact@elok.fr">contact@elok.fr</a>
           <a class="btn primary" href="index.html#contact">Confier mon bien</a>
+
+          <!-- Mobile hamburger -->
+          <button class="hamburger" id="openDrawer" aria-label="Ouvrir le menu" aria-controls="drawer" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
         </div>
       </nav>
     </div>
   </header>
+
+  <!-- Mobile drawer -->
+  <div class="drawer-backdrop" id="drawerBackdrop" aria-hidden="true"></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="drawer-head">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <img class="brand-logo" src="./Photos/logo-header-circle.png" alt="ELOK">
+        <strong style="font-family:'Playfair Display',serif; font-size:18px;">Menu</strong>
+      </div>
+      <button class="drawer-close" id="closeDrawer" aria-label="Fermer le menu">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" width="18" height="18">
+          <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <a href="index.html#concept">Concept</a>
+    <a href="index.html#services">Prestations</a>
+    <a href="index.html#methode">Méthode</a>
+    <a href="index.html#avis">Avis</a>
+    <a href="blog.html" style="background:rgba(31,61,43,.08); color:var(--green);">Blog</a>
+    <a href="index.html#contact">Contact</a>
+
+    <div class="drawer-actions">
+      <a class="btn" href="mailto:contact@elok.fr">contact@elok.fr</a>
+      <a class="btn primary" href="index.html#contact">Confier mon bien</a>
+    </div>
+  </aside>
 
   <main>
     <section class="hero">
@@ -210,5 +336,46 @@
       </div>
     </footer>
   </main>
+
+  <script>
+    (function(){
+      const body = document.body;
+      const openBtn = document.getElementById('openDrawer');
+      const closeBtn = document.getElementById('closeDrawer');
+      const backdrop = document.getElementById('drawerBackdrop');
+      const drawer = document.getElementById('drawer');
+
+      function openDrawer(){
+        body.classList.add('drawer-open');
+        openBtn?.setAttribute('aria-expanded', 'true');
+        backdrop.setAttribute('aria-hidden', 'false');
+        // empêcher le “glissement” iOS
+        body.style.position = 'fixed';
+        body.style.width = '100%';
+      }
+      function closeDrawer(){
+        body.classList.remove('drawer-open');
+        openBtn?.setAttribute('aria-expanded', 'false');
+        backdrop.setAttribute('aria-hidden', 'true');
+        body.style.position = '';
+        body.style.width = '';
+      }
+
+      openBtn?.addEventListener('click', openDrawer);
+      closeBtn?.addEventListener('click', closeDrawer);
+      backdrop?.addEventListener('click', closeDrawer);
+
+      // fermer au clavier
+      document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape' && body.classList.contains('drawer-open')) closeDrawer();
+      });
+
+      // fermer quand on clique un lien dans le drawer
+      drawer?.addEventListener('click', (e) => {
+        const a = e.target.closest('a');
+        if(a) closeDrawer();
+      });
+    })();
+  </script>
 </body>
 </html>
