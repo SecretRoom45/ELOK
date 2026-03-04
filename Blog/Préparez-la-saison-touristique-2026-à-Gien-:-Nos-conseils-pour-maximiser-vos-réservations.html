@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>Préparez la saison touristique 2025 à Gien · ELOK</title>
+  <meta name="description" content="Saison touristique 2025 à Gien : optimisation annonce, maintenance, événements locaux, expérience voyageurs et conciergerie pour maximiser vos réservations." />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../Photos/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../Photos/favicon-16.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --green:#1F3D2B;
+      --cream:#F6F4EF;
+      --ink:#111111;
+      --muted: rgba(17,17,17,.72);
+      --shadow-soft: 0 18px 55px rgba(0,0,0,.12);
+      --shadow-strong: 0 26px 80px rgba(0,0,0,.16);
+      --radius-2: 26px;
+      --max: 980px;
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html, body{ overflow-x:hidden; }
+    body{
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a{ color: inherit; text-decoration:none; }
+    .wrap{ max-width: var(--max); margin:0 auto; padding: 0 18px; }
+
+    /* =========================
+       HEADER (identique articles)
+       ========================= */
+    .topbar{
+      position:sticky; top:0; z-index:60;
+      padding: 14px 0;
+      background: rgba(246,244,239,.72);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(17,17,17,.08);
+      padding-left: max(12px, env(safe-area-inset-left));
+      padding-right: max(12px, env(safe-area-inset-right));
+    }
+    .nav{ display:flex; align-items:center; justify-content:space-between; gap: 12px; }
+    .brand{ display:flex; align-items:center; gap:10px; min-width:0; }
+    .brand-logo{
+      height:28px; width:28px;
+      border-radius:50%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .hamburger{
+      width:44px; height:44px;
+      border-radius:14px;
+      border:1px solid rgba(31,61,43,.18);
+      background: rgba(255,255,255,.60);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow: 0 10px 30px rgba(0,0,0,.06);
+    }
+    .hamburger svg{ width:20px; height:20px; }
+
+    /* Drawer */
+    .drawer-backdrop{
+      position:fixed; inset:0;
+      background: rgba(17,17,17,.42);
+      opacity:0; pointer-events:none;
+      transition: opacity .2s ease;
+      z-index:70;
+    }
+    .drawer{
+      position:fixed;
+      top:0; right:0; height:100%;
+      width:min(380px, 88vw);
+      background: rgba(246,244,239,.98);
+      border-left:1px solid rgba(17,17,17,.10);
+      box-shadow: 0 22px 80px rgba(0,0,0,.18);
+      transform: translateX(110%);
+      transition: transform .22s ease;
+      z-index:71;
+      padding: 16px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+    .drawer-head{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(17,17,17,.08);
+    }
+    .drawer-title{
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      font-size: 18px;
+    }
+    .drawer-close{
+      width:44px; height:44px;
+      border-radius:14px;
+      border:1px solid rgba(31,61,43,.18);
+      background: rgba(255,255,255,.65);
+      display:inline-flex; align-items:center; justify-content:center;
+    }
+    .drawer a{
+      display:flex;
+      padding: 12px 12px;
+      border-radius: 14px;
+      font-weight:700;
+      color: rgba(17,17,17,.92);
+    }
+    .drawer a:hover{ background: rgba(31,61,43,.08); color: var(--green); }
+    .drawer a.active{ background: rgba(31,61,43,.10); color: var(--green); }
+
+    .drawer-actions{
+      margin-top:auto;
+      display:grid;
+      gap:10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(17,17,17,.08);
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 12px 18px;
+      border-radius:999px;
+      border: 1px solid rgba(31,61,43,.18);
+      font-weight:700;
+      font-size:14px;
+      white-space:nowrap;
+      background: transparent;
+    }
+    .btn.primary{
+      background: var(--green);
+      color:#fff;
+      border-color: rgba(31,61,43,.55);
+    }
+
+    .drawer-open .drawer-backdrop{ opacity:1; pointer-events:auto; }
+    .drawer-open .drawer{ transform: translateX(0); }
+
+    /* =========================
+       ARTICLE
+       ========================= */
+    .hero{ padding: 34px 0 10px; }
+    .back{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      color: var(--green);
+      font-weight:800;
+      margin-bottom: 14px;
+    }
+    .back span{
+      border-bottom: 1px solid rgba(31,61,43,.25);
+      padding-bottom:2px;
+    }
+    .kicker{
+      font-size:12px;
+      letter-spacing:2.6px;
+      text-transform:uppercase;
+      color: rgba(17,17,17,.58);
+      margin-bottom: 10px;
+    }
+    h1{
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      font-size: clamp(34px, 4.2vw, 56px);
+      line-height:1.06;
+      margin-bottom:12px;
+      letter-spacing:-0.4px;
+    }
+    .lead{
+      color: rgba(17,17,17,.72);
+      font-size: 18px;
+      max-width: 78ch;
+      margin-top: 8px;
+    }
+    .meta-line{
+      margin-top: 10px;
+      color: rgba(17,17,17,.62);
+      font-size: 13px;
+    }
+
+    /* ✅ Change la photo ici si tu veux */
+    .cover{
+      margin: 22px 0 26px;
+      border-radius: var(--radius-2);
+      overflow:hidden;
+      box-shadow: var(--shadow-strong);
+      border: 1px solid rgba(17,17,17,.08);
+      background:
+        linear-gradient(180deg, rgba(17,17,17,.10), rgba(17,17,17,.30)),
+        url("../Photos/PHOTO5.JPG") center/cover no-repeat;
+      min-height: 240px;
+    }
+    @media (max-width: 560px){
+      .wrap{ padding: 0 16px; }
+      .cover{ min-height: 210px; border-radius: 22px; }
+      .lead{ font-size: 17px; }
+    }
+
+    .article{ padding: 8px 0 84px; }
+
+    .quote{
+      border-left: 4px solid var(--green);
+      padding: 12px 14px 12px 16px;
+      margin: 18px 0 22px;
+      color: rgba(17,17,17,.74);
+      font-size: 18px;
+      background: rgba(255,255,255,.35);
+      border-radius: 12px;
+    }
+
+    h2{
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      font-size: clamp(24px, 2.4vw, 32px);
+      line-height:1.15;
+      margin: 28px 0 10px;
+      color: var(--green);
+    }
+    h3{
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      font-size: 18px;
+      line-height:1.2;
+      margin: 16px 0 6px;
+      color: rgba(17,17,17,.92);
+    }
+    p{ margin: 10px 0; color: rgba(17,17,17,.84); }
+    ul, ol{
+      margin: 12px 0 14px 20px;
+      color: rgba(17,17,17,.84);
+      display:grid;
+      gap: 8px;
+    }
+    li{ margin-left: 6px; }
+
+    .note{
+      margin: 14px 0 10px;
+      padding: 14px 14px 14px 16px;
+      border-radius: 16px;
+      background: rgba(31,61,43,.06);
+      border: 1px solid rgba(31,61,43,.16);
+    }
+    .note strong{ color: var(--green); }
+
+    .checklist{
+      margin: 18px 0 0;
+      padding: 16px 16px;
+      border-radius: var(--radius-2);
+      border: 1px solid rgba(17,17,17,.10);
+      background: rgba(255,255,255,.55);
+      box-shadow: var(--shadow-soft);
+    }
+    .checklist h3{ margin-top: 0; color: var(--green); }
+    .checklist ul{ margin-left: 18px; }
+
+    .card{
+      margin: 28px 0 0;
+      padding: 18px 16px;
+      border-radius: var(--radius-2);
+      border: 1px solid rgba(17,17,17,.10);
+      background: rgba(255,255,255,.55);
+      box-shadow: var(--shadow-soft);
+    }
+    .card h3{
+      font-family:"Playfair Display", serif;
+      font-size: 20px;
+      margin-bottom: 8px;
+      line-height:1.15;
+      color: var(--green);
+    }
+    .card p{ margin: 0 0 12px; color: rgba(17,17,17,.74); }
+
+    footer{
+      padding: 42px 0;
+      border-top: 1px solid rgba(17,17,17,.08);
+      color: rgba(17,17,17,.72);
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="brand" href="../index.html" aria-label="Retour accueil">
+          <img class="brand-logo" src="../Photos/logo-header-circle.png" alt="ELOK">
+        </a>
+
+        <button class="hamburger" id="openDrawer" aria-label="Ouvrir le menu" aria-controls="drawer" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="drawer-backdrop" id="drawerBackdrop" aria-hidden="true"></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="drawer-head">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <img class="brand-logo" src="../Photos/logo-header-circle.png" alt="ELOK">
+        <div class="drawer-title">Menu</div>
+      </div>
+      <button class="drawer-close" id="closeDrawer" aria-label="Fermer le menu">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" width="18" height="18">
+          <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <a href="../index.html#concept">Concept</a>
+    <a href="../index.html#services">Prestations</a>
+    <a href="../index.html#methode">Méthode</a>
+    <a href="../index.html#avis">Avis</a>
+    <a class="active" href="../blog.html">Blog</a>
+    <a href="../index.html#contact">Contact</a>
+
+    <div class="drawer-actions">
+      <a class="btn" href="mailto:contact@elok.fr">contact@elok.fr</a>
+      <a class="btn primary" href="../index.html#contact">Confier mon bien</a>
+    </div>
+  </aside>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <a class="back" href="../blog.html"><span>← Retour au blog</span></a>
+
+        <div class="kicker">Gien · Saison touristique · 2025</div>
+        <h1>Préparez la saison touristique 2025 à Gien : nos conseils pour maximiser vos réservations</h1>
+
+        <p class="lead">
+          La saison touristique 2025 approche à grands pas. Pour un propriétaire en location courte durée à Gien,
+          l’anticipation fait toute la différence : plus de visibilité, plus de réservations, et de meilleurs avis.
+          Voici une méthode simple et concrète pour arriver prêt — et performer.
+        </p>
+
+        <div class="meta-line">Article publié le <strong>26 avril 2025</strong></div>
+
+        <div class="cover" role="img" aria-label="Illustration de l'article"></div>
+      </div>
+    </section>
+
+    <section class="article">
+      <div class="wrap">
+        <div class="quote">
+          Une saison réussie se joue <strong>avant</strong> la saison : annonce optimisée, logement impeccable, expérience fluide,
+          et communication claire.
+        </div>
+
+        <h2>1) Optimisez votre annonce en ligne</h2>
+        <p>
+          Votre annonce est votre vitrine. En 2025, l’enjeu n’est plus “d’être présent” mais d’être <strong>désirable</strong>
+          et <strong>cohérent</strong> : une promesse claire, qui se transforme en réservations.
+        </p>
+
+        <h3>✅ Photos de qualité</h3>
+        <p>
+          Remplacez les photos sombres, en contre-jour ou “grand angle excessif”. Une série efficace contient :
+          photo principale “waouh”, salon, chambre(s), cuisine, salle de bain, entrée, extérieurs, et 2–3 détails premium
+          (machine à café, literie, coin bureau, etc.).
+        </p>
+
+        <h3>✅ Description orientée bénéfices</h3>
+        <p>
+          Mettez en avant ce que le voyageur gagne : tranquillité, accès facile, stationnement, proximité Loire / château,
+          logement adapté aux familles, aux pros, ou aux couples. Structure idéale : <strong>3 bénéfices</strong> en haut,
+          puis une description pièce par pièce, puis les infos pratiques.
+        </p>
+
+        <h3>✅ Tarification adaptée à la demande</h3>
+        <p>
+          Analysez les prix autour de Gien selon les périodes (week-ends, ponts, vacances scolaires, événements).
+          L’objectif : un prix “juste” qui convertit, sans brader. Pensez aussi au <strong>prix total</strong>
+          (frais de ménage / options) qui impacte fortement la décision.
+        </p>
+
+        <h3>✅ Avis clients</h3>
+        <p>
+          Les avis sont un accélérateur de conversion. Après le séjour, envoyez un message simple, chaleureux,
+          et orienté feedback (“si tout était conforme, un avis nous aide énormément”).
+        </p>
+
+        <div class="checklist">
+          <h3>Check-list rapide annonce (30 minutes)</h3>
+          <ul>
+            <li>Photo principale : lumineuse, émotionnelle, lisible sur mobile</li>
+            <li>Titre : cible claire (ex. “Maison calme proche Loire + parking”)</li>
+            <li>Équipements : uniquement ceux réellement présents + visibles en photo</li>
+            <li>Description : bénéfices + repères concrets (à X min de…)</li>
+            <li>Tarifs : cohérents avec la saison et le marché</li>
+          </ul>
+        </div>
+
+        <h2>2) Anticipez l’entretien et la maintenance</h2>
+        <p>
+          Un logement bien entretenu génère de meilleurs avis, plus de réservations et moins de stress.
+          Avant la haute saison, faites une revue “hôtel” : tout doit être fonctionnel, propre, et agréable.
+        </p>
+        <ul>
+          <li>Contrôle équipements : chauffe-eau, plaques, four, frigo, cafetière, Wi-Fi, TV</li>
+          <li>Petites réparations : joints, poignées, portes, luminaires, rideaux, prises</li>
+          <li>Rafraîchissement déco : coussins, plaid, cadres, plantes, luminaires (effet “neuf” immédiat)</li>
+          <li>Propreté irréprochable : vitres, plinthes, poussières, salle de bain, linge</li>
+        </ul>
+
+        <div class="note">
+          <strong>Astuce ELOK :</strong> un “reset” linge et literie (alèses, oreillers, couette, parure) avant saison
+          augmente les avis “propreté” et “confort” plus que n’importe quelle petite déco.
+        </div>
+
+        <h2>3) Mettez en avant les événements et activités locales</h2>
+        <p>
+          Les voyageurs ne réservent pas seulement un logement : ils réservent un <strong>programme</strong>.
+          Donnez-leur des raisons de choisir Gien (et votre annonce) plutôt qu’une autre destination.
+        </p>
+        <ul>
+          <li>Événements : Fête de la Loire, marchés, brocantes, animations saisonnières</li>
+          <li>Incontournables : Château de Gien, balades en bord de Loire, nature et points de vue</li>
+          <li>Expériences : dégustations, producteurs locaux, restaurants, activités famille</li>
+        </ul>
+        <p>
+          L’idéal : un guide de séjour clair et “actionnable” (adresses + horaires + trajets + recommandations).
+        </p>
+
+        <h2>4) Facilitez l’expérience de vos voyageurs</h2>
+        <p>
+          Une expérience fluide = moins de messages = meilleurs avis. Les 3 piliers : entrée simple, informations claires,
+          et petites attentions.
+        </p>
+
+        <h3>✅ Check-in / check-out simplifiés</h3>
+        <p>
+          L’entrée autonome (boîte à clés sécurisée ou serrure connectée) réduit les frictions et augmente la satisfaction,
+          surtout en arrivées tardives.
+        </p>
+
+        <h3>✅ Guide de bienvenue</h3>
+        <p>
+          Donnez les infos essentielles : Wi-Fi, parking, règles, tri, chauffage, équipements, contacts d’urgence,
+          et “comment profiter du logement”.
+        </p>
+
+        <h3>✅ Petites attentions qui marquent</h3>
+        <p>
+          Un panier d’accueil avec 2–3 produits locaux, une bouteille d’eau, un café de qualité, et un mot personnalisé :
+          ce sont de petits coûts pour un grand impact sur les avis.
+        </p>
+
+        <h2>5) Travaillez avec une conciergerie pour une gestion efficace</h2>
+        <p>
+          La haute saison demande une organisation quasi professionnelle : réactivité, ménage, planning, maintenance,
+          tarification, et gestion des imprévus. Déléguer à une conciergerie comme ELOK vous permet de garder la performance
+          sans y passer vos soirées.
+        </p>
+        <ul>
+          <li>Gestion des réservations + messages voyageurs</li>
+          <li>Coordination ménage &amp; contrôle qualité</li>
+          <li>Maintenance &amp; interventions rapides</li>
+          <li>Optimisation prix et calendrier selon la demande</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+        <p>
+          En anticipant dès maintenant, vous mettez toutes les chances de votre côté pour une saison 2025 réussie à Gien :
+          une annonce qui convertit, un logement impeccable, une expérience fluide, et un discours orienté “séjour”.
+        </p>
+
+        <div class="card">
+          <h3>Vous êtes propriétaire à Gien ou dans le Giennois&nbsp;?</h3>
+          <p>
+            Besoin d’un accompagnement sur-mesure pour maximiser vos réservations et votre rentabilité en 2025 ?
+            Contactez ELOK : on vous aide à optimiser votre annonce, votre expérience voyageurs, et votre pilotage.
+          </p>
+          <a class="btn primary" href="../index.html#contact">Contacter ELOK →</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        © <script>document.write(new Date().getFullYear())</script> ELOK · Article
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    (function(){
+      const body = document.body;
+      const openBtn = document.getElementById('openDrawer');
+      const closeBtn = document.getElementById('closeDrawer');
+      const backdrop = document.getElementById('drawerBackdrop');
+      const drawer = document.getElementById('drawer');
+
+      function openDrawer(){
+        body.classList.add('drawer-open');
+        openBtn?.setAttribute('aria-expanded', 'true');
+        backdrop.setAttribute('aria-hidden', 'false');
+        body.style.position = 'fixed';
+        body.style.width = '100%';
+      }
+      function closeDrawer(){
+        body.classList.remove('drawer-open');
+        openBtn?.setAttribute('aria-expanded', 'false');
+        backdrop.setAttribute('aria-hidden', 'true');
+        body.style.position = '';
+        body.style.width = '';
+      }
+
+      openBtn?.addEventListener('click', openDrawer);
+      closeBtn?.addEventListener('click', closeDrawer);
+      backdrop?.addEventListener('click', closeDrawer);
+
+      document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape' && body.classList.contains('drawer-open')) closeDrawer();
+      });
+
+      drawer?.addEventListener('click', (e) => {
+        const a = e.target.closest('a');
+        if(a) closeDrawer();
+      });
+    })();
+  </script>
+</body>
+</html>
