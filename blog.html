@@ -79,8 +79,7 @@
     }
     .btn.primary{ background: var(--green); color:#fff; border-color: rgba(31,61,43,.55); }
 
-    /* ✅ Fix bug mobile: le menu trop large provoque un “décalage” / clipping sur iOS.
-       -> on masque le menu desktop, et on met un hamburger + tiroir */
+    /* ✅ Fix bug mobile */
     .hamburger{
       display:none;
       width:42px; height:42px;
@@ -92,8 +91,8 @@
     .hamburger svg{ width:20px; height:20px; }
     @media (max-width: 980px){
       .navlinks{ display:none; }
-      .actions .btn{ display:none; }           /* on évite le débordement */
-      .actions .btn.primary{ display:none; }   /* idem */
+      .actions .btn{ display:none; }
+      .actions .btn.primary{ display:none; }
       .hamburger{ display:inline-flex; }
     }
 
@@ -186,7 +185,6 @@
       box-shadow: 0 22px 70px rgba(0,0,0,.14);
     }
 
-    /* Thumbnail variable */
     .thumb{
       height:160px;
       background-size:cover;
@@ -304,13 +302,13 @@
             </div>
           </a>
 
-          <!-- Article 22 -->
-          <a class="post" href="https://www.elok.fr/22-algorithme-airbnb-2026-ce-qui-a-vraiment-change-et-comment-dominer-les-classements" target="_blank" rel="noopener">
+          <!-- Article 22 (LOCAL) -->
+          <a class="post" href="./Blog/Algorithme-Airbnb-2026-:-Ce-qui-a-vraiment-changé-et-comment- dominer-les-classements.html">
             <div class="thumb" style="background-image:url('./Photos/photo22.jpg')"></div>
             <div class="content">
-              <div class="meta">Algorithme · Classement</div>
+              <div class="meta">Algorithme · Classement · 2026</div>
               <div class="title">Algorithme Airbnb 2026 : ce qui a vraiment changé</div>
-              <div class="excerpt">Ce que l’algorithme récompense maintenant (et comment dominer les classements sans “hacks”).</div>
+              <div class="excerpt">Sélection, conversion, cohérence, réactivité, photos : les leviers concrets pour dominer les classements.</div>
               <div class="read">Lire l’article →</div>
             </div>
           </a>
@@ -349,7 +347,6 @@
         body.classList.add('drawer-open');
         openBtn?.setAttribute('aria-expanded', 'true');
         backdrop.setAttribute('aria-hidden', 'false');
-        // empêcher le “glissement” iOS
         body.style.position = 'fixed';
         body.style.width = '100%';
       }
@@ -365,12 +362,10 @@
       closeBtn?.addEventListener('click', closeDrawer);
       backdrop?.addEventListener('click', closeDrawer);
 
-      // fermer au clavier
       document.addEventListener('keydown', (e) => {
         if(e.key === 'Escape' && body.classList.contains('drawer-open')) closeDrawer();
       });
 
-      // fermer quand on clique un lien dans le drawer
       drawer?.addEventListener('click', (e) => {
         const a = e.target.closest('a');
         if(a) closeDrawer();
