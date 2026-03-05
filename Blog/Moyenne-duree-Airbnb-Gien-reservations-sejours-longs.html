@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>Moyenne durée Airbnb à Gien : comment attirer plus de réservations · ELOK</title>
+  <meta name="description" content="Stratégies complètes pour obtenir plus de réservations de moyenne durée (1 à 6 mois) sur votre Airbnb à Gien : annonce, équipements, tarification et visibilité." />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../Photos/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../Photos/favicon-16.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --green:#1F3D2B;
+      --cream:#F6F4EF;
+      --ink:#111111;
+      --muted:rgba(17,17,17,.72);
+      --shadow-soft:0 18px 55px rgba(0,0,0,.12);
+      --shadow-strong:0 26px 80px rgba(0,0,0,.16);
+      --radius-2:26px;
+      --max:980px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html,body{overflow-x:hidden;}
+    body{
+      background:var(--cream);color:var(--ink);
+      font-family:"DM Sans",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      line-height:1.55;-webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit;text-decoration:none;}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 18px;}
+
+    .topbar{
+      position:sticky;top:0;z-index:60;
+      padding:14px 0;background:rgba(246,244,239,.72);
+      backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+      border-bottom:1px solid rgba(17,17,17,.08);
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+    .brand{display:flex;align-items:center;gap:10px;min-width:0;}
+    .brand-logo{height:28px;width:28px;border-radius:50%;object-fit:cover;display:block;}
+
+    .hamburger{
+      width:44px;height:44px;border-radius:14px;
+      border:1px solid rgba(31,61,43,.18);background:rgba(255,255,255,.60);
+      display:inline-flex;align-items:center;justify-content:center;
+      box-shadow:0 10px 30px rgba(0,0,0,.06);
+    }
+    .hamburger svg{width:20px;height:20px;}
+
+    .drawer-backdrop{
+      position:fixed;inset:0;background:rgba(17,17,17,.42);
+      opacity:0;pointer-events:none;transition:opacity .2s ease;z-index:70;
+    }
+    .drawer{
+      position:fixed;top:0;right:0;height:100%;width:min(380px,88vw);
+      background:rgba(246,244,239,.98);border-left:1px solid rgba(17,17,17,.10);
+      box-shadow:0 22px 80px rgba(0,0,0,.18);transform:translateX(110%);
+      transition:transform .22s ease;z-index:71;padding:16px;
+      display:flex;flex-direction:column;gap:10px;
+    }
+    .drawer-head{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+      padding-bottom:10px;border-bottom:1px solid rgba(17,17,17,.08);
+    }
+    .drawer-title{font-family:"Playfair Display",serif;font-weight:700;font-size:18px;}
+    .drawer-close{
+      width:44px;height:44px;border-radius:14px;
+      border:1px solid rgba(31,61,43,.18);background:rgba(255,255,255,.65);
+      display:inline-flex;align-items:center;justify-content:center;
+    }
+    .drawer a{display:flex;padding:12px;border-radius:14px;font-weight:700;color:rgba(17,17,17,.92);}
+    .drawer a:hover{background:rgba(31,61,43,.08);color:var(--green);}
+    .drawer a.active{background:rgba(31,61,43,.10);color:var(--green);}
+    .drawer-actions{margin-top:auto;display:grid;gap:10px;padding-top:10px;border-top:1px solid rgba(17,17,17,.08);}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 18px;border-radius:999px;border:1px solid rgba(31,61,43,.18);
+      font-weight:700;font-size:14px;white-space:nowrap;background:transparent;
+    }
+    .btn.primary{background:var(--green);color:#fff;border-color:rgba(31,61,43,.55);}
+    .drawer-open .drawer-backdrop{opacity:1;pointer-events:auto;}
+    .drawer-open .drawer{transform:translateX(0);}
+
+    /* HERO */
+    .hero{padding:34px 0 10px;}
+    .back{display:inline-flex;align-items:center;gap:10px;color:var(--green);font-weight:800;margin-bottom:14px;}
+    .back span{border-bottom:1px solid rgba(31,61,43,.25);padding-bottom:2px;}
+    .kicker{font-size:12px;letter-spacing:2.6px;text-transform:uppercase;color:rgba(17,17,17,.58);margin-bottom:10px;}
+    h1{
+      font-family:"Playfair Display",serif;font-weight:700;
+      font-size:clamp(32px,4.2vw,54px);line-height:1.07;
+      margin-bottom:12px;letter-spacing:-0.4px;
+    }
+    .lead{color:rgba(17,17,17,.72);font-size:18px;max-width:74ch;margin-top:8px;}
+
+    .cover{
+      margin:22px 0 26px;border-radius:var(--radius-2);overflow:hidden;
+      box-shadow:var(--shadow-strong);border:1px solid rgba(17,17,17,.08);
+      background:
+        linear-gradient(180deg,rgba(17,17,17,.06),rgba(17,17,17,.28)),
+        url("../Photos/photo7.jpg") center/cover no-repeat;
+      min-height:240px;
+    }
+    @media(max-width:560px){
+      .wrap{padding:0 16px;}
+      .cover{min-height:200px;border-radius:22px;}
+      .lead{font-size:17px;}
+    }
+
+    /* ARTICLE */
+    .article{padding:8px 0 84px;}
+    .quote{
+      border-left:4px solid var(--green);
+      padding:12px 14px 12px 16px;margin:18px 0 24px;
+      color:rgba(17,17,17,.74);font-size:18px;
+      background:rgba(255,255,255,.35);border-radius:12px;
+    }
+    h2{
+      font-family:"Playfair Display",serif;font-weight:700;
+      font-size:clamp(22px,2.4vw,30px);line-height:1.15;
+      margin:32px 0 10px;color:var(--green);
+    }
+    h3{font-family:"Playfair Display",serif;font-weight:700;font-size:18px;line-height:1.2;margin:18px 0 8px;color:rgba(17,17,17,.92);}
+    p{margin:10px 0;color:rgba(17,17,17,.84);}
+    ul{margin:10px 0 14px 20px;color:rgba(17,17,17,.84);display:grid;gap:7px;}
+    li{margin-left:6px;}
+
+    /* PROFILS CLIENTS */
+    .profiles{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin:16px 0 24px;}
+    @media(max-width:540px){.profiles{grid-template-columns:1fr;}}
+    .profile{
+      padding:16px;border-radius:20px;
+      border:1px solid rgba(17,17,17,.09);
+      background:rgba(255,255,255,.52);
+      box-shadow:0 8px 28px rgba(0,0,0,.07);
+      display:flex;gap:12px;align-items:flex-start;
+    }
+    .profile-icon{
+      flex-shrink:0;width:40px;height:40px;border-radius:12px;
+      background:rgba(31,61,43,.09);display:flex;align-items:center;justify-content:center;
+      font-size:20px;
+    }
+    .profile h3{font-size:15px;margin:0 0 5px;}
+    .profile p{font-size:14px;margin:0;color:rgba(17,17,17,.70);}
+
+    /* ÉQUIPEMENTS */
+    .equip-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0 22px;}
+    @media(max-width:540px){.equip-grid{grid-template-columns:1fr;}}
+    .equip{
+      display:flex;gap:10px;align-items:flex-start;
+      padding:13px;border-radius:16px;
+      border:1px solid rgba(17,17,17,.08);background:rgba(255,255,255,.50);
+    }
+    .equip-icon{
+      flex-shrink:0;width:34px;height:34px;border-radius:10px;
+      background:rgba(31,61,43,.09);display:flex;align-items:center;justify-content:center;
+      font-size:17px;
+    }
+    .equip strong{display:block;font-size:14px;margin-bottom:3px;}
+    .equip p{font-size:13px;margin:0;color:rgba(17,17,17,.68);}
+
+    /* BLOCS STRATÉGIES */
+    .strat{
+      margin:16px 0 22px;padding:18px 16px;border-radius:20px;
+      border:1px solid rgba(17,17,17,.09);background:rgba(255,255,255,.52);
+      box-shadow:0 8px 28px rgba(0,0,0,.07);
+    }
+    .strat h3{font-size:17px;margin-bottom:10px;}
+    .strat ul{margin:0 0 0 18px;}
+
+    /* PLATEFORMES */
+    .platforms{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0 22px;}
+    @media(max-width:600px){.platforms{grid-template-columns:1fr;}}
+    .platform{
+      padding:14px;border-radius:16px;
+      border:1px solid rgba(17,17,17,.09);background:rgba(255,255,255,.55);
+      box-shadow:0 6px 20px rgba(0,0,0,.06);text-align:center;
+    }
+    .platform strong{display:block;font-size:15px;color:var(--green);margin-bottom:5px;}
+    .platform p{font-size:13px;margin:0;color:rgba(17,17,17,.68);}
+
+    .tip{
+      margin:20px 0 14px;padding:14px 16px;border-radius:16px;
+      background:rgba(31,61,43,.06);border:1px solid rgba(31,61,43,.16);color:rgba(17,17,17,.80);
+    }
+    .tip strong{color:var(--green);}
+
+    .card{
+      margin:30px 0 0;padding:20px 18px;border-radius:var(--radius-2);
+      border:1px solid rgba(17,17,17,.10);background:rgba(255,255,255,.55);box-shadow:var(--shadow-soft);
+    }
+    .card h3{font-family:"Playfair Display",serif;font-size:20px;margin-bottom:8px;line-height:1.15;color:var(--green);}
+    .card p{margin:0 0 14px;color:rgba(17,17,17,.74);}
+
+    footer{padding:42px 0;border-top:1px solid rgba(17,17,17,.08);color:rgba(17,17,17,.72);font-size:13px;}
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="brand" href="../index.html" aria-label="Retour accueil">
+          <img class="brand-logo" src="../Photos/logo-header-circle.png" alt="ELOK">
+        </a>
+        <button class="hamburger" id="openDrawer" aria-label="Ouvrir le menu" aria-controls="drawer" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="drawer-backdrop" id="drawerBackdrop" aria-hidden="true"></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="drawer-head">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <img class="brand-logo" src="../Photos/logo-header-circle.png" alt="ELOK">
+        <div class="drawer-title">Menu</div>
+      </div>
+      <button class="drawer-close" id="closeDrawer" aria-label="Fermer le menu">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" width="18" height="18">
+          <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <a href="../index.html#concept">Concept</a>
+    <a href="../index.html#services">Prestations</a>
+    <a href="../index.html#methode">Méthode</a>
+    <a href="../index.html#avis">Avis</a>
+    <a class="active" href="../blog.html">Blog</a>
+    <a href="../index.html#contact">Contact</a>
+    <div class="drawer-actions">
+      <a class="btn" href="mailto:contact@elok.fr">contact@elok.fr</a>
+      <a class="btn primary" href="../index.html#contact">Confier mon bien</a>
+    </div>
+  </aside>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <a class="back" href="../blog.html"><span>← Retour au blog</span></a>
+        <div class="kicker">Moyenne durée · Gien · Stratégie locative</div>
+        <h1>La moyenne durée : comment obtenir plus de réservations de 1 à 6 mois à Gien</h1>
+        <p class="lead">
+          Moins de rotations, des revenus stables, une gestion simplifiée — les séjours de moyenne durée
+          sont une opportunité sous-exploitée par beaucoup de propriétaires Airbnb à Gien.
+          Voici comment adapter votre bien et votre annonce pour capter cette clientèle.
+        </p>
+        <div class="cover" role="img" aria-label="Intérieur d'un logement confortable à Gien"></div>
+      </div>
+    </section>
+
+    <section class="article">
+      <div class="wrap">
+
+        <div class="quote">
+          Un locataire qui reste 3 mois vaut davantage qu'une dizaine de week-enders :
+          moins de ménages, moins de logistique, un revenu garanti. La moyenne durée, ça se prépare.
+        </div>
+
+        <h2>Quelle clientèle cibler ?</h2>
+        <p>
+          Les séjours de 1 à 6 mois répondent à des besoins très concrets. Identifier les profils
+          qui cherchent ce type d'hébergement à Gien vous permet d'adapter votre annonce et vos services
+          pour les convaincre.
+        </p>
+
+        <div class="profiles">
+          <div class="profile">
+            <div class="profile-icon">💼</div>
+            <div>
+              <h3>Professionnels en mission</h3>
+              <p>Consultants, techniciens, cadres en détachement — ils ont besoin d'un espace de travail, d'une connexion fiable et d'un vrai confort au quotidien.</p>
+            </div>
+          </div>
+          <div class="profile">
+            <div class="profile-icon">🎓</div>
+            <div>
+              <h3>Étudiants et stagiaires</h3>
+              <p>La région de Gien accueille des alternants et stagiaires qui cherchent un logement temporaire pour plusieurs mois, souvent avec un budget serré.</p>
+            </div>
+          </div>
+          <div class="profile">
+            <div class="profile-icon">📦</div>
+            <div>
+              <h3>Familles en transition</h3>
+              <p>Entre deux déménagements ou en attente de livraison d'un bien, elles ont besoin d'un logement fonctionnel et spacieux pendant quelques semaines à quelques mois.</p>
+            </div>
+          </div>
+          <div class="profile">
+            <div class="profile-icon">🌍</div>
+            <div>
+              <h3>Nomades et télétravailleurs</h3>
+              <p>Freelances ou salariés en télétravail qui choisissent de s'installer quelques mois dans une ville calme tout en restant productifs.</p>
+            </div>
+          </div>
+        </div>
+
+        <h2>Adapter votre logement et votre annonce</h2>
+
+        <h3>Les équipements indispensables</h3>
+        <p>
+          Un locataire qui reste plusieurs mois a des exigences différentes d'un week-endeur.
+          Ces équipements font souvent la différence au moment de la réservation :
+        </p>
+
+        <div class="equip-grid">
+          <div class="equip">
+            <div class="equip-icon">💻</div>
+            <div>
+              <strong>Espace de travail dédié</strong>
+              <p>Bureau, chaise ergonomique et Wi-Fi rapide sont non-négociables pour les professionnels et télétravailleurs.</p>
+            </div>
+          </div>
+          <div class="equip">
+            <div class="equip-icon">🍳</div>
+            <div>
+              <strong>Cuisine entièrement équipée</strong>
+              <p>Four, réfrigérateur, machine à café, ustensiles complets — cuisiner soi-même est la norme sur des séjours longs.</p>
+            </div>
+          </div>
+          <div class="equip">
+            <div class="equip-icon">🧺</div>
+            <div>
+              <strong>Lave-linge (et sèche-linge)</strong>
+              <p>Critère souvent décisif. Un locataire de 2 mois ne peut pas vivre sans laver son linge sur place.</p>
+            </div>
+          </div>
+          <div class="equip">
+            <div class="equip-icon">🗄️</div>
+            <div>
+              <strong>Rangements suffisants</strong>
+              <p>Placards, commodes, espace dans la salle de bain — les locataires longue durée arrivent avec leurs affaires.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="strat">
+          <h3>Optimiser la description de votre annonce</h3>
+          <p>Votre annonce doit signaler clairement que le logement est pensé pour les séjours prolongés.</p>
+          <ul>
+            <li>Précisez explicitement que vous <strong>acceptez les séjours de moyenne durée</strong> (1 semaine minimum, 6 mois maximum)</li>
+            <li>Listez les équipements pratiques qui facilitent la vie quotidienne sur la durée</li>
+            <li>Mettez en avant la proximité des commerces, transports, services de santé et zones d'activité</li>
+            <li>Utilisez des mots-clés ciblés : <em>"logement idéal pour professionnels en mission à Gien"</em>, <em>"appartement tout confort pour long séjour"</em></li>
+          </ul>
+        </div>
+
+        <div class="strat">
+          <h3>Proposer des tarifs dégressifs</h3>
+          <p>Les locataires de moyenne durée s'attendent à un geste commercial en échange de leur engagement sur la durée.</p>
+          <ul>
+            <li>Réduction de <strong>10 à 15 %</strong> pour les séjours d'une semaine ou plus</li>
+            <li>Réduction de <strong>15 à 20 %</strong> pour les séjours mensuels ou plus</li>
+            <li>Tarif mensuel fixe compétitif, affiché clairement dans l'annonce pour éviter les négociations</li>
+          </ul>
+        </div>
+
+        <h2>Augmenter la visibilité de votre annonce</h2>
+
+        <h3>Activer les options longue durée sur Airbnb</h3>
+        <p>
+          Airbnb propose nativement une option pour les séjours longs. En l'activant, votre annonce
+          remonte dans les résultats des voyageurs qui filtrent par durée.
+        </p>
+        <ul>
+          <li>Dans les paramètres de l'annonce, configurez un <strong>tarif hebdomadaire et mensuel</strong></li>
+          <li>Ouvrez votre calendrier sur des plages longues pour signaler votre disponibilité</li>
+          <li>Réduisez le nombre de nuits minimum pour les périodes creuses afin de rester visible</li>
+        </ul>
+
+        <div class="tip">
+          <strong>Conseil ELOK :</strong> renseignez un tarif mensuel dans Airbnb même si vous préférez négocier au cas par cas.
+          Un prix affiché rassure le locataire et déclenche la prise de contact.
+        </div>
+
+        <h3>Élargir à d'autres plateformes</h3>
+        <p>Airbnb n'est pas la seule plateforme adaptée aux séjours de moyenne durée. Multipliez les points de contact :</p>
+
+        <div class="platforms">
+          <div class="platform">
+            <strong>Booking.com</strong>
+            <p>Large audience internationale, idéal pour capter les professionnels en déplacement.</p>
+          </div>
+          <div class="platform">
+            <strong>Spotahome</strong>
+            <p>Spécialisé dans les séjours de 1 à 12 mois, très utilisé par les étudiants et expatriés.</p>
+          </div>
+          <div class="platform">
+            <strong>Homelike</strong>
+            <p>Plateforme dédiée aux professionnels en mission, forte demande en appartements meublés.</p>
+          </div>
+        </div>
+
+        <h2>Proposer des services qui fidélisent</h2>
+
+        <div class="strat">
+          <h3>Ménage régulier inclus ou en option</h3>
+          <p>
+            Un passage hebdomadaire ou bimensuel rassure le locataire sur l'entretien du logement et vous
+            permet de suivre l'état du bien sans être intrusif. Vous pouvez l'inclure dans le tarif ou le
+            proposer en supplément.
+          </p>
+        </div>
+
+        <div class="strat">
+          <h3>Guide local détaillé</h3>
+          <p>
+            Un locataire de 3 mois ne connaît pas Gien. Un guide bien fait — restaurants, commerces,
+            médecins, transports, activités — est un vrai service qui améliore l'expérience et génère
+            des avis positifs.
+          </p>
+        </div>
+
+        <div class="strat">
+          <h3>Faciliter la prolongation et le paiement</h3>
+          <ul>
+            <li>Prévoyez une option simple pour que le locataire prolonge son séjour sans friction</li>
+            <li>Pour les séjours très longs, le paiement mensuel (hors plateforme, avec contrat) peut être envisagé</li>
+            <li>Répondez rapidement aux demandes : les locataires longue durée comparent plusieurs logements et réservent vite</li>
+          </ul>
+        </div>
+
+        <h2>Gérer les attentes dès le départ</h2>
+        <p>
+          Un locataire qui reste 3 mois n'est pas un touriste. La relation est différente, plus proche.
+          Quelques bonnes pratiques pour éviter les frictions :
+        </p>
+        <ul>
+          <li><strong>Communication fluide avant l'arrivée</strong> : répondez vite aux questions sur le logement, le quartier, les équipements</li>
+          <li><strong>Règles de la maison adaptées</strong> : entretien courant, gestion des petites réparations, respect du voisinage — soyez clair sans être contraignant</li>
+          <li><strong>Point de contact unique</strong> : un numéro, une personne, une réponse garantie sous 24 h — c'est ce que les locataires longue durée attendent</li>
+        </ul>
+
+        <div class="card">
+          <h3>Vous voulez déléguer la gestion de vos séjours longue durée ?</h3>
+          <p>
+            ELOK s'occupe de tout à Gien : mise en ligne de l'annonce, sélection des locataires,
+            gestion des entrées/sorties, ménage et suivi quotidien. Que ce soit pour des séjours courts,
+            moyens ou longs, nous optimisons votre taux d'occupation et vos revenus — sans que vous ayez
+            à lever le petit doigt.
+          </p>
+          <a class="btn primary" href="../index.html#contact">Confier mon bien à ELOK →</a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <script>document.write(new Date().getFullYear())</script> ELOK · Article
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const body=document.body;
+      const openBtn=document.getElementById('openDrawer');
+      const closeBtn=document.getElementById('closeDrawer');
+      const backdrop=document.getElementById('drawerBackdrop');
+      const drawer=document.getElementById('drawer');
+      function openDrawer(){
+        body.classList.add('drawer-open');
+        openBtn?.setAttribute('aria-expanded','true');
+        backdrop.setAttribute('aria-hidden','false');
+        body.style.position='fixed';body.style.width='100%';
+      }
+      function closeDrawer(){
+        body.classList.remove('drawer-open');
+        openBtn?.setAttribute('aria-expanded','false');
+        backdrop.setAttribute('aria-hidden','true');
+        body.style.position='';body.style.width='';
+      }
+      openBtn?.addEventListener('click',openDrawer);
+      closeBtn?.addEventListener('click',closeDrawer);
+      backdrop?.addEventListener('click',closeDrawer);
+      document.addEventListener('keydown',(e)=>{if(e.key==='Escape'&&body.classList.contains('drawer-open'))closeDrawer();});
+      drawer?.addEventListener('click',(e)=>{const a=e.target.closest('a');if(a)closeDrawer();});
+    })();
+  </script>
+</body>
+</html>
