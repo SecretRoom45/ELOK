@@ -2,8 +2,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ELOK · Conciergerie Airbnb premium à Gien</title>
-  <meta name="description" content="ELOK, conciergerie Airbnb digitale & locale à Gien. Gestion courte durée premium dans un rayon de 20 km : rentabilité, réactivité, sérénité." />
+
+  <!-- ===== SEO principal ===== -->
+  <title>ELOK — Conciergerie Airbnb à Gien (45500) | Gestion Location Courte Durée, Loiret</title>
+  <meta name="description" content="ELOK, conciergerie Airbnb & Booking premium à Gien (45500, Loiret). Gestion complète location courte durée : annonce, pricing dynamique, ménage, voyageurs 7j/7. Rayon 20 km — Briare, Châtillon-sur-Loire, Nevoy. Estimation gratuite." />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <link rel="canonical" href="https://www.elok.fr/" />
+
+  <!-- ===== Géolocalisation locale ===== -->
+  <meta name="geo.region" content="FR-45" />
+  <meta name="geo.placename" content="Gien, Loiret, France" />
+  <meta name="geo.position" content="47.6947;2.6297" />
+  <meta name="ICBM" content="47.6947, 2.6297" />
+
+  <!-- ===== Open Graph (partage réseaux & prévisualisation) ===== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="ELOK Conciergerie" />
+  <meta property="og:title" content="ELOK — Conciergerie Airbnb premium à Gien (45500) | Loiret" />
+  <meta property="og:description" content="Gestion complète de votre location Airbnb & Booking à Gien et dans le Pays du Giennois. Pricing, ménage, voyageurs, reporting. Rayon 20 km. Estimation gratuite." />
+  <meta property="og:url" content="https://www.elok.fr/" />
+  <meta property="og:image" content="https://www.elok.fr/Photos/Photo23.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="ELOK — Conciergerie Airbnb premium à Gien, Loiret" />
+
+  <!-- ===== Twitter / X Card ===== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ELOK — Conciergerie Airbnb à Gien (45500)" />
+  <meta name="twitter:description" content="Gestion location courte durée premium à Gien et le Pays du Giennois. Rayon 20 km, support 7j/7, pricing dynamique." />
+  <meta name="twitter:image" content="https://www.elok.fr/Photos/Photo23.jpg" />
 
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="/Photos/favicon-32.png">
@@ -76,8 +104,8 @@
       min-width: 0;
     }
     .brand-logo{
-      width: 26px;
-      height: 26px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       object-fit: cover;
       flex: 0 0 auto;
@@ -199,7 +227,7 @@
     @media (min-width: 860px){
       .topbar{ padding: 14px 0; }
 
-      .brand-logo{ width: 34px; height: 34px; }
+      .brand-logo{ width: 46px; height: 46px; }
       .brand .tag{
         display:inline-block;
         font-size: 12px;
@@ -752,7 +780,202 @@
       overflow:hidden; clip:rect(0,0,0,0);
       border:0;
     }
+
+    /* ====== FAQ accordion ====== */
+    @media (max-width: 760px){ #faq-grid{ grid-template-columns: 1fr !important; } }
+    .faq-item{
+      border: 1px solid rgba(17,17,17,.10);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.40);
+      overflow: hidden;
+    }
+    .faq-q{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 18px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      text-align: left;
+      line-height: 1.35;
+    }
+    .faq-q:hover{ background: rgba(31,61,43,.04); }
+    .faq-icon{
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--green);
+      flex-shrink: 0;
+      transition: transform .22s;
+      line-height: 1;
+    }
+    .faq-q[aria-expanded="true"] .faq-icon{ transform: rotate(45deg); }
+    .faq-a{
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s ease, padding .3s ease;
+      font-size: 14px;
+      color: rgba(17,17,17,.72);
+      line-height: 1.6;
+    }
+    .faq-a.open{
+      max-height: 300px;
+      padding: 0 18px 16px;
+    }
   </style>
+
+  <!-- ===== Schema.org JSON-LD — LocalBusiness ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": "https://www.elok.fr/#business",
+    "name": "ELOK Conciergerie",
+    "alternateName": "ELOK — Conciergerie Airbnb Gien",
+    "description": "Conciergerie Airbnb et Booking premium à Gien (45500, Loiret). Gestion complète location courte durée : optimisation annonce, pricing dynamique, relation voyageurs 7j/7, ménage & linge, check-in/out, reporting propriétaire. Rayon 20 km.",
+    "url": "https://www.elok.fr",
+    "email": "contact@elok.fr",
+    "logo": "https://www.elok.fr/Photos/logo-circle-1024.png",
+    "image": "https://www.elok.fr/Photos/Photo23.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Gien",
+      "addressLocality": "Gien",
+      "postalCode": "45500",
+      "addressRegion": "Loiret",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 47.6947,
+      "longitude": 2.6297
+    },
+    "serviceArea": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": 47.6947,
+        "longitude": 2.6297
+      },
+      "geoRadius": "20000"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Gien", "sameAs": "https://www.wikidata.org/wiki/Q197496" },
+      { "@type": "City", "name": "Briare" },
+      { "@type": "City", "name": "Châtillon-sur-Loire" },
+      { "@type": "City", "name": "Nevoy" },
+      { "@type": "City", "name": "Poilly-lez-Gien" },
+      { "@type": "City", "name": "Coullons" },
+      { "@type": "City", "name": "Ouzouer-sur-Loire" },
+      { "@type": "City", "name": "Bonny-sur-Loire" },
+      { "@type": "City", "name": "Dampierre-en-Burly" },
+      { "@type": "City", "name": "Beaulieu-sur-Loire" },
+      { "@type": "City", "name": "Autry-le-Châtel" },
+      { "@type": "City", "name": "Saint-Brisson-sur-Loire" }
+    ],
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "08:00",
+      "closes": "22:00"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "6",
+      "reviewCount": "6"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Services de conciergerie Airbnb",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gestion complète location Airbnb" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Optimisation annonce et pricing dynamique" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Relation voyageurs 7j/7" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ménage et linge hôtelier" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Check-in et check-out" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reporting propriétaire mensuel" } }
+      ]
+    },
+    "sameAs": [
+      "https://www.elok.fr"
+    ]
+  }
+  </script>
+
+  <!-- ===== Schema.org JSON-LD — FAQPage ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Comment fonctionne la conciergerie ELOK à Gien ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ELOK prend en charge l'intégralité de la gestion de votre location Airbnb ou Booking.com à Gien (45500) : création et optimisation de l'annonce, pricing dynamique, accueil voyageurs, ménage et linge hôtelier, check-in/check-out et reporting mensuel. Vous déléguez tout, ELOK gère tout, dans un rayon de 20 km autour de Gien."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quelle est la zone d'intervention de ELOK ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ELOK intervient dans un rayon de 20 km autour de Gien (45500, Loiret) : Gien, Briare, Châtillon-sur-Loire, Nevoy, Poilly-lez-Gien, Coullons, Ouzouer-sur-Loire, Bonny-sur-Loire, Dampierre-en-Burly, Beaulieu-sur-Loire et les communes environnantes du Pays du Giennois."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Combien coûte la gestion Airbnb avec ELOK ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La tarification ELOK est basée sur un pourcentage des revenus locatifs générés — sans frais fixes ni abonnement. Vous ne payez que quand vous gagnez. Contactez-nous pour une estimation gratuite et personnalisée selon votre bien et vos objectifs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "ELOK gère-t-il les locations sur Booking.com en plus d'Airbnb ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui. ELOK assure la distribution multi-plateformes : Airbnb, Booking.com et autres canaux de réservation. Nous synchronisons les disponibilités et optimisons votre visibilité sur toutes les plateformes pour maximiser votre taux d'occupation à Gien et dans le Pays du Giennois."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Puis-je confier mon bien à ELOK si je ne vis pas à Gien ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolument. Plusieurs propriétaires ELOK gèrent leur bien à distance depuis Paris ou d'autres villes. ELOK assure tout sur place à Gien : accueil des voyageurs, ménage, gestion des urgences, et vous transmet un reporting mensuel détaillé pour piloter votre rentabilité."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quelle rentabilité puis-je espérer avec une location courte durée à Gien ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Le potentiel varie selon le type de bien et sa localisation. Gien et le Pays du Giennois bénéficient d'une bonne attractivité touristique : Val de Loire classé UNESCO, châteaux, cyclotourisme (Loire à Vélo), pêche et chasse. ELOK optimise votre tarification selon les saisons et les événements locaux pour maximiser vos revenus. Contactez-nous pour une estimation gratuite."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quelle est la différence entre ELOK et une agence immobilière classique ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ELOK est une conciergerie spécialisée en location courte durée (Airbnb, Booking), pas une agence de location longue durée. Nous gérons l'expérience voyageurs au quotidien, le pricing dynamique, le ménage et le linge, là où une agence classique se concentre sur les baux annuels. Notre modèle est orienté rentabilité maximale à court terme."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -1204,6 +1427,103 @@
       </div>
     </section>
 
+    <!-- FAQ -->
+    <section class="section" id="faq" itemscope itemtype="https://schema.org/FAQPage">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div style="font-size:12px;letter-spacing:2.6px;text-transform:uppercase;color:rgba(17,17,17,.52);margin-bottom:10px;">Questions fréquentes</div>
+            <h2>Tout savoir avant de confier votre bien</h2>
+            <p>Les réponses aux questions que se posent les propriétaires à Gien et dans le Pays du Giennois.</p>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;" class="reveal" id="faq-grid">
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+              <span itemprop="name">Comment fonctionne la conciergerie ELOK à Gien ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">ELOK prend en charge l'intégralité de la gestion de votre location Airbnb ou Booking.com : optimisation de l'annonce, pricing dynamique, accueil voyageurs, ménage &amp; linge hôtelier, check-in/out et reporting mensuel. Vous déléguez tout, ELOK gère tout dans un rayon de 20 km autour de Gien (45500).</div>
+            </div>
+          </div>
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+              <span itemprop="name">Quelle est la zone d'intervention de ELOK ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">ELOK intervient dans un rayon de 20 km autour de Gien (45500, Loiret) : Gien, Briare, Châtillon-sur-Loire, Nevoy, Poilly-lez-Gien, Coullons, Ouzouer-sur-Loire, Bonny-sur-Loire, Dampierre-en-Burly, Beaulieu-sur-Loire, Autry-le-Châtel et les communes du Pays du Giennois.</div>
+            </div>
+          </div>
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+              <span itemprop="name">Combien coûte la gestion Airbnb avec ELOK ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">La tarification ELOK est basée sur un pourcentage des revenus locatifs — sans frais fixes ni abonnement. Vous ne payez que quand vous gagnez. Contactez-nous pour une estimation gratuite et personnalisée selon votre bien à Gien ou dans le Pays du Giennois.</div>
+            </div>
+          </div>
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+              <span itemprop="name">ELOK gère-t-il aussi les locations sur Booking.com ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">Oui. ELOK assure la distribution multi-plateformes : Airbnb, Booking.com et autres canaux. Nous synchronisons les disponibilités et optimisons votre visibilité sur toutes les plateformes pour maximiser votre taux d'occupation à Gien et alentours.</div>
+            </div>
+          </div>
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+              <span itemprop="name">Puis-je confier mon bien si je ne vis pas à Gien ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">Absolument. Plusieurs propriétaires ELOK gèrent leur bien à distance depuis Paris ou d'autres villes. ELOK assure tout sur place : accueil, ménage, urgences. Vous recevez chaque mois un reporting détaillé pour piloter votre rentabilité en toute sérénité.</div>
+            </div>
+          </div>
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+              <span itemprop="name">Quelle rentabilité avec une location courte durée à Gien ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">Gien et le Pays du Giennois bénéficient d'une attractivité touristique réelle : Val de Loire classé UNESCO, châteaux, Loire à Vélo, pêche et chasse. ELOK optimise votre tarification selon les saisons et les événements locaux. Contactez-nous pour une estimation gratuite de votre potentiel.</div>
+            </div>
+          </div>
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+              <span itemprop="name">ELOK, c'est quoi la différence avec une agence immobilière ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">ELOK est une conciergerie spécialisée en location courte durée (Airbnb, Booking), pas une agence de location longue durée. Nous gérons l'expérience voyageurs au quotidien, le pricing dynamique, le ménage et le linge. Résultat : une rentabilité locative nettement supérieure à la location classique.</div>
+            </div>
+          </div>
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+              <span itemprop="name">Dois-je m'occuper de la réglementation pour louer à Gien ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">La location courte durée à Gien est soumise à des obligations légales (déclaration en mairie, numéro d'enregistrement selon la commune). ELOK vous accompagne dans ces démarches et s'assure que votre location est en conformité avec la réglementation locale en vigueur.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
     <!-- CONTACT -->
     <section class="section" id="contact">
       <div class="wrap">
@@ -1258,7 +1578,7 @@
                 <div>📍</div>
                 <div>
                   <b>Zone d'intervention</b>
-                  <span>Gien + 20 km (Loiret)</span>
+                  <span>Gien (45500) · Briare · Châtillon-sur-Loire · Nevoy · Poilly-lez-Gien · Coullons · Ouzouer-sur-Loire · Bonny-sur-Loire · Dampierre-en-Burly · Beaulieu-sur-Loire · et tout le Pays du Giennois (Loiret)</span>
                 </div>
               </div>
               <div class="line">
@@ -1286,20 +1606,32 @@
     </section>
 
     <!-- FOOTER -->
-    <footer>
+    <footer itemscope itemtype="https://schema.org/ProfessionalService">
+      <meta itemprop="name" content="ELOK Conciergerie" />
+      <meta itemprop="url" content="https://www.elok.fr" />
       <div class="wrap">
         <div class="footer-grid">
-          <div><b style="font-family:'Playfair Display',serif; color:var(--ink);">ELOK</b> · Conciergerie Airbnb premium à Gien et le Pays du Giennois</div>
+          <div>
+            <b style="font-family:'Playfair Display',serif; color:var(--ink);">ELOK</b> · Conciergerie Airbnb premium à Gien et le Pays du Giennois
+            <div style="margin-top:6px;font-size:12px;opacity:.65;" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+              <span itemprop="addressLocality">Gien</span>,
+              <span itemprop="postalCode">45500</span>
+              <span itemprop="addressRegion">Loiret</span> —
+              <span itemprop="addressCountry">France</span> ·
+              <a href="mailto:contact@elok.fr" itemprop="email" style="text-decoration:underline;">contact@elok.fr</a>
+            </div>
+          </div>
           <div style="display:flex; gap:14px; flex-wrap:wrap;">
             <a href="#concept">Concept</a>
             <a href="#services">Prestations</a>
+            <a href="#faq">FAQ</a>
             <a href="blog.html">Blog</a>
             <a href="#contact">Contact</a>
             <a href="https://elok.fr" target="_blank" rel="noopener">elok.fr</a>
           </div>
         </div>
         <div style="margin-top:14px; opacity:.85;">
-          © <span id="year"></span> ELOK · Tous droits réservés.
+          © <span id="year"></span> ELOK · Tous droits réservés · Conciergerie Airbnb &amp; Booking à Gien (45500), Loiret.
         </div>
       </div>
     </footer>
@@ -1368,6 +1700,14 @@
     // ====== Footer year ======
     document.getElementById('year').textContent = new Date().getFullYear();
 
+  </script>
+  <script>
+    function toggleFaq(btn){
+      var isOpen = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      var answer = btn.nextElementSibling;
+      answer.classList.toggle('open', !isOpen);
+    }
   </script>
 </body>
 </html>
