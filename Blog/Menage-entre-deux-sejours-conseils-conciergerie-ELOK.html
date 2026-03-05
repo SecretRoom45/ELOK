@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>Comment faire un bon ménage entre deux séjours · ELOK</title>
+  <meta name="description" content="Conseils et astuces de la conciergerie ELOK pour réaliser un ménage impeccable entre deux réservations : kit, zones stratégiques, finitions et dernière vérification." />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../Photos/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../Photos/favicon-16.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --green:#1F3D2B;
+      --cream:#F6F4EF;
+      --ink:#111111;
+      --muted: rgba(17,17,17,.72);
+      --shadow-soft: 0 18px 55px rgba(0,0,0,.12);
+      --shadow-strong: 0 26px 80px rgba(0,0,0,.16);
+      --radius-2: 26px;
+      --max: 980px;
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html, body{ overflow-x:hidden; }
+    body{
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a{ color: inherit; text-decoration:none; }
+    .wrap{ max-width: var(--max); margin:0 auto; padding: 0 18px; }
+
+    .topbar{
+      position:sticky; top:0; z-index:60;
+      padding: 14px 0;
+      background: rgba(246,244,239,.72);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(17,17,17,.08);
+    }
+    .nav{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .brand{ display:flex; align-items:center; gap:10px; min-width:0; }
+    .brand-logo{ height:28px; width:28px; border-radius:50%; object-fit:cover; display:block; }
+
+    .hamburger{
+      width:44px; height:44px;
+      border-radius:14px;
+      border:1px solid rgba(31,61,43,.18);
+      background: rgba(255,255,255,.60);
+      display:inline-flex; align-items:center; justify-content:center;
+      box-shadow: 0 10px 30px rgba(0,0,0,.06);
+    }
+    .hamburger svg{ width:20px; height:20px; }
+
+    .drawer-backdrop{
+      position:fixed; inset:0;
+      background: rgba(17,17,17,.42);
+      opacity:0; pointer-events:none;
+      transition: opacity .2s ease;
+      z-index:70;
+    }
+    .drawer{
+      position:fixed; top:0; right:0; height:100%;
+      width:min(380px, 88vw);
+      background: rgba(246,244,239,.98);
+      border-left:1px solid rgba(17,17,17,.10);
+      box-shadow: 0 22px 80px rgba(0,0,0,.18);
+      transform: translateX(110%);
+      transition: transform .22s ease;
+      z-index:71;
+      padding: 16px;
+      display:flex; flex-direction:column; gap: 10px;
+    }
+    .drawer-head{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(17,17,17,.08);
+    }
+    .drawer-title{ font-family:"Playfair Display", serif; font-weight:700; font-size:18px; }
+    .drawer-close{
+      width:44px; height:44px; border-radius:14px;
+      border:1px solid rgba(31,61,43,.18); background: rgba(255,255,255,.65);
+      display:inline-flex; align-items:center; justify-content:center;
+    }
+    .drawer a{ display:flex; padding:12px; border-radius:14px; font-weight:700; color:rgba(17,17,17,.92); }
+    .drawer a:hover{ background:rgba(31,61,43,.08); color:var(--green); }
+    .drawer a.active{ background:rgba(31,61,43,.10); color:var(--green); }
+    .drawer-actions{ margin-top:auto; display:grid; gap:10px; padding-top:10px; border-top:1px solid rgba(17,17,17,.08); }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 18px; border-radius:999px;
+      border:1px solid rgba(31,61,43,.18);
+      font-weight:700; font-size:14px; white-space:nowrap; background:transparent;
+    }
+    .btn.primary{ background:var(--green); color:#fff; border-color:rgba(31,61,43,.55); }
+    .drawer-open .drawer-backdrop{ opacity:1; pointer-events:auto; }
+    .drawer-open .drawer{ transform:translateX(0); }
+
+    /* ARTICLE */
+    .hero{ padding: 34px 0 10px; }
+    .back{ display:inline-flex; align-items:center; gap:10px; color:var(--green); font-weight:800; margin-bottom:14px; }
+    .back span{ border-bottom:1px solid rgba(31,61,43,.25); padding-bottom:2px; }
+    .kicker{ font-size:12px; letter-spacing:2.6px; text-transform:uppercase; color:rgba(17,17,17,.58); margin-bottom:10px; }
+
+    h1{
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      font-size: clamp(34px, 4.2vw, 56px);
+      line-height:1.06;
+      margin-bottom:12px;
+      letter-spacing:-0.4px;
+    }
+    .lead{ color:rgba(17,17,17,.72); font-size:18px; max-width:74ch; margin-top:8px; }
+
+    .cover{
+      margin: 22px 0 26px;
+      border-radius: var(--radius-2);
+      overflow:hidden;
+      box-shadow: var(--shadow-strong);
+      border:1px solid rgba(17,17,17,.08);
+      background:
+        linear-gradient(180deg, rgba(17,17,17,.08), rgba(17,17,17,.28)),
+        url("../Photos/PHOTO2.jpeg") center/cover no-repeat;
+      min-height: 240px;
+    }
+    @media (max-width:560px){
+      .wrap{ padding:0 16px; }
+      .cover{ min-height:200px; border-radius:22px; }
+      .lead{ font-size:17px; }
+    }
+
+    .article{ padding:8px 0 84px; }
+
+    .quote{
+      border-left:4px solid var(--green);
+      padding:12px 14px 12px 16px;
+      margin:18px 0 22px;
+      color:rgba(17,17,17,.74);
+      font-size:18px;
+      background:rgba(255,255,255,.35);
+      border-radius:12px;
+    }
+
+    h2{
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      font-size: clamp(22px, 2.4vw, 30px);
+      line-height:1.15;
+      margin:30px 0 10px;
+      color:var(--green);
+    }
+    p{ margin:10px 0; color:rgba(17,17,17,.84); }
+    ul, ol{ margin:12px 0 14px 20px; color:rgba(17,17,17,.84); display:grid; gap:8px; }
+    li{ margin-left:6px; }
+
+    /* Étapes numérotées */
+    .steps{ margin:18px 0 24px; display:grid; gap:14px; }
+    .step{
+      display:flex; gap:14px; align-items:flex-start;
+      padding:16px;
+      border-radius:18px;
+      border:1px solid rgba(17,17,17,.09);
+      background:rgba(255,255,255,.52);
+      box-shadow:0 8px 28px rgba(0,0,0,.07);
+    }
+    .step-num{
+      flex-shrink:0;
+      width:34px; height:34px;
+      border-radius:50%;
+      background:var(--green);
+      color:#fff;
+      display:flex; align-items:center; justify-content:center;
+      font-weight:800; font-size:15px;
+      margin-top:2px;
+    }
+    .step-body h3{
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      font-size:18px;
+      line-height:1.2;
+      margin-bottom:6px;
+      color:rgba(17,17,17,.92);
+    }
+    .step-body p{ margin:0; color:rgba(17,17,17,.76); font-size:15px; }
+    .step-body ul{ margin:8px 0 0 18px; font-size:15px; }
+
+    .tip{
+      margin:20px 0 10px;
+      padding:14px 16px;
+      border-radius:16px;
+      background:rgba(31,61,43,.06);
+      border:1px solid rgba(31,61,43,.16);
+      color:rgba(17,17,17,.80);
+    }
+    .tip strong{ color:var(--green); }
+
+    .card{
+      margin:30px 0 0;
+      padding:20px 18px;
+      border-radius:var(--radius-2);
+      border:1px solid rgba(17,17,17,.10);
+      background:rgba(255,255,255,.55);
+      box-shadow:var(--shadow-soft);
+    }
+    .card h3{ font-family:"Playfair Display",serif; font-size:20px; margin-bottom:8px; line-height:1.15; color:var(--green); }
+    .card p{ margin:0 0 14px; color:rgba(17,17,17,.74); }
+
+    footer{ padding:42px 0; border-top:1px solid rgba(17,17,17,.08); color:rgba(17,17,17,.72); font-size:13px; }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="brand" href="../index.html" aria-label="Retour accueil">
+          <img class="brand-logo" src="../Photos/logo-header-circle.png" alt="ELOK">
+        </a>
+        <button class="hamburger" id="openDrawer" aria-label="Ouvrir le menu" aria-controls="drawer" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="drawer-backdrop" id="drawerBackdrop" aria-hidden="true"></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="drawer-head">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <img class="brand-logo" src="../Photos/logo-header-circle.png" alt="ELOK">
+        <div class="drawer-title">Menu</div>
+      </div>
+      <button class="drawer-close" id="closeDrawer" aria-label="Fermer le menu">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" width="18" height="18">
+          <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <a href="../index.html#concept">Concept</a>
+    <a href="../index.html#services">Prestations</a>
+    <a href="../index.html#methode">Méthode</a>
+    <a href="../index.html#avis">Avis</a>
+    <a class="active" href="../blog.html">Blog</a>
+    <a href="../index.html#contact">Contact</a>
+    <div class="drawer-actions">
+      <a class="btn" href="mailto:contact@elok.fr">contact@elok.fr</a>
+      <a class="btn primary" href="../index.html#contact">Confier mon bien</a>
+    </div>
+  </aside>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <a class="back" href="../blog.html"><span>← Retour au blog</span></a>
+        <div class="kicker">Ménage · Gestion · Conciergerie</div>
+        <h1>Comment faire un bon ménage entre deux séjours</h1>
+        <p class="lead">
+          Gérer une propriété entre deux réservations est un art qui combine rapidité et rigueur.
+          Voici la méthode ELOK pour garantir un hébergement impeccable à chaque arrivée,
+          sans perdre de temps.
+        </p>
+        <div class="cover" role="img" aria-label="Illustration de l'article"></div>
+      </div>
+    </section>
+
+    <section class="article">
+      <div class="wrap">
+
+        <div class="quote">
+          Un ménage réussi ne se remarque pas — c'est précisément ça, l'excellence.
+          Chaque détail compte pour transformer un simple logement en une expérience mémorable.
+        </div>
+
+        <div class="steps">
+
+          <div class="step">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <h3>Préparer un kit de ménage complet</h3>
+              <p>Avant de commencer, tout doit être à portée de main. Un kit bien organisé vous fait gagner un temps précieux.</p>
+              <ul>
+                <li>Chiffons en microfibre (plusieurs couleurs pour éviter la contamination croisée)</li>
+                <li>Aspirateur et balai</li>
+                <li>Produits multi-surfaces, nettoyant vitres et désinfectant</li>
+                <li>Sacs poubelle et sacs recyclage</li>
+                <li>Gants et éponges</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <h3>Ventiler toutes les pièces en premier</h3>
+              <p>Ouvrez toutes les fenêtres avant de commencer. L'air circule pendant que vous nettoyez, rafraîchit naturellement l'espace et élimine les odeurs sans avoir besoin de masquer avec des produits chimiques.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <h3>Commencer par le désencombrement</h3>
+              <p>Retirez tout ce que les précédents locataires ont laissé : emballages, aliments, objets oubliés. Jetez ou recyclez. Cette étape libère l'espace et révèle ce qui nécessite attention avant de passer au nettoyage proprement dit.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <h3>Nettoyer les zones stratégiques</h3>
+              <p>Ce sont les pièces les plus scrutées par les voyageurs. Aucune zone ne doit être négligée.</p>
+              <ul>
+                <li><strong>Cuisine :</strong> appareils électroménagers (micro-ondes, plaques, réfrigérateur), plan de travail, évier, torchons changés.</li>
+                <li><strong>Salle de bain :</strong> toilettes, lavabo et douche désinfectés, serviettes et tapis de bain remplacés, savon et papier toilette réapprovisionnés.</li>
+                <li><strong>Chambres :</strong> linge de lit changé, oreillers secoués, couvertures propres et bien pliées, aspiration sous les lits.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">5</div>
+            <div class="step-body">
+              <h3>Nettoyer les sols de haut en bas</h3>
+              <p>Passez l'aspirateur dans toutes les pièces en insistant sur les coins et sous les meubles. Terminez par la serpillière avec un produit désinfectant — une bonne odeur de propreté est le premier signe que les voyageurs remarquent en entrant.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">6</div>
+            <div class="step-body">
+              <h3>Soigner les détails souvent oubliés</h3>
+              <p>Ce sont eux qui font la différence entre un ménage "correct" et un ménage "professionnel".</p>
+              <ul>
+                <li>Interrupteurs, poignées de porte, télécommandes — essuyés et désinfectés</li>
+                <li>Placards et tiroirs — vérifiés et rangés</li>
+                <li>Sacs poubelle changés, consommables remplacés (savon, shampoing, café…)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">7</div>
+            <div class="step-body">
+              <h3>Finitions et mise en valeur</h3>
+              <p>Le ménage terminé, préparez l'hébergement comme une chambre d'hôtel :</p>
+              <ul>
+                <li>Linge de lit et serviettes pliés avec soin et disposés harmonieusement</li>
+                <li>Désodorisant léger vaporisé dans chaque pièce</li>
+                <li>Petits détails d'accueil : brochures locales, fleurs fraîches, livret d'accueil à portée de main</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step-num">8</div>
+            <div class="step-body">
+              <h3>Dernière vérification avant de partir</h3>
+              <p>Faites un tour complet du logement avant de fermer la porte. Vérifiez chaque pièce, fermez les fenêtres, éteignez les lumières. Un regard frais à la fin permet de repérer ce qu'on a pu manquer pendant le nettoyage.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="tip">
+          <strong>Astuce ELOK :</strong> commencez toujours par les pièces humides (salle de bain, cuisine) et finissez par les chambres et le salon.
+          Les produits désinfectants ont besoin de temps pour agir — appliquez-les en premier, nettoyez d'autres zones, puis revenez essuyer.
+        </div>
+
+        <h2>Pourquoi ce processus est non négociable</h2>
+        <p>
+          Sur Airbnb, la propreté est le critère n°1 dans les avis et l'un des facteurs les plus pondérés
+          par l'algorithme pour le classement. Un logement impeccable génère des avis 5 étoiles,
+          améliore votre note globale et augmente mécaniquement votre taux d'occupation.
+        </p>
+        <p>
+          À l'inverse, un seul commentaire négatif sur la propreté peut faire chuter votre classement
+          et décourager des dizaines de futurs voyageurs. <strong>Le ménage n'est pas une tâche secondaire —
+          c'est le socle de votre réputation en ligne.</strong>
+        </p>
+
+        <div class="card">
+          <h3>Vous préférez déléguer cette étape ?</h3>
+          <p>
+            ELOK prend en charge l'intégralité du ménage entre chaque séjour : protocole professionnel,
+            produits certifiés, vérification photo avant chaque arrivée. Votre logement est toujours
+            prêt à accueillir, sans que vous ayez à vous déplacer.
+          </p>
+          <a class="btn primary" href="../index.html#contact">Confier mon bien à ELOK →</a>
+        </div>
+
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        © <script>document.write(new Date().getFullYear())</script> ELOK · Article
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    (function(){
+      const body = document.body;
+      const openBtn = document.getElementById('openDrawer');
+      const closeBtn = document.getElementById('closeDrawer');
+      const backdrop = document.getElementById('drawerBackdrop');
+      const drawer = document.getElementById('drawer');
+
+      function openDrawer(){
+        body.classList.add('drawer-open');
+        openBtn?.setAttribute('aria-expanded','true');
+        backdrop.setAttribute('aria-hidden','false');
+        body.style.position='fixed'; body.style.width='100%';
+      }
+      function closeDrawer(){
+        body.classList.remove('drawer-open');
+        openBtn?.setAttribute('aria-expanded','false');
+        backdrop.setAttribute('aria-hidden','true');
+        body.style.position=''; body.style.width='';
+      }
+
+      openBtn?.addEventListener('click', openDrawer);
+      closeBtn?.addEventListener('click', closeDrawer);
+      backdrop?.addEventListener('click', closeDrawer);
+      document.addEventListener('keydown',(e)=>{ if(e.key==='Escape'&&body.classList.contains('drawer-open')) closeDrawer(); });
+      drawer?.addEventListener('click',(e)=>{ const a=e.target.closest('a'); if(a) closeDrawer(); });
+    })();
+  </script>
+</body>
+</html>
