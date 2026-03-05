@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>Airbnb bouleverse les codes : comment les dernières évolutions transforment le voyage · ELOK</title>
+  <meta name="description" content="Catégories, transparence des prix, séjours flexibles, colocations… Airbnb réinvente le voyage. Découvrez comment ces évolutions impactent hôtes et voyageurs." />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../Photos/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../Photos/favicon-16.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --green:#1F3D2B;
+      --cream:#F6F4EF;
+      --ink:#111111;
+      --muted: rgba(17,17,17,.72);
+      --shadow-soft: 0 18px 55px rgba(0,0,0,.12);
+      --shadow-strong: 0 26px 80px rgba(0,0,0,.16);
+      --radius-2: 26px;
+      --max: 980px;
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html, body{ overflow-x:hidden; }
+    body{
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a{ color: inherit; text-decoration:none; }
+    .wrap{ max-width: var(--max); margin:0 auto; padding: 0 18px; }
+
+    /* HEADER */
+    .topbar{
+      position:sticky; top:0; z-index:60;
+      padding: 14px 0;
+      background: rgba(246,244,239,.72);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(17,17,17,.08);
+      padding-left: max(12px, env(safe-area-inset-left));
+      padding-right: max(12px, env(safe-area-inset-right));
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      min-width:0;
+    }
+    .brand-logo{
+      height:28px; width:28px;
+      border-radius:50%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .hamburger{
+      width:44px; height:44px;
+      border-radius:14px;
+      border:1px solid rgba(31,61,43,.18);
+      background: rgba(255,255,255,.60);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow: 0 10px 30px rgba(0,0,0,.06);
+    }
+    .hamburger svg{ width:20px; height:20px; }
+
+    /* Drawer */
+    .drawer-backdrop{
+      position:fixed; inset:0;
+      background: rgba(17,17,17,.42);
+      opacity:0; pointer-events:none;
+      transition: opacity .2s ease;
+      z-index:70;
+    }
+    .drawer{
+      position:fixed;
+      top:0; right:0; height:100%;
+      width:min(380px, 88vw);
+      background: rgba(246,244,239,.98);
+      border-left:1px solid rgba(17,17,17,.10);
+      box-shadow: 0 22px 80px rgba(0,0,0,.18);
+      transform: translateX(110%);
+      transition: transform .22s ease;
+      z-index:71;
+      padding: 16px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+    .drawer-head{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(17,17,17,.08);
+    }
+    .drawer-title{
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      font-size: 18px;
+    }
+    .drawer-close{
+      width:44px; height:44px;
+      border-radius:14px;
+      border:1px solid rgba(31,61,43,.18);
+      background: rgba(255,255,255,.65);
+      display:inline-flex; align-items:center; justify-content:center;
+    }
+    .drawer a{
+      display:flex;
+      padding: 12px 12px;
+      border-radius: 14px;
+      font-weight:700;
+      color: rgba(17,17,17,.92);
+    }
+    .drawer a:hover{ background: rgba(31,61,43,.08); color: var(--green); }
+    .drawer a.active{ background: rgba(31,61,43,.10); color: var(--green); }
+
+    .drawer-actions{
+      margin-top:auto;
+      display:grid;
+      gap:10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(17,17,17,.08);
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 12px 18px;
+      border-radius:999px;
+      border: 1px solid rgba(31,61,43,.18);
+      font-weight:700;
+      font-size:14px;
+      white-space:nowrap;
+      background: transparent;
+    }
+    .btn.primary{
+      background: var(--green);
+      color:#fff;
+      border-color: rgba(31,61,43,.55);
+    }
+
+    .drawer-open .drawer-backdrop{ opacity:1; pointer-events:auto; }
+    .drawer-open .drawer{ transform: translateX(0); }
+
+    /* ARTICLE */
+    .hero{ padding: 34px 0 10px; }
+    .back{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      color: var(--green);
+      font-weight:800;
+      margin-bottom: 14px;
+    }
+    .back span{
+      border-bottom: 1px solid rgba(31,61,43,.25);
+      padding-bottom:2px;
+    }
+    .kicker{
+      font-size:12px;
+      letter-spacing:2.6px;
+      text-transform:uppercase;
+      color: rgba(17,17,17,.58);
+      margin-bottom: 10px;
+    }
+
+    h1{
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      font-size: clamp(34px, 4.2vw, 56px);
+      line-height:1.06;
+      margin-bottom:12px;
+      letter-spacing:-0.4px;
+    }
+    .lead{
+      color: rgba(17,17,17,.72);
+      font-size: 18px;
+      max-width: 72ch;
+      margin-top: 8px;
+    }
+
+    .cover{
+      margin: 22px 0 26px;
+      border-radius: var(--radius-2);
+      overflow:hidden;
+      box-shadow: var(--shadow-strong);
+      border: 1px solid rgba(17,17,17,.08);
+      background:
+        linear-gradient(180deg, rgba(17,17,17,.10), rgba(17,17,17,.30)),
+        url("../Photos/PHOTO1.jpg") center/cover no-repeat;
+      min-height: 240px;
+    }
+    @media (max-width: 560px){
+      .wrap{ padding: 0 16px; }
+      .cover{ min-height: 210px; border-radius: 22px; }
+      .lead{ font-size: 17px; }
+    }
+
+    .article{ padding: 8px 0 84px; }
+
+    .quote{
+      border-left: 4px solid var(--green);
+      padding: 12px 14px 12px 16px;
+      margin: 18px 0 22px;
+      color: rgba(17,17,17,.74);
+      font-size: 18px;
+      background: rgba(255,255,255,.35);
+      border-radius: 12px;
+    }
+
+    h2{
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      font-size: clamp(24px, 2.4vw, 32px);
+      line-height:1.15;
+      margin: 28px 0 10px;
+      color: var(--green);
+    }
+    p{ margin: 10px 0; color: rgba(17,17,17,.84); }
+    ul{
+      margin: 12px 0 14px 20px;
+      color: rgba(17,17,17,.84);
+      display:grid;
+      gap: 8px;
+    }
+    li{ margin-left: 6px; }
+
+    .card{
+      margin: 28px 0 0;
+      padding: 18px 16px;
+      border-radius: var(--radius-2);
+      border: 1px solid rgba(17,17,17,.10);
+      background: rgba(255,255,255,.55);
+      box-shadow: var(--shadow-soft);
+    }
+    .card h3{
+      font-family:"Playfair Display", serif;
+      font-size: 20px;
+      margin-bottom: 8px;
+      line-height:1.15;
+    }
+    .card p{ margin: 0 0 12px; color: rgba(17,17,17,.74); }
+
+    footer{
+      padding: 42px 0;
+      border-top: 1px solid rgba(17,17,17,.08);
+      color: rgba(17,17,17,.72);
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="brand" href="../index.html" aria-label="Retour accueil">
+          <img class="brand-logo" src="../Photos/logo-header-circle.png" alt="ELOK">
+        </a>
+
+        <button class="hamburger" id="openDrawer" aria-label="Ouvrir le menu" aria-controls="drawer" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="drawer-backdrop" id="drawerBackdrop" aria-hidden="true"></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="drawer-head">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <img class="brand-logo" src="../Photos/logo-header-circle.png" alt="ELOK">
+        <div class="drawer-title">Menu</div>
+      </div>
+      <button class="drawer-close" id="closeDrawer" aria-label="Fermer le menu">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" width="18" height="18">
+          <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <a href="../index.html#concept">Concept</a>
+    <a href="../index.html#services">Prestations</a>
+    <a href="../index.html#methode">Méthode</a>
+    <a href="../index.html#avis">Avis</a>
+    <a class="active" href="../blog.html">Blog</a>
+    <a href="../index.html#contact">Contact</a>
+
+    <div class="drawer-actions">
+      <a class="btn" href="mailto:contact@elok.fr">contact@elok.fr</a>
+      <a class="btn primary" href="../index.html#contact">Confier mon bien</a>
+    </div>
+  </aside>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <a class="back" href="../blog.html"><span>← Retour au blog</span></a>
+
+        <div class="kicker">Plateforme · Évolutions · 2026</div>
+        <h1>Airbnb bouleverse les codes : comment les dernières évolutions de la plateforme transforment le voyage</h1>
+
+        <p class="lead">
+          Depuis quelques années, Airbnb ne se contente plus d'être une simple place de marché entre propriétaires et voyageurs.
+          La plateforme réinvente en profondeur l'expérience du voyage : nouvelles fonctionnalités, transparence accrue, formats inédits.
+          Ce que ces changements signifient concrètement pour les hôtes et les voyageurs.
+        </p>
+
+        <div class="cover" role="img" aria-label="Illustration de l'article"></div>
+      </div>
+    </section>
+
+    <section class="article">
+      <div class="wrap">
+        <div class="quote">
+          Airbnb n'est plus seulement un outil de réservation : <strong>c'est un écosystème complet qui redéfinit la manière de voyager.</strong>
+        </div>
+
+        <h2>1. Les Catégories : découvrir avant de choisir</h2>
+        <p>
+          L'une des évolutions les plus visibles est l'introduction des <strong>Catégories</strong>. Plutôt que de saisir une destination,
+          les voyageurs peuvent désormais explorer par type de logement : cabanes dans les arbres, maisons au bord de l'eau,
+          demeures historiques, logements insolites, fermes, moulins…
+        </p>
+        <p>
+          Cette navigation par inspiration change radicalement le comportement d'achat : le voyageur ne part plus d'un lieu,
+          mais d'une envie. Pour les hôtes, cela ouvre la porte à une visibilité inattendue — un bien bien tagué peut apparaître
+          dans des recherches très larges, bien au-delà de sa zone géographique.
+        </p>
+        <ul>
+          <li>Plus de 60 catégories disponibles (cabanes, îles, géodomes, dômes, piscines…)</li>
+          <li>Les biens atypiques ou bien photographiés en bénéficient directement</li>
+          <li>Un levier de visibilité supplémentaire indépendant des mots-clés de recherche</li>
+        </ul>
+
+        <h2>2. La transparence totale des prix</h2>
+        <p>
+          Airbnb a revu en profondeur l'affichage des tarifs après de nombreuses critiques sur les <strong>frais cachés</strong>.
+          Depuis 2023, le prix affiché dans les résultats de recherche inclut désormais tous les frais — ménage, service, taxes —
+          dès la première vue.
+        </p>
+        <p>
+          C'est un changement structurel : les hôtes qui pratiquaient des prix de base artificiellement bas avec des frais de ménage
+          élevés perdent un avantage concurrentiel. <strong>La compétitivité se joue désormais sur le prix tout compris.</strong>
+        </p>
+        <ul>
+          <li>Impact direct sur le taux de conversion des annonces</li>
+          <li>Frais de ménage élevés = désavantage visible dans les résultats</li>
+          <li>Les hôtes doivent repenser leur structure tarifaire</li>
+        </ul>
+
+        <h2>3. Airbnb Rooms : le retour aux origines</h2>
+        <p>
+          Airbnb a relancé <strong>Airbnb Rooms</strong>, son format originel permettant de louer une chambre chez l'habitant.
+          Le profil des hôtes y est mis en avant, les photos de l'hôte sont intégrées à l'annonce, et un système de compatibilité
+          entre voyageurs et hôtes est mis en place.
+        </p>
+        <p>
+          Cette évolution répond à une demande réelle : celle des voyageurs qui cherchent une connexion humaine authentique,
+          pas seulement un toit. C'est aussi une réponse directe à la montée en puissance des logements entiers standardisés
+          qui font parfois perdre l'âme de la plateforme.
+        </p>
+
+        <h2>4. La flexibilité des séjours comme nouveau standard</h2>
+        <p>
+          Les recherches flexibles ont explosé. Airbnb a introduit des options de recherche par durée (un week-end, une semaine,
+          un mois) et par période floue (« n'importe quand », « en été »). Les voyageurs ne savent plus toujours exactement quand
+          et où partir — et la plateforme s'adapte à cette réalité.
+        </p>
+        <p>
+          Pour les hôtes, activer les <strong>séjours flexibles</strong> et proposer des disponibilités larges est devenu
+          un signal positif fort envoyé à l'algorithme. Un calendrier bien rempli reste le meilleur indicateur de santé d'une annonce.
+        </p>
+        <ul>
+          <li>Option "Je suis flexible" disponible à la recherche</li>
+          <li>Filtres par durée minimale et maximale de séjour</li>
+          <li>Hôtes avec calendriers ouverts favorisés dans les résultats</li>
+        </ul>
+
+        <h2>5. L'essor des séjours longue durée</h2>
+        <p>
+          Avec la généralisation du télétravail, Airbnb est devenu un acteur majeur de la <strong>mobilité résidentielle</strong>.
+          Les séjours d'un mois ou plus représentent aujourd'hui une part significative des nuitées réservées sur la plateforme.
+        </p>
+        <p>
+          Cette tendance transforme la stratégie des hôtes : proposer des tarifs mensuels attractifs, adapter l'équipement
+          (espace de travail, cuisine bien équipée, connexion internet fiable) et accepter des durées longues peut générer
+          des revenus stables avec beaucoup moins de rotation et de gestion opérationnelle.
+        </p>
+
+        <h2>6. La protection des hôtes renforcée</h2>
+        <p>
+          Airbnb a considérablement renforcé son programme de protection des hôtes avec <strong>AirCover</strong> :
+          une couverture gratuite allant jusqu'à 3 millions de dollars pour les dommages, les biens personnels, et même
+          la perte de revenus en cas d'annulation de dernière minute due à un voyageur.
+        </p>
+        <p>
+          Ce changement de cap vise à rassurer les propriétaires hésitants et à attirer de nouveaux hôtes sur la plateforme.
+          Il répond directement à la principale crainte exprimée par les propriétaires : le risque de dégradation.
+        </p>
+
+        <h2>7. Ce que tout cela change pour les hôtes en 2026</h2>
+        <p>
+          Ces évolutions ne sont pas anodines. Elles redessinent les règles du jeu pour tous les hôtes, qu'ils soient
+          propriétaires d'un bien ou d'une flotte de logements :
+        </p>
+        <ul>
+          <li><strong>Transparence des prix</strong> : la structure tarifaire doit être repensée pour rester compétitive</li>
+          <li><strong>Catégories</strong> : les photos et la mise en scène du bien deviennent des leviers de visibilité majeurs</li>
+          <li><strong>Flexibilité</strong> : ouvrir son calendrier et accepter des séjours variés favorise l'algorithme</li>
+          <li><strong>Longue durée</strong> : diversifier son offre pour capter des voyageurs nomades et télétravailleurs</li>
+          <li><strong>AirCover</strong> : se concentrer sur l'expérience plutôt que sur la peur des dégradations</li>
+        </ul>
+
+        <h2>Conclusion</h2>
+        <p>
+          Airbnb évolue rapidement, et les hôtes qui s'adaptent à ces changements prennent une longueur d'avance significative.
+          La plateforme pousse vers plus de qualité, plus de transparence et plus d'authenticité. Ce n'est plus un marché
+          où n'importe quel logement se loue facilement : <strong>les annonces optimisées, bien gérées et bien positionnées
+          capturent l'essentiel des réservations.</strong>
+        </p>
+        <p>
+          Pour les propriétaires du Giennois, c'est une opportunité réelle : la région reste peu saturée,
+          et un bien bien géré peut tirer pleinement profit de ces nouvelles dynamiques pour maximiser son taux d'occupation
+          et ses revenus.
+        </p>
+
+        <div class="card">
+          <h3>Vous êtes propriétaire dans le Giennois&nbsp;?</h3>
+          <p>
+            ELOK vous aide à adapter votre stratégie aux dernières évolutions d'Airbnb : structure tarifaire, optimisation des catégories,
+            gestion des séjours flexibles et longue durée. Rentabilisez votre bien en toute sérénité.
+          </p>
+          <a class="btn primary" href="../index.html#contact">Confier mon bien →</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        © <script>document.write(new Date().getFullYear())</script> ELOK · Article
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    (function(){
+      const body = document.body;
+      const openBtn = document.getElementById('openDrawer');
+      const closeBtn = document.getElementById('closeDrawer');
+      const backdrop = document.getElementById('drawerBackdrop');
+      const drawer = document.getElementById('drawer');
+
+      function openDrawer(){
+        body.classList.add('drawer-open');
+        openBtn?.setAttribute('aria-expanded', 'true');
+        backdrop.setAttribute('aria-hidden', 'false');
+        body.style.position = 'fixed';
+        body.style.width = '100%';
+      }
+      function closeDrawer(){
+        body.classList.remove('drawer-open');
+        openBtn?.setAttribute('aria-expanded', 'false');
+        backdrop.setAttribute('aria-hidden', 'true');
+        body.style.position = '';
+        body.style.width = '';
+      }
+
+      openBtn?.addEventListener('click', openDrawer);
+      closeBtn?.addEventListener('click', closeDrawer);
+      backdrop?.addEventListener('click', closeDrawer);
+
+      document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape' && body.classList.contains('drawer-open')) closeDrawer();
+      });
+
+      drawer?.addEventListener('click', (e) => {
+        const a = e.target.closest('a');
+        if(a) closeDrawer();
+      });
+    })();
+  </script>
+</body>
+</html>
