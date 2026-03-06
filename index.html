@@ -2,8 +2,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>ELOK · Conciergerie Airbnb premium à Gien</title>
-  <meta name="description" content="ELOK, conciergerie Airbnb digitale & locale à Gien. Gestion courte durée premium dans un rayon de 20 km : rentabilité, réactivité, sérénité." />
+
+  <!-- ===== SEO principal ===== -->
+  <title>ELOK — Meilleure Conciergerie Airbnb Gien (45500) | Gestion Location Courte Durée Loiret</title>
+  <meta name="description" content="ELOK, la meilleure conciergerie Airbnb à Gien (45500, Loiret). Gestion complète location courte durée : annonce optimisée, pricing dynamique, ménage, accueil voyageurs 7j/7. Rayon 20 km — Briare, Châtillon-sur-Loire, Nevoy. Estimation gratuite." />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <link rel="canonical" href="https://www.elok.fr/" />
+
+  <!-- ===== Géolocalisation locale ===== -->
+  <meta name="geo.region" content="FR-45" />
+  <meta name="geo.placename" content="Gien, Loiret, France" />
+  <meta name="geo.position" content="47.6947;2.6297" />
+  <meta name="ICBM" content="47.6947, 2.6297" />
+
+  <!-- ===== Open Graph (partage réseaux & prévisualisation) ===== -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="ELOK Conciergerie" />
+  <meta property="og:title" content="ELOK — Conciergerie Airbnb premium à Gien (45500) | Loiret" />
+  <meta property="og:description" content="Gestion complète de votre location Airbnb & Booking à Gien et dans le Pays du Giennois. Pricing, ménage, voyageurs, reporting. Rayon 20 km. Estimation gratuite." />
+  <meta property="og:url" content="https://www.elok.fr/" />
+  <meta property="og:image" content="https://www.elok.fr/Photos/Photo23.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="ELOK — Conciergerie Airbnb premium à Gien, Loiret" />
+
+  <!-- ===== Twitter / X Card ===== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ELOK — Conciergerie Airbnb à Gien (45500)" />
+  <meta name="twitter:description" content="Gestion location courte durée premium à Gien et le Pays du Giennois. Rayon 20 km, support 7j/7, pricing dynamique." />
+  <meta name="twitter:image" content="https://www.elok.fr/Photos/Photo23.jpg" />
 
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="/Photos/favicon-32.png">
@@ -76,8 +104,8 @@
       min-width: 0;
     }
     .brand-logo{
-      width: 26px;
-      height: 26px;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
       object-fit: cover;
       flex: 0 0 auto;
@@ -199,7 +227,7 @@
     @media (min-width: 860px){
       .topbar{ padding: 14px 0; }
 
-      .brand-logo{ width: 34px; height: 34px; }
+      .brand-logo{ width: 46px; height: 46px; }
       .brand .tag{
         display:inline-block;
         font-size: 12px;
@@ -558,7 +586,7 @@
     /* ====== Testimonials ====== */
     .quotes{
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
+      grid-template-columns: 1fr 1fr;
       gap: 18px;
       align-items:stretch;
     }
@@ -752,7 +780,240 @@
       overflow:hidden; clip:rect(0,0,0,0);
       border:0;
     }
+
+    /* ====== Chiffres clés ====== */
+    .stats-section{ background: rgba(255,255,255,.30); }
+    .stats-grid{
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+      margin-top: 36px;
+    }
+    @media (max-width: 860px){ .stats-grid{ grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 540px){ .stats-grid{ grid-template-columns: repeat(2, 1fr); } }
+    .stat-card{
+      text-align: center;
+      padding: 22px 14px 18px;
+      border: 1px solid rgba(17,17,17,.09);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.55);
+    }
+    .stat-num{
+      font-family: "Playfair Display", serif;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700;
+      color: #C87C1A;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+    .stat-label{
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--green);
+      line-height: 1.5;
+    }
+
+    /* ====== À propos responsive ====== */
+    @media (max-width: 680px){
+      .about-grid{ grid-template-columns: 1fr !important; }
+      .values-grid{ grid-template-columns: 1fr 1fr !important; }
+    }
+
+    /* ====== FAQ accordion ====== */
+    @media (max-width: 760px){ #faq-grid{ grid-template-columns: 1fr !important; } }
+    .faq-item{
+      border: 1px solid rgba(17,17,17,.10);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.40);
+      overflow: hidden;
+    }
+    .faq-q{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 18px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      text-align: left;
+      line-height: 1.35;
+    }
+    .faq-q:hover{ background: rgba(31,61,43,.04); }
+    .faq-icon{
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--green);
+      flex-shrink: 0;
+      transition: transform .22s;
+      line-height: 1;
+    }
+    .faq-q[aria-expanded="true"] .faq-icon{ transform: rotate(45deg); }
+    .faq-a{
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s ease, padding .3s ease;
+      font-size: 14px;
+      color: rgba(17,17,17,.72);
+      line-height: 1.6;
+    }
+    .faq-a.open{
+      max-height: 300px;
+      padding: 0 18px 16px;
+    }
   </style>
+
+  <!-- ===== Schema.org JSON-LD — LocalBusiness ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "@id": "https://www.elok.fr/#business",
+    "name": "ELOK Conciergerie",
+    "alternateName": "ELOK — Conciergerie Airbnb Gien",
+    "description": "Conciergerie Airbnb et Booking premium à Gien (45500, Loiret). Gestion complète location courte durée : optimisation annonce, pricing dynamique, relation voyageurs 7j/7, ménage & linge, check-in/out, reporting propriétaire. Rayon 20 km.",
+    "url": "https://www.elok.fr",
+    "email": "contact@elok.fr",
+    "logo": "https://www.elok.fr/Photos/logo-circle-1024.png",
+    "image": "https://www.elok.fr/Photos/Photo23.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Gien",
+      "addressLocality": "Gien",
+      "postalCode": "45500",
+      "addressRegion": "Loiret",
+      "addressCountry": "FR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 47.6947,
+      "longitude": 2.6297
+    },
+    "serviceArea": {
+      "@type": "GeoCircle",
+      "geoMidpoint": {
+        "@type": "GeoCoordinates",
+        "latitude": 47.6947,
+        "longitude": 2.6297
+      },
+      "geoRadius": "20000"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Gien", "sameAs": "https://www.wikidata.org/wiki/Q197496" },
+      { "@type": "City", "name": "Briare" },
+      { "@type": "City", "name": "Châtillon-sur-Loire" },
+      { "@type": "City", "name": "Nevoy" },
+      { "@type": "City", "name": "Poilly-lez-Gien" },
+      { "@type": "City", "name": "Coullons" },
+      { "@type": "City", "name": "Ouzouer-sur-Loire" },
+      { "@type": "City", "name": "Bonny-sur-Loire" },
+      { "@type": "City", "name": "Dampierre-en-Burly" },
+      { "@type": "City", "name": "Beaulieu-sur-Loire" },
+      { "@type": "City", "name": "Autry-le-Châtel" },
+      { "@type": "City", "name": "Saint-Brisson-sur-Loire" }
+    ],
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "08:00",
+      "closes": "22:00"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "6",
+      "reviewCount": "6"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Services de conciergerie Airbnb",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Gestion complète location Airbnb" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Optimisation annonce et pricing dynamique" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Relation voyageurs 7j/7" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ménage et linge hôtelier" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Check-in et check-out" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reporting propriétaire mensuel" } }
+      ]
+    },
+    "sameAs": [
+      "https://www.elok.fr"
+    ]
+  }
+  </script>
+
+  <!-- ===== Schema.org JSON-LD — FAQPage ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Comment fonctionne la conciergerie ELOK à Gien ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ELOK prend en charge l'intégralité de la gestion de votre location Airbnb ou Booking.com à Gien (45500) : création et optimisation de l'annonce, pricing dynamique, accueil voyageurs, ménage et linge hôtelier, check-in/check-out et reporting mensuel. Vous déléguez tout, ELOK gère tout, dans un rayon de 20 km autour de Gien."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quelle est la zone d'intervention de ELOK ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ELOK intervient dans un rayon de 20 km autour de Gien (45500, Loiret) : Gien, Briare, Châtillon-sur-Loire, Nevoy, Poilly-lez-Gien, Coullons, Ouzouer-sur-Loire, Bonny-sur-Loire, Dampierre-en-Burly, Beaulieu-sur-Loire et les communes environnantes du Pays du Giennois."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Combien coûte la gestion Airbnb avec ELOK ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "La tarification ELOK est basée sur un pourcentage des revenus locatifs générés — sans frais fixes ni abonnement. Vous ne payez que quand vous gagnez. Contactez-nous pour une estimation gratuite et personnalisée selon votre bien et vos objectifs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "ELOK gère-t-il les locations sur Booking.com en plus d'Airbnb ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui. ELOK assure la distribution multi-plateformes : Airbnb, Booking.com et autres canaux de réservation. Nous synchronisons les disponibilités et optimisons votre visibilité sur toutes les plateformes pour maximiser votre taux d'occupation à Gien et dans le Pays du Giennois."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Puis-je confier mon bien à ELOK si je ne vis pas à Gien ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolument. Plusieurs propriétaires ELOK gèrent leur bien à distance depuis Paris ou d'autres villes. ELOK assure tout sur place à Gien : accueil des voyageurs, ménage, gestion des urgences, et vous transmet un reporting mensuel détaillé pour piloter votre rentabilité."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quelle rentabilité puis-je espérer avec une location courte durée à Gien ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Le potentiel varie selon le type de bien et sa localisation. Gien et le Pays du Giennois bénéficient d'une bonne attractivité touristique : Val de Loire classé UNESCO, châteaux, cyclotourisme (Loire à Vélo), pêche et chasse. ELOK optimise votre tarification selon les saisons et les événements locaux pour maximiser vos revenus. Contactez-nous pour une estimation gratuite."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quelle est la différence entre ELOK et une agence immobilière classique ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ELOK est une conciergerie spécialisée en location courte durée (Airbnb, Booking), pas une agence de location longue durée. Nous gérons l'expérience voyageurs au quotidien, le pricing dynamique, le ménage et le linge, là où une agence classique se concentre sur les baux annuels. Notre modèle est orienté rentabilité maximale à court terme."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -879,6 +1140,110 @@
             <h3>Exigence hôtelière</h3>
             <p>Communication voyageurs, check-in/out, standards ménage, linge et détails qui déclenchent des 5★.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- À PROPOS -->
+    <section class="section" id="about">
+      <div class="wrap">
+
+        <!-- Titre À propos -->
+        <div class="section-head reveal" style="text-align:center;">
+          <h2 style="font-family:'Playfair Display',serif; color:var(--green); font-style:italic; font-size:clamp(26px,4vw,38px);">À propos d'ELOK</h2>
+        </div>
+
+        <!-- 2 cartes Vision / Qui sommes-nous -->
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:28px;" class="about-grid reveal">
+
+          <div style="border:1px solid rgba(17,17,17,.10); border-radius:var(--radius); padding:26px 28px; background:rgba(255,255,255,.45);">
+            <h3 style="color:var(--green); font-size:16px; font-weight:700; margin-bottom:14px;">Notre vision</h3>
+            <p style="font-style:italic; color:var(--ink); margin-bottom:14px; line-height:1.6;">"Libérer les propriétaires des tracas de la gestion quotidienne tout en maximisant leurs revenus" — Voici notre mission.</p>
+            <p style="color:rgba(17,17,17,.72); margin-bottom:12px; line-height:1.65;">Nous nous engageons à créer une tranquillité d'esprit totale pour nos hôtes.</p>
+            <p style="color:rgba(17,17,17,.72); line-height:1.65;">Avec notre approche innovante et notre expertise, nous transformons chaque séjour en une expérience mémorable pour les voyageurs et assurons un rendement optimal pour nos clients.</p>
+          </div>
+
+          <div style="border:1px solid rgba(17,17,17,.10); border-radius:var(--radius); padding:26px 28px; background:rgba(255,255,255,.45);">
+            <h3 style="color:var(--green); font-size:16px; font-weight:700; margin-bottom:14px;">Qui sommes-nous ?</h3>
+            <p style="color:rgba(17,17,17,.72); margin-bottom:12px; line-height:1.65;">ELOK se positionne comme la conciergerie Airbnb de confiance à ne pas manquer !</p>
+            <p style="color:rgba(17,17,17,.72); margin-bottom:12px; line-height:1.65;">Avec plusieurs années d'expérience spécialisée dans le domaine, nous nous engageons à fournir un service personnalisé et attentif pour assurer le succès de vos projets immobiliers.</p>
+            <p style="color:rgba(17,17,17,.72); line-height:1.65;">Notre équipe dévouée et passionnée œuvre sans relâche pour accompagner les propriétaires dans l'optimisation de leurs investissements.</p>
+          </div>
+
+        </div>
+
+        <!-- Titre Nos valeurs -->
+        <div style="text-align:center; margin-top:52px;" class="reveal">
+          <h2 style="font-family:'Playfair Display',serif; color:var(--green); font-style:italic; font-size:clamp(24px,3.5vw,34px);">Nos valeurs</h2>
+        </div>
+
+        <!-- 4 colonnes valeurs -->
+        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:28px;" class="values-grid reveal">
+
+          <div>
+            <div style="font-size:11px; letter-spacing:2.5px; text-transform:uppercase; font-weight:700; color:var(--green); margin-bottom:10px;">Familial</div>
+            <p style="font-size:14px; color:rgba(17,17,17,.72); line-height:1.65;">Nous transmettons des valeurs familiales à nos équipes et à nos clients, afin de créer une atmosphère chaleureuse et accueillante.</p>
+          </div>
+
+          <div>
+            <div style="font-size:11px; letter-spacing:2.5px; text-transform:uppercase; font-weight:700; color:var(--green); margin-bottom:10px;">Bienveillance</div>
+            <p style="font-size:14px; color:rgba(17,17,17,.72); line-height:1.65;">Notre équipe dédiée est là pour vous accompagner à chaque étape, veillant à ce que vos besoins et préoccupations soient pris en compte.</p>
+          </div>
+
+          <div>
+            <div style="font-size:11px; letter-spacing:2.5px; text-transform:uppercase; font-weight:700; color:var(--green); margin-bottom:10px;">Ambitions</div>
+            <p style="font-size:14px; color:rgba(17,17,17,.72); line-height:1.65;">Notre ambition est de propulser votre investissement immobilier vers de nouveaux sommets. Avec la location courte durée, maximiser vos revenus locatifs.</p>
+          </div>
+
+          <div>
+            <div style="font-size:11px; letter-spacing:2.5px; text-transform:uppercase; font-weight:700; color:var(--green); margin-bottom:10px;">Transparence</div>
+            <p style="font-size:14px; color:rgba(17,17,17,.72); line-height:1.65;">Avec ELOK, vous pouvez compter sur une relation basée sur la confiance et la transparence. Nous vous tenons informé des événements de votre logement.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CHIFFRES CLÉS -->
+    <section class="section stats-section" id="chiffres">
+      <div class="wrap">
+        <div class="section-head reveal" style="text-align:center;">
+          <h2 style="font-family:'Playfair Display',serif; color:var(--green); font-style:italic; font-size:clamp(22px,3.5vw,34px);">Avec ELOK votre logement est entre de bonnes mains</h2>
+          <p style="margin-top:8px; color:rgba(17,17,17,.62);">Quelques chiffres pour vous en convaincre</p>
+        </div>
+
+        <div class="stats-grid reveal">
+
+          <div class="stat-card">
+            <div class="stat-num">4,92</div>
+            <div class="stat-label">Note moyenne des biens que nous gérons sur Airbnb</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-num">9,4</div>
+            <div class="stat-label">Note moyenne des biens gérés sur Booking.com</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-num">6 ans</div>
+            <div class="stat-label">D'expérience en gestion de location courte durée</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-num">70%</div>
+            <div class="stat-label">Taux d'occupation moyen de nos logements</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-num">500+</div>
+            <div class="stat-label">Avis clients sur Airbnb</div>
+          </div>
+
+        </div>
+
+        <div style="text-align:center; margin-top:30px;" class="reveal">
+          <a class="btn primary" href="#contact">Confier mon bien maintenant</a>
         </div>
       </div>
     </section>
@@ -1035,33 +1400,97 @@
         </div>
 
         <div class="quotes">
+
+          <!-- Voyageur Booking 1 -->
           <div class="quote reveal">
             <div class="text">
               "Accueil impeccable, logement irréprochable, instructions claires et réactivité immédiate.
               On sent une organisation pro, digne d'un hôtel. On reviendra."
             </div>
             <div class="who">
-              <div class="avatar"></div>
+              <div class="avatar" style="background:linear-gradient(135deg,#6B7FD4,#9BA8E5);color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;letter-spacing:.5px;flex-shrink:0;">MT</div>
               <div>
-                <div><b>Voyageur Booking</b> · 4,9/5</div>
-                <div style="opacity:.8;">Séjour à Gien</div>
+                <div><b>Marie T.</b> · <span style="color:var(--green);letter-spacing:.5px;">★★★★★</span> <span style="font-weight:600;">10/10</span></div>
+                <div style="opacity:.75;font-size:13px;">Voyageur Booking · Séjour à Gien</div>
               </div>
             </div>
           </div>
 
+          <!-- Propriétaire 1 -->
           <div class="quote reveal">
             <div class="text">
               "Côté propriétaire, je respire. Suivi mensuel clair, communication fluide, et des réservations
               mieux optimisées qu'avant."
             </div>
             <div class="who">
-              <div class="avatar"></div>
+              <div class="avatar" style="background:linear-gradient(135deg,var(--green),var(--green-2));color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;letter-spacing:.5px;flex-shrink:0;">LB</div>
               <div>
-                <div><b>Propriétaire</b> · Gestion ELOK</div>
-                <div style="opacity:.8;">Rayon 20 km</div>
+                <div><b>Laurent B.</b> · <span style="color:var(--green);letter-spacing:.5px;">★★★★★</span> <span style="font-weight:600;">5/5</span></div>
+                <div style="opacity:.75;font-size:13px;">Propriétaire · Gestion ELOK · Rayon 20 km</div>
               </div>
             </div>
           </div>
+
+          <!-- Voyageur Booking 2 -->
+          <div class="quote reveal">
+            <div class="text">
+              "Appartement parfaitement équipé et très propre. L'équipe a répondu en moins de 10 minutes.
+              Un niveau de service rare pour une location courte durée."
+            </div>
+            <div class="who">
+              <div class="avatar" style="background:linear-gradient(135deg,#C47F5A,#DFA97E);color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;letter-spacing:.5px;flex-shrink:0;">SM</div>
+              <div>
+                <div><b>Sophie M.</b> · <span style="color:var(--green);letter-spacing:.5px;">★★★★★</span> <span style="font-weight:600;">10/10</span></div>
+                <div style="opacity:.75;font-size:13px;">Voyageur Booking · Gien, Loire</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Voyageur Airbnb 1 -->
+          <div class="quote reveal">
+            <div class="text">
+              "Logement exactement conforme aux photos, propre et bien équipé. L'hôte est très réactif
+              et les informations d'arrivée ultra claires. Séjour parfait !"
+            </div>
+            <div class="who">
+              <div class="avatar" style="background:linear-gradient(135deg,#E05C5C,#F29191);color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;letter-spacing:.5px;flex-shrink:0;">JL</div>
+              <div>
+                <div><b>Julien L.</b> · <span style="color:var(--green);letter-spacing:.5px;">★★★★★</span> <span style="font-weight:600;">5/5</span></div>
+                <div style="opacity:.75;font-size:13px;">Voyageur Airbnb · Gien</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Propriétaire 2 -->
+          <div class="quote reveal">
+            <div class="text">
+              "Je gère mon bien à distance depuis Paris et ELOK s'occupe de tout : check-in, ménage,
+              urgences. Chaque mois un rapport clair. J'ai enfin l'esprit tranquille."
+            </div>
+            <div class="who">
+              <div class="avatar" style="background:linear-gradient(135deg,#4A7C59,#7BAF8A);color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;letter-spacing:.5px;flex-shrink:0;">TV</div>
+              <div>
+                <div><b>Thomas V.</b> · <span style="color:var(--green);letter-spacing:.5px;">★★★★★</span> <span style="font-weight:600;">5/5</span></div>
+                <div style="opacity:.75;font-size:13px;">Propriétaire · Paris → Gien</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Voyageur Airbnb 2 -->
+          <div class="quote reveal">
+            <div class="text">
+              "On a passé un week-end magnifique à Gien. Le logement était impeccable, silencieux
+              et très bien situé. On recommande sans hésiter, on reviendra !"
+            </div>
+            <div class="who">
+              <div class="avatar" style="background:linear-gradient(135deg,#8A5BB5,#B58FDB);color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;letter-spacing:.5px;flex-shrink:0;">AC</div>
+              <div>
+                <div><b>Amélie C.</b> · <span style="color:var(--green);letter-spacing:.5px;">★★★★★</span> <span style="font-weight:600;">5/5</span></div>
+                <div style="opacity:.75;font-size:13px;">Voyageur Airbnb · Week-end à Gien</div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
         <div style="margin-top: 18px;" class="reveal">
@@ -1075,6 +1504,224 @@
               <a class="btn ghost" style="border-color: rgba(255,255,255,.28); color:#fff;" href="mailto:contact@elok.fr">Écrire un email</a>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLOG PREVIEW -->
+    <section class="section" id="blog-preview" style="border-top:1px solid rgba(17,17,17,.08);">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div style="font-size:12px;letter-spacing:2.6px;text-transform:uppercase;color:rgba(17,17,17,.52);margin-bottom:10px;">Guides & Conseils</div>
+            <h2>Maximisez vos revenus : nos derniers articles</h2>
+            <p>Stratégies, outils et bonnes pratiques pour les propriétaires Airbnb à Gien.</p>
+          </div>
+          <div style="align-self:flex-end;">
+            <a href="blog.html" style="display:inline-flex;align-items:center;gap:7px;font-weight:700;color:var(--green);font-size:15px;border-bottom:1px solid rgba(31,61,43,.25);padding-bottom:2px;">
+              Voir tous les articles →
+            </a>
+          </div>
+        </div>
+
+        <div class="grid-3 reveal">
+
+          <!-- Article IA -->
+          <a href="./Blog/IA-gestion-location-saisonniere-Gien-2026.html" style="display:flex;flex-direction:column;border:1px solid rgba(17,17,17,.10);border-radius:var(--radius-2);background:rgba(255,255,255,.36);box-shadow:0 16px 42px rgba(0,0,0,.08);overflow:hidden;text-decoration:none;transition:border-color .18s,box-shadow .18s;" onmouseover="this.style.borderColor='rgba(31,61,43,.28)';this.style.boxShadow='0 22px 55px rgba(0,0,0,.13)'" onmouseout="this.style.borderColor='rgba(17,17,17,.10)';this.style.boxShadow='0 16px 42px rgba(0,0,0,.08)'">
+            <div style="height:180px;background:linear-gradient(180deg,rgba(17,17,17,.04),rgba(17,17,17,.26)),url('./Photos/Photo23.jpg') center/cover no-repeat;flex-shrink:0;"></div>
+            <div style="padding:18px;display:flex;flex-direction:column;gap:8px;flex:1;">
+              <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(17,17,17,.52);font-weight:700;">IA · 2026</div>
+              <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:17px;line-height:1.25;color:var(--ink);">L'IA au service de votre location saisonnière à Gien</div>
+              <div style="font-size:14px;color:rgba(17,17,17,.68);line-height:1.5;flex:1;">Pricing dynamique, chatbots, contenu génératif : les outils IA concrets pour maximiser vos revenus en 2026.</div>
+              <div style="font-size:13px;font-weight:700;color:var(--green);margin-top:4px;">Lire l'article →</div>
+            </div>
+          </a>
+
+          <!-- Article tarification -->
+          <a href="./Blog/Tarification-dynamique-Gien-saisons-evenements-locaux.html" style="display:flex;flex-direction:column;border:1px solid rgba(17,17,17,.10);border-radius:var(--radius-2);background:rgba(255,255,255,.36);box-shadow:0 16px 42px rgba(0,0,0,.08);overflow:hidden;text-decoration:none;transition:border-color .18s,box-shadow .18s;" onmouseover="this.style.borderColor='rgba(31,61,43,.28)';this.style.boxShadow='0 22px 55px rgba(0,0,0,.13)'" onmouseout="this.style.borderColor='rgba(17,17,17,.10)';this.style.boxShadow='0 16px 42px rgba(0,0,0,.08)'">
+            <div style="height:180px;background:linear-gradient(180deg,rgba(17,17,17,.04),rgba(17,17,17,.26)),url('./Photos/photo6.jpg') center/cover no-repeat;flex-shrink:0;"></div>
+            <div style="padding:18px;display:flex;flex-direction:column;gap:8px;flex:1;">
+              <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(17,17,17,.52);font-weight:700;">Tarification · Gien</div>
+              <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:17px;line-height:1.25;color:var(--ink);">Tarification dynamique à Gien : maximiser vos revenus selon les saisons</div>
+              <div style="font-size:14px;color:rgba(17,17,17,.68);line-height:1.5;flex:1;">Haute saison, événements locaux, outils de pricing : la stratégie complète pour chaque période de l'année.</div>
+              <div style="font-size:13px;font-weight:700;color:var(--green);margin-top:4px;">Lire l'article →</div>
+            </div>
+          </a>
+
+          <!-- Article algorithme Airbnb -->
+          <a href="./Blog/Algorithme-Airbnb-2026-:-Ce-qui-a-vraiment-changé-et-comment- dominer-les-classements.html" style="display:flex;flex-direction:column;border:1px solid rgba(17,17,17,.10);border-radius:var(--radius-2);background:rgba(255,255,255,.36);box-shadow:0 16px 42px rgba(0,0,0,.08);overflow:hidden;text-decoration:none;transition:border-color .18s,box-shadow .18s;" onmouseover="this.style.borderColor='rgba(31,61,43,.28)';this.style.boxShadow='0 22px 55px rgba(0,0,0,.13)'" onmouseout="this.style.borderColor='rgba(17,17,17,.10)';this.style.boxShadow='0 16px 42px rgba(0,0,0,.08)'">
+            <div style="height:180px;background:linear-gradient(180deg,rgba(17,17,17,.04),rgba(17,17,17,.26)),url('./Photos/PHOTO5.jpg') center/cover no-repeat;flex-shrink:0;"></div>
+            <div style="padding:18px;display:flex;flex-direction:column;gap:8px;flex:1;">
+              <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:rgba(17,17,17,.52);font-weight:700;">Algorithme · 2026</div>
+              <div style="font-family:'Playfair Display',serif;font-weight:700;font-size:17px;line-height:1.25;color:var(--ink);">Algorithme Airbnb 2026 : ce qui a vraiment changé</div>
+              <div style="font-size:14px;color:rgba(17,17,17,.68);line-height:1.5;flex:1;">Sélection, conversion, cohérence, réactivité : les leviers concrets pour dominer les classements de recherche.</div>
+              <div style="font-size:13px;font-weight:700;color:var(--green);margin-top:4px;">Lire l'article →</div>
+            </div>
+          </a>
+
+        </div>
+
+        <div class="reveal" style="text-align:center;margin-top:28px;">
+          <a href="blog.html" style="display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:999px;border:1px solid rgba(31,61,43,.22);background:rgba(255,255,255,.55);font-weight:700;font-size:14px;color:var(--green);box-shadow:0 8px 22px rgba(0,0,0,.07);">
+            Accéder à tous les guides →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq" itemscope itemtype="https://schema.org/FAQPage">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <div>
+            <div style="font-size:12px;letter-spacing:2.6px;text-transform:uppercase;color:rgba(17,17,17,.52);margin-bottom:10px;">Questions fréquentes</div>
+            <h2>Tout savoir avant de confier votre bien</h2>
+            <p>Les réponses aux questions que se posent les propriétaires à Gien et dans le Pays du Giennois.</p>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;" class="reveal" id="faq-grid">
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+              <span itemprop="name">Comment fonctionne la conciergerie ELOK à Gien ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">ELOK prend en charge l'intégralité de la gestion de votre location Airbnb ou Booking.com : optimisation de l'annonce, pricing dynamique, accueil voyageurs, ménage &amp; linge hôtelier, check-in/out et reporting mensuel. Vous déléguez tout, ELOK gère tout dans un rayon de 20 km autour de Gien (45500).</div>
+            </div>
+          </div>
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+              <span itemprop="name">Quelle est la zone d'intervention de ELOK ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">ELOK intervient dans un rayon de 20 km autour de Gien (45500, Loiret) : Gien, Briare, Châtillon-sur-Loire, Nevoy, Poilly-lez-Gien, Coullons, Ouzouer-sur-Loire, Bonny-sur-Loire, Dampierre-en-Burly, Beaulieu-sur-Loire, Autry-le-Châtel et les communes du Pays du Giennois.</div>
+            </div>
+          </div>
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+              <span itemprop="name">Combien coûte la gestion Airbnb avec ELOK ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">La tarification ELOK est basée sur un pourcentage des revenus locatifs — sans frais fixes ni abonnement. Vous ne payez que quand vous gagnez. Contactez-nous pour une estimation gratuite et personnalisée selon votre bien à Gien ou dans le Pays du Giennois.</div>
+            </div>
+          </div>
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+              <span itemprop="name">ELOK gère-t-il aussi les locations sur Booking.com ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">Oui. ELOK assure la distribution multi-plateformes : Airbnb, Booking.com et autres canaux. Nous synchronisons les disponibilités et optimisons votre visibilité sur toutes les plateformes pour maximiser votre taux d'occupation à Gien et alentours.</div>
+            </div>
+          </div>
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+              <span itemprop="name">Puis-je confier mon bien si je ne vis pas à Gien ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">Absolument. Plusieurs propriétaires ELOK gèrent leur bien à distance depuis Paris ou d'autres villes. ELOK assure tout sur place : accueil, ménage, urgences. Vous recevez chaque mois un reporting détaillé pour piloter votre rentabilité en toute sérénité.</div>
+            </div>
+          </div>
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+              <span itemprop="name">Quelle rentabilité avec une location courte durée à Gien ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">Gien et le Pays du Giennois bénéficient d'une attractivité touristique réelle : Val de Loire classé UNESCO, châteaux, Loire à Vélo, pêche et chasse. ELOK optimise votre tarification selon les saisons et les événements locaux. Contactez-nous pour une estimation gratuite de votre potentiel.</div>
+            </div>
+          </div>
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+              <span itemprop="name">ELOK, c'est quoi la différence avec une agence immobilière ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">ELOK est une conciergerie spécialisée en location courte durée (Airbnb, Booking), pas une agence de location longue durée. Nous gérons l'expérience voyageurs au quotidien, le pricing dynamique, le ménage et le linge. Résultat : une rentabilité locative nettement supérieure à la location classique.</div>
+            </div>
+          </div>
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+              <span itemprop="name">Dois-je m'occuper de la réglementation pour louer à Gien ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">La location courte durée à Gien est soumise à des obligations légales (déclaration en mairie, numéro d'enregistrement selon la commune). ELOK vous accompagne dans ces démarches et s'assure que votre location est en conformité avec la réglementation locale en vigueur.</div>
+            </div>
+          </div>
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+              <span itemprop="name">Les recettes locatives correspondent à quoi ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">Les recettes locatives correspondent à l'ensemble des revenus générés par les réservations de votre logement sur Airbnb, Booking.com et les autres plateformes. Les recettes sont versées sur votre compte bancaire. ELOK facture sa commission en fonction des départs effectués dans le mois. Vous recevez chaque mois un reporting détaillé.</div>
+            </div>
+          </div>
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+              <span itemprop="name">Qu'est-ce qui est inclus dans les consommables ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">Les consommables de base (papier toilette, savon, éponge, capsules café, sachets de thé…) sont fournis et réapprovisionnés par ELOK entre chaque séjour afin de garantir une expérience hôtelière irréprochable à vos voyageurs. Les modalités exactes sont définies avec vous selon votre formule.</div>
+            </div>
+          </div>
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+              <span itemprop="name">Comment se déroule l'expérience voyageur avec ELOK ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">Dès la réservation confirmée, ELOK prend en charge l'intégralité de la relation voyageur : messages de bienvenue, instructions d'accès, check-in (physique ou autonome), disponibilité 7j/7 pendant le séjour, et check-out avec état des lieux. Votre logement est préparé selon des standards hôteliers pour garantir des avis 5 étoiles.</div>
+            </div>
+          </div>
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+              <span itemprop="name">Est-ce possible de confier mon bien pour quelques jours ou semaines seulement ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">Oui. ELOK s'adapte à vos contraintes. Que vous souhaitiez déléguer la gestion ponctuellement (vacances, déplacement) ou sur l'année entière, nous proposons des formules flexibles. Vous gardez la main sur vos disponibilités et bloquez les périodes où vous souhaitez occuper votre bien.</div>
+            </div>
+          </div>
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+              <span itemprop="name">Comment gérez-vous les abus et les dégradations ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">ELOK réalise un état des lieux à chaque départ de voyageur. En cas de dégradation, nous constituons le dossier de réclamation et vous accompagnons dans les démarches auprès d'Airbnb (garantie hôte AirCover) ou de votre assurance. Notre sélection rigoureuse des voyageurs et notre suivi en temps réel minimisent fortement ce type d'incidents.</div>
+            </div>
+          </div>
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+              <span itemprop="name">Qui s'occupe de la maintenance et des petites réparations ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">ELOK dispose d'un réseau d'artisans et de prestataires locaux à Gien et dans le Pays du Giennois pour intervenir rapidement en cas de panne ou de besoin de maintenance (plomberie, électricité, serrurerie…). Vous êtes informé et donnez votre accord avant toute intervention. Les coûts de réparation restent à votre charge, ELOK vous simplifie la coordination.</div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -1133,7 +1780,7 @@
                 <div>📍</div>
                 <div>
                   <b>Zone d'intervention</b>
-                  <span>Gien + 20 km (Loiret)</span>
+                  <span>Gien (45500) · Briare · Châtillon-sur-Loire · Nevoy · Poilly-lez-Gien · Coullons · Ouzouer-sur-Loire · Bonny-sur-Loire · Dampierre-en-Burly · Beaulieu-sur-Loire · et tout le Pays du Giennois (Loiret)</span>
                 </div>
               </div>
               <div class="line">
@@ -1161,20 +1808,35 @@
     </section>
 
     <!-- FOOTER -->
-    <footer>
+    <footer itemscope itemtype="https://schema.org/ProfessionalService">
+      <meta itemprop="name" content="ELOK Conciergerie" />
+      <meta itemprop="url" content="https://www.elok.fr" />
       <div class="wrap">
         <div class="footer-grid">
-          <div><b style="font-family:'Playfair Display',serif; color:var(--ink);">ELOK</b> · Conciergerie Airbnb premium à Gien et le Pays du Giennois</div>
+          <div>
+            <b style="font-family:'Playfair Display',serif; color:var(--ink);">ELOK</b> · ELOK : Conciergerie Airbnb premium à Gien
+            <div style="margin-top:6px;font-size:12px;opacity:.65;" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+              <span itemprop="addressLocality">Gien</span>,
+              <span itemprop="postalCode">45500</span>
+              <span itemprop="addressRegion">Loiret</span> —
+              <span itemprop="addressCountry">France</span> ·
+              <a href="mailto:contact@elok.fr" itemprop="email" style="text-decoration:underline;">contact@elok.fr</a>
+            </div>
+          </div>
           <div style="display:flex; gap:14px; flex-wrap:wrap;">
             <a href="#concept">Concept</a>
             <a href="#services">Prestations</a>
+            <a href="#faq">FAQ</a>
             <a href="blog.html">Blog</a>
             <a href="#contact">Contact</a>
-            <a href="https://elok.fr" target="_blank" rel="noopener">elok.fr</a>
+            <a href="a-propos.html">À propos</a>
+            <a href="cgu.html">CGU</a>
+            <a href="rgpd.html">Confidentialité</a>
+            <a href="mentions-legales.html">Mentions légales</a>
           </div>
         </div>
         <div style="margin-top:14px; opacity:.85;">
-          © <span id="year"></span> ELOK · Tous droits réservés.
+          © <span id="year"></span> ELOK · Tous droits réservés · Conciergerie Airbnb &amp; Booking à Gien (45500), Loiret.
         </div>
       </div>
     </footer>
@@ -1243,6 +1905,14 @@
     // ====== Footer year ======
     document.getElementById('year').textContent = new Date().getFullYear();
 
+  </script>
+  <script>
+    function toggleFaq(btn){
+      var isOpen = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      var answer = btn.nextElementSibling;
+      answer.classList.toggle('open', !isOpen);
+    }
   </script>
 </body>
 </html>

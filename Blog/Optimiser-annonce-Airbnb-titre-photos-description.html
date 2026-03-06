@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>Optimiser son annonce Airbnb : titre, photos, description — le guide 2026 · ELOK</title>
+  <meta name="description" content="Comment optimiser son annonce Airbnb pour obtenir plus de réservations en 2026 : titre accrocheur, photos professionnelles, description qui convertit et équipements qui font la différence." />
+  <link rel="icon" type="image/png" sizes="32x32" href="../Photos/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../Photos/favicon-16.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{ --green:#1F3D2B; --cream:#F6F4EF; --ink:#111111; --muted:rgba(17,17,17,.72); --shadow-soft:0 18px 55px rgba(0,0,0,.12); --shadow-strong:0 26px 80px rgba(0,0,0,.16); --radius-2:26px; --max:980px; }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html,body{ overflow-x:hidden; }
+    body{ background:var(--cream); color:var(--ink); font-family:"DM Sans",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.55; -webkit-font-smoothing:antialiased; }
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding:0 18px; }
+    .topbar{ position:sticky; top:0; z-index:60; padding:14px 0; background:rgba(246,244,239,.72); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid rgba(17,17,17,.08); }
+    .nav{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .brand{ display:flex; align-items:center; gap:10px; min-width:0; }
+    .brand-logo{ height:28px; width:28px; border-radius:50%; object-fit:cover; display:block; }
+    .hamburger{ width:44px; height:44px; border-radius:14px; border:1px solid rgba(31,61,43,.18); background:rgba(255,255,255,.60); display:inline-flex; align-items:center; justify-content:center; box-shadow:0 10px 30px rgba(0,0,0,.06); cursor:pointer; }
+    .hamburger svg{ width:20px; height:20px; }
+    .drawer-backdrop{ position:fixed; inset:0; background:rgba(17,17,17,.42); opacity:0; pointer-events:none; transition:opacity .2s; z-index:70; }
+    .drawer{ position:fixed; top:0; right:0; height:100%; width:min(380px,88vw); background:rgba(246,244,239,.98); border-left:1px solid rgba(17,17,17,.10); box-shadow:0 22px 80px rgba(0,0,0,.18); transform:translateX(110%); transition:transform .22s ease; z-index:71; padding:16px; display:flex; flex-direction:column; gap:10px; }
+    .drawer-head{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding-bottom:10px; border-bottom:1px solid rgba(17,17,17,.08); }
+    .drawer-title{ font-family:"Playfair Display",serif; font-weight:700; font-size:18px; }
+    .drawer-close{ width:44px; height:44px; border-radius:14px; border:1px solid rgba(31,61,43,.18); background:rgba(255,255,255,.65); display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
+    .drawer a{ display:flex; padding:12px; border-radius:14px; font-weight:700; color:rgba(17,17,17,.92); }
+    .drawer a:hover{ background:rgba(31,61,43,.08); color:var(--green); }
+    .drawer a.active{ background:rgba(31,61,43,.10); color:var(--green); }
+    .drawer-actions{ margin-top:auto; display:grid; gap:10px; padding-top:10px; border-top:1px solid rgba(17,17,17,.08); }
+    .btn{ display:inline-flex; align-items:center; justify-content:center; padding:12px 18px; border-radius:999px; border:1px solid rgba(31,61,43,.18); font-weight:700; font-size:14px; white-space:nowrap; background:transparent; }
+    .btn.primary{ background:var(--green); color:#fff; border-color:rgba(31,61,43,.55); }
+    .drawer-open .drawer-backdrop{ opacity:1; pointer-events:auto; }
+    .drawer-open .drawer{ transform:translateX(0); }
+    .hero{ padding:34px 0 10px; }
+    .back{ display:inline-flex; align-items:center; gap:10px; color:var(--green); font-weight:800; margin-bottom:14px; }
+    .back span{ border-bottom:1px solid rgba(31,61,43,.25); padding-bottom:2px; }
+    .kicker{ font-size:12px; letter-spacing:2.6px; text-transform:uppercase; color:rgba(17,17,17,.58); margin-bottom:10px; }
+    h1{ font-family:"Playfair Display",serif; font-weight:700; font-size:clamp(34px,4.2vw,56px); line-height:1.06; margin-bottom:12px; letter-spacing:-0.4px; }
+    .lead{ color:rgba(17,17,17,.72); font-size:18px; max-width:72ch; margin-top:8px; }
+    .cover{ margin:22px 0 26px; border-radius:var(--radius-2); overflow:hidden; box-shadow:var(--shadow-strong); border:1px solid rgba(17,17,17,.08); background:linear-gradient(160deg,rgba(17,17,17,.12) 0%,rgba(31,61,43,.42) 100%),url("../Photos/photo14.jpg") center/cover no-repeat; min-height:240px; }
+    @media(max-width:560px){ .wrap{padding:0 16px;} .cover{min-height:210px;border-radius:22px;} .lead{font-size:17px;} }
+    .article{ padding:8px 0 84px; }
+    .quote{ border-left:4px solid var(--green); padding:12px 14px 12px 16px; margin:18px 0 22px; color:rgba(17,17,17,.74); font-size:18px; background:rgba(255,255,255,.35); border-radius:12px; }
+    h2{ font-family:"Playfair Display",serif; font-weight:700; font-size:clamp(24px,2.4vw,32px); line-height:1.15; margin:28px 0 10px; color:var(--green); }
+    p{ margin:10px 0; color:rgba(17,17,17,.84); }
+    ul{ margin:12px 0 14px 20px; color:rgba(17,17,17,.84); display:grid; gap:8px; }
+    li{ margin-left:6px; }
+    .tip{ background:rgba(31,61,43,.06); border:1px solid rgba(31,61,43,.16); border-radius:12px; padding:13px 15px; margin:16px 0; }
+    .tip p{ color:rgba(17,17,17,.80); margin:0; font-size:14px; }
+    .card{ margin:28px 0 0; padding:18px 16px; border-radius:var(--radius-2); border:1px solid rgba(17,17,17,.10); background:rgba(255,255,255,.55); box-shadow:var(--shadow-soft); }
+    .card h3{ font-family:"Playfair Display",serif; font-size:20px; margin-bottom:8px; line-height:1.15; }
+    .card p{ margin:0 0 12px; color:rgba(17,17,17,.74); }
+    footer{ padding:42px 0; border-top:1px solid rgba(17,17,17,.08); color:rgba(17,17,17,.72); font-size:13px; }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="brand" href="../index.html" aria-label="Retour accueil">
+          <img class="brand-logo" src="../Photos/logo-header-circle.png" alt="ELOK">
+        </a>
+        <button class="hamburger" id="openDrawer" aria-label="Ouvrir le menu" aria-controls="drawer" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="drawer-backdrop" id="drawerBackdrop" aria-hidden="true"></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="drawer-head">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <img class="brand-logo" src="../Photos/logo-header-circle.png" alt="ELOK">
+        <div class="drawer-title">Menu</div>
+      </div>
+      <button class="drawer-close" id="closeDrawer" aria-label="Fermer le menu">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" width="18" height="18">
+          <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <a href="../index.html#concept">Concept</a>
+    <a href="../index.html#services">Prestations</a>
+    <a href="../index.html#methode">Méthode</a>
+    <a href="../index.html#avis">Avis</a>
+    <a class="active" href="../blog.html">Blog</a>
+    <a href="../index.html#contact">Contact</a>
+    <div class="drawer-actions">
+      <a class="btn" href="mailto:contact@elok.fr">contact@elok.fr</a>
+      <a class="btn primary" href="../index.html#contact">Confier mon bien</a>
+    </div>
+  </aside>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <a class="back" href="../blog.html"><span>← Retour au blog</span></a>
+        <div class="kicker">Annonce · Visibilité · 2026</div>
+        <h1>Optimiser son annonce Airbnb : titre, photos, description — le guide 2026</h1>
+        <p class="lead">
+          Votre logement est prêt, les prix sont bons — mais les réservations ne décollent pas.
+          Dans 80 % des cas, la cause est une annonce mal optimisée. Titre fade, photos banales,
+          description générique : voici comment transformer votre annonce en machine à réservations.
+        </p>
+        <div class="cover" role="img" aria-label="Optimiser annonce Airbnb"></div>
+      </div>
+    </section>
+
+    <section class="article">
+      <div class="wrap">
+        <div class="quote">
+          Sur Airbnb, vous avez <strong>3 secondes</strong> pour convaincre un voyageur de cliquer sur votre annonce.
+          Tout se joue sur la photo principale et les 5 premiers mots du titre.
+        </div>
+
+        <h2>1. Le titre : 5 mots pour faire cliquer</h2>
+        <p>
+          Le titre d'une annonce Airbnb est limité à 50 caractères. Chaque mot compte. Les meilleurs titres combinent
+          toujours trois éléments : une <strong>caractéristique distinctive</strong>, un <strong>bénéfice émotionnel</strong>
+          et une <strong>localisation</strong> pertinente.
+        </p>
+        <ul>
+          <li>❌ Mauvais : "Appartement T2 centre-ville, propre et confortable"</li>
+          <li>✅ Bon : "Loft cosy vue jardin · à 5 min de la Loire"</li>
+          <li>✅ Bon : "Maison de caractère calme · Gien &amp; Briare"</li>
+          <li>✅ Bon : "Studio design près château · jardin privatif"</li>
+        </ul>
+        <div class="tip">
+          <p><strong>Astuce :</strong> utilisez des adjectifs sensoriels (cosy, lumineux, calme, authentique) plutôt que des descriptifs fonctionnels (grand, propre, équipé). Le voyageur achète une émotion, pas un inventaire.</p>
+        </div>
+
+        <h2>2. La photo principale : l'unique chance de faire cliquer</h2>
+        <p>
+          Les études Airbnb montrent que la photo principale influence jusqu'à <strong>80 % de la décision de cliquer</strong>.
+          Elle doit immédiatement projeter le voyageur dans une expérience, pas dans un logement.
+        </p>
+        <ul>
+          <li>Choisir la pièce la plus distinctive (pas toujours le salon) : jardin, vue, coin lecture…</li>
+          <li>Lumière naturelle : photographier à l'heure dorée (matin ou coucher de soleil)</li>
+          <li>Mise en scène : café sur la table, livre ouvert, plante verte — les détails qui "vivifient"</li>
+          <li>Format horizontal, résolution HD (minimum 1024 × 683 px, idéalement 3000 px)</li>
+          <li>Éviter les grands angles déformants qui créent une déception à l'arrivée</li>
+        </ul>
+        <p><strong>👉 Un photographe professionnel pour votre annonce Airbnb coûte 150 à 300 €. Le ROI sur la première saison dépasse systématiquement cet investissement.</strong></p>
+
+        <h2>3. Les photos secondaires : raconter une histoire</h2>
+        <p>
+          Airbnb recommande un minimum de 12 photos. Les hôtes qui en ont 20 à 30 ont en moyenne un taux de conversion
+          30 % supérieur. L'ordre est stratégique :
+        </p>
+        <ul>
+          <li>Photo 1 : la "carte postale" — la pièce ou vue la plus séduisante</li>
+          <li>Photos 2-4 : les espaces de vie principaux (salon, chambre, cuisine)</li>
+          <li>Photos 5-8 : les détails qui font la différence (terrasse, salle de bain, équipements)</li>
+          <li>Photos 9-12 : ambiance et extras (quartier, vue, nuit)</li>
+          <li>Photos 13+ : chaque équipement spécial (vélos, jacuzzi, barbecue…)</li>
+        </ul>
+        <p>Chaque photo doit avoir une légende descriptive — elle améliore le référencement interne Airbnb.</p>
+
+        <h2>4. La description : convaincre et rassurer</h2>
+        <p>
+          La description doit répondre à la question implicite du voyageur : <em>"Est-ce que je vais bien dormir,
+          bien manger, et profiter de mon séjour ici ?"</em>.
+          Structurez-la en 4 blocs :
+        </p>
+        <ul>
+          <li><strong>L'accroche</strong> (2-3 lignes) : l'ambiance générale, le point fort différenciant</li>
+          <li><strong>L'espace</strong> : dimensions, disposition, capacité d'accueil réelle</li>
+          <li><strong>Le quartier et les accès</strong> : distances clés (gare, hypermarché, attractions)</li>
+          <li><strong>Les petits plus</strong> : café offert, guide local, panier d'accueil, parking</li>
+        </ul>
+        <div class="tip">
+          <p><strong>Astuce :</strong> évitez les listes à puces dans la description principale (Airbnb les formate mal sur mobile). Préférez un texte fluide, chaleureux, à la première personne : "Vous profiterez d'un jardin privatif…"</p>
+        </div>
+
+        <h2>5. Les équipements : cocher les cases qui comptent</h2>
+        <p>
+          Les voyageurs filtrent par équipements. Voici les 10 équipements qui ont le plus d'impact sur les clics :
+        </p>
+        <ul>
+          <li>Wifi haut débit (indispensable, indiquer la vitesse)</li>
+          <li>Cuisine entièrement équipée</li>
+          <li>Machine à laver</li>
+          <li>Parking gratuit</li>
+          <li>Climatisation / chauffage</li>
+          <li>Sèche-cheveux</li>
+          <li>TV streaming (Netflix, Disney+)</li>
+          <li>Produits de toilette fournis</li>
+          <li>Détecteur de CO et fumée</li>
+          <li>Self check-in (boîte à clés ou serrure)</li>
+        </ul>
+        <p>N'inventez pas d'équipements absents — les avis négatifs qui s'ensuivent coûtent bien plus qu'ils ne rapportent.</p>
+
+        <h2>6. Le prix d'ouverture : l'arme secrète du nouveau listing</h2>
+        <p>
+          Un nouveau listing Airbnb démarre sans avis et sans historique. L'algorithme le pénalise en visibilité.
+          La meilleure stratégie : lancer <strong>20 à 30 % en dessous du marché</strong> pendant les 3 à 5 premières
+          réservations, accumuler des avis 5 étoiles, puis remonter les prix progressivement.
+        </p>
+        <p>Ce sacrifice initial est récupéré dès le 2e mois grâce à l'amélioration du classement algorithmique.</p>
+
+        <h2>Conclusion</h2>
+        <p>
+          Optimiser une annonce Airbnb est un travail de 2 à 4 heures, mais son impact dure des années.
+          Un titre fort, des photos professionnelles et une description bien structurée peuvent doubler
+          le taux de clic — et donc les réservations — sans changer le prix ni le logement.
+          C'est l'un des meilleurs ROI accessibles à tout propriétaire.
+        </p>
+
+        <div class="card">
+          <h3>Vous voulez une annonce optimisée sans y passer des heures&nbsp;?</h3>
+          <p>
+            ELOK crée et optimise votre annonce Airbnb pour vous : titre, photos professionnelles, description
+            et stratégie de lancement. Résultat : plus de clics, plus de réservations, dès le premier mois.
+          </p>
+          <a class="btn primary" href="../index.html#contact">Confier mon bien →</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        © <script>document.write(new Date().getFullYear())</script> ELOK · Article
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    (function(){
+      const body = document.body;
+      const openBtn = document.getElementById('openDrawer');
+      const closeBtn = document.getElementById('closeDrawer');
+      const backdrop = document.getElementById('drawerBackdrop');
+      const drawer = document.getElementById('drawer');
+      function openDrawer(){ body.classList.add('drawer-open'); openBtn?.setAttribute('aria-expanded','true'); backdrop.setAttribute('aria-hidden','false'); body.style.position='fixed'; body.style.width='100%'; }
+      function closeDrawer(){ body.classList.remove('drawer-open'); openBtn?.setAttribute('aria-expanded','false'); backdrop.setAttribute('aria-hidden','true'); body.style.position=''; body.style.width=''; }
+      openBtn?.addEventListener('click', openDrawer);
+      closeBtn?.addEventListener('click', closeDrawer);
+      backdrop?.addEventListener('click', closeDrawer);
+      document.addEventListener('keydown', e => { if(e.key==='Escape' && body.classList.contains('drawer-open')) closeDrawer(); });
+      drawer?.addEventListener('click', e => { const a = e.target.closest('a'); if(a) closeDrawer(); });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,566 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>Changer de conciergerie Airbnb : comment faire sans perdre vos réservations · ELOK</title>
+  <meta name="description" content="Vous souhaitez changer de conciergerie pour votre location courte durée ? Découvrez comment réussir cette transition sans perdre vos avis, vos réservations ni votre visibilité." />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../Photos/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../Photos/favicon-16.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --green:#1F3D2B;
+      --cream:#F6F4EF;
+      --ink:#111111;
+      --muted: rgba(17,17,17,.72);
+      --shadow-soft: 0 18px 55px rgba(0,0,0,.12);
+      --shadow-strong: 0 26px 80px rgba(0,0,0,.16);
+      --radius-2: 26px;
+      --max: 980px;
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html, body{ overflow-x:hidden; }
+    body{
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a{ color: inherit; text-decoration:none; }
+    .wrap{ max-width: var(--max); margin:0 auto; padding: 0 18px; }
+
+    .topbar{
+      position:sticky; top:0; z-index:60;
+      padding: 14px 0;
+      background: rgba(246,244,239,.72);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(17,17,17,.08);
+      padding-left: max(12px, env(safe-area-inset-left));
+      padding-right: max(12px, env(safe-area-inset-right));
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      min-width:0;
+    }
+    .brand-logo{
+      height:28px; width:28px;
+      border-radius:50%;
+      object-fit:cover;
+      display:block;
+    }
+
+    .hamburger{
+      width:44px; height:44px;
+      border-radius:14px;
+      border:1px solid rgba(31,61,43,.18);
+      background: rgba(255,255,255,.60);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow: 0 10px 30px rgba(0,0,0,.06);
+    }
+    .hamburger svg{ width:20px; height:20px; }
+
+    .drawer-backdrop{
+      position:fixed; inset:0;
+      background: rgba(17,17,17,.42);
+      opacity:0; pointer-events:none;
+      transition: opacity .2s ease;
+      z-index:70;
+    }
+    .drawer{
+      position:fixed;
+      top:0; right:0; height:100%;
+      width:min(380px, 88vw);
+      background: rgba(246,244,239,.98);
+      border-left:1px solid rgba(17,17,17,.10);
+      box-shadow: 0 22px 80px rgba(0,0,0,.18);
+      transform: translateX(110%);
+      transition: transform .22s ease;
+      z-index:71;
+      padding: 16px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+    }
+    .drawer-head{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(17,17,17,.08);
+    }
+    .drawer-title{
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      font-size: 18px;
+    }
+    .drawer-close{
+      width:44px; height:44px;
+      border-radius:14px;
+      border:1px solid rgba(31,61,43,.18);
+      background: rgba(255,255,255,.65);
+      display:inline-flex; align-items:center; justify-content:center;
+    }
+    .drawer a{
+      display:flex;
+      padding: 12px 12px;
+      border-radius: 14px;
+      font-weight:700;
+      color: rgba(17,17,17,.92);
+    }
+    .drawer a:hover{ background: rgba(31,61,43,.08); color: var(--green); }
+    .drawer a.active{ background: rgba(31,61,43,.10); color: var(--green); }
+
+    .drawer-actions{
+      margin-top:auto;
+      display:grid;
+      gap:10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(17,17,17,.08);
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding: 12px 18px;
+      border-radius:999px;
+      border: 1px solid rgba(31,61,43,.18);
+      font-weight:700;
+      font-size:14px;
+      white-space:nowrap;
+      background: transparent;
+    }
+    .btn.primary{
+      background: var(--green);
+      color:#fff;
+      border-color: rgba(31,61,43,.55);
+    }
+
+    .drawer-open .drawer-backdrop{ opacity:1; pointer-events:auto; }
+    .drawer-open .drawer{ transform: translateX(0); }
+
+    /* ARTICLE */
+    .hero{ padding: 34px 0 10px; }
+    .back{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      color: var(--green);
+      font-weight:800;
+      margin-bottom: 14px;
+    }
+    .back span{
+      border-bottom: 1px solid rgba(31,61,43,.25);
+      padding-bottom:2px;
+    }
+    .kicker{
+      font-size:12px;
+      letter-spacing:2.6px;
+      text-transform:uppercase;
+      color: rgba(17,17,17,.58);
+      margin-bottom: 10px;
+    }
+
+    h1{
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      font-size: clamp(34px, 4.2vw, 56px);
+      line-height:1.06;
+      margin-bottom:12px;
+      letter-spacing:-0.4px;
+    }
+    .lead{
+      color: rgba(17,17,17,.72);
+      font-size: 18px;
+      max-width: 74ch;
+      margin-top: 8px;
+    }
+
+    .cover{
+      margin: 22px 0 26px;
+      border-radius: var(--radius-2);
+      overflow:hidden;
+      box-shadow: var(--shadow-strong);
+      border: 1px solid rgba(17,17,17,.08);
+      background:
+        linear-gradient(180deg, rgba(17,17,17,.10), rgba(17,17,17,.30)),
+        url("../Photos/PHOTO1.png") center/cover no-repeat;
+      min-height: 240px;
+    }
+    @media (max-width: 560px){
+      .wrap{ padding: 0 16px; }
+      .cover{ min-height: 210px; border-radius: 22px; }
+      .lead{ font-size: 17px; }
+    }
+
+    .article{ padding: 8px 0 84px; }
+
+    .quote{
+      border-left: 4px solid var(--green);
+      padding: 12px 14px 12px 16px;
+      margin: 18px 0 22px;
+      color: rgba(17,17,17,.74);
+      font-size: 18px;
+      background: rgba(255,255,255,.35);
+      border-radius: 12px;
+    }
+
+    h2{
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      font-size: clamp(24px, 2.4vw, 32px);
+      line-height:1.15;
+      margin: 28px 0 10px;
+      color: var(--green);
+    }
+    h3{
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      font-size: 20px;
+      line-height:1.2;
+      margin: 18px 0 8px;
+      color: rgba(17,17,17,.92);
+    }
+    p{ margin: 10px 0; color: rgba(17,17,17,.84); }
+    ul, ol{
+      margin: 12px 0 14px 20px;
+      color: rgba(17,17,17,.84);
+      display:grid;
+      gap: 8px;
+    }
+    li{ margin-left: 6px; }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(17,17,17,.10);
+      background: rgba(255,255,255,.55);
+      box-shadow: 0 10px 30px rgba(0,0,0,.06);
+      margin: 10px 0 6px;
+      font-weight: 700;
+    }
+    .pill small{
+      font-weight: 600;
+      color: rgba(17,17,17,.62);
+    }
+
+    .card{
+      margin: 28px 0 0;
+      padding: 18px 16px;
+      border-radius: var(--radius-2);
+      border: 1px solid rgba(17,17,17,.10);
+      background: rgba(255,255,255,.55);
+      box-shadow: var(--shadow-soft);
+    }
+    .card h3{
+      font-family:"Playfair Display", serif;
+      font-size: 20px;
+      margin-bottom: 8px;
+      line-height:1.15;
+      color: var(--green);
+    }
+    .card p{ margin: 0 0 12px; color: rgba(17,17,17,.74); }
+
+    footer{
+      padding: 42px 0;
+      border-top: 1px solid rgba(17,17,17,.08);
+      color: rgba(17,17,17,.72);
+      font-size: 13px;
+    }
+
+    .note{
+      margin: 18px 0 14px;
+      padding: 14px 14px 14px 16px;
+      border-radius: 16px;
+      background: rgba(31,61,43,.06);
+      border: 1px solid rgba(31,61,43,.16);
+    }
+    .note strong{ color: var(--green); }
+
+    .checklist{
+      margin: 14px 0 20px;
+      display:grid;
+      gap: 10px;
+    }
+    .checklist-item{
+      display:flex;
+      align-items:flex-start;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.50);
+      border: 1px solid rgba(17,17,17,.08);
+    }
+    .checklist-item .icon{
+      flex-shrink:0;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--green);
+      color: #fff;
+      display:flex; align-items:center; justify-content:center;
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+    .checklist-item p{ margin:0; }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="brand" href="../index.html" aria-label="Retour accueil">
+          <img class="brand-logo" src="../Photos/logo-header-circle.png" alt="ELOK">
+        </a>
+
+        <button class="hamburger" id="openDrawer" aria-label="Ouvrir le menu" aria-controls="drawer" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="drawer-backdrop" id="drawerBackdrop" aria-hidden="true"></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="drawer-head">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <img class="brand-logo" src="../Photos/logo-header-circle.png" alt="ELOK">
+        <div class="drawer-title">Menu</div>
+      </div>
+      <button class="drawer-close" id="closeDrawer" aria-label="Fermer le menu">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" width="18" height="18">
+          <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <a href="../index.html#concept">Concept</a>
+    <a href="../index.html#services">Prestations</a>
+    <a href="../index.html#methode">Méthode</a>
+    <a href="../index.html#avis">Avis</a>
+    <a class="active" href="../blog.html">Blog</a>
+    <a href="../index.html#contact">Contact</a>
+
+    <div class="drawer-actions">
+      <a class="btn" href="mailto:contact@elok.fr">contact@elok.fr</a>
+      <a class="btn primary" href="../index.html#contact">Confier mon bien</a>
+    </div>
+  </aside>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <a class="back" href="../blog.html"><span>← Retour au blog</span></a>
+
+        <div class="kicker">Conciergerie · Transition · Location courte durée</div>
+        <h1>Changer de conciergerie : comment réussir la transition sans perdre vos réservations</h1>
+
+        <p class="lead">
+          Vous n'êtes plus satisfait de votre conciergerie actuelle mais vous hésitez à changer par peur de perdre vos avis, vos réservations en cours ou votre visibilité sur Airbnb ?
+          <strong>Ces craintes sont légitimes — mais elles ne doivent pas vous bloquer.</strong> Voici comment opérer cette transition en toute sérénité.
+        </p>
+
+        <div class="cover" role="img" aria-label="Illustration de l'article"></div>
+      </div>
+    </section>
+
+    <section class="article">
+      <div class="wrap">
+        <div class="quote">
+          Changer de conciergerie, ce n'est pas repartir de zéro. C'est <strong>reprendre le contrôle</strong> de votre bien
+          et choisir un partenaire à la hauteur de vos ambitions.
+        </div>
+
+        <h2>Pourquoi les propriétaires hésitent à changer</h2>
+        <p>
+          La plupart des propriétaires restent avec une conciergerie décevante bien plus longtemps que nécessaire.
+          Les raisons avancées sont souvent les mêmes :
+        </p>
+        <ul>
+          <li>Peur de perdre les avis accumulés sur l'annonce</li>
+          <li>Réservations déjà confirmées qu'il faut honorer</li>
+          <li>Peur d'une période de "creux" pendant la transition</li>
+          <li>Méconnaissance du processus de transfert de gestion</li>
+          <li>Clause de préavis contractuelle à respecter</li>
+        </ul>
+        <p>
+          Ces freins sont compréhensibles. Mais dans la majorité des cas, <strong>le coût de l'inaction dépasse largement le coût du changement.</strong>
+          Une mauvaise gestion érode votre réputation, vos avis et votre rentabilité mois après mois.
+        </p>
+
+        <h2>Les signaux qui indiquent qu'il est temps de changer</h2>
+        <p class="note">
+          <strong>Bonne question à se poser :</strong> si vous confiiez votre bien aujourd'hui à cette conciergerie pour la première fois,
+          signeriez-vous à nouveau avec elle ?
+        </p>
+        <ul>
+          <li>Taux d'occupation en baisse sans explication claire</li>
+          <li>Avis négatifs liés à la propreté ou à l'accueil des voyageurs</li>
+          <li>Absence de reporting ou de transparence sur les revenus</li>
+          <li>Réactivité insuffisante face aux incidents (pannes, urgences)</li>
+          <li>Aucun travail d'optimisation de l'annonce ou de la tarification</li>
+          <li>Sentiment d'être un dossier parmi d'autres, sans suivi personnalisé</li>
+        </ul>
+
+        <h2>Ce que vous gardez en changeant de conciergerie</h2>
+        <p>
+          Bonne nouvelle : <strong>vous êtes propriétaire de votre annonce Airbnb.</strong> Vos avis, votre historique, vos étoiles vous appartiennent.
+          Ils sont attachés à l'annonce, pas à la conciergerie.
+        </p>
+        <p>
+          Concrètement, lors d'un changement de gestionnaire :
+        </p>
+        <ul>
+          <li>Vos avis 5 étoiles restent visibles sur votre annonce</li>
+          <li>Votre note globale est conservée</li>
+          <li>Vos réservations confirmées peuvent être transférées ou honorées selon le calendrier convenu</li>
+          <li>Votre annonce peut être optimisée et relancée sans repartir de zéro</li>
+        </ul>
+
+        <h2>Les étapes d'une transition réussie</h2>
+
+        <div class="pill">Étape 1 <small>Vérifiez votre contrat actuel</small></div>
+        <p>
+          Avant tout, lisez votre contrat de gestion en cours. Identifiez la durée du préavis (souvent 1 à 3 mois),
+          les conditions de résiliation et les éventuelles pénalités. La plupart des contrats sont résiliables à tout moment
+          avec le préavis prévu.
+        </p>
+
+        <div class="pill">Étape 2 <small>Choisissez votre nouvelle conciergerie avant de résilier</small></div>
+        <p>
+          Ne résiliez pas dans le vide. Identifiez d'abord votre futur partenaire, rencontrez-le, et assurez-vous qu'il comprend
+          vos objectifs. Un bon prestataire vous accompagnera dans la transition et coordonnera le calendrier avec vous.
+        </p>
+
+        <div class="pill">Étape 3 <small>Planifiez le transfert pendant une période creuse</small></div>
+        <p>
+          Idéalement, effectuez la transition entre deux saisons ou en basse saison. Cela permet de préparer l'annonce,
+          faire un ménage de fond, mettre à jour les photos et relancer l'optimisation sans pression.
+        </p>
+
+        <div class="pill">Étape 4 <small>Récupérez l'accès à votre annonce</small></div>
+        <p>
+          Si votre conciergerie actuelle co-gère votre annonce, vous devez récupérer les accès (identifiants, co-hôte supprimé)
+          pour les transmettre à votre nouvelle conciergerie. ELOK vous accompagne dans cette démarche étape par étape.
+        </p>
+
+        <div class="pill">Étape 5 <small>Préparez votre bien pour une relance optimisée</small></div>
+        <p>
+          C'est l'occasion idéale pour remettre à plat votre annonce : nouvelles photos professionnelles, refonte du titre et de la description,
+          mise à jour de la tarification dynamique. Un bien "relancé" peut regagner en visibilité très rapidement.
+        </p>
+
+        <h2>Checklist : êtes-vous prêt à changer ?</h2>
+        <div class="checklist">
+          <div class="checklist-item">
+            <div class="icon">✓</div>
+            <p>J'ai relu mon contrat et identifié la durée de préavis</p>
+          </div>
+          <div class="checklist-item">
+            <div class="icon">✓</div>
+            <p>J'ai contacté et sélectionné ma nouvelle conciergerie</p>
+          </div>
+          <div class="checklist-item">
+            <div class="icon">✓</div>
+            <p>J'ai choisi une période de transition avec peu de réservations en cours</p>
+          </div>
+          <div class="checklist-item">
+            <div class="icon">✓</div>
+            <p>J'ai récupéré ou suis en train de récupérer l'accès complet à mon annonce</p>
+          </div>
+          <div class="checklist-item">
+            <div class="icon">✓</div>
+            <p>Mon bien est prêt pour une remise en état complète avant relance</p>
+          </div>
+        </div>
+
+        <h2>Et après la transition ?</h2>
+        <p>
+          Une fois la transition effectuée, les biens gérés par une conciergerie sérieuse retrouvent généralement
+          leur niveau de performance en 4 à 8 semaines, voire le dépassent.
+          L'algorithme Airbnb est réactif : une annonce optimisée, des réponses rapides et de bonnes notes
+          remontent rapidement dans les classements.
+        </p>
+        <p>
+          <strong>Le changement de conciergerie est souvent le déclic qui permet à des propriétaires
+          de multiplier leurs revenus locatifs</strong> — non pas parce que le marché a changé,
+          mais parce que leur bien est enfin géré avec la rigueur qu'il mérite.
+        </p>
+
+        <div class="card">
+          <h3>👉 Vous envisagez de changer de conciergerie à Gien ou dans le Giennois ?</h3>
+          <p>
+            ELOK accompagne les propriétaires dans toutes les étapes de la transition : résiliation,
+            récupération des accès, remise en état, optimisation de l'annonce et relance.
+            <strong>Premier échange gratuit, sans engagement.</strong>
+          </p>
+          <a class="btn primary" href="../index.html#contact">Parler à un expert ELOK →</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        © <script>document.write(new Date().getFullYear())</script> ELOK · Article
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    (function(){
+      const body = document.body;
+      const openBtn = document.getElementById('openDrawer');
+      const closeBtn = document.getElementById('closeDrawer');
+      const backdrop = document.getElementById('drawerBackdrop');
+      const drawer = document.getElementById('drawer');
+
+      function openDrawer(){
+        body.classList.add('drawer-open');
+        openBtn?.setAttribute('aria-expanded', 'true');
+        backdrop.setAttribute('aria-hidden', 'false');
+        body.style.position = 'fixed';
+        body.style.width = '100%';
+      }
+      function closeDrawer(){
+        body.classList.remove('drawer-open');
+        openBtn?.setAttribute('aria-expanded', 'false');
+        backdrop.setAttribute('aria-hidden', 'true');
+        body.style.position = '';
+        body.style.width = '';
+      }
+
+      openBtn?.addEventListener('click', openDrawer);
+      closeBtn?.addEventListener('click', closeDrawer);
+      backdrop?.addEventListener('click', closeDrawer);
+
+      document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape' && body.classList.contains('drawer-open')) closeDrawer();
+      });
+
+      drawer?.addEventListener('click', (e) => {
+        const a = e.target.closest('a');
+        if(a) closeDrawer();
+      });
+    })();
+  </script>
+</body>
+</html>
