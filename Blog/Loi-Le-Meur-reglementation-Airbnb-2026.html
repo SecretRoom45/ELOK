@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>Loi Le Meur et Airbnb : ce que ça change concrètement en 2026 · ELOK</title>
+  <meta name="description" content="Comprendre la loi Le Meur et son impact sur la location courte durée en 2026 : abattements réduits, compensation, classement meublé de tourisme. Ce qui change pour vous." />
+  <link rel="icon" type="image/png" sizes="32x32" href="../Photos/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../Photos/favicon-16.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{ --green:#1F3D2B; --cream:#F6F4EF; --ink:#111111; --muted:rgba(17,17,17,.72); --shadow-soft:0 18px 55px rgba(0,0,0,.12); --shadow-strong:0 26px 80px rgba(0,0,0,.16); --radius-2:26px; --max:980px; }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html,body{ overflow-x:hidden; }
+    body{ background:var(--cream); color:var(--ink); font-family:"DM Sans",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.55; -webkit-font-smoothing:antialiased; }
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding:0 18px; }
+    .topbar{ position:sticky; top:0; z-index:60; padding:14px 0; background:rgba(246,244,239,.72); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid rgba(17,17,17,.08); }
+    .nav{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .brand{ display:flex; align-items:center; gap:10px; min-width:0; }
+    .brand-logo{ height:28px; width:28px; border-radius:50%; object-fit:cover; display:block; }
+    .hamburger{ width:44px; height:44px; border-radius:14px; border:1px solid rgba(31,61,43,.18); background:rgba(255,255,255,.60); display:inline-flex; align-items:center; justify-content:center; box-shadow:0 10px 30px rgba(0,0,0,.06); cursor:pointer; }
+    .hamburger svg{ width:20px; height:20px; }
+    .drawer-backdrop{ position:fixed; inset:0; background:rgba(17,17,17,.42); opacity:0; pointer-events:none; transition:opacity .2s; z-index:70; }
+    .drawer{ position:fixed; top:0; right:0; height:100%; width:min(380px,88vw); background:rgba(246,244,239,.98); border-left:1px solid rgba(17,17,17,.10); box-shadow:0 22px 80px rgba(0,0,0,.18); transform:translateX(110%); transition:transform .22s ease; z-index:71; padding:16px; display:flex; flex-direction:column; gap:10px; }
+    .drawer-head{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding-bottom:10px; border-bottom:1px solid rgba(17,17,17,.08); }
+    .drawer-title{ font-family:"Playfair Display",serif; font-weight:700; font-size:18px; }
+    .drawer-close{ width:44px; height:44px; border-radius:14px; border:1px solid rgba(31,61,43,.18); background:rgba(255,255,255,.65); display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
+    .drawer a{ display:flex; padding:12px; border-radius:14px; font-weight:700; color:rgba(17,17,17,.92); }
+    .drawer a:hover{ background:rgba(31,61,43,.08); color:var(--green); }
+    .drawer a.active{ background:rgba(31,61,43,.10); color:var(--green); }
+    .drawer-actions{ margin-top:auto; display:grid; gap:10px; padding-top:10px; border-top:1px solid rgba(17,17,17,.08); }
+    .btn{ display:inline-flex; align-items:center; justify-content:center; padding:12px 18px; border-radius:999px; border:1px solid rgba(31,61,43,.18); font-weight:700; font-size:14px; white-space:nowrap; background:transparent; }
+    .btn.primary{ background:var(--green); color:#fff; border-color:rgba(31,61,43,.55); }
+    .drawer-open .drawer-backdrop{ opacity:1; pointer-events:auto; }
+    .drawer-open .drawer{ transform:translateX(0); }
+    .hero{ padding:34px 0 10px; }
+    .back{ display:inline-flex; align-items:center; gap:10px; color:var(--green); font-weight:800; margin-bottom:14px; }
+    .back span{ border-bottom:1px solid rgba(31,61,43,.25); padding-bottom:2px; }
+    .kicker{ font-size:12px; letter-spacing:2.6px; text-transform:uppercase; color:rgba(17,17,17,.58); margin-bottom:10px; }
+    h1{ font-family:"Playfair Display",serif; font-weight:700; font-size:clamp(34px,4.2vw,56px); line-height:1.06; margin-bottom:12px; letter-spacing:-0.4px; }
+    .lead{ color:rgba(17,17,17,.72); font-size:18px; max-width:72ch; margin-top:8px; }
+    .cover{ margin:22px 0 26px; border-radius:var(--radius-2); overflow:hidden; box-shadow:var(--shadow-strong); border:1px solid rgba(17,17,17,.08); background:linear-gradient(160deg,rgba(17,17,17,.20) 0%,rgba(17,17,17,.50) 100%),url("../Photos/photo11.jpg") center/cover no-repeat; min-height:240px; }
+    @media(max-width:560px){ .wrap{padding:0 16px;} .cover{min-height:210px;border-radius:22px;} .lead{font-size:17px;} }
+    .article{ padding:8px 0 84px; }
+    .quote{ border-left:4px solid var(--green); padding:12px 14px 12px 16px; margin:18px 0 22px; color:rgba(17,17,17,.74); font-size:18px; background:rgba(255,255,255,.35); border-radius:12px; }
+    h2{ font-family:"Playfair Display",serif; font-weight:700; font-size:clamp(24px,2.4vw,32px); line-height:1.15; margin:28px 0 10px; color:var(--green); }
+    p{ margin:10px 0; color:rgba(17,17,17,.84); }
+    ul{ margin:12px 0 14px 20px; color:rgba(17,17,17,.84); display:grid; gap:8px; }
+    li{ margin-left:6px; }
+    .alert{ background:rgba(200,100,26,.07); border:1px solid rgba(200,100,26,.22); border-radius:14px; padding:14px 16px; margin:18px 0; }
+    .alert strong{ color:rgba(150,60,0,.85); }
+    .alert p{ color:rgba(17,17,17,.80); margin:0; }
+    .good{ background:rgba(31,61,43,.06); border:1px solid rgba(31,61,43,.18); border-radius:14px; padding:14px 16px; margin:18px 0; }
+    .good p{ color:rgba(17,17,17,.80); margin:0; }
+    .card{ margin:28px 0 0; padding:18px 16px; border-radius:var(--radius-2); border:1px solid rgba(17,17,17,.10); background:rgba(255,255,255,.55); box-shadow:var(--shadow-soft); }
+    .card h3{ font-family:"Playfair Display",serif; font-size:20px; margin-bottom:8px; line-height:1.15; }
+    .card p{ margin:0 0 12px; color:rgba(17,17,17,.74); }
+    footer{ padding:42px 0; border-top:1px solid rgba(17,17,17,.08); color:rgba(17,17,17,.72); font-size:13px; }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="brand" href="../index.html" aria-label="Retour accueil">
+          <img class="brand-logo" src="../Photos/logo-header-circle.png" alt="ELOK">
+        </a>
+        <button class="hamburger" id="openDrawer" aria-label="Ouvrir le menu" aria-controls="drawer" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="drawer-backdrop" id="drawerBackdrop" aria-hidden="true"></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="drawer-head">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <img class="brand-logo" src="../Photos/logo-header-circle.png" alt="ELOK">
+        <div class="drawer-title">Menu</div>
+      </div>
+      <button class="drawer-close" id="closeDrawer" aria-label="Fermer le menu">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" width="18" height="18">
+          <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <a href="../index.html#concept">Concept</a>
+    <a href="../index.html#services">Prestations</a>
+    <a href="../index.html#methode">Méthode</a>
+    <a href="../index.html#avis">Avis</a>
+    <a class="active" href="../blog.html">Blog</a>
+    <a href="../index.html#contact">Contact</a>
+    <div class="drawer-actions">
+      <a class="btn" href="mailto:contact@elok.fr">contact@elok.fr</a>
+      <a class="btn primary" href="../index.html#contact">Confier mon bien</a>
+    </div>
+  </aside>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <a class="back" href="../blog.html"><span>← Retour au blog</span></a>
+        <div class="kicker">Réglementation · Loi Le Meur · 2026</div>
+        <h1>Loi Le Meur et Airbnb : ce que ça change concrètement en 2026</h1>
+        <p class="lead">
+          Adoptée fin 2024, la loi Le Meur a profondément modifié le cadre de la location courte durée en France.
+          Abattements réduits, nouvelles obligations, pouvoir renforcé des maires… Voici ce que chaque propriétaire
+          doit savoir pour rester dans les clous et préserver sa rentabilité.
+        </p>
+        <div class="cover" role="img" aria-label="Réglementation Airbnb loi Le Meur 2026"></div>
+      </div>
+    </section>
+
+    <section class="article">
+      <div class="wrap">
+        <div class="quote">
+          La loi Le Meur n'interdit pas la location courte durée. Elle la <strong>recadre et la professionnalise</strong>.
+          Les propriétaires bien préparés s'en sortiront mieux que jamais.
+        </div>
+
+        <h2>1. Pourquoi la loi Le Meur a-t-elle été adoptée ?</h2>
+        <p>
+          La loi portée par la députée Annaïg Le Meur répond à une double pression : la crise du logement dans les
+          zones touristiques (villages côtiers, stations de ski, centre-villes historiques) et le sentiment d'une
+          concurrence déloyale entre hôtels et hôtes Airbnb bénéficiant d'un régime fiscal très avantageux.
+        </p>
+        <p>
+          Elle s'inscrit dans une tendance européenne de régulation progressive des plateformes de location
+          (réglementation EU sur les données, règlement ETIAS, etc.) et s'applique à toute la France depuis 2025.
+        </p>
+
+        <h2>2. Le grand changement fiscal : abattements micro-BIC réduits</h2>
+        <p>Avant la loi Le Meur, tous les meublés de tourisme bénéficiaient d'un abattement micro-BIC de 50 %. Désormais :</p>
+        <ul>
+          <li>
+            <strong>Meublés de tourisme non classés (zones tendues)</strong> : abattement réduit à <strong>30 %</strong>,
+            avec un seuil de revenus abaissé à <strong>15 000 €</strong> au lieu de 77 700 €.
+          </li>
+          <li>
+            <strong>Meublés de tourisme classés (1 à 5 étoiles)</strong> : abattement maintenu à <strong>71 %</strong>,
+            seuil conservé à 188 700 €. Le classement devient donc un avantage fiscal majeur.
+          </li>
+          <li>
+            <strong>Chambres d'hôtes</strong> : régime inchangé (71 % d'abattement).
+          </li>
+        </ul>
+        <div class="alert">
+          <p><strong>⚠️ Attention :</strong> si vous dépassez 15 000 € de revenus LCD sans classement meublé de tourisme,
+          vous basculez automatiquement au régime réel — avec obligation de tenir une comptabilité. Anticipez.</p>
+        </div>
+        <div class="good">
+          <p><strong>✅ Solution :</strong> le classement meublé de tourisme est accessible à tous les logements meublés.
+          La procédure coûte 200 à 400 € et prend quelques semaines. C'est l'action prioritaire de 2026.</p>
+        </div>
+
+        <h2>3. Nouvelles obligations déclaratives</h2>
+        <p>
+          La loi Le Meur renforce les obligations de déclaration des hôtes et des plateformes :
+        </p>
+        <ul>
+          <li><strong>Numéro d'enregistrement obligatoire</strong> dans les communes soumises à enregistrement (liste étendue). Airbnb et Booking doivent l'afficher dans l'annonce.</li>
+          <li><strong>Transmission automatique de données</strong> : Airbnb est désormais tenu de transmettre chaque année à l'administration fiscale le récapitulatif des revenus de chaque hôte en France. Déclarez — ils le savent déjà.</li>
+          <li><strong>Limitation des jours de location</strong> pour les résidences principales : la limite reste à 120 jours/an dans les communes qui le décident. Les maires ont désormais plus de latitude pour abaisser ce plafond.</li>
+        </ul>
+
+        <h2>4. Pouvoirs renforcés des maires</h2>
+        <p>
+          C'est l'une des dispositions les plus importantes de la loi : les communes peuvent désormais :
+        </p>
+        <ul>
+          <li>Abaisser le plafond de 120 nuits à un seuil inférieur pour les résidences principales</li>
+          <li>Instaurer des quotas de meublés de tourisme dans certains quartiers</li>
+          <li>Exiger une autorisation de changement d'usage pour les résidences secondaires mises en LCD</li>
+          <li>Appliquer des amendes plus élevées en cas de non-conformité</li>
+        </ul>
+        <p>
+          En pratique, ces mesures visent principalement les grandes villes touristiques. Les communes rurales et les
+          villes moyennes comme Gien sont peu concernées dans l'immédiat, mais cela peut évoluer.
+        </p>
+
+        <h2>5. Compensation logement : la nouveauté méconnue</h2>
+        <p>
+          Dans certaines communes, un propriétaire souhaitant transformer un logement résidentiel en meublé de tourisme
+          peut se voir imposer une <strong>obligation de compensation</strong> : transformer un local commercial en logement
+          d'une surface équivalente. Ce mécanisme existe déjà à Paris et devrait se généraliser progressivement.
+        </p>
+
+        <h2>6. Ce qui ne change pas : la LCD reste viable</h2>
+        <p>
+          Malgré ses restrictions, la loi Le Meur ne signe pas la mort de la location courte durée :
+        </p>
+        <ul>
+          <li>Les revenus LCD restent 2 à 3× supérieurs à la longue durée sur des marchés actifs</li>
+          <li>Le régime réel LMNP (avec amortissement) reste totalement accessible et très avantageux</li>
+          <li>Le classement meublé de tourisme permet de conserver le meilleur abattement micro-BIC</li>
+          <li>Les marchés peu soumis à la réglementation (villes moyennes, zones rurales touristiques) restent libres</li>
+        </ul>
+
+        <h2>Conclusion : s'adapter plutôt que subir</h2>
+        <p>
+          La loi Le Meur est une réalité de 2026. Les propriétaires qui s'adaptent — en faisant classer leur meublé,
+          en passant au régime réel si nécessaire, en se déclarant correctement — continueront à prospérer.
+          Ceux qui ignorent ces changements s'exposent à des redressements fiscaux et à des amendes croissantes.
+          L'heure de la professionnalisation de la LCD a sonné.
+        </p>
+
+        <div class="card">
+          <h3>Besoin d'aide pour mettre votre bien en conformité&nbsp;?</h3>
+          <p>
+            ELOK vous accompagne dans toutes les démarches : classement meublé de tourisme, déclaration en mairie,
+            optimisation de votre annonce. On s'occupe de tout, vous percevez vos revenus.
+          </p>
+          <a class="btn primary" href="../index.html#contact">Confier mon bien →</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        © <script>document.write(new Date().getFullYear())</script> ELOK · Article
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    (function(){
+      const body = document.body;
+      const openBtn = document.getElementById('openDrawer');
+      const closeBtn = document.getElementById('closeDrawer');
+      const backdrop = document.getElementById('drawerBackdrop');
+      const drawer = document.getElementById('drawer');
+      function openDrawer(){ body.classList.add('drawer-open'); openBtn?.setAttribute('aria-expanded','true'); backdrop.setAttribute('aria-hidden','false'); body.style.position='fixed'; body.style.width='100%'; }
+      function closeDrawer(){ body.classList.remove('drawer-open'); openBtn?.setAttribute('aria-expanded','false'); backdrop.setAttribute('aria-hidden','true'); body.style.position=''; body.style.width=''; }
+      openBtn?.addEventListener('click', openDrawer);
+      closeBtn?.addEventListener('click', closeDrawer);
+      backdrop?.addEventListener('click', closeDrawer);
+      document.addEventListener('keydown', e => { if(e.key==='Escape' && body.classList.contains('drawer-open')) closeDrawer(); });
+      drawer?.addEventListener('click', e => { const a = e.target.closest('a'); if(a) closeDrawer(); });
+    })();
+  </script>
+</body>
+</html>

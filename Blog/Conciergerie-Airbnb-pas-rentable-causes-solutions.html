@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>Conciergerie Airbnb pas rentable : les vraies causes et comment inverser la tendance · ELOK</title>
+  <meta name="description" content="Votre location Airbnb n'est pas rentable malgré une conciergerie ? Découvrez les 7 vraies causes d'une mauvaise rentabilité LCD et les solutions pour redresser la barre rapidement." />
+  <link rel="icon" type="image/png" sizes="32x32" href="../Photos/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../Photos/favicon-16.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{ --green:#1F3D2B; --cream:#F6F4EF; --ink:#111111; --muted:rgba(17,17,17,.72); --shadow-soft:0 18px 55px rgba(0,0,0,.12); --shadow-strong:0 26px 80px rgba(0,0,0,.16); --radius-2:26px; --max:980px; }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html,body{ overflow-x:hidden; }
+    body{ background:var(--cream); color:var(--ink); font-family:"DM Sans",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; line-height:1.55; -webkit-font-smoothing:antialiased; }
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding:0 18px; }
+    .topbar{ position:sticky; top:0; z-index:60; padding:14px 0; background:rgba(246,244,239,.72); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid rgba(17,17,17,.08); }
+    .nav{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .brand{ display:flex; align-items:center; gap:10px; min-width:0; }
+    .brand-logo{ height:28px; width:28px; border-radius:50%; object-fit:cover; display:block; }
+    .hamburger{ width:44px; height:44px; border-radius:14px; border:1px solid rgba(31,61,43,.18); background:rgba(255,255,255,.60); display:inline-flex; align-items:center; justify-content:center; box-shadow:0 10px 30px rgba(0,0,0,.06); cursor:pointer; }
+    .hamburger svg{ width:20px; height:20px; }
+    .drawer-backdrop{ position:fixed; inset:0; background:rgba(17,17,17,.42); opacity:0; pointer-events:none; transition:opacity .2s; z-index:70; }
+    .drawer{ position:fixed; top:0; right:0; height:100%; width:min(380px,88vw); background:rgba(246,244,239,.98); border-left:1px solid rgba(17,17,17,.10); box-shadow:0 22px 80px rgba(0,0,0,.18); transform:translateX(110%); transition:transform .22s ease; z-index:71; padding:16px; display:flex; flex-direction:column; gap:10px; }
+    .drawer-head{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding-bottom:10px; border-bottom:1px solid rgba(17,17,17,.08); }
+    .drawer-title{ font-family:"Playfair Display",serif; font-weight:700; font-size:18px; }
+    .drawer-close{ width:44px; height:44px; border-radius:14px; border:1px solid rgba(31,61,43,.18); background:rgba(255,255,255,.65); display:inline-flex; align-items:center; justify-content:center; cursor:pointer; }
+    .drawer a{ display:flex; padding:12px; border-radius:14px; font-weight:700; color:rgba(17,17,17,.92); }
+    .drawer a:hover{ background:rgba(31,61,43,.08); color:var(--green); }
+    .drawer a.active{ background:rgba(31,61,43,.10); color:var(--green); }
+    .drawer-actions{ margin-top:auto; display:grid; gap:10px; padding-top:10px; border-top:1px solid rgba(17,17,17,.08); }
+    .btn{ display:inline-flex; align-items:center; justify-content:center; padding:12px 18px; border-radius:999px; border:1px solid rgba(31,61,43,.18); font-weight:700; font-size:14px; white-space:nowrap; background:transparent; }
+    .btn.primary{ background:var(--green); color:#fff; border-color:rgba(31,61,43,.55); }
+    .drawer-open .drawer-backdrop{ opacity:1; pointer-events:auto; }
+    .drawer-open .drawer{ transform:translateX(0); }
+    .hero{ padding:34px 0 10px; }
+    .back{ display:inline-flex; align-items:center; gap:10px; color:var(--green); font-weight:800; margin-bottom:14px; }
+    .back span{ border-bottom:1px solid rgba(31,61,43,.25); padding-bottom:2px; }
+    .kicker{ font-size:12px; letter-spacing:2.6px; text-transform:uppercase; color:rgba(17,17,17,.58); margin-bottom:10px; }
+    h1{ font-family:"Playfair Display",serif; font-weight:700; font-size:clamp(34px,4.2vw,56px); line-height:1.06; margin-bottom:12px; letter-spacing:-0.4px; }
+    .lead{ color:rgba(17,17,17,.72); font-size:18px; max-width:72ch; margin-top:8px; }
+    .cover{ margin:22px 0 26px; border-radius:var(--radius-2); overflow:hidden; box-shadow:var(--shadow-strong); border:1px solid rgba(17,17,17,.08); background:linear-gradient(160deg,rgba(31,61,43,.28) 0%,rgba(17,17,17,.50) 100%),url("../Photos/photo21.jpg") center/cover no-repeat; min-height:240px; }
+    @media(max-width:560px){ .wrap{padding:0 16px;} .cover{min-height:210px;border-radius:22px;} .lead{font-size:17px;} }
+    .article{ padding:8px 0 84px; }
+    .quote{ border-left:4px solid var(--green); padding:12px 14px 12px 16px; margin:18px 0 22px; color:rgba(17,17,17,.74); font-size:18px; background:rgba(255,255,255,.35); border-radius:12px; }
+    h2{ font-family:"Playfair Display",serif; font-weight:700; font-size:clamp(24px,2.4vw,32px); line-height:1.15; margin:28px 0 10px; color:var(--green); }
+    p{ margin:10px 0; color:rgba(17,17,17,.84); }
+    ul{ margin:12px 0 14px 20px; color:rgba(17,17,17,.84); display:grid; gap:8px; }
+    li{ margin-left:6px; }
+    .cause{ border:1px solid rgba(17,17,17,.10); border-radius:16px; background:rgba(255,255,255,.50); padding:16px 18px; margin:18px 0; }
+    .cause-num{ font-size:11px; letter-spacing:2px; text-transform:uppercase; color:rgba(200,100,26,.80); font-weight:700; margin-bottom:6px; }
+    .cause h3{ font-family:"Playfair Display",serif; font-size:18px; color:var(--ink); margin-bottom:8px; }
+    .cause p{ color:rgba(17,17,17,.80); margin:0 0 8px; font-size:14.5px; }
+    .cause .fix{ font-size:13px; font-weight:600; color:var(--green); }
+    .card{ margin:28px 0 0; padding:18px 16px; border-radius:var(--radius-2); border:1px solid rgba(17,17,17,.10); background:rgba(255,255,255,.55); box-shadow:var(--shadow-soft); }
+    .card h3{ font-family:"Playfair Display",serif; font-size:20px; margin-bottom:8px; line-height:1.15; }
+    .card p{ margin:0 0 12px; color:rgba(17,17,17,.74); }
+    footer{ padding:42px 0; border-top:1px solid rgba(17,17,17,.08); color:rgba(17,17,17,.72); font-size:13px; }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="wrap">
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="brand" href="../index.html" aria-label="Retour accueil">
+          <img class="brand-logo" src="../Photos/logo-header-circle.png" alt="ELOK">
+        </a>
+        <button class="hamburger" id="openDrawer" aria-label="Ouvrir le menu" aria-controls="drawer" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="drawer-backdrop" id="drawerBackdrop" aria-hidden="true"></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="drawer-head">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <img class="brand-logo" src="../Photos/logo-header-circle.png" alt="ELOK">
+        <div class="drawer-title">Menu</div>
+      </div>
+      <button class="drawer-close" id="closeDrawer" aria-label="Fermer le menu">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" width="18" height="18">
+          <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <a href="../index.html#concept">Concept</a>
+    <a href="../index.html#services">Prestations</a>
+    <a href="../index.html#methode">Méthode</a>
+    <a href="../index.html#avis">Avis</a>
+    <a class="active" href="../blog.html">Blog</a>
+    <a href="../index.html#contact">Contact</a>
+    <div class="drawer-actions">
+      <a class="btn" href="mailto:contact@elok.fr">contact@elok.fr</a>
+      <a class="btn primary" href="../index.html#contact">Confier mon bien</a>
+    </div>
+  </aside>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <a class="back" href="../blog.html"><span>← Retour au blog</span></a>
+        <div class="kicker">Rentabilité · Conciergerie · Diagnostic</div>
+        <h1>Conciergerie Airbnb pas rentable : les vraies causes et comment inverser la tendance</h1>
+        <p class="lead">
+          Vous avez délégué la gestion à une conciergerie, mais les revenus ne couvrent pas vos attentes.
+          Charges de copropriété, commission conciergerie, fiscalité, taux d'occupation insuffisant…
+          Avant de tout arrêter, identifiez la vraie cause. Souvent, la solution est plus proche qu'on ne le croit.
+        </p>
+        <div class="cover" role="img" aria-label="Rentabilité Airbnb conciergerie"></div>
+      </div>
+    </section>
+
+    <section class="article">
+      <div class="wrap">
+        <div class="quote">
+          La location courte durée est presque toujours rentable <strong>si elle est bien gérée</strong>.
+          Quand ça ne l'est pas, c'est qu'il y a une ou plusieurs causes identifiables — et corrigeables.
+        </div>
+
+        <h2>D'abord : calculez votre vraie rentabilité nette</h2>
+        <p>
+          Avant de conclure à une non-rentabilité, assurez-vous de calculer correctement.
+          La rentabilité LCD se calcule ainsi :
+        </p>
+        <ul>
+          <li><strong>Revenus bruts LCD</strong> (après commission plateforme ~3 %)</li>
+          <li>− Commission conciergerie (15 à 25 %)</li>
+          <li>− Charges opérationnelles (ménage, linge, consommables, assurance LCD)</li>
+          <li>− Charges du bien (copropriété, taxe foncière, crédit immobilier si applicable)</li>
+          <li>− Impôts (au régime réel : souvent proches de 0 grâce à l'amortissement)</li>
+          <li>= <strong>Revenu net propriétaire</strong></li>
+        </ul>
+        <p>
+          Beaucoup de propriétaires comparent les revenus bruts LCD à leur espérance nette — et s'étonnent de l'écart.
+          Comparez les bons indicateurs, puis identifiez les postes de dérapage.
+        </p>
+
+        <h2>Les 7 vraies causes d'une LCD non rentable</h2>
+
+        <div class="cause">
+          <div class="cause-num">Cause 1</div>
+          <h3>Le taux d'occupation est trop faible</h3>
+          <p>En dessous de 50 % de taux d'occupation annuel, la plupart des modèles deviennent déficitaires. Un bien performant tourne à 60-75 % selon le marché.</p>
+          <p class="fix">✅ Fix : vérifiez le classement algorithmique de votre annonce, votre pricing dynamique, et la qualité de vos photos. Ces trois leviers représentent 80 % du taux de conversion.</p>
+        </div>
+
+        <div class="cause">
+          <div class="cause-num">Cause 2</div>
+          <h3>Les prix sont trop bas (ou trop hauts)</h3>
+          <p>Un prix trop bas remplit le calendrier mais plombe le RevPAR. Un prix trop haut vide le calendrier. Sans pricing dynamique, vous laissez de l'argent sur la table chaque semaine.</p>
+          <p class="fix">✅ Fix : activez un outil de tarification dynamique (PriceLabs, Beyond) ou vérifiez que votre conciergerie l'utilise réellement — et comment elle le paramètre.</p>
+        </div>
+
+        <div class="cause">
+          <div class="cause-num">Cause 3</div>
+          <h3>La commission conciergerie est trop élevée par rapport au service rendu</h3>
+          <p>Une commission de 25 % est justifiée si elle inclut le ménage, le linge, la gestion voyageurs 7j/7, et l'optimisation continue de l'annonce. Si elle n'inclut pas le ménage ou le linge, elle ne l'est pas.</p>
+          <p class="fix">✅ Fix : demandez une ventilation détaillée de ce que couvre la commission. Si des prestations sont facturées en plus, renégociez ou changez de conciergerie.</p>
+        </div>
+
+        <div class="cause">
+          <div class="cause-num">Cause 4</div>
+          <h3>Les charges opérationnelles ont dérivé</h3>
+          <p>Ménage à 70 € par passage, linge externalisé non négocié, consommables renouvelés sans suivi… Ces postes peuvent représenter 35 à 40 % des revenus bruts dans les cas extrêmes.</p>
+          <p class="fix">✅ Fix : demandez un reporting mensuel des charges opérationnelles détaillées. Fixez des plafonds clairs par prestation dans votre contrat.</p>
+        </div>
+
+        <div class="cause">
+          <div class="cause-num">Cause 5</div>
+          <h3>Le régime fiscal n'est pas optimisé</h3>
+          <p>Si vous êtes au micro-BIC sans classement meublé de tourisme après la loi Le Meur, vous payez peut-être 30 % d'impôt sur 70 % de vos revenus bruts. Le régime réel avec amortissement réduirait votre charge fiscale à quasi-zéro.</p>
+          <p class="fix">✅ Fix : consultez un comptable spécialisé LMNP. Le passage au régime réel est presque toujours rentable dès que le bien a été acquis à crédit.</p>
+        </div>
+
+        <div class="cause">
+          <div class="cause-num">Cause 6</div>
+          <h3>Le bien est sur une seule plateforme</h3>
+          <p>Être uniquement sur Airbnb limite votre exposition. Booking.com, Vrbo, Abritel et les sites de réservation directe représentent ensemble plus de 40 % du marché de la LCD.</p>
+          <p class="fix">✅ Fix : demandez à votre conciergerie de multi-diffuser votre bien sur au moins 2-3 plateformes avec un channel manager pour éviter les doubles réservations.</p>
+        </div>
+
+        <div class="cause">
+          <div class="cause-num">Cause 7</div>
+          <h3>Les périodes creuses ne sont pas monétisées</h3>
+          <p>De nombreux propriétaires laissent le logement vide en basse saison plutôt que d'adapter la stratégie : séjours de moyenne durée (1-3 mois), tarifs flexibles, cible professionnels ou travailleurs en déplacement.</p>
+          <p class="fix">✅ Fix : en dehors des pics touristiques, ciblez les séjours de 7 à 30 nuits avec des tarifs dégressifs. La rotation est moindre, les charges opérationnelles aussi.</p>
+        </div>
+
+        <h2>Conclusion : la non-rentabilité est presque toujours corrigeable</h2>
+        <p>
+          Une location Airbnb non rentable n'est pas une fatalité. Dans 90 % des cas, le problème vient d'un ou
+          plusieurs des 7 leviers ci-dessus. Identifiez précisément quelle cause s'applique à votre situation,
+          corrigez-la avec méthode, et réévaluez après 2 à 3 mois. Souvent, un seul changement — pricing dynamique,
+          changement de régime fiscal, ou optimisation de l'annonce — suffit à transformer une performance décevante
+          en résultat satisfaisant.
+        </p>
+
+        <div class="card">
+          <h3>Votre bien dans le Giennois sous-performe&nbsp;?</h3>
+          <p>
+            ELOK réalise un diagnostic gratuit de votre rentabilité Airbnb : analyse de votre annonce, de vos
+            charges, de votre classement et de votre potentiel de revenus. Résultat et recommandations sous 48 h.
+          </p>
+          <a class="btn primary" href="../index.html#contact">Demander un diagnostic →</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap">
+        © <script>document.write(new Date().getFullYear())</script> ELOK · Article
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    (function(){
+      const body = document.body;
+      const openBtn = document.getElementById('openDrawer');
+      const closeBtn = document.getElementById('closeDrawer');
+      const backdrop = document.getElementById('drawerBackdrop');
+      const drawer = document.getElementById('drawer');
+      function openDrawer(){ body.classList.add('drawer-open'); openBtn?.setAttribute('aria-expanded','true'); backdrop.setAttribute('aria-hidden','false'); body.style.position='fixed'; body.style.width='100%'; }
+      function closeDrawer(){ body.classList.remove('drawer-open'); openBtn?.setAttribute('aria-expanded','false'); backdrop.setAttribute('aria-hidden','true'); body.style.position=''; body.style.width=''; }
+      openBtn?.addEventListener('click', openDrawer);
+      closeBtn?.addEventListener('click', closeDrawer);
+      backdrop?.addEventListener('click', closeDrawer);
+      document.addEventListener('keydown', e => { if(e.key==='Escape' && body.classList.contains('drawer-open')) closeDrawer(); });
+      drawer?.addEventListener('click', e => { const a = e.target.closest('a'); if(a) closeDrawer(); });
+    })();
+  </script>
+</body>
+</html>
