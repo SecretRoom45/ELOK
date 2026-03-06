@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Conditions d'utilisation (CGU) · ELOK</title>
+  <meta name="description" content="Conditions générales d'utilisation du site ELOK — conciergerie Airbnb à Gien (45500, Loiret). Accès, propriété intellectuelle, responsabilité, cookies et droit applicable." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.elok.fr/cgu.html" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="Photos/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="Photos/favicon-16.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --green:#1F3D2B;
+      --green-2:#6E8F7A;
+      --cream:#F6F4EF;
+      --ink:#111111;
+      --muted: rgba(17,17,17,.72);
+      --card: rgba(255,255,255,.60);
+      --shadow-soft: 0 18px 55px rgba(0,0,0,.10);
+      --shadow-strong: 0 26px 80px rgba(0,0,0,.14);
+      --radius: 22px;
+      --max: 840px;
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html, body{ overflow-x:hidden; }
+    body{
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      font-size: 15px;
+    }
+    a{ color: var(--green); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+    /* ====== HEADER ====== */
+    .topbar{
+      position:sticky; top:0; z-index:60;
+      padding: 14px 0;
+      background: rgba(246,244,239,.80);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(17,17,17,.08);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      color: var(--ink);
+    }
+    .brand-logo{
+      height:46px; width:46px;
+      border-radius:50%;
+      object-fit:cover;
+      display:block;
+    }
+    .hamburger{
+      width:44px; height:44px;
+      border-radius:14px;
+      border:1px solid rgba(31,61,43,.18);
+      background: rgba(255,255,255,.60);
+      display:inline-flex; align-items:center; justify-content:center;
+      box-shadow: 0 10px 30px rgba(0,0,0,.06);
+      cursor: pointer;
+    }
+    .hamburger svg{ width:20px; height:20px; }
+
+    /* Drawer */
+    .drawer-backdrop{
+      position:fixed; inset:0;
+      background: rgba(17,17,17,.42);
+      opacity:0; pointer-events:none;
+      transition: opacity .2s ease;
+      z-index:70;
+    }
+    .drawer{
+      position:fixed; top:0; right:0; height:100%;
+      width:min(380px, 88vw);
+      background: rgba(246,244,239,.98);
+      border-left:1px solid rgba(17,17,17,.10);
+      box-shadow: 0 22px 80px rgba(0,0,0,.18);
+      transform: translateX(110%);
+      transition: transform .22s ease;
+      z-index:71;
+      padding: 16px;
+      display:flex; flex-direction:column; gap:10px;
+    }
+    .drawer-head{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding-bottom:10px;
+      border-bottom:1px solid rgba(17,17,17,.08);
+    }
+    .drawer-title{
+      font-family:"Playfair Display", serif;
+      font-weight:700; font-size:18px;
+    }
+    .drawer-close{
+      width:44px; height:44px;
+      border-radius:14px;
+      border:1px solid rgba(31,61,43,.18);
+      background: rgba(255,255,255,.65);
+      display:inline-flex; align-items:center; justify-content:center;
+      cursor:pointer;
+    }
+    .drawer a{
+      display:flex; padding:12px;
+      border-radius:14px; font-weight:700;
+      color: rgba(17,17,17,.92);
+    }
+    .drawer a:hover{ background:rgba(31,61,43,.08); color:var(--green); text-decoration:none; }
+    .drawer a.active{ background:rgba(31,61,43,.10); color:var(--green); }
+    .drawer-actions{
+      margin-top:auto; display:grid; gap:10px;
+      padding-top:10px; border-top:1px solid rgba(17,17,17,.08);
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 18px; border-radius:999px;
+      border:1px solid rgba(31,61,43,.18);
+      font-weight:700; font-size:14px;
+      white-space:nowrap; background:transparent;
+      transition: transform .15s ease, box-shadow .2s ease;
+      cursor:pointer;
+    }
+    .btn:hover{ transform:translateY(-1px); box-shadow:0 14px 34px rgba(0,0,0,.10); text-decoration:none; }
+    .btn.primary{ background:var(--green); color:#fff; border-color:rgba(31,61,43,.55); }
+
+    .drawer-open .drawer-backdrop{ opacity:1; pointer-events:auto; }
+    .drawer-open .drawer{ transform:translateX(0); }
+
+    /* ====== PAGE ====== */
+    .hero{
+      padding: 52px 0 36px;
+      border-bottom: 1px solid rgba(17,17,17,.08);
+      margin-bottom: 42px;
+    }
+    .hero-kicker{
+      font-size:11px; letter-spacing:2.4px; text-transform:uppercase;
+      color: var(--green-2); font-weight:600; margin-bottom:12px;
+    }
+    .hero h1{
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height:1.08;
+      letter-spacing:-.3px;
+      margin-bottom: 16px;
+    }
+    .hero-meta{
+      font-size:13px;
+      color: rgba(17,17,17,.52);
+    }
+
+    /* ====== ARTICLE CGU ====== */
+    .cgu-intro{
+      background: rgba(255,255,255,.55);
+      border: 1px solid rgba(17,17,17,.09);
+      border-radius: var(--radius);
+      padding: 22px 26px;
+      margin-bottom: 36px;
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .article{
+      margin-bottom: 36px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(17,17,17,.08);
+    }
+    .article:last-of-type{
+      border-bottom: none;
+    }
+    .article-num{
+      font-size: 11px;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+      color: var(--green-2);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .article h2{
+      font-family:"Playfair Display", serif;
+      font-weight:700;
+      font-size: clamp(18px, 2.2vw, 22px);
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+    .article p{
+      color: var(--muted);
+      margin-bottom: 12px;
+      line-height: 1.72;
+    }
+    .article p:last-child{ margin-bottom: 0; }
+    .article a{ color: var(--green); }
+
+    /* ====== RETOUR ====== */
+    .back-row{
+      padding: 8px 0 56px;
+    }
+    .back-btn{
+      display:inline-flex; align-items:center; gap:7px;
+      font-size:14px; font-weight:600;
+      color: var(--green); padding:10px 16px;
+      border:1px solid rgba(31,61,43,.18);
+      border-radius:999px;
+      background: rgba(255,255,255,.55);
+      transition: transform .14s;
+    }
+    .back-btn:hover{ transform:translateX(-2px); text-decoration:none; }
+
+    /* ====== FOOTER ====== */
+    footer{
+      padding: 38px 0;
+      border-top: 1px solid rgba(17,17,17,.08);
+      color: rgba(17,17,17,.68);
+      font-size: 13px;
+    }
+    .footlinks{
+      display:flex; gap:14px; flex-wrap:wrap;
+      justify-content:center;
+      margin-top: 10px;
+    }
+    .footlinks a{ padding:5px 8px; border-radius:10px; color:rgba(17,17,17,.62); }
+    .footlinks a:hover{ background:rgba(31,61,43,.08); color:var(--green); text-decoration:none; }
+    .footlinks a.active{ color:var(--green); font-weight:600; }
+  </style>
+</head>
+
+<body>
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="wrap">
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="brand" href="index.html" aria-label="Retour accueil ELOK">
+          <img class="brand-logo" src="Photos/logo-header-circle.png" alt="ELOK">
+        </a>
+        <button class="hamburger" id="openDrawer" aria-label="Ouvrir le menu" aria-controls="drawer" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="drawer-backdrop" id="drawerBackdrop" aria-hidden="true"></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="drawer-head">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <img class="brand-logo" src="Photos/logo-header-circle.png" alt="ELOK" style="width:32px;height:32px;">
+        <div class="drawer-title">Menu</div>
+      </div>
+      <button class="drawer-close" id="closeDrawer" aria-label="Fermer le menu">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" width="18" height="18">
+          <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <a href="index.html">Accueil</a>
+    <a href="index.html#services">Prestations</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="blog.html">Blog</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="a-propos.html">À propos</a>
+    <a class="active" href="cgu.html">CGU</a>
+    <div class="drawer-actions">
+      <a class="btn" href="mailto:contact@elok.fr">contact@elok.fr</a>
+      <a class="btn primary" href="index.html#contact">Confier mon bien</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero-kicker">Mentions légales &amp; juridique</div>
+        <h1>Conditions d'utilisation</h1>
+        <p class="hero-meta">Dernière mise à jour : mars 2025 · <a href="index.html">elok.fr</a></p>
+      </div>
+    </section>
+
+    <!-- CONTENU CGU -->
+    <div class="wrap">
+
+      <!-- Intro -->
+      <div class="cgu-intro">
+        Les présentes conditions générales d'utilisation (dites « CGU ») ont pour objet l'encadrement juridique des modalités
+        de mise à disposition du site et des services par ELOK, et de définir les conditions d'accès et d'utilisation des
+        services par « l'Utilisateur ».<br><br>
+        Les présentes CGU sont accessibles sur le site à la rubrique <strong>« CGU »</strong>.
+      </div>
+
+      <!-- Article 1 -->
+      <div class="article">
+        <div class="article-num">Article 1</div>
+        <h2>Mentions légales</h2>
+        <p>
+          Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance en l'économie numérique,
+          il est précisé aux utilisateurs du site <a href="https://www.elok.fr" target="_blank" rel="noopener">https://www.elok.fr</a>
+          l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi.
+        </p>
+        <p>
+          <strong>Éditeur du site :</strong> ELOK — Conciergerie Airbnb premium, Gien (45500), Loiret, France.<br>
+          <strong>Contact :</strong> <a href="mailto:contact@elok.fr">contact@elok.fr</a>
+        </p>
+      </div>
+
+      <!-- Article 2 -->
+      <div class="article">
+        <div class="article-num">Article 2</div>
+        <h2>Accès au site</h2>
+        <p>
+          Le site <a href="https://www.elok.fr" target="_blank" rel="noopener">https://www.elok.fr</a> permet à l'Utilisateur
+          un accès gratuit aux services suivants :
+        </p>
+        <p>
+          Le site internet propose les services suivants : <strong>Conciergerie Airbnb &amp; Booking — gestion location courte durée.</strong>
+        </p>
+        <p>
+          Le site est accessible gratuitement en tout lieu à tout Utilisateur ayant un accès à Internet.
+          Tous les frais supportés par l'Utilisateur pour accéder au service (matériel informatique, logiciels,
+          connexion Internet, etc.) sont à sa charge.
+        </p>
+      </div>
+
+      <!-- Article 3 -->
+      <div class="article">
+        <div class="article-num">Article 3</div>
+        <h2>Collecte des données</h2>
+        <p>
+          Le site est exempté de déclaration à la Commission Nationale Informatique et Libertés (CNIL) dans la mesure
+          où il ne collecte aucune donnée personnelle concernant les Utilisateurs en dehors des informations volontairement
+          transmises via le formulaire de contact.
+        </p>
+        <p>
+          Les données saisies dans le formulaire de contact (nom, e-mail, message) sont utilisées exclusivement pour
+          répondre à la demande de l'Utilisateur et ne sont pas cédées à des tiers.
+        </p>
+      </div>
+
+      <!-- Article 4 -->
+      <div class="article">
+        <div class="article-num">Article 4</div>
+        <h2>Propriété intellectuelle</h2>
+        <p>
+          Les marques, logos, signes ainsi que tous les contenus du site (textes, images, son…) font l'objet d'une
+          protection par le Code de la propriété intellectuelle et plus particulièrement par le droit d'auteur.
+        </p>
+        <p>
+          La marque <strong>ELOK</strong> est une marque déposée. Toute représentation et/ou reproduction et/ou
+          exploitation partielle ou totale de cette marque, de quelque nature que ce soit, est totalement prohibée.
+        </p>
+        <p>
+          L'Utilisateur doit solliciter l'autorisation préalable du site pour toute reproduction, publication, copie des
+          différents contenus. Il s'engage à une utilisation des contenus du site dans un cadre strictement privé ;
+          toute utilisation à des fins commerciales et publicitaires est strictement interdite.
+        </p>
+        <p>
+          Toute représentation totale ou partielle de ce site par quelque procédé que ce soit, sans l'autorisation expresse
+          de l'exploitant du site constituerait une contrefaçon sanctionnée par l'article L. 335-2 et suivants du Code
+          de la propriété intellectuelle.
+        </p>
+        <p>
+          Il est rappelé conformément à l'article L. 122-5 du Code de propriété intellectuelle que l'Utilisateur qui
+          reproduit, copie ou publie le contenu protégé doit citer l'auteur et sa source.
+        </p>
+      </div>
+
+      <!-- Article 5 -->
+      <div class="article">
+        <div class="article-num">Article 5</div>
+        <h2>Responsabilité</h2>
+        <p>
+          Les sources des informations diffusées sur le site sont réputées fiables mais le site ne garantit pas qu'il soit
+          exempt de défauts, d'erreurs ou d'omissions.
+        </p>
+        <p>
+          Les informations communiquées sont présentées à titre indicatif et général sans valeur contractuelle. Malgré des
+          mises à jour régulières, le site <a href="https://www.elok.fr" target="_blank" rel="noopener">https://www.elok.fr</a>
+          ne peut être tenu responsable de la modification des dispositions administratives et juridiques survenant après la publication.
+        </p>
+        <p>
+          Le site ne peut être tenu responsable de l'utilisation et de l'interprétation de l'information contenue dans ces pages,
+          ni d'éventuels virus qui pourraient infecter l'ordinateur ou tout matériel informatique de l'Internaute suite à une
+          utilisation, à l'accès, ou au téléchargement provenant de ce site.
+        </p>
+        <p>
+          La responsabilité du site ne peut être engagée en cas de force majeure ou du fait imprévisible et insurmontable d'un tiers.
+        </p>
+      </div>
+
+      <!-- Article 6 -->
+      <div class="article">
+        <div class="article-num">Article 6</div>
+        <h2>Liens hypertextes</h2>
+        <p>
+          Des liens hypertextes peuvent être présents sur le site. L'Utilisateur est informé qu'en cliquant sur ces liens,
+          il sortira du site <a href="https://www.elok.fr" target="_blank" rel="noopener">https://www.elok.fr</a>.
+          Ce dernier n'a pas de contrôle sur les pages web sur lesquelles aboutissent ces liens et ne saurait,
+          en aucun cas, être responsable de leur contenu.
+        </p>
+      </div>
+
+      <!-- Article 7 -->
+      <div class="article">
+        <div class="article-num">Article 7</div>
+        <h2>Cookies</h2>
+        <p>
+          L'Utilisateur est informé que lors de ses visites sur le site, un cookie peut s'installer automatiquement
+          sur son logiciel de navigation.
+        </p>
+        <p>
+          Les cookies sont de petits fichiers stockés temporairement sur le disque dur de l'ordinateur de l'Utilisateur
+          par le navigateur et qui sont nécessaires à l'utilisation du site. Les cookies ne contiennent pas d'information
+          personnelle et ne peuvent pas être utilisés pour identifier quelqu'un. Un cookie contient un identifiant unique,
+          généré aléatoirement et donc anonyme. Certains cookies expirent à la fin de la visite de l'Utilisateur,
+          d'autres restent.
+        </p>
+        <p>
+          L'information contenue dans les cookies est utilisée pour améliorer le site
+          <a href="https://www.elok.fr" target="_blank" rel="noopener">https://www.elok.fr</a>.
+          En naviguant sur le site, l'Utilisateur les accepte.
+        </p>
+        <p>
+          L'Utilisateur doit toutefois donner son consentement quant à l'utilisation de certains cookies.
+          À défaut d'acceptation, l'Utilisateur est informé que certaines fonctionnalités ou pages risquent de lui être refusées.
+          L'Utilisateur pourra désactiver ces cookies par l'intermédiaire des paramètres figurant au sein de son logiciel de navigation.
+        </p>
+      </div>
+
+      <!-- Article 8 -->
+      <div class="article">
+        <div class="article-num">Article 8</div>
+        <h2>Droit applicable et juridiction compétente</h2>
+        <p>
+          La législation française s'applique au présent contrat. En cas d'absence de résolution amiable d'un litige né
+          entre les parties, les tribunaux français seront seuls compétents pour en connaître.
+        </p>
+        <p>
+          Pour toute question relative à l'application des présentes CGU, vous pouvez joindre l'éditeur à l'adresse suivante :
+          <a href="mailto:contact@elok.fr">contact@elok.fr</a>.
+        </p>
+      </div>
+
+      <!-- Retour -->
+      <div class="back-row">
+        <a class="back-btn" href="index.html">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M19 12H5M5 12l7-7M5 12l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Retour à l'accueil
+        </a>
+      </div>
+
+    </div><!-- /.wrap -->
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="wrap" style="text-align:center;">
+        <div>© <script>document.write(new Date().getFullYear())</script> ELOK · Conciergerie Airbnb à Gien (45500), Loiret</div>
+        <div class="footlinks">
+          <a href="index.html">Accueil</a>
+          <a href="index.html#services">Prestations</a>
+          <a href="index.html#faq">FAQ</a>
+          <a href="blog.html">Blog</a>
+          <a href="a-propos.html">À propos</a>
+          <a class="active" href="cgu.html">CGU</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    (function(){
+      const body = document.body;
+      const openBtn = document.getElementById('openDrawer');
+      const closeBtn = document.getElementById('closeDrawer');
+      const backdrop = document.getElementById('drawerBackdrop');
+
+      function openDrawer(){
+        body.classList.add('drawer-open');
+        openBtn.setAttribute('aria-expanded','true');
+        backdrop.setAttribute('aria-hidden','false');
+        body.style.position='fixed'; body.style.width='100%';
+      }
+      function closeDrawer(){
+        body.classList.remove('drawer-open');
+        openBtn.setAttribute('aria-expanded','false');
+        backdrop.setAttribute('aria-hidden','true');
+        body.style.position=''; body.style.width='';
+      }
+
+      openBtn.addEventListener('click', openDrawer);
+      closeBtn.addEventListener('click', closeDrawer);
+      backdrop.addEventListener('click', closeDrawer);
+      document.addEventListener('keydown', e => {
+        if(e.key==='Escape' && body.classList.contains('drawer-open')) closeDrawer();
+      });
+    })();
+  </script>
+</body>
+</html>

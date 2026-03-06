@@ -781,6 +781,38 @@
       border:0;
     }
 
+    /* ====== Chiffres clés ====== */
+    .stats-section{ background: rgba(255,255,255,.30); }
+    .stats-grid{
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+      margin-top: 36px;
+    }
+    @media (max-width: 860px){ .stats-grid{ grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 540px){ .stats-grid{ grid-template-columns: repeat(2, 1fr); } }
+    .stat-card{
+      text-align: center;
+      padding: 22px 14px 18px;
+      border: 1px solid rgba(17,17,17,.09);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.55);
+    }
+    .stat-num{
+      font-family: "Playfair Display", serif;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 700;
+      color: #C87C1A;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+    .stat-label{
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--green);
+      line-height: 1.5;
+    }
+
     /* ====== À propos responsive ====== */
     @media (max-width: 680px){
       .about-grid{ grid-template-columns: 1fr !important; }
@@ -1170,6 +1202,49 @@
 
         </div>
 
+      </div>
+    </section>
+
+    <!-- CHIFFRES CLÉS -->
+    <section class="section stats-section" id="chiffres">
+      <div class="wrap">
+        <div class="section-head reveal" style="text-align:center;">
+          <h2 style="font-family:'Playfair Display',serif; color:var(--green); font-style:italic; font-size:clamp(22px,3.5vw,34px);">Avec ELOK votre logement est entre de bonnes mains</h2>
+          <p style="margin-top:8px; color:rgba(17,17,17,.62);">Quelques chiffres pour vous en convaincre</p>
+        </div>
+
+        <div class="stats-grid reveal">
+
+          <div class="stat-card">
+            <div class="stat-num">4,92</div>
+            <div class="stat-label">Note moyenne des biens que nous gérons sur Airbnb</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-num">9,4</div>
+            <div class="stat-label">Note moyenne des biens gérés sur Booking.com</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-num">6 ans</div>
+            <div class="stat-label">D'expérience en gestion de location courte durée</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-num">70%</div>
+            <div class="stat-label">Taux d'occupation moyen de nos logements</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-num">500+</div>
+            <div class="stat-label">Avis clients sur Airbnb</div>
+          </div>
+
+        </div>
+
+        <div style="text-align:center; margin-top:30px;" class="reveal">
+          <a class="btn primary" href="#contact">Confier mon bien maintenant</a>
+        </div>
       </div>
     </section>
 
@@ -1587,6 +1662,66 @@
             </div>
           </div>
 
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+              <span itemprop="name">Les recettes locatives correspondent à quoi ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">Les recettes locatives correspondent à l'ensemble des revenus générés par les réservations de votre logement sur Airbnb, Booking.com et les autres plateformes. ELOK vous reverse vos revenus déduction faite de sa commission, sans frais cachés. Vous recevez chaque mois un reporting détaillé.</div>
+            </div>
+          </div>
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+              <span itemprop="name">Qu'est-ce qui est inclus dans les consommables ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">Les consommables de base (papier toilette, savon, éponge, capsules café, sachets de thé…) sont fournis et réapprovisionnés par ELOK entre chaque séjour afin de garantir une expérience hôtelière irréprochable à vos voyageurs. Les modalités exactes sont définies avec vous selon votre formule.</div>
+            </div>
+          </div>
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+              <span itemprop="name">Comment se déroule l'expérience voyageur avec ELOK ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">Dès la réservation confirmée, ELOK prend en charge l'intégralité de la relation voyageur : messages de bienvenue, instructions d'accès, check-in (physique ou autonome), disponibilité 7j/7 pendant le séjour, et check-out avec état des lieux. Votre logement est préparé selon des standards hôteliers pour garantir des avis 5 étoiles.</div>
+            </div>
+          </div>
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+              <span itemprop="name">Est-ce possible de confier mon bien pour quelques jours ou semaines seulement ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">Oui. ELOK s'adapte à vos contraintes. Que vous souhaitiez déléguer la gestion ponctuellement (vacances, déplacement) ou sur l'année entière, nous proposons des formules flexibles. Vous gardez la main sur vos disponibilités et bloquez les périodes où vous souhaitez occuper votre bien.</div>
+            </div>
+          </div>
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+              <span itemprop="name">Comment gérez-vous les abus et les dégradations ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">ELOK réalise un état des lieux à chaque départ de voyageur. En cas de dégradation, nous constituons le dossier de réclamation et vous accompagnons dans les démarches auprès d'Airbnb (garantie hôte AirCover) ou de votre assurance. Notre sélection rigoureuse des voyageurs et notre suivi en temps réel minimisent fortement ce type d'incidents.</div>
+            </div>
+          </div>
+
+          <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+              <span itemprop="name">Qui s'occupe de la maintenance et des petites réparations ?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-a" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+              <div itemprop="text">ELOK dispose d'un réseau d'artisans et de prestataires locaux à Gien et dans le Pays du Giennois pour intervenir rapidement en cas de panne ou de besoin de maintenance (plomberie, électricité, serrurerie…). Vous êtes informé et donnez votre accord avant toute intervention. Les coûts de réparation restent à votre charge, ELOK vous simplifie la coordination.</div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -1694,7 +1829,10 @@
             <a href="#faq">FAQ</a>
             <a href="blog.html">Blog</a>
             <a href="#contact">Contact</a>
-            <a href="https://elok.fr" target="_blank" rel="noopener">elok.fr</a>
+            <a href="a-propos.html">À propos</a>
+            <a href="cgu.html">CGU</a>
+            <a href="rgpd.html">Confidentialité</a>
+            <a href="mentions-legales.html">Mentions légales</a>
           </div>
         </div>
         <div style="margin-top:14px; opacity:.85;">

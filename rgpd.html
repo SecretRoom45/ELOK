@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Politique de Confidentialité &amp; RGPD · ELOK</title>
+  <meta name="description" content="Politique de confidentialité et traitement des données personnelles d'ELOK — conciergerie Airbnb à Gien (45500, Loiret). Conformité RGPD." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.elok.fr/rgpd.html" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="Photos/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="Photos/favicon-16.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --green:#1F3D2B;
+      --green-2:#6E8F7A;
+      --cream:#F6F4EF;
+      --ink:#111111;
+      --muted: rgba(17,17,17,.72);
+      --card: rgba(255,255,255,.60);
+      --shadow-soft: 0 18px 55px rgba(0,0,0,.10);
+      --shadow-strong: 0 26px 80px rgba(0,0,0,.14);
+      --radius: 22px;
+      --max: 840px;
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html, body{ overflow-x:hidden; }
+    body{
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      font-size: 15px;
+    }
+    a{ color: var(--green); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+    /* ====== HEADER ====== */
+    .topbar{
+      position:sticky; top:0; z-index:60;
+      padding: 14px 0;
+      background: rgba(246,244,239,.80);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(17,17,17,.08);
+    }
+    .nav{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .brand{ display:flex; align-items:center; gap:10px; color:var(--ink); }
+    .brand-logo{ height:46px; width:46px; border-radius:50%; object-fit:cover; display:block; }
+    .hamburger{
+      width:44px; height:44px; border-radius:14px;
+      border:1px solid rgba(31,61,43,.18); background:rgba(255,255,255,.60);
+      display:inline-flex; align-items:center; justify-content:center;
+      box-shadow:0 10px 30px rgba(0,0,0,.06); cursor:pointer;
+    }
+    .hamburger svg{ width:20px; height:20px; }
+
+    .drawer-backdrop{
+      position:fixed; inset:0; background:rgba(17,17,17,.42);
+      opacity:0; pointer-events:none; transition:opacity .2s; z-index:70;
+    }
+    .drawer{
+      position:fixed; top:0; right:0; height:100%;
+      width:min(380px,88vw); background:rgba(246,244,239,.98);
+      border-left:1px solid rgba(17,17,17,.10); box-shadow:0 22px 80px rgba(0,0,0,.18);
+      transform:translateX(110%); transition:transform .22s ease;
+      z-index:71; padding:16px; display:flex; flex-direction:column; gap:10px;
+    }
+    .drawer-head{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding-bottom:10px; border-bottom:1px solid rgba(17,17,17,.08);
+    }
+    .drawer-title{ font-family:"Playfair Display",serif; font-weight:700; font-size:18px; }
+    .drawer-close{
+      width:44px; height:44px; border-radius:14px;
+      border:1px solid rgba(31,61,43,.18); background:rgba(255,255,255,.65);
+      display:inline-flex; align-items:center; justify-content:center; cursor:pointer;
+    }
+    .drawer a{ display:flex; padding:12px; border-radius:14px; font-weight:700; color:rgba(17,17,17,.92); }
+    .drawer a:hover{ background:rgba(31,61,43,.08); color:var(--green); text-decoration:none; }
+    .drawer a.active{ background:rgba(31,61,43,.10); color:var(--green); }
+    .drawer-actions{
+      margin-top:auto; display:grid; gap:10px;
+      padding-top:10px; border-top:1px solid rgba(17,17,17,.08);
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 18px; border-radius:999px;
+      border:1px solid rgba(31,61,43,.18); font-weight:700; font-size:14px;
+      white-space:nowrap; background:transparent;
+      transition:transform .15s, box-shadow .2s; cursor:pointer;
+    }
+    .btn:hover{ transform:translateY(-1px); box-shadow:0 14px 34px rgba(0,0,0,.10); text-decoration:none; }
+    .btn.primary{ background:var(--green); color:#fff; border-color:rgba(31,61,43,.55); }
+
+    .drawer-open .drawer-backdrop{ opacity:1; pointer-events:auto; }
+    .drawer-open .drawer{ transform:translateX(0); }
+
+    /* ====== PAGE ====== */
+    .hero{ padding:52px 0 36px; border-bottom:1px solid rgba(17,17,17,.08); margin-bottom:42px; }
+    .hero-kicker{ font-size:11px; letter-spacing:2.4px; text-transform:uppercase; color:var(--green-2); font-weight:600; margin-bottom:12px; }
+    .hero h1{ font-family:"Playfair Display",serif; font-weight:700; font-size:clamp(28px,4vw,46px); line-height:1.08; letter-spacing:-.3px; margin-bottom:16px; }
+    .hero-meta{ font-size:13px; color:rgba(17,17,17,.52); }
+
+    .cgu-intro{
+      background:rgba(255,255,255,.55); border:1px solid rgba(17,17,17,.09);
+      border-radius:var(--radius); padding:22px 26px; margin-bottom:36px;
+      font-size:15px; color:var(--muted); line-height:1.7;
+    }
+
+    .article{ margin-bottom:36px; padding-bottom:36px; border-bottom:1px solid rgba(17,17,17,.08); }
+    .article:last-of-type{ border-bottom:none; }
+    .article-num{ font-size:11px; letter-spacing:2.2px; text-transform:uppercase; color:var(--green-2); font-weight:700; margin-bottom:8px; }
+    .article h2{ font-family:"Playfair Display",serif; font-weight:700; font-size:clamp(17px,2.2vw,21px); color:var(--ink); margin-bottom:14px; }
+    .article p{ color:var(--muted); margin-bottom:12px; line-height:1.72; }
+    .article p:last-child{ margin-bottom:0; }
+    .article a{ color:var(--green); }
+    .article strong{ color:var(--ink); }
+
+    /* Badge RGPD */
+    .badge-rgpd{
+      display:inline-flex; align-items:center; gap:7px;
+      font-size:12px; font-weight:700; letter-spacing:.6px;
+      background:rgba(31,61,43,.08); color:var(--green);
+      border:1px solid rgba(31,61,43,.18); border-radius:999px;
+      padding:5px 12px; margin-bottom:18px;
+    }
+
+    .back-row{ padding:8px 0 56px; }
+    .back-btn{
+      display:inline-flex; align-items:center; gap:7px;
+      font-size:14px; font-weight:600; color:var(--green);
+      padding:10px 16px; border:1px solid rgba(31,61,43,.18);
+      border-radius:999px; background:rgba(255,255,255,.55);
+      transition:transform .14s;
+    }
+    .back-btn:hover{ transform:translateX(-2px); text-decoration:none; }
+
+    footer{ padding:38px 0; border-top:1px solid rgba(17,17,17,.08); color:rgba(17,17,17,.68); font-size:13px; }
+    .footlinks{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; margin-top:10px; }
+    .footlinks a{ padding:5px 8px; border-radius:10px; color:rgba(17,17,17,.62); }
+    .footlinks a:hover{ background:rgba(31,61,43,.08); color:var(--green); text-decoration:none; }
+    .footlinks a.active{ color:var(--green); font-weight:600; }
+  </style>
+</head>
+
+<body>
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <div class="wrap">
+      <nav class="nav" aria-label="Navigation principale">
+        <a class="brand" href="index.html" aria-label="Retour accueil ELOK">
+          <img class="brand-logo" src="Photos/logo-header-circle.png" alt="ELOK">
+        </a>
+        <button class="hamburger" id="openDrawer" aria-label="Ouvrir le menu" aria-controls="drawer" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="drawer-backdrop" id="drawerBackdrop" aria-hidden="true"></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu">
+    <div class="drawer-head">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <img class="brand-logo" src="Photos/logo-header-circle.png" alt="ELOK" style="width:32px;height:32px;">
+        <div class="drawer-title">Menu</div>
+      </div>
+      <button class="drawer-close" id="closeDrawer" aria-label="Fermer le menu">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" width="18" height="18">
+          <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <a href="index.html">Accueil</a>
+    <a href="index.html#services">Prestations</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="blog.html">Blog</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="a-propos.html">À propos</a>
+    <a href="cgu.html">CGU</a>
+    <a class="active" href="rgpd.html">Confidentialité</a>
+    <div class="drawer-actions">
+      <a class="btn" href="mailto:contact@elok.fr">contact@elok.fr</a>
+      <a class="btn primary" href="index.html#contact">Confier mon bien</a>
+    </div>
+  </aside>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <div class="badge-rgpd">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          Conformité RGPD
+        </div>
+        <div class="hero-kicker">Protection des données</div>
+        <h1>Politique de Confidentialité</h1>
+        <p class="hero-meta">Dernière mise à jour : mars 2025 · <a href="index.html">elok.fr</a></p>
+      </div>
+    </section>
+
+    <!-- CONTENU -->
+    <div class="wrap">
+
+      <!-- Intro -->
+      <div class="cgu-intro">
+        La présente politique de confidentialité décrit comment <strong>ELOK</strong> collecte, utilise et protège
+        les informations personnelles que vous nous fournissez lorsque vous utilisez notre site
+        <a href="https://www.elok.fr" target="_blank" rel="noopener">https://www.elok.fr</a>.
+        Nous nous engageons à garantir la protection de vos données personnelles, conformément au
+        Règlement Général sur la Protection des Données (RGPD – UE 2016/679).
+      </div>
+
+      <!-- Article 1 -->
+      <div class="article">
+        <div class="article-num">Article 1</div>
+        <h2>Renseignements personnels recueillis</h2>
+        <p>
+          Lorsque vous utilisez notre formulaire de contact, nous recueillons les renseignements personnels que vous
+          nous fournissez volontairement, tels que votre <strong>nom</strong>, votre <strong>adresse e-mail</strong>
+          et le <strong>contenu de votre message</strong>.
+        </p>
+        <p>
+          Lorsque vous naviguez sur notre site, nous pouvons recevoir automatiquement l'adresse IP de votre appareil,
+          qui nous permet d'obtenir des informations générales sur le navigateur et le système d'exploitation utilisés,
+          à des fins statistiques anonymes.
+        </p>
+        <p>
+          <strong>Communication par e-mail :</strong> avec votre consentement explicite, nous pouvons vous adresser
+          des informations relatives à nos services, à de nouvelles offres ou à des mises à jour concernant ELOK.
+          Vous pouvez vous désabonner à tout moment.
+        </p>
+      </div>
+
+      <!-- Article 2 -->
+      <div class="article">
+        <div class="article-num">Article 2</div>
+        <h2>Consentement</h2>
+        <p>
+          <strong>Comment recueillons-nous votre consentement ?</strong><br>
+          Lorsque vous nous fournissez vos renseignements personnels via le formulaire de contact pour nous soumettre
+          une demande de renseignement ou de devis, nous présumons que vous consentez à ce que nous recueillions
+          vos données et les utilisions dans le seul but de vous répondre.
+        </p>
+        <p>
+          Si nous souhaitons utiliser vos données à d'autres fins — par exemple pour vous adresser des communications
+          commerciales — nous vous en informerons explicitement et vous demanderons votre consentement préalable.
+        </p>
+        <p>
+          <strong>Comment retirer votre consentement ?</strong><br>
+          Si vous souhaitez que nous cessions de vous contacter ou que nous supprimions vos données, vous pouvez
+          nous en informer à tout moment en nous écrivant à :
+          <a href="mailto:contact@elok.fr">contact@elok.fr</a>.
+          Nous traiterons votre demande dans un délai de 30 jours.
+        </p>
+      </div>
+
+      <!-- Article 3 -->
+      <div class="article">
+        <div class="article-num">Article 3</div>
+        <h2>Divulgation</h2>
+        <p>
+          Nous ne vendons, n'échangeons et ne transférons pas vos données personnelles à des tiers, sauf dans les
+          cas suivants :
+        </p>
+        <p>
+          — Si la loi nous y oblige ou dans le cadre d'une procédure judiciaire ;<br>
+          — Si vous violez nos Conditions Générales d'Utilisation et qu'une telle divulgation est nécessaire
+          pour protéger nos droits, notre propriété ou la sécurité de tiers.
+        </p>
+      </div>
+
+      <!-- Article 4 -->
+      <div class="article">
+        <div class="article-num">Article 4</div>
+        <h2>Services fournis par des tiers</h2>
+        <p>
+          Pour faire fonctionner notre site et nos services de communication, nous pouvons avoir recours à des
+          prestataires tiers (hébergement, outil d'envoi d'e-mails, etc.). Ces prestataires n'ont accès à vos
+          données que dans la mesure strictement nécessaire à l'exécution de leur mission, et s'engagent à ne
+          pas les utiliser à d'autres fins.
+        </p>
+        <p>
+          Une fois que vous quittez notre site en cliquant sur un lien externe, vous n'êtes plus régi par la
+          présente politique de confidentialité. Nous vous recommandons de consulter les politiques de
+          confidentialité des sites tiers que vous visitez.
+        </p>
+      </div>
+
+      <!-- Article 5 -->
+      <div class="article">
+        <div class="article-num">Article 5</div>
+        <h2>Sécurité</h2>
+        <p>
+          Pour protéger vos données personnelles, nous prenons des précautions raisonnables et suivons les
+          meilleures pratiques du secteur. Nos échanges de données s'effectuent via des connexions sécurisées
+          (protocole HTTPS / SSL).
+        </p>
+        <p>
+          Aucune méthode de transmission sur Internet ne peut garantir une sécurité absolue à 100 %. Nous mettons
+          toutefois tout en œuvre pour protéger vos informations contre tout accès non autorisé, divulgation,
+          altération ou destruction.
+        </p>
+      </div>
+
+      <!-- Article 6 -->
+      <div class="article">
+        <div class="article-num">Article 6</div>
+        <h2>Âge de consentement</h2>
+        <p>
+          En utilisant ce site, vous déclarez avoir au moins 18 ans (âge de la majorité légale en France)
+          ou avoir obtenu le consentement de votre représentant légal pour utiliser nos services.
+          ELOK ne collecte pas sciemment de données personnelles auprès de mineurs.
+        </p>
+      </div>
+
+      <!-- Article 7 -->
+      <div class="article">
+        <div class="article-num">Article 7</div>
+        <h2>Vos droits (RGPD)</h2>
+        <p>
+          Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants
+          concernant vos données personnelles :
+        </p>
+        <p>
+          — <strong>Droit d'accès</strong> : vous pouvez demander à connaître les données que nous détenons sur vous ;<br>
+          — <strong>Droit de rectification</strong> : vous pouvez demander la correction de données inexactes ;<br>
+          — <strong>Droit à l'effacement</strong> : vous pouvez demander la suppression de vos données ;<br>
+          — <strong>Droit à la portabilité</strong> : vous pouvez demander à recevoir vos données dans un format lisible ;<br>
+          — <strong>Droit d'opposition</strong> : vous pouvez vous opposer au traitement de vos données à des fins de marketing.
+        </p>
+        <p>
+          Pour exercer ces droits, contactez-nous à : <a href="mailto:contact@elok.fr">contact@elok.fr</a>.
+          Nous traiterons votre demande dans un délai de 30 jours. En cas de litige, vous pouvez introduire
+          une réclamation auprès de la <a href="https://www.cnil.fr" target="_blank" rel="noopener">CNIL</a>.
+        </p>
+      </div>
+
+      <!-- Article 8 -->
+      <div class="article">
+        <div class="article-num">Article 8</div>
+        <h2>Modifications de la présente politique</h2>
+        <p>
+          Nous nous réservons le droit de modifier la présente politique de confidentialité à tout moment.
+          Les changements prendront effet immédiatement après leur publication sur cette page.
+          Nous vous invitons à la consulter régulièrement.
+        </p>
+        <p>
+          En cas de modification substantielle, nous vous en informerons par e-mail si vous nous avez communiqué
+          votre adresse, ou par un avis visible sur notre site.
+        </p>
+        <p>
+          Si ELOK fait l'objet d'une acquisition ou d'une fusion, vos renseignements pourraient être transférés
+          aux nouveaux propriétaires afin d'assurer la continuité du service.
+        </p>
+      </div>
+
+      <!-- Retour -->
+      <div class="back-row">
+        <a class="back-btn" href="index.html">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M19 12H5M5 12l7-7M5 12l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Retour à l'accueil
+        </a>
+      </div>
+
+    </div><!-- /.wrap -->
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="wrap" style="text-align:center;">
+        <div>© <script>document.write(new Date().getFullYear())</script> ELOK · Conciergerie Airbnb à Gien (45500), Loiret</div>
+        <div class="footlinks">
+          <a href="index.html">Accueil</a>
+          <a href="index.html#services">Prestations</a>
+          <a href="index.html#faq">FAQ</a>
+          <a href="blog.html">Blog</a>
+          <a href="a-propos.html">À propos</a>
+          <a href="cgu.html">CGU</a>
+          <a class="active" href="rgpd.html">Confidentialité</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    (function(){
+      const body = document.body;
+      const openBtn = document.getElementById('openDrawer');
+      const closeBtn = document.getElementById('closeDrawer');
+      const backdrop = document.getElementById('drawerBackdrop');
+
+      function openDrawer(){
+        body.classList.add('drawer-open');
+        openBtn.setAttribute('aria-expanded','true');
+        backdrop.setAttribute('aria-hidden','false');
+        body.style.position='fixed'; body.style.width='100%';
+      }
+      function closeDrawer(){
+        body.classList.remove('drawer-open');
+        openBtn.setAttribute('aria-expanded','false');
+        backdrop.setAttribute('aria-hidden','true');
+        body.style.position=''; body.style.width='';
+      }
+
+      openBtn.addEventListener('click', openDrawer);
+      closeBtn.addEventListener('click', closeDrawer);
+      backdrop.addEventListener('click', closeDrawer);
+      document.addEventListener('keydown', e => {
+        if(e.key==='Escape' && body.classList.contains('drawer-open')) closeDrawer();
+      });
+    })();
+  </script>
+</body>
+</html>
