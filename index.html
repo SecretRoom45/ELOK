@@ -1014,6 +1014,14 @@
     ]
   }
   </script>
+  <!-- Google tag (gtag.js) - GA4 ELOK -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-LFL02F4JRN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-LFL02F4JRN');
+  </script>
 </head>
 
 <body>
@@ -1761,7 +1769,7 @@
               <textarea id="message" name="message" placeholder="Ex : appartement 2 chambres, déjà sur Airbnb, je veux déléguer la gestion complète."></textarea>
             </div>
 
-            <button class="btn primary" type="submit">Envoyer</button>
+            <button class="btn primary" type="submit" onclick="gtag('event', 'generate_lead', {'event_category': 'formulaire', 'event_label': 'contact_elok'})">Envoyer</button>
             <p class="fine">
               Astuce : si vous préférez, écrivez directement à
               <a href="mailto:contact@elok.fr" style="text-decoration:underline; color:var(--green); font-weight:700;">contact@elok.fr</a>.
