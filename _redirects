@@ -1,0 +1,17 @@
+# -------------------------------------------------------
+# 1. Canonique : toutes les variantes → https://www.elok.fr
+# -------------------------------------------------------
+https://elok.fr/*    https://www.elok.fr/:splat  301!
+http://elok.fr/*     https://www.elok.fr/:splat  301!
+http://www.elok.fr/* https://www.elok.fr/:splat  301!
+
+# -------------------------------------------------------
+# 2. Anciennes URLs de blog → nouveaux articles
+# -------------------------------------------------------
+/comment-obtenir-plus-de-reservations-pour-des-sejours-de-moyenne-duree-avec-votre-location-airbnb-gien  /Blog/Moyenne-duree-Airbnb-Gien-reservations-sejours-longs.html  301
+/14-comment-faire-un-bon-m-nage-entre-deux-s-jours                                                        /Blog/Menage-entre-deux-sejours-conseils-conciergerie-ELOK.html  301
+/comment-fixer-le-prix-de-votre-location-airbnb-gien-en-fonction-des-saisons                              /Blog/Tarification-dynamique-Gien-saisons-evenements-locaux.html  301
+/13-comment-gerer-les-retours-des-voyageurs-et-en-tirer-des-lecons-guide-pour-proprietaires-de-logements  /Blog/Mauvaise-gestion-location-saisonniere-signes-solutions.html  301
+/les-erreurs-a-eviter-en-tant-que-proprietaire-airbnb-gien                                                /Blog/Mauvaise-gestion-location-saisonniere-signes-solutions.html  301
+/pourquoi-deleguer-la-gestion-de-son-bien-a-une-conciergerie-airbnb                                       /Blog/Conciergerie-Airbnb-pas-rentable-causes-solutions.html  301
+/strategies-de-promotion-de-votre-logement-pour-attirer-les-professionnels-en-deplacement-gien            /Blog/Optimiser-annonce-Airbnb-titre-photos-description.html  301
