@@ -772,6 +772,181 @@
       transform: translateY(0);
     }
 
+    /* ====== New Hero — badge + stat cards ====== */
+    .hero-badge{
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: #eaf3de;
+      color: #1a6b3c;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .3px;
+      margin-bottom: 20px;
+    }
+    .hero-stat-col{
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .hero-stat-card{
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+      align-items: center;
+      background: rgba(246,244,239,.9);
+      border: 0.5px solid rgba(17,17,17,.12);
+      border-radius: 12px;
+      padding: 16px 20px;
+    }
+    .hero-stat-num{
+      font-family: "Playfair Display", serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #1a6b3c;
+      white-space: nowrap;
+      flex-shrink: 0;
+      min-width: 72px;
+    }
+    .hero-stat-label{
+      font-size: 14px;
+      color: rgba(17,17,17,.68);
+      line-height: 1.45;
+    }
+
+    /* ====== Pricing / Formules ====== */
+    .pricing-overline{
+      font-size: 12px;
+      letter-spacing: 2.6px;
+      text-transform: uppercase;
+      color: #1a6b3c;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .pricing-grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    @media (max-width: 600px){
+      .pricing-grid{ grid-template-columns: 1fr; }
+    }
+    .pack-card{
+      background: #fff;
+      border: 0.5px solid rgba(17,17,17,.12);
+      border-radius: 14px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+    }
+    .pack-card.featured{
+      border: 2px solid #1a6b3c;
+    }
+    .pack-featured-badge{
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #1a6b3c;
+      color: #fff;
+      padding: 5px 18px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .4px;
+      white-space: nowrap;
+    }
+    .pack-title{
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-top: 10px;
+    }
+    .pack-desc{
+      font-size: 14px;
+      color: rgba(17,17,17,.68);
+      line-height: 1.55;
+    }
+    .pack-price{
+      font-family: "Playfair Display", serif;
+      font-size: 38px;
+      font-weight: 700;
+      color: #1a6b3c;
+      line-height: 1.1;
+    }
+    .pack-price-note{
+      font-size: 13px;
+      color: rgba(17,17,17,.56);
+      margin-top: -6px;
+    }
+    .pack-sep{
+      border: none;
+      border-top: 1px solid rgba(17,17,17,.10);
+      margin: 4px 0;
+    }
+    .pack-features{
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      flex: 1;
+      margin-bottom: 8px;
+    }
+    .pack-features li{
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: rgba(17,17,17,.80);
+    }
+    .check-icon{
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #eaf3de;
+      color: #1a6b3c;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .pricing-note{
+      background: #eaf3de;
+      border-radius: 12px;
+      padding: 16px 20px;
+      font-size: 14px;
+      color: rgba(17,17,17,.72);
+      line-height: 1.6;
+    }
+
+    /* ====== Barre de réassurance ====== */
+    .reassurance-bar{
+      background: rgba(255,255,255,.42);
+      border-top: 1px solid rgba(17,17,17,.08);
+      border-bottom: 1px solid rgba(17,17,17,.08);
+      padding: 18px 0;
+    }
+    .reassurance-items{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(17,17,17,.80);
+    }
+    .reassurance-dot{
+      color: #1a6b3c;
+      margin-right: 4px;
+    }
+
     /* ====== Accessibility ====== */
     .sr-only{
       position:absolute;
@@ -1038,6 +1213,7 @@
         <!-- Desktop links -->
         <div class="navlinks" role="navigation">
           <a href="#concept">Concept</a>
+          <a href="#formules">Formules</a>
           <a href="#services">Prestations</a>
           <a href="#methode">Méthode</a>
           <a href="#avis">Avis</a>
@@ -1062,6 +1238,7 @@
     <div class="drawer" id="drawer" aria-label="Menu mobile">
       <div class="drawer-links">
         <a href="#concept">Concept</a>
+        <a href="#formules">Formules</a>
         <a href="#services">Prestations</a>
         <a href="#methode">Méthode</a>
         <a href="#avis">Avis</a>
@@ -1081,44 +1258,110 @@
     <section class="hero">
       <div class="wrap">
         <div class="hero-grid">
+
+          <!-- Colonne gauche — texte -->
           <div class="reveal">
-            <div class="kicker"><span class="dot"></span> Digitale & locale · Rayon 20 km</div>
-            <h1>ELOK : La conciergerie Airbnb premium à Gien</h1>
+            <div class="hero-badge">Conciergerie premium · Gien &amp; Pays du Giennois</div>
+            <h1>Gagnez plus.<br><span style="color:#1a6b3c;">Gérez moins.</span><br>On s'occupe de tout.</h1>
             <p class="lead">
-              Vous avez investi dans un bien et vous souhaitez optimiser vos revenus sans devenir prisonnier de la gestion ?
-              ELOK s'occupe de tout, avec une exigence hôtelière et une réactivité locale.
+              Délégation complète ou partielle de votre location courte durée — avec l'exigence hôtelière et la réactivité d'un acteur local. Dans un rayon de 20 km autour de Gien.
             </p>
-
             <div class="hero-actions">
-              <a class="btn primary" href="#contact">Demander une estimation</a>
-              <a class="btn ghost" href="#services">Découvrir les prestations</a>
-            </div>
-
-            <div class="hero-meta">
-              <div class="pill">⏱️ <strong>Support 7j/7</strong> <span style="opacity:.75;">· voyageurs & propriétaires</span></div>
-              <div class="pill">📍 <strong>Gien</strong> <span style="opacity:.75;">· intervention rapide</span></div>
-              <div class="pill">✨ <strong>Qualité</strong> <span style="opacity:.75;">· moins de volume, plus d'attention</span></div>
+              <a class="btn primary" href="#contact">Estimation gratuite →</a>
+              <a class="btn ghost" href="#formules">Voir les formules</a>
             </div>
           </div>
 
-          <div class="hero-card reveal" aria-label="Mise en avant visuelle premium">
-            <div class="img" role="img" aria-label="Ambiance hôtelière haut de gamme"></div>
-            <div class="badge">ELOK · Gestion courte durée</div>
-            <div class="panel">
-              <div>
-                <h3>Gestion ultra-personnalisée</h3>
-                <p>Optimisation annonce, pricing, relation voyageurs, coordination ménage & linge, reporting.</p>
-              </div>
-              <div class="mini">
-                <div><b>Rayon 20 km</b></div>
-                <div style="opacity:.7;">Réactivité immédiate</div>
-              </div>
+          <!-- Colonne droite — stat cards -->
+          <div class="hero-stat-col reveal">
+            <div class="hero-stat-card">
+              <div class="hero-stat-num">4,92★</div>
+              <div class="hero-stat-label">Note moyenne Airbnb / sur nos biens gérés</div>
+            </div>
+            <div class="hero-stat-card">
+              <div class="hero-stat-num">70%</div>
+              <div class="hero-stat-label">Taux d'occupation moyen / grâce au pricing dynamique</div>
+            </div>
+            <div class="hero-stat-card">
+              <div class="hero-stat-num">6 ans</div>
+              <div class="hero-stat-label">D'expérience locale / + 500 avis propriétaires &amp; voyageurs</div>
             </div>
           </div>
 
         </div>
       </div>
     </section>
+
+    <!-- PRICING / FORMULES -->
+    <section class="section" id="formules">
+      <div class="wrap">
+        <div style="text-align:center; margin-bottom:36px;" class="reveal">
+          <div class="pricing-overline">Nos formules</div>
+          <h2 style="font-family:'Playfair Display',serif; font-size:clamp(28px,2.6vw,38px);">Choisissez votre niveau de délégation</h2>
+          <p style="color:rgba(17,17,17,.72);margin-top:10px;max-width:56ch;margin-left:auto;margin-right:auto;">Deux offres claires, une seule commission. Vous ne payez que quand vous gagnez.</p>
+        </div>
+
+        <div class="pricing-grid reveal">
+
+          <!-- Card 1 — Pack 100% digital -->
+          <div class="pack-card">
+            <h3 class="pack-title">Pack 100% digital</h3>
+            <p class="pack-desc">Je délègue la gestion digitale mais je garde la main sur le ménage et la blanchisserie.</p>
+            <div class="pack-price">12,5%</div>
+            <div class="pack-price-note">des recettes locatives · sans frais fixes</div>
+            <hr class="pack-sep">
+            <ul class="pack-features">
+              <li><span class="check-icon">✓</span>Création &amp; optimisation de l'annonce</li>
+              <li><span class="check-icon">✓</span>Photos professionnelles du logement</li>
+              <li><span class="check-icon">✓</span>Tarification dynamique multi-plateformes</li>
+              <li><span class="check-icon">✓</span>Arrivée autonome du voyageur</li>
+              <li><span class="check-icon">✓</span>Assistance voyageurs 7j/7 · 365j/an</li>
+              <li><span class="check-icon">✓</span>Livret d'accueil digital</li>
+              <li><span class="check-icon">✓</span>Gestion des litiges &amp; réclamations</li>
+            </ul>
+            <a class="btn ghost" href="#contact" style="width:100%;justify-content:center;border-color:#1a6b3c;color:#1a6b3c;">Demander un devis</a>
+          </div>
+
+          <!-- Card 2 — Pack Sérénité (featured) -->
+          <div class="pack-card featured">
+            <div class="pack-featured-badge">Formule complète</div>
+            <h3 class="pack-title">Pack Sérénité</h3>
+            <p class="pack-desc">La solution clé en main pour déléguer à 100% la gestion de votre bien.</p>
+            <div class="pack-price">12,5% + frais</div>
+            <div class="pack-price-note">des recettes · frais selon prestataires</div>
+            <hr class="pack-sep">
+            <ul class="pack-features">
+              <li><span class="check-icon">✓</span>Tout le Pack 100% digital</li>
+              <li><span class="check-icon">✓</span>+ Coordination &amp; contrôle du ménage</li>
+              <li><span class="check-icon">✓</span>+ Blanchisserie hôtelière incluse</li>
+              <li><span class="check-icon">✓</span>+ Consommables (café, savon, papier…)</li>
+              <li><span class="check-icon">✓</span>+ Check-in/out physique ou autonome</li>
+              <li><span class="check-icon">✓</span>+ Reporting mensuel propriétaire</li>
+              <li><span class="check-icon">✓</span>+ Gestion des urgences &amp; maintenance</li>
+            </ul>
+            <a class="btn primary" href="#contact" style="background:#1a6b3c;border-color:#1a6b3c;width:100%;justify-content:center;">Confier mon bien →</a>
+          </div>
+
+        </div>
+
+        <!-- Note de transparence -->
+        <div class="pricing-note reveal">
+          Les frais de ménage, blanchisserie et consommables sont facturés au coût réel des prestataires. Pas de marge cachée. Vous les retrouvez détaillés dans votre reporting mensuel.
+        </div>
+      </div>
+    </section>
+
+    <!-- BARRE DE RÉASSURANCE -->
+    <div class="reassurance-bar">
+      <div class="wrap">
+        <div class="reassurance-items">
+          <span><span class="reassurance-dot">•</span> Aucun frais fixe ni abonnement</span>
+          <span><span class="reassurance-dot">•</span> Sans engagement de durée</span>
+          <span><span class="reassurance-dot">•</span> Estimation gratuite en 15 min</span>
+          <span><span class="reassurance-dot">•</span> Réponse sous 24h</span>
+        </div>
+      </div>
+    </div>
 
     <!-- CONCEPT -->
     <section class="section" id="concept">
@@ -1181,35 +1424,6 @@
 
         </div>
 
-        <!-- Titre Nos valeurs -->
-        <div style="text-align:center; margin-top:52px;" class="reveal">
-          <h2 style="font-family:'Playfair Display',serif; color:var(--green); font-style:italic; font-size:clamp(24px,3.5vw,34px);">Nos valeurs</h2>
-        </div>
-
-        <!-- 4 colonnes valeurs -->
-        <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:28px;" class="values-grid reveal">
-
-          <div>
-            <div style="font-size:11px; letter-spacing:2.5px; text-transform:uppercase; font-weight:700; color:var(--green); margin-bottom:10px;">Familial</div>
-            <p style="font-size:14px; color:rgba(17,17,17,.72); line-height:1.65;">Nous transmettons des valeurs familiales à nos équipes et à nos clients, afin de créer une atmosphère chaleureuse et accueillante.</p>
-          </div>
-
-          <div>
-            <div style="font-size:11px; letter-spacing:2.5px; text-transform:uppercase; font-weight:700; color:var(--green); margin-bottom:10px;">Bienveillance</div>
-            <p style="font-size:14px; color:rgba(17,17,17,.72); line-height:1.65;">Notre équipe dédiée est là pour vous accompagner à chaque étape, veillant à ce que vos besoins et préoccupations soient pris en compte.</p>
-          </div>
-
-          <div>
-            <div style="font-size:11px; letter-spacing:2.5px; text-transform:uppercase; font-weight:700; color:var(--green); margin-bottom:10px;">Ambitions</div>
-            <p style="font-size:14px; color:rgba(17,17,17,.72); line-height:1.65;">Notre ambition est de propulser votre investissement immobilier vers de nouveaux sommets. Avec la location courte durée, maximiser vos revenus locatifs.</p>
-          </div>
-
-          <div>
-            <div style="font-size:11px; letter-spacing:2.5px; text-transform:uppercase; font-weight:700; color:var(--green); margin-bottom:10px;">Transparence</div>
-            <p style="font-size:14px; color:rgba(17,17,17,.72); line-height:1.65;">Avec ELOK, vous pouvez compter sur une relation basée sur la confiance et la transparence. Nous vous tenons informé des événements de votre logement.</p>
-          </div>
-
-        </div>
 
       </div>
     </section>
