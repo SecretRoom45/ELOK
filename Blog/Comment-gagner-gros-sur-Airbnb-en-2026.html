@@ -275,6 +275,12 @@
     .share-btn:hover{ background:rgba(31,61,43,.08); border-color:var(--green); color:var(--green); }
     .comments-block{ margin:44px 0 0; padding:32px 0 0; border-top:1px solid rgba(17,17,17,.09); }
     .comments-title{ font-family:"Playfair Display",serif; font-weight:700; font-size:clamp(22px,2.2vw,28px); color:var(--green); margin-bottom:20px; }
+    /* Mobile : bouton menu à gauche, logo à droite, menu qui s'ouvre depuis la gauche */
+    @media (max-width: 860px){
+      .nav{ flex-direction: row-reverse; }
+      .drawer{ left:0; right:auto; transform: translateX(-110%); border-left:0; border-right:1px solid rgba(17,17,17,.10); background:#f6f4ef; }
+      .drawer-open .drawer{ transform: translateX(0); }
+    }
   </style>
   <!-- Google tags - GA4 + Google Ads -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LFL02F4JRN"></script>

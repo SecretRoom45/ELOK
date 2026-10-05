@@ -65,6 +65,7 @@
 
     .navlinks{
       display:flex; gap:22px; align-items:center;
+      margin-right:auto; margin-left:18px;
       font-size:14px; color: rgba(17,17,17,.86);
     }
     .navlinks a{ padding: 10px 6px; border-radius: 12px; transition: background .25s ease, color .25s ease; }
@@ -204,6 +205,12 @@
       border-top: 1px solid rgba(17,17,17,.08);
       color: rgba(17,17,17,.72);
       font-size: 13px;
+    }
+    /* Mobile : bouton menu à gauche, logo à droite, menu qui s'ouvre depuis la gauche */
+    @media (max-width: 980px){
+      .nav{ flex-direction: row-reverse; }
+      .drawer{ left:0; right:auto; transform: translateX(-110%); border-left:0; border-right:1px solid rgba(17,17,17,.10); background:#f6f4ef; }
+      .drawer-open .drawer{ transform: translateX(0); }
     }
   </style>
   <!-- Google tags - GA4 + Google Ads -->

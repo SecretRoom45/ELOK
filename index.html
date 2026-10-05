@@ -185,8 +185,7 @@
       left: 12px;
       right: 12px;
       top: 64px;
-      background: rgba(246,244,239,.96);
-      backdrop-filter: blur(14px);
+      background: #f6f4ef;
       border: 1px solid rgba(17,17,17,.10);
       border-radius: 18px;
       box-shadow: var(--shadow-soft);
@@ -242,6 +241,8 @@
 
       .navlinks{
         display:flex;
+        margin-right:auto;
+        margin-left: 18px;
         gap: 14px;
         align-items:center;
         font-size: 13.5px;
@@ -1073,6 +1074,11 @@
     .faq-a.open{
       max-height: 300px;
       padding: 0 18px 16px;
+    }
+    /* Mobile : bouton menu à gauche, logo à droite */
+    @media (max-width: 859px){
+      .nav{ flex-direction: row-reverse; }
+      .drawer{ transform-origin: top left; }
     }
   </style>
 
