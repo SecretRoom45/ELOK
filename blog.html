@@ -206,6 +206,12 @@
       color: rgba(17,17,17,.72);
       font-size: 13px;
     }
+    /* Mobile : bouton menu à gauche, logo à droite, menu qui s'ouvre depuis la gauche */
+    @media (max-width: 980px){
+      .nav{ flex-direction: row-reverse; }
+      .drawer{ left:0; right:auto; transform: translateX(-110%); border-left:0; border-right:1px solid rgba(17,17,17,.10); background:#f6f4ef; }
+      .drawer-open .drawer{ transform: translateX(0); }
+    }
   </style>
   <!-- Google tags - GA4 + Google Ads -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LFL02F4JRN"></script>

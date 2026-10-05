@@ -1075,6 +1075,11 @@
       max-height: 300px;
       padding: 0 18px 16px;
     }
+    /* Mobile : bouton menu à gauche, logo à droite */
+    @media (max-width: 859px){
+      .nav{ flex-direction: row-reverse; }
+      .drawer{ transform-origin: top left; }
+    }
   </style>
 
   <!-- ===== Schema.org JSON-LD — LocalBusiness ===== -->
